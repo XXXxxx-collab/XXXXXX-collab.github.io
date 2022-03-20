@@ -2,21 +2,25 @@
 
 <html lang="zh-Hans">
 
-<head>
-    
-    <title>“总结归纳：flex布局” - 那束光のBlog</title>
-    <meta charset="UTF-8">
-    <meta name="keywords" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    
-    
+        <head>
+            
+                <title>
+                    
+                        “总结归纳：flex布局” - 
+                                那束光の博客
+                </title>
+                <meta charset="UTF-8">
+                <meta name="keywords" content="">
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+                
+                    
 
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <meta name="description" content="移动端Web开发（flex布局）Flex布局是什么？　　Flex是FlexibleBox的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。任何一个容器都可以指定为Flex布局。注意，设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。 ✍目录总览：移动Web开发、移动端常见布局【流式布局、flex布局（概念、容器、项目）】">
+                        <link rel="shortcut icon" href="https://i.postimg.cc/CxYbzphJ/image.png" type="image/png" />
+                        <meta name="description" content="移动端Web开发（flex布局）Flex布局是什么？　　Flex是FlexibleBox的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。任何一个容器都可以指定为Flex布局。注意，设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。 ✍目录总览：移动Web开发、移动端常见布局【流式布局、flex布局（概念、容器、项目）】">
 <meta property="og:type" content="article">
 <meta property="og:title" content="“总结归纳：flex布局”">
 <meta property="og:url" content="https://xxxxxx-collab.github.io/2021/11/11/%E7%A7%BB%E5%8A%A8%E7%AB%AFflex%E5%B8%83%E5%B1%80/index.html">
-<meta property="og:site_name" content="那束光のBlog">
+<meta property="og:site_name" content="那束光の博客">
 <meta property="og:description" content="移动端Web开发（flex布局）Flex布局是什么？　　Flex是FlexibleBox的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。任何一个容器都可以指定为Flex布局。注意，设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。 ✍目录总览：移动Web开发、移动端常见布局【流式布局、flex布局（概念、容器、项目）】">
 <meta property="og:locale">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/8e8b3eac2911466bab74be296971a145.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
@@ -36,35 +40,48 @@
 <meta property="article:published_time" content="2021-11-11T00:23:38.000Z">
 <meta property="article:modified_time" content="2022-03-17T06:01:23.099Z">
 <meta property="article:author" content="生命里那束光">
-<meta property="article:tag" content="css">
 <meta property="article:tag" content="博客">
+<meta property="article:tag" content="css">
 <meta property="article:tag" content="布局">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/8e8b3eac2911466bab74be296971a145.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
-    <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1647750200480">
-    
-    <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1647750200480">
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647750200480">
-    <link rel="stylesheet" href="/css/style.css?v=1647750200480">
-     
-    
-<meta name="generator" content="Hexo 5.4.1"></head>
+                            <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1647772342229">
+                                
+                                        <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1647772342229">
+                                            <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647772342229">
+                                                <link rel="stylesheet" href="/css/style.css?v=1647772342229">
+                                                    
+                                                                
 
-<body class="mdui-drawer-body-left">
-    
-    <div id="nexmoe-background">
-        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
-        <div class="mdui-appbar mdui-shadow-0">
-            <div class="mdui-toolbar">
-                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
-                <div class="mdui-toolbar-spacer"></div>
-                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-                <a href="/" title="生命里那束光" class="mdui-btn mdui-btn-icon"><img src="https://i.postimg.cc/7hJchpF6/1.jpg" alt="生命里那束光"></a>
-            </div>
-        </div>
-    </div>
-    <div id="nexmoe-header">
-        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+
+                                                                        <!-- 爆炸红心效果
+                                                                        <canvas class="fireworks"
+                                                                            style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+                                                                        <script type="text/javascript"
+                                                                            src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+                                                                        <script type="text/javascript"
+                                                                            src="/js/firework.js"></script> -->
+        <meta name="generator" content="Hexo 5.4.1"></head>
+
+        <body class="mdui-drawer-body-left">
+            
+                <div id="nexmoe-background">
+                    <div class="nexmoe-bg" style="background-image: url(https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500)"></div>
+                    <div class="mdui-appbar mdui-shadow-0">
+                        <div class="mdui-toolbar">
+                            <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu"
+                                class="mdui-btn mdui-btn-icon mdui-ripple"><i
+                                    class="mdui-icon nexmoefont icon-menu"></i></a>
+                            <div class="mdui-toolbar-spacer"></div>
+                            <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                            <a href="/" title="生命里那束光"
+                                class="mdui-btn mdui-btn-icon"><img src="https://i.postimg.cc/7hJchpF6/1.jpg"
+                                    alt="生命里那束光"></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="nexmoe-header">
+                    <div class="nexmoe-drawer mdui-drawer" id="drawer">
     <div class="nexmoe-avatar mdui-ripple">
         <a href="/" title="生命里那束光">
             <img src="https://i.postimg.cc/7hJchpF6/1.jpg" alt="生命里那束光"
@@ -75,7 +92,7 @@
         <div><span>
                 文章
             </span>
-            12
+            13
         </div>
         <div><span>
                 标签
@@ -85,7 +102,7 @@
         <div><span>
                 分类
             </span>
-            19
+            21
         </div>
     </div>
     <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
@@ -139,7 +156,7 @@
     <aside id="nexmoe-sidebar">
     
     <div class="nexmoe-widget-wrap">
-    <h2 class="nexmoe-widget-title">站内搜索</h2>
+    <h3 class="nexmoe-widget-title">站内搜索</h3>
     <div class="nexmoe-widget nexmoe-search">
         
             <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
@@ -169,7 +186,9 @@
     
     
   <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">Categories</h3>
+    <h3 class="nexmoe-widget-art-title">
+      文章分类
+    </h3>
     <div class="nexmoe-widget">
 
       <ul class="category-list">
@@ -177,127 +196,212 @@
         
 
 
-        
+          
 
         
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/JS/API/">API</a>
-          <span class="category-list-count">2</span>
-        </li>
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/JS/API/">
+              API
+            </a>
+            <span class="category-list-count">
+              2
+            </span>
+            </li>
 
-        
+            
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/CSS/">CSS</a>
-          <span class="category-list-count">1</span>
-        </li>
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/CSS/">
+              CSS
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
 
-        
+            
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/Html/">Html</a>
-          <span class="category-list-count">1</span>
-        </li>
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/Html/">
+              Html
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
 
-        
+            
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/JS/">JS</a>
-          <span class="category-list-count">2</span>
-        </li>
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/JS/">
+              JS
+            </a>
+            <span class="category-list-count">
+              2
+            </span>
+            </li>
 
-        
+            
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/JavaScript/">JavaScript</a>
-          <span class="category-list-count">2</span>
-        </li>
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/JavaScript/">
+              JavaScript
+            </a>
+            <span class="category-list-count">
+              2
+            </span>
+            </li>
 
-        
+            
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/Web前端/">Web前端</a>
-          <span class="category-list-count">3</span>
-        </li>
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/关于我/Self-introduction/">
+              Self-introduction
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
 
-        
+            
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/git版本控制/github仓库/">github仓库</a>
-          <span class="category-list-count">1</span>
-        </li>
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/Web前端/">
+              Web前端
+            </a>
+            <span class="category-list-count">
+              3
+            </span>
+            </li>
 
-        
+            
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/git版本控制/">git版本控制</a>
-          <span class="category-list-count">1</span>
-        </li>
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/git版本控制/github仓库/">
+              github仓库
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
 
-        
+            
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/jquery常用API/">jquery常用API</a>
-          <span class="category-list-count">1</span>
-        </li>
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/git版本控制/">
+              git版本控制
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
 
-        
+            
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/前后端交互/node-js/">node.js</a>
-          <span class="category-list-count">1</span>
-        </li>
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/jquery常用API/">
+              jquery常用API
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
 
-        
+            
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/JavaScript/函数/作用域/">作用域</a>
-          <span class="category-list-count">1</span>
-        </li>
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/前后端交互/node-js/">
+              node.js
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
 
-        
+            
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/JavaScript/函数/">函数</a>
-          <span class="category-list-count">1</span>
-        </li>
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/JavaScript/函数/作用域/">
+              作用域
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
 
-        
+            
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/前后端交互/">前后端交互</a>
-          <span class="category-list-count">2</span>
-        </li>
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/关于我/">
+              关于我
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
 
-        
+            
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/博客/">博客</a>
-          <span class="category-list-count">1</span>
-        </li>
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/JavaScript/函数/">
+              函数
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
 
-        
+            
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/JavaScript/基础语法/">基础语法</a>
-          <span class="category-list-count">2</span>
-        </li>
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/前后端交互/">
+              前后端交互
+            </a>
+            <span class="category-list-count">
+              2
+            </span>
+            </li>
 
-        
+            
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/Html/网页布局/">网页布局</a>
-          <span class="category-list-count">1</span>
-        </li>
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/博客/">
+              博客
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
 
-        
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/JavaScript/基础语法/">
+              基础语法
+            </a>
+            <span class="category-list-count">
+              2
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/Html/网页布局/">
+              网页布局
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
       </ul>
 
     </div>
   </div>
-
-
+  
     
     
   <div class="nexmoe-widget-wrap">
@@ -317,15 +421,15 @@
                         
         </div>
 </div><!-- .nexmoe-drawer -->
-    </div>
-    <div id="nexmoe-content">
-        <div class="nexmoe-primary">
-            <div class="nexmoe-post">
+                </div>
+                <div id="nexmoe-content">
+                    <div class="nexmoe-primary">
+                        <div class="nexmoe-post">
 
   <article>
       
           <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
-              <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="“总结归纳：flex布局”" class="lazyload">
+              <img data-src="https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" data-sizes="auto" alt="“总结归纳：flex布局”" class="lazyload">
               <h1>“总结归纳：flex布局”</h1>
           </div>
       
@@ -522,31 +626,33 @@
       </div>
   
 </div>
-            <div class="nexmoe-post-right">
-              <div class="nexmoe-fixed">
-                  <div class="nexmoe-tool"> 
-                    
-                      
-                        
-                          
-                          
-                              <button class="mdui-fab catalog" style="overflow:unset;">
-                                  <i class="nexmoefont icon-i-catalog"></i>
-                                  <div class="nexmoe-toc">
-                                      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AFWeb%E5%BC%80%E5%8F%91%EF%BC%88flex%E5%B8%83%E5%B1%80%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">移动端Web开发（flex布局）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Flex%E5%B8%83%E5%B1%80%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">Flex布局是什么？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex%E5%B8%83%E5%B1%80"><span class="toc-number">1.1.</span> <span class="toc-text">&#x3D;&#x3D;flex布局&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81Flex%E5%B8%83%E5%B1%80%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">一、Flex布局是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.3.</span> <span class="toc-text">二、基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AE%B9%E5%99%A8%E7%9A%84%E5%B1%9E%E6%80%A7%EF%BC%88%E6%8E%8C%E6%8F%A1%EF%BC%89"><span class="toc-number">1.4.</span> <span class="toc-text">三、容器的属性（掌握）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-flex-direction%E5%B1%9E%E6%80%A7%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">1.4.1.</span> <span class="toc-text">3.1 flex-direction属性（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-flex-flow"><span class="toc-number">1.4.2.</span> <span class="toc-text">3.3 flex-flow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-justify-content%E5%B1%9E%E6%80%A7%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">1.4.3.</span> <span class="toc-text">3.4 justify-content属性（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-align-items%E5%B1%9E%E6%80%A7%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">1.4.4.</span> <span class="toc-text">3.5 align-items属性（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-align-content%E5%B1%9E%E6%80%A7%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">1.4.5.</span> <span class="toc-text">3.6 align-content属性（重点）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B1%9E%E6%80%A7%EF%BC%88%E7%86%9F%E6%82%89%EF%BC%89"><span class="toc-number">1.5.</span> <span class="toc-text">四、项目的属性（熟悉）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-order%E5%B1%9E%E6%80%A7"><span class="toc-number">1.5.1.</span> <span class="toc-text">4.1 order属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-flex-grow%E5%B1%9E%E6%80%A7"><span class="toc-number">1.5.2.</span> <span class="toc-text">4.2 flex-grow属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-flex-shrink%E5%B1%9E%E6%80%A7"><span class="toc-number">1.5.3.</span> <span class="toc-text">4.3 flex-shrink属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-flex-basis%E5%B1%9E%E6%80%A7"><span class="toc-number">1.5.4.</span> <span class="toc-text">4.4 flex-basis属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-flex%E5%B1%9E%E6%80%A7"><span class="toc-number">1.5.5.</span> <span class="toc-text">4.5 flex属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-align-self%E5%B1%9E%E6%80%A7"><span class="toc-number">1.5.6.</span> <span class="toc-text">4.6 align-self属性</span></a></li></ol></li></ol></li></ol>
-                                  </div>
-                              </button>
-                          
-                          
-                      
-                    
-                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
-                  </div>
-              </div>
-            </div>
-        </div>
-    </div>
-     
+                            <div class="nexmoe-post-right">
+                                <div class="nexmoe-fixed">
+                                    <div class="nexmoe-tool">
+
+                                        
+
+                                            
+                                                
+                                                    <button class="mdui-fab catalog" style="overflow:unset;">
+                                                        <i class="nexmoefont icon-i-catalog"></i>
+                                                        <div class="nexmoe-toc">
+                                                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AFWeb%E5%BC%80%E5%8F%91%EF%BC%88flex%E5%B8%83%E5%B1%80%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">移动端Web开发（flex布局）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Flex%E5%B8%83%E5%B1%80%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">Flex布局是什么？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex%E5%B8%83%E5%B1%80"><span class="toc-number">1.1.</span> <span class="toc-text">&#x3D;&#x3D;flex布局&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81Flex%E5%B8%83%E5%B1%80%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">一、Flex布局是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.3.</span> <span class="toc-text">二、基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AE%B9%E5%99%A8%E7%9A%84%E5%B1%9E%E6%80%A7%EF%BC%88%E6%8E%8C%E6%8F%A1%EF%BC%89"><span class="toc-number">1.4.</span> <span class="toc-text">三、容器的属性（掌握）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-flex-direction%E5%B1%9E%E6%80%A7%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">1.4.1.</span> <span class="toc-text">3.1 flex-direction属性（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-flex-flow"><span class="toc-number">1.4.2.</span> <span class="toc-text">3.3 flex-flow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-justify-content%E5%B1%9E%E6%80%A7%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">1.4.3.</span> <span class="toc-text">3.4 justify-content属性（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-align-items%E5%B1%9E%E6%80%A7%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">1.4.4.</span> <span class="toc-text">3.5 align-items属性（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-align-content%E5%B1%9E%E6%80%A7%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">1.4.5.</span> <span class="toc-text">3.6 align-content属性（重点）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B1%9E%E6%80%A7%EF%BC%88%E7%86%9F%E6%82%89%EF%BC%89"><span class="toc-number">1.5.</span> <span class="toc-text">四、项目的属性（熟悉）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-order%E5%B1%9E%E6%80%A7"><span class="toc-number">1.5.1.</span> <span class="toc-text">4.1 order属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-flex-grow%E5%B1%9E%E6%80%A7"><span class="toc-number">1.5.2.</span> <span class="toc-text">4.2 flex-grow属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-flex-shrink%E5%B1%9E%E6%80%A7"><span class="toc-number">1.5.3.</span> <span class="toc-text">4.3 flex-shrink属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-flex-basis%E5%B1%9E%E6%80%A7"><span class="toc-number">1.5.4.</span> <span class="toc-text">4.4 flex-basis属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-flex%E5%B1%9E%E6%80%A7"><span class="toc-number">1.5.5.</span> <span class="toc-text">4.5 flex属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-align-self%E5%B1%9E%E6%80%A7"><span class="toc-number">1.5.6.</span> <span class="toc-text">4.6 align-self属性</span></a></li></ol></li></ol></li></ol>
+                                                        </div>
+                                                    </button>
+                                                    
+
+                                                        
+
+                                                            <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部"
+                                                                title="top"><button class="mdui-fab mdui-ripple"><i
+                                                                        class="nexmoefont icon-caret-top"></i></button></a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                 
     <div id="nexmoe-search-space">
         <div class="search-container">
             <div class="search-header">
@@ -559,13 +665,13 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+                    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
  
 
-<script async src="/js/app.js?v=1647750200483"></script>
+<script async src="/js/app.js?v=1647772342231"></script>
 
 
 
@@ -578,12 +684,16 @@
 </script>
 
 
-    
+                        
 
 
 
 
 
-</body>
+        <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
 
 </html>
+
+
+<!--樱花背景-->
+<script type="text/javascript" src="https://yremp.live/wp-content/uploads/resource/js/sakura.js"></script>
