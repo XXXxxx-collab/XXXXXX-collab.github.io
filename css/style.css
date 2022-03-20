@@ -835,7 +835,7 @@ article.nexmoe-py ul li img.lazyloaded {
 body {
   max-width: 1100px;
   margin: auto !important;
-  overflow-y: hidden;
+  overflow-y: auto;
   background: #eaeaea;
   cursor: url("https://yjlaugus.gitee.io/blog/img/body/OW-Arrow.cur"), auto;
 }
