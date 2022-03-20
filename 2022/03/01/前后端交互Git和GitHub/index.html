@@ -1,98 +1,430 @@
 <!DOCTYPE html>
-<html lang="zh">
+
+<html lang="zh-Hans">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="theme-color" content=#58b77a>
-  <title>“Git和GitHub” | 那束光のBlog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="生命里那束光">
-  <meta name="keywords" content="">
-  <meta name="description" content="">
-  <script id="hexo-configurations">
-  var CONFIG = {
-    root: '/',
-    theme: 'hexo-theme-lx-master',
-    version: '0.4.3',
-    localsearch: {
-      "enable": ,
-      "trigger": "auto",
-      "top_n_per_article": ,
-      "unescape": ,
-      "preload": 
-      },
-    path: 'null'
-  };
-</script>
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/css/main.min.css">
-  
-  <style type="text/css">
-    pre,
-    code {
-      font-family: 'Fira Code', monospace;
-    }
-    html {
-      font-family: sans-serif;
-    }
-    body {
-      font-family: sans-serif;
-    }
-    h1, h2, h3, h4, h5, figure {
-      font-family: sans-serif;
-    }
-    .menu-container{
-      font-family: sans-serif;
-    }
-  </style>
+    
+    <title>“Git和GitHub” - 那束光のBlog</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
 
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/js/jquery.jside.menu.min.js"></script>
-	<script>
-	$(document).ready(function(){
-	$(".menu-container").jSideMenu({
-	    jSidePosition: "position-right",
-	    jSideSticky: true,
-	    jSideSkin: "",
-	     });
-	}); 
-	</script>
-  
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="前后端交互：Git和GitHubgit是什么？github又是什么? git 是版本控制软件，目前最先进最流行的。 github 是一个网站，用于广大开发者开源自己的代码，也提供私有仓库的付费功能，而它采用的版本控制软件就是git。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“Git和GitHub”">
+<meta property="og:url" content="https://xxxxxx-collab.github.io/2022/03/01/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92Git%E5%92%8CGitHub/index.html">
+<meta property="og:site_name" content="那束光のBlog">
+<meta property="og:description" content="前后端交互：Git和GitHubgit是什么？github又是什么? git 是版本控制软件，目前最先进最流行的。 github 是一个网站，用于广大开发者开源自己的代码，也提供私有仓库的付费功能，而它采用的版本控制软件就是git。">
+<meta property="og:locale">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/01.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/04.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/56049f78129a437fb83de5e08aef2759.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d6fa284caaa54d4bb3ee254054c57a29.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/19.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5e2cbec6c6bd4eaa9c757e31172de0ac.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/71fc6c6b43514c5b81f17861c683afea.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_15,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/7d98a73b534543959ca0cefc9e35ad0e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5acbef64922c43cd80f60f801c380023.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8c3f930fd70d4b809e730383c1008172.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d9f66ca52e8c48f99c92fcf0648e857f.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4530363936134add9cbb3fec9bb8a405.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/22743fac4c1741afa82404d435faaffe.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/83cc5c62bc9a4e208e550e81504e6485.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/0a7628f37cdf4557b6e31b9ce8335fb6.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/dc2698bb35e24403b4c225a357f0c7b9.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/11679e46f2854007b0846a795f26330f.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e57120cec24c46578384ec671203c376.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_19,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/14e1b5f3508f42908254788198296e2a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_19,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3f29b6a8fd4f4a8f9cb6ad8fc7738277.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220302171558260.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220302171014877.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/05.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220302172707513.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220302173015077.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220302173045195.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220302173204819.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e0c072a3c5124796a758a01f6194e586.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/aa86b5ca829b493abcdd4c068036e783.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3cc8464925aa49d4bd286af91d50978c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a764baa720854fd7a1cdaf636eb4bc87.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a017a4930fba4b00a6e3604147779fc7.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/930526d37b3749fcaedc19af4b67225d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a86b01bda4b34dd5a0d6dc8be9886ec1.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e0966fe190b248769a4d8146c235832e.png#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2d764cc641b94d93a8f2129bb50acfb6.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/7c0455e5ef1a4e17b34d9005570ed7d9.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/0bf9644acc0b40759828e22c62b04917.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/bf4cc6bc6ea1489b8449adeba5195f5e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/07.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/08.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/06.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/09.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/10.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301212629704.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301212652516.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301212726205.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301212752822.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301212859573.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/11.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/12.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/13.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/14.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/15.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/16.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/20.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/21.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/17.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/18.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ba8d53d1f0f64035817fde0856ed068e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/19f9eec5769143b2b4694152027a952e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301201128197.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ae3a8e8baa7340b19f72535a5f13b413.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/27e01eed66fd437d88c315341b5ba950.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5a652a14b41b43ba9d76ff54fbfee6d9.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301201439384.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2f7f823dc35f464d8591adb8e6ee3589.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c02d6dd060ef4f5d802587f19eb27c67.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301201654630.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f0de24081cb8468298818da0090ca174.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b63acd2339054c87adc78969c3dfbfa8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301212949170.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301213016560.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301213056979.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301213310313.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301213340290.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301213419277.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/fcd65d8cddf14da69b9e89bced921cde.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f826652d1c04460e8a2543cf19079c54.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e7c1eb11a85e4c6faf2e38ac993fb310.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/fcd17c66c44e42cda4a835db8f007887.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6cb4f3c9d6bc4e11a0a861cfa3e7ffcc.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/7986520e610845179eadb4424b5c147c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301202545506.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/987a791e8a014f76b34a2c1dd304111f.png#pic_center">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301202807955.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301205138016.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/994733f225124666966699ce2a7787c6.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8b706d9a7ed6493dbf8c584515de1ed8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ec524bd1c8e7483db0776e34e4dcc24d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301205249906.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301205311045.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301205344644.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/1bc924d51bdc467884120b93fc15423d.png#pic_center">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301205507559.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301210436038.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301210504062.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301210533789.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/22.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/23.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301210335696.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220301210250996.png">
+<meta property="article:published_time" content="2022-03-01T05:28:43.000Z">
+<meta property="article:modified_time" content="2022-03-17T11:19:30.355Z">
+<meta property="article:author" content="生命里那束光">
+<meta property="article:tag" content="Git">
+<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="版本控制和仓库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/01.png">
+    <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1647749586948">
+    
+    <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1647749586948">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647749586948">
+    <link rel="stylesheet" href="/css/style.css?v=1647749586948">
+     
+    
 <meta name="generator" content="Hexo 5.4.1"></head>
-<body>
-<div class="single">
 
-<div id="page">
-<div class="header">
-  <div id="lx-aside" style="background-image: url(https://cdn.pixabay.com/photo/2021/11/21/14/17/desert-6814275__340.png)" data-stellar-background-ratio="0.5">
-    <div class="overlay">
-      
-            <div class="page-title">
-              <div class="avatar"><a href="/"><img src="https://i.postimg.cc/7hJchpF6/1.jpg"
-                    alt="生命里那束光"></a></div>
-              <span>
-                2022-03-01
-              </span>
-              <h2>
-                “Git和GitHub”
-              </h2>
-              
-                <div class="tags"><i class="fa fa-tag"></i>
-                  <a class="tag-none-link" href="/tags/Git/" rel="tag">Git</a> <i class="fa fa-tag"></i><a class="tag-none-link" href="/tags/GitHub/" rel="tag">GitHub</a> <i class="fa fa-tag"></i><a class="tag-none-link" href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%92%8C%E4%BB%93%E5%BA%93/" rel="tag">版本控制和仓库</a>
-                </div>
-                
-                  
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="生命里那束光" class="mdui-btn mdui-btn-icon"><img src="https://i.postimg.cc/7hJchpF6/1.jpg" alt="生命里那束光"></a>
             </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="生命里那束光">
+            <img src="https://i.postimg.cc/7hJchpF6/1.jpg" alt="生命里那束光"
+                alt="生命里那束光">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>
+                文章
+            </span>
+            12
+        </div>
+        <div><span>
+                标签
+            </span>
+            25
+        </div>
+        <div><span>
+                分类
+            </span>
+            19
+        </div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/" title="回到首页">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-home"></i>
+                <div class="mdui-list-item-content">
+                    回到首页
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/about.html" title="关于博客">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-battlenet"></i>
+                <div class="mdui-list-item-content">
+                    关于博客
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/PY.html" title="学习路线">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+                <div class="mdui-list-item-content">
+                    学习路线
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/icon-eye-fill" title="我的笔记">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+                <div class="mdui-list-item-content">
+                    我的笔记
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/icon-container" title="我的简历">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+                <div class="mdui-list-item-content">
+                    我的简历
+                </div>
+            </a>
+            
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <h2 class="nexmoe-widget-title">站内搜索</h2>
+    <div class="nexmoe-widget nexmoe-search">
+        
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder=" 请输入想要搜索的内容"></label>
+            </form>
+            
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://postimg.cc/tZwsMrDy" target="_blank" mdui-tooltip="{content: 'WeChat'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-wechat-fill"></i>
+        </a><a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=2578657473&site=qq&menu=yes" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/480369104" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://weibo.com/u/5967530462" target="_blank" mdui-tooltip="{content: '微博'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-weibo"></i>
+        </a><a class="mdui-ripple" href="https://github.com/XXXxxx-collab" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=2578657473&site=qq&menu=yes" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-steam"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Categories</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JS/API/">API</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/CSS/">CSS</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Html/">Html</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JS/">JS</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JavaScript/">JavaScript</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Web前端/">Web前端</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/git版本控制/github仓库/">github仓库</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/git版本控制/">git版本控制</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/jquery常用API/">jquery常用API</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前后端交互/node-js/">node.js</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JavaScript/函数/作用域/">作用域</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JavaScript/函数/">函数</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前后端交互/">前后端交互</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/博客/">博客</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JavaScript/基础语法/">基础语法</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Html/网页布局/">网页布局</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
     </div>
   </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/APi/" style="font-size: 10px;">APi</a> <a href="/tags/BOM-API/" style="font-size: 10px;">BOM(API)</a> <a href="/tags/DOM-API/" style="font-size: 10px;">DOM(API)</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/Java-Script/" style="font-size: 10px;">Java Script</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/Web%E5%89%8D%E7%AB%AF/" style="font-size: 15px;">Web前端</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F%E3%80%81/" style="font-size: 10px;">作用域、</a> <a href="/tags/%E5%87%BD%E6%95%B0/" style="font-size: 10px;">函数</a> <a href="/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/" style="font-size: 10px;">前后端交互</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 20px;">博客</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" style="font-size: 10px;">基础语法</a> <a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 10px;">布局</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">服务器</a> <a href="/tags/%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">概念</a> <a href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%92%8C%E4%BB%93%E5%BA%93/" style="font-size: 10px;">版本控制和仓库</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">编程</a>
+    </div>
+    
+  </div>
+
+    
+</aside>
+        <div class="nexmoe-copyright">
+            &copy; 2022
+                生命里那束光
+                    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+                        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+                        
+        </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="“Git和GitHub”" class="lazyload">
+              <h1>“Git和GitHub”</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年03月01日</a>
 </div>
-<div id="lx-main-content">
-  <div class="lx-post">
-    <div class="lx-entry padding">
-      <div>
-        <h1 id="前后端交互：Git和GitHub"><a href="#前后端交互：Git和GitHub" class="headerlink" title="前后端交互：Git和GitHub"></a><strong>前后端交互：Git和GitHub</strong></h1><h4 id="git是什么？github又是什么"><a href="#git是什么？github又是什么" class="headerlink" title="git是什么？github又是什么?"></a>git是什么？github又是什么?</h4><ul>
+
+      
+
+      <h1 id="前后端交互：Git和GitHub"><a href="#前后端交互：Git和GitHub" class="headerlink" title="前后端交互：Git和GitHub"></a><strong>前后端交互：Git和GitHub</strong></h1><h4 id="git是什么？github又是什么"><a href="#git是什么？github又是什么" class="headerlink" title="git是什么？github又是什么?"></a>git是什么？github又是什么?</h4><ul>
 <li>git 是版本控制软件，目前最先进最流行的。</li>
 <li>github 是一个网站，用于广大开发者开源自己的代码，也提供私有仓库的付费功能，而它采用的版本控制软件就是git。</li>
 </ul>
@@ -121,7 +453,7 @@
 <li>这种做法带来了许多好处，每个人都可以在一定程度上看到项目中的其他人正在做些什么。而管理员也可以轻松掌控每个开发者的权限，并且管理一个集中化的版本控制系统，要远比在各个客户端上维护本地数据库来得轻松容易。</li>
 <li>事分两面，有好有坏。这么做显而易见的缺点是中央服务器的单点故障。如果服务器宕机一小时，那么在这一小时内，谁都无法提交更新，也就无法协同工作。</li>
 </ul>
- <img src="https://img-blog.csdnimg.cn/56049f78129a437fb83de5e08aef2759.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" style="zoom: 25%;">
+ <img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/56049f78129a437fb83de5e08aef2759.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload">
 
 <ul>
 <li><p>分布式版本控制工具</p>
@@ -137,7 +469,7 @@
 </ul>
 </li>
 </ul>
- <img src="https://img-blog.csdnimg.cn/d6fa284caaa54d4bb3ee254054c57a29.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" style="zoom:25%;">
+ <img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/d6fa284caaa54d4bb3ee254054c57a29.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload">
 
 
 
@@ -154,40 +486,40 @@
 <li>官网地址：<a target="_blank" rel="noopener" href="http://git-scm.com/">http://git-scm.com/</a></li>
 <li><strong>==在安装的过程中，所有选项使用默认值即可。==</strong></li>
 </ul>
-<img src="https://img-blog.csdnimg.cn/5e2cbec6c6bd4eaa9c757e31172de0ac.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" style="zoom:80%;">
+<img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/5e2cbec6c6bd4eaa9c757e31172de0ac.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload">
 
 <p><strong>==详细步骤：==</strong></p>
-<p> <img src="https://img-blog.csdnimg.cn/71fc6c6b43514c5b81f17861c683afea.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_15,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p> <img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/71fc6c6b43514c5b81f17861c683afea.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_15,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p>1.最好安装在自己电脑开发或者环境目录下</p>
-<p> <img src="https://img-blog.csdnimg.cn/7d98a73b534543959ca0cefc9e35ad0e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p> <img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/7d98a73b534543959ca0cefc9e35ad0e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p>2.Git安装目录名，不用修改，直接点击下一步。</p>
-<p> <img src="https://img-blog.csdnimg.cn/5acbef64922c43cd80f60f801c380023.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p> <img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/5acbef64922c43cd80f60f801c380023.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p>3.Git的默认编辑器，建议使用默认的 Vim编辑器，然后点击下一步。</p>
-<p> <img src="https://img-blog.csdnimg.cn/8c3f930fd70d4b809e730383c1008172.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p> <img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/8c3f930fd70d4b809e730383c1008172.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p>4.默认分支名设置，选择让Git决定，分支名默认为 master，下一步。</p>
-<p> <img src="https://img-blog.csdnimg.cn/d9f66ca52e8c48f99c92fcf0648e857f.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p> <img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/d9f66ca52e8c48f99c92fcf0648e857f.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p>5.修改Git的环境变量，选第一个，不修改环境变量，只在 Git Bash里使用 Git。</p>
-<p> <img src="https://img-blog.csdnimg.cn/4530363936134add9cbb3fec9bb8a405.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p> <img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/4530363936134add9cbb3fec9bb8a405.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p>6.选择后台客户端连接协议，选默认值OpenSSL，然后下一步。</p>
-<p> <img src="https://img-blog.csdnimg.cn/22743fac4c1741afa82404d435faaffe.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p> <img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/22743fac4c1741afa82404d435faaffe.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p>7.配置Git文件的行末换行符， Windows使用 CRLF Linux使用 LF，选择第一个自动转换，然后继续下一步。</p>
-<p> <img src="https://img-blog.csdnimg.cn/83cc5c62bc9a4e208e550e81504e6485.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p> <img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/83cc5c62bc9a4e208e550e81504e6485.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p>8.选择Git终端类型，选择默认的 Git Bash终端，然后继续下一步。</p>
-<p> <img src="https://img-blog.csdnimg.cn/0a7628f37cdf4557b6e31b9ce8335fb6.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p> <img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/0a7628f37cdf4557b6e31b9ce8335fb6.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p>9.选择Git pull合并的模式，选择默认，然后下一步。</p>
-<p> <img src="https://img-blog.csdnimg.cn/dc2698bb35e24403b4c225a357f0c7b9.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p> <img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/dc2698bb35e24403b4c225a357f0c7b9.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p>10.选择Git的凭据管理器，选择默认 的跨平台的凭据管理器 ，然后下一步 。</p>
-<p> <img src="https://img-blog.csdnimg.cn/11679e46f2854007b0846a795f26330f.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p> <img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/11679e46f2854007b0846a795f26330f.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p>11.其他配置，选择默认设置，然后下一步。</p>
-<p> <img src="https://img-blog.csdnimg.cn/e57120cec24c46578384ec671203c376.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_19,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p> <img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/e57120cec24c46578384ec671203c376.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_19,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p>12.实验室功能，技术还不成熟， 有已知的 bug，不要勾选，然后点击右下角的 Install按钮，开始安装 Git</p>
-<p> <img src="https://img-blog.csdnimg.cn/14e1b5f3508f42908254788198296e2a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_19,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p> <img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/14e1b5f3508f42908254788198296e2a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_19,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p>13.点击Finsh按钮， Git安装成功！</p>
-<p> <img src="https://img-blog.csdnimg.cn/3f29b6a8fd4f4a8f9cb6ad8fc7738277.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p> <img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/3f29b6a8fd4f4a8f9cb6ad8fc7738277.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p>14.右键任意位置，在右键菜单里选择Git Bash Here即可打开 Git Bash命令行终端。在Git Bash终端里输入 <code>git --version</code>查看 git版本，如图所示，说明 Git安装成功。</p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220302171558260.png" alt="image-20220302171558260"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220302171558260.png" alt="image-20220302171558260" class="lazyload"></p>
 <h4 id="Git和代码托管中心"><a href="#Git和代码托管中心" class="headerlink" title="Git和代码托管中心"></a>Git和代码托管中心</h4><p>代码托管中心是基于网络服务器的远程代码仓库，一般我们简单称为==远程库==</p>
-<p> <img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220302171014877.png" alt="image-20220302171014877"></p>
+<p> <img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220302171014877.png" alt="image-20220302171014877" class="lazyload"></p>
 <h3 id="1-4-Git-基本工作流程"><a href="#1-4-Git-基本工作流程" class="headerlink" title="1.4 Git 基本工作流程"></a>1.4 Git 基本工作流程</h3><table>
 <thead>
 <tr>
@@ -250,7 +582,7 @@
 <li>配置提交人姓名：<code>git config --global user.email 提交人邮箱</code> </li>
 <li>查看git配置信息：<code>git config --list</code>   </li>
 </ol>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220302172707513.png" alt="image-20220302172707513"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220302172707513.png" alt="image-20220302172707513" class="lazyload"></p>
 <p>并且在自己 <code>C:\Users\Augenestern</code> 下有个 <code>.gitconfig</code> 文件，打开里面就是我们设置的用户签名。</p>
 <p><strong>注意</strong></p>
 <ol>
@@ -260,43 +592,43 @@
 <li>这里设置用户签名和将来登录 GitHub（或其他代码托管中心）的账号没有任何关系。</li>
 </ol>
 <h4 id="2、-初始化本地库（git-init"><a href="#2、-初始化本地库（git-init" class="headerlink" title="==2、====初始化本地库（git init)=="></a>==2、====初始化本地库（git init)==</h4><p>基本语法：<code>git init</code></p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220302173015077.png" alt="image-20220302173015077"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220302173015077.png" alt="image-20220302173015077" class="lazyload"></p>
 <h4 id="3、-查看本地库状态-git-status"><a href="#3、-查看本地库状态-git-status" class="headerlink" title="==3、====查看本地库状态(git status)=="></a>==3、====查看本地库状态(git status)==</h4><p>基本语法：<code>git status</code></p>
 <ul>
 <li>首次查看，工作区没有任何文件</li>
 </ul>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220302173045195.png" alt="image-20220302173045195"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220302173045195.png" alt="image-20220302173045195" class="lazyload"></p>
 <h5 id="3-1、新增文件"><a href="#3-1、新增文件" class="headerlink" title="3.1、新增文件"></a>3.1、新增文件</h5><p>语法：<code>vim hello.txt</code> ,然后按 i 键进入 INSERT，要想复制粘贴 ，需要先按 esc 键，之后 <code>yy</code> 复制，<code>p</code> 粘贴</p>
-<p> <img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220302173204819.png" alt="image-20220302173204819"></p>
+<p> <img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220302173204819.png" alt="image-20220302173204819" class="lazyload"></p>
 <p>文件内容输入完毕，需要先按<code>:</code>,输入<code>wq</code>，然后才算完成新增文件，再次查看</p>
-<p><img src="https://img-blog.csdnimg.cn/e0c072a3c5124796a758a01f6194e586.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/e0c072a3c5124796a758a01f6194e586.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <h4 id="4、-添加暂存区-git-add-文件名"><a href="#4、-添加暂存区-git-add-文件名" class="headerlink" title="==4、====添加暂存区(git add 文件名)=="></a>==4、====添加暂存区(git add 文件名)==</h4><p><strong>基本语法：<code>单个文件 git add 文件名</code>  全部文件git add .</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/aa86b5ca829b493abcdd4c068036e783.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/aa86b5ca829b493abcdd4c068036e783.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <h4 id="5、-提交本地库（git-commit-m-提交信息）"><a href="#5、-提交本地库（git-commit-m-提交信息）" class="headerlink" title="==5、====提交本地库（git commit -m 提交信息）=="></a>==5、====提交本地库（git commit -m 提交信息）==</h4><p>基本语法：<code>git commit -m &quot;日志信息&quot; 文件名</code></p>
-<p><img src="https://img-blog.csdnimg.cn/3cc8464925aa49d4bd286af91d50978c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/3cc8464925aa49d4bd286af91d50978c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <h4 id="6、修改文件"><a href="#6、修改文件" class="headerlink" title="6、修改文件"></a>6、修改文件</h4><p>语法：<code>vim 文件名</code></p>
-<p><img src="https://img-blog.csdnimg.cn/a764baa720854fd7a1cdaf636eb4bc87.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/a017a4930fba4b00a6e3604147779fc7.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/a764baa720854fd7a1cdaf636eb4bc87.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/a017a4930fba4b00a6e3604147779fc7.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <h4 id="7、历史版本"><a href="#7、历史版本" class="headerlink" title="7、历史版本"></a>7、历史版本</h4><h5 id="7-1、查看历史版本（git-log"><a href="#7-1、查看历史版本（git-log" class="headerlink" title="==7.1、查看历史版本（git log)=="></a>==7.1、查看历史版本（git log)==</h5><p>基本语法：</p>
 <ul>
 <li><code>git reflog</code> 查看版本信息</li>
 <li><code>git log</code> 查看版本详细信息</li>
 </ul>
-<p><img src="https://img-blog.csdnimg.cn/930526d37b3749fcaedc19af4b67225d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/a86b01bda4b34dd5a0d6dc8be9886ec1.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/930526d37b3749fcaedc19af4b67225d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/a86b01bda4b34dd5a0d6dc8be9886ec1.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p>但是我们工作区的 hello.txt 始终只有一个文件存在</p>
-<p><img src="https://img-blog.csdnimg.cn/e0966fe190b248769a4d8146c235832e.png#pic_center" alt="在这里插入图片描述"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/e0966fe190b248769a4d8146c235832e.png#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <h5 id="7-2、版本穿梭"><a href="#7-2、版本穿梭" class="headerlink" title="7.2、版本穿梭"></a>7.2、版本穿梭</h5><p>语法：<code>git reset --hard 版本号</code></p>
-<p><img src="https://img-blog.csdnimg.cn/2d764cc641b94d93a8f2129bb50acfb6.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/2d764cc641b94d93a8f2129bb50acfb6.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <h4 id="8、切换版本原理"><a href="#8、切换版本原理" class="headerlink" title="8、切换版本原理"></a>8、切换版本原理</h4><p>Git 切换版本，底层其实是移动的HEAD 指针，具体原理如下图所示</p>
 <p>HEAD 指针指向 master 分支，master分支指向 first 版本</p>
- <img src="https://img-blog.csdnimg.cn/7c0455e5ef1a4e17b34d9005570ed7d9.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" style="zoom:50%;">
+ <img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/7c0455e5ef1a4e17b34d9005570ed7d9.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload">
 
 <p>之后有了 second 版本，master 指针指向 second 版本</p>
- <img src="https://img-blog.csdnimg.cn/0bf9644acc0b40759828e22c62b04917.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" style="zoom:50%;">
+ <img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/0bf9644acc0b40759828e22c62b04917.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload">
 
 <p>之后有了third 版本，master 指针指向 third 版本</p>
- <img src="https://img-blog.csdnimg.cn/bf4cc6bc6ea1489b8449adeba5195f5e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" style="zoom:50%;">
+ <img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/bf4cc6bc6ea1489b8449adeba5195f5e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload">
 
 <p><strong>==如果我们想穿越回去，只需要让 master 指针指向 first 版本或者 second 版本==</strong></p>
 <h4 id="9、-撤销"><a href="#9、-撤销" class="headerlink" title="9、 撤销"></a>9、 撤销</h4><ul>
@@ -360,15 +692,15 @@
 </tr>
 </tbody></table>
 <h5 id="1、查看分支"><a href="#1、查看分支" class="headerlink" title="1、查看分支"></a>1、查看分支</h5><p>基本语法：<code>git branch -v</code></p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301212629704.png" alt="image-20220301212629704"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301212629704.png" alt="image-20220301212629704" class="lazyload"></p>
 <h5 id="2、创建分支"><a href="#2、创建分支" class="headerlink" title="2、创建分支"></a>2、创建分支</h5><p>基本语法：<code>git branch 分支名</code></p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301212652516.png" alt="image-20220301212652516"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301212652516.png" alt="image-20220301212652516" class="lazyload"></p>
 <h5 id="3、切换分支"><a href="#3、切换分支" class="headerlink" title="3、切换分支"></a>3、切换分支</h5><p>基本语法:<code>git checkout 分支名</code></p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301212726205.png" alt="image-20220301212726205"></p>
-<h5 id="4、修改分支"><a href="#4、修改分支" class="headerlink" title="4、修改分支"></a>4、修改分支</h5><p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301212752822.png" alt="image-20220301212752822"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301212726205.png" alt="image-20220301212726205" class="lazyload"></p>
+<h5 id="4、修改分支"><a href="#4、修改分支" class="headerlink" title="4、修改分支"></a>4、修改分支</h5><p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301212752822.png" alt="image-20220301212752822" class="lazyload"></p>
 <h5 id="5、合并分支"><a href="#5、合并分支" class="headerlink" title="5、合并分支"></a>5、合并分支</h5><p>基本语法：<code>git merge 分支名</code></p>
 <p>①<strong>正常合并不冲突</strong></p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301212859573.png" alt="image-20220301212859573"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301212859573.png" alt="image-20220301212859573" class="lazyload"></p>
 <p>②<strong>合并产生冲突</strong>  </p>
 <p>冲突产生的原因：</p>
 <ul>
@@ -454,8 +786,8 @@
 </ol>
 </li>
 </ol>
-<h4 id="3-3-2、Gitee远程仓库"><a href="#3-3-2、Gitee远程仓库" class="headerlink" title="3.3.2、Gitee远程仓库"></a>3.3.2、Gitee远程仓库</h4><p><img src="https://img-blog.csdnimg.cn/ba8d53d1f0f64035817fde0856ed068e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/19f9eec5769143b2b4694152027a952e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h4 id="3-3-2、Gitee远程仓库"><a href="#3-3-2、Gitee远程仓库" class="headerlink" title="3.3.2、Gitee远程仓库"></a>3.3.2、Gitee远程仓库</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/ba8d53d1f0f64035817fde0856ed068e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/19f9eec5769143b2b4694152027a952e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <h3 id="3-4-远程仓库操作"><a href="#3-4-远程仓库操作" class="headerlink" title="==3.4 远程仓库操作=="></a><strong>==3.4 远程仓库操作==</strong></h3><table>
 <thead>
 <tr>
@@ -490,25 +822,25 @@
 <li><code>git remote -v</code> 查看当前所有远程地址别名</li>
 <li><code>git remote add 别名 远程地址</code> 起别名</li>
 </ul>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301201128197.png" alt="image-20220301201128197"></p>
-<p><img src="https://img-blog.csdnimg.cn/ae3a8e8baa7340b19f72535a5f13b413.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301201128197.png" alt="image-20220301201128197" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/ae3a8e8baa7340b19f72535a5f13b413.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p>注意：起的别名最好和本地库的名称一致</p>
 <p><strong>②、Gitee</strong></p>
-<h6 id><a href="#" class="headerlink" title></a><img src="https://img-blog.csdnimg.cn/27e01eed66fd437d88c315341b5ba950.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></h6><h4 id="3-4-2、推送本地分支到远程仓库"><a href="#3-4-2、推送本地分支到远程仓库" class="headerlink" title="3.4.2、推送本地分支到远程仓库"></a>3.4.2、推送本地分支到远程仓库</h4><p><strong>==基本语法：==</strong><code>git push 别名 分支</code></p>
-<p><img src="https://img-blog.csdnimg.cn/5a652a14b41b43ba9d76ff54fbfee6d9.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h6 id><a href="#" class="headerlink" title></a><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/27e01eed66fd437d88c315341b5ba950.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></h6><h4 id="3-4-2、推送本地分支到远程仓库"><a href="#3-4-2、推送本地分支到远程仓库" class="headerlink" title="3.4.2、推送本地分支到远程仓库"></a>3.4.2、推送本地分支到远程仓库</h4><p><strong>==基本语法：==</strong><code>git push 别名 分支</code></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/5a652a14b41b43ba9d76ff54fbfee6d9.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p>我们输入 gitee 的用户名和密码，会提示推送成功，我们在 gitee 上查看我们的 git-demo 仓库，发现有我们推送的hello.txt 文件</p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301201439384.png" alt="image-20220301201439384"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301201439384.png" alt="image-20220301201439384" class="lazyload"></p>
 <h4 id="3-4-3、拉取远程库分支到本地库"><a href="#3-4-3、拉取远程库分支到本地库" class="headerlink" title="3.4.3、拉取远程库分支到本地库"></a>3.4.3、拉取远程库分支到本地库</h4><p><strong>==语法：==</strong><code>git pull 别名 分支</code></p>
 <p>我们在远程库进行 hello.txt 的文件修改</p>
-<p><img src="https://img-blog.csdnimg.cn/2f7f823dc35f464d8591adb8e6ee3589.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/2f7f823dc35f464d8591adb8e6ee3589.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p>然后在本地库将远程库的代码 拉取</p>
-<p><img src="https://img-blog.csdnimg.cn/c02d6dd060ef4f5d802587f19eb27c67.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/c02d6dd060ef4f5d802587f19eb27c67.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <h4 id="3-4-4、克隆远程仓库到本地"><a href="#3-4-4、克隆远程仓库到本地" class="headerlink" title="3.4.4、克隆远程仓库到本地"></a>3.4.4、克隆远程仓库到本地</h4><p><strong>==基本语法：==</strong><code>git clone 远程地址</code></p>
 <p>我们另一台用户需要克隆我们的远程仓库到他的本地库，由于是使用一台电脑模拟，所以在克隆之前需要在 凭据管理器下删除我们之前的 gitee 凭据</p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301201654630.png" alt="image-20220301201654630"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301201654630.png" alt="image-20220301201654630" class="lazyload"></p>
 <p>我们新建一个文件夹 git-clone，然后在此文件夹下右键 git bash here，之后进行克隆</p>
-<p><img src="https://img-blog.csdnimg.cn/f0de24081cb8468298818da0090ca174.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/b63acd2339054c87adc78969c3dfbfa8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/f0de24081cb8468298818da0090ca174.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/b63acd2339054c87adc78969c3dfbfa8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <h3 id="3-5-、解决冲突"><a href="#3-5-、解决冲突" class="headerlink" title="3.5 、解决冲突"></a>3.5 、解决冲突</h3><p>在多人同时开发一个项目时，如果两个人修改了同一个文件的同一个地方，就会发生冲突。冲突需要人为解决。</p>
 <p><strong>==A上传后，B需要将github仓库中最新版本克隆到本地，修改后存入本地仓库，重新上传到远程仓库，以此处理冲突==</strong></p>
 <p>冲突产生的原因：</p>
@@ -517,59 +849,59 @@
 <li>有两套完全不同的修改。 Git无法替我们决定使用哪一个。必须 人为决定新代码内容。</li>
 </ul>
 <p>例如，我们首先在 master 分支的倒数第二行进行修改，并将其添加到暂存区，再提交到本地库</p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301212949170.png" alt="image-20220301212949170"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301212949170.png" alt="image-20220301212949170" class="lazyload"></p>
 <p>接着，我们去 hot-fix 分支的倒数第一行进行修改，并将其添加到暂存区，再提交到本地库</p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301213016560.png" alt="image-20220301213016560"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301213016560.png" alt="image-20220301213016560" class="lazyload"></p>
 <p>之后我们在 master 分支上合并 hot-fix 分支，发现产生冲突</p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301213056979.png" alt="image-20220301213056979"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301213056979.png" alt="image-20220301213056979" class="lazyload"></p>
 <p>==<strong>解决冲突</strong>==</p>
 <p>1.编辑有冲突的文件，删除特殊符号，决定要使用的内容</p>
 <ul>
 <li>特殊符号：<code>&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> 当前分支的代码 <code>=======</code> 合并过来的代码 <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;hot-fix</code></li>
 </ul>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301213310313.png" alt="image-20220301213310313"></p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301213340290.png" alt="image-20220301213340290"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301213310313.png" alt="image-20220301213310313" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301213340290.png" alt="image-20220301213340290" class="lazyload"></p>
 <p>2.删除完成之后保存，再次添加到暂存区，并再次提交到本地库(==注意：此时使用 git commit 命令时候不能带文件名==)</p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301213419277.png" alt="image-20220301213419277"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301213419277.png" alt="image-20220301213419277" class="lazyload"></p>
 <h3 id="3-6、邀请加入团队"><a href="#3-6、邀请加入团队" class="headerlink" title="3.6、邀请加入团队"></a>3.6、邀请加入团队</h3><h4 id="3-6-1、Gitee"><a href="#3-6-1、Gitee" class="headerlink" title="3.6.1、Gitee"></a>3.6.1、Gitee</h4><p><strong>==1.我们在 git-clone(假设这是大弟子令狐冲) 文件夹里面进行代码修改，修改完后添加到暂存区，再提交到本地库，之后 push 到我们的远程库==</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/fcd65d8cddf14da69b9e89bced921cde.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/f826652d1c04460e8a2543cf19079c54.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/fcd65d8cddf14da69b9e89bced921cde.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/f826652d1c04460e8a2543cf19079c54.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p><strong>==2.我们在 git-demo 仓库点击管理 -&gt; 仓库成员管理 -&gt; 添加仓库成员 -&gt; 邀请用户==</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/e7c1eb11a85e4c6faf2e38ac993fb310.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/e7c1eb11a85e4c6faf2e38ac993fb310.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p><strong>==3.我们可以在被邀请人账号里面进行“接受”==</strong></p>
 <p><strong>==4.令狐成成为仓库开发者被拉入团队后，我们再次在令狐冲文件夹使用进行 push==</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/fcd17c66c44e42cda4a835db8f007887.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/fcd17c66c44e42cda4a835db8f007887.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p><strong>==5.push 到远程库成功，我们在远程库查看==</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/6cb4f3c9d6bc4e11a0a861cfa3e7ffcc.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<h4 id="3-6-2、Github"><a href="#3-6-2、Github" class="headerlink" title="3.6.2、Github"></a>3.6.2、Github</h4><p><img src="https://img-blog.csdnimg.cn/7986520e610845179eadb4424b5c147c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/6cb4f3c9d6bc4e11a0a861cfa3e7ffcc.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<h4 id="3-6-2、Github"><a href="#3-6-2、Github" class="headerlink" title="3.6.2、Github"></a>3.6.2、Github</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/7986520e610845179eadb4424b5c147c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p><strong>==1.填入想要合作的人==</strong></p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301202545506.png" alt="image-20220301202545506"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301202545506.png" alt="image-20220301202545506" class="lazyload"></p>
 <p><strong>==2.复制地址并发给该用户==</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/987a791e8a014f76b34a2c1dd304111f.png#pic_center" alt="在这里插入图片描述"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/987a791e8a014f76b34a2c1dd304111f.png#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p><strong>==3.在 atguigulinghuchong这个账号 中的 地址 栏 复制 收到邀请 的 链接 ，点击接受邀请。==</strong></p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301202807955.png" alt="image-20220301202807955"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301202807955.png" alt="image-20220301202807955" class="lazyload"></p>
 <h3 id="3-7-、跨团队协作"><a href="#3-7-、跨团队协作" class="headerlink" title="3.7 、跨团队协作"></a>3.7 、跨团队协作</h3><h4 id="3-7-1、Gitee"><a href="#3-7-1、Gitee" class="headerlink" title="3.7.1、Gitee"></a>3.7.1、Gitee</h4><p><strong>==1.将远程仓库的地址复制发给邀请跨团队协作的人，比如东方不败。==</strong></p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301205138016.png" alt="image-20220301205138016"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301205138016.png" alt="image-20220301205138016" class="lazyload"></p>
 <p><strong>==2.在东方不败的 Gitee账号里的地址栏复制收到的链接，然后点击 Fork将项目叉到自己的本地仓库==</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/994733f225124666966699ce2a7787c6.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/8b706d9a7ed6493dbf8c584515de1ed8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/994733f225124666966699ce2a7787c6.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/8b706d9a7ed6493dbf8c584515de1ed8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p><strong>==3.接下来点击上方的 Pull Requests 请求，并创建一个新的请求 。==</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/ec524bd1c8e7483db0776e34e4dcc24d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301205249906.png" alt="image-20220301205249906"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/ec524bd1c8e7483db0776e34e4dcc24d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301205249906.png" alt="image-20220301205249906" class="lazyload"></p>
 <p><strong>==4.合并之后我们在岳不群的 git-demo 下就可以看到东方不败的代码==</strong></p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301205311045.png" alt="image-20220301205311045"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301205311045.png" alt="image-20220301205311045" class="lazyload"></p>
 <h4 id="3-7-2、Github"><a href="#3-7-2、Github" class="headerlink" title="3.7.2、Github"></a>3.7.2、Github</h4><p><strong>==1.将远程仓库的地址复制发给邀请跨团队协作的人，比如东方不败。==</strong></p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301205344644.png" alt="image-20220301205344644"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301205344644.png" alt="image-20220301205344644" class="lazyload"></p>
 <p><strong>==2.在东方不败的 GitHub账号里的地址栏复制收到的链接，然后点击 Fork将项目叉到自己的本地仓库==</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/1bc924d51bdc467884120b93fc15423d.png#pic_center" alt="在这里插入图片描述"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/1bc924d51bdc467884120b93fc15423d.png#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p><strong>==3.东方不败就可以在线编辑叉取过来的文件。编辑完毕后，填写描述信息并点击左下角绿色按钮提交。==</strong></p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301205507559.png" alt="image-20220301205507559"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301205507559.png" alt="image-20220301205507559" class="lazyload"></p>
 <h3 id="3-8-、ssh免密登陆"><a href="#3-8-、ssh免密登陆" class="headerlink" title="3.8 、ssh免密登陆"></a>3.8 、ssh免密登陆</h3><h4 id="3-8-1、Gitee"><a href="#3-8-1、Gitee" class="headerlink" title="3.8.1、Gitee"></a>3.8.1、Gitee</h4><p><strong>==1.在 C盘 User 自己的账户下右键==</strong> git bash here，<code>ssh-keygen -t rsa -C 自己的邮箱签名</code></p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301210436038.png" alt="image-20220301210436038"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301210436038.png" alt="image-20220301210436038" class="lazyload"></p>
 <p><strong>==2.这样就会生成 .ssh 文件夹，里面有私钥和公钥==</strong></p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301210504062.png" alt="image-20220301210504062"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301210504062.png" alt="image-20220301210504062" class="lazyload"></p>
 <p><strong>==3.之后在 gitee 上添加公钥==</strong></p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301210533789.png" alt="image-20220301210533789"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301210533789.png" alt="image-20220301210533789" class="lazyload"></p>
 <p><strong>==4.这样我们可以借助 ssh 链接来拉取和推送代码，并且不需要进行登录==</strong></p>
 <h4 id="3-8-2、Github"><a href="#3-8-2、Github" class="headerlink" title="3.8.2、Github"></a>3.8.2、Github</h4><p>https协议仓库地址：<a target="_blank" rel="noopener" href="https://github.com/itcast-frontEnd/git-demo.git">https://github.com/itcast-frontEnd/git-demo.git</a></p>
 <p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\assets\22.png"></p>
@@ -578,135 +910,119 @@
 <p>公钥名称：id_rsa.pub</p>
 <p>私钥名称：id_rsa</p>
 <p> <img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\assets\23.png"></p>
-<p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301210335696.png" alt="image-20220301210335696"></p>
-<p> <img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301210250996.png" alt="image-20220301210250996"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301210335696.png" alt="image-20220301210335696" class="lazyload"></p>
+<p> <img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220301210250996.png" alt="image-20220301210250996" class="lazyload"></p>
 <h3 id="3-9-、GIT忽略清单"><a href="#3-9-、GIT忽略清单" class="headerlink" title="3.9 、GIT忽略清单"></a>3.9 、GIT忽略清单</h3><p>将不需要被git管理的文件名字添加到此文件中，在执行git命令的时候，git就会忽略这些文件。</p>
 <p>git忽略清单文件名称：**.gitignore**</p>
 <p>将工作目录中的文件全部添加到暂存区：<code>git add .</code></p>
 
-      </div>
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>生命里那束光<br>
+        <strong>Link：</strong><a href="https://xxxxxx-collab.github.io/2022/03/01/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92Git%E5%92%8CGitHub/" title="https:&#x2F;&#x2F;xxxxxx-collab.github.io&#x2F;2022&#x2F;03&#x2F;01&#x2F;%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92Git%E5%92%8CGitHub&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;xxxxxx-collab.github.io&#x2F;2022&#x2F;03&#x2F;01&#x2F;%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92Git%E5%92%8CGitHub&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
     </div>
-  </div>
-</div>
-<div class="lx-navigation">
-	<div class="lx-cover next lx-cover-sm" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/images/footer-l.min.jpeg)">
-		<div class="overlay"></div>
-		<a class="copy" href="#">
-			<div class="display-t">
-				<div class="display-tc">
-					<div>
-						<span>Next</span>
-						<h3>
-							
-										没有更新的文章
-											
-						</h3>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
-	<div class="lx-cover prev lx-cover-sm" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/images/footer-r.min.jpeg)">
-		<div class="overlay"></div>
-		<a class="copy" href="/2022/02/22/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92Node%E5%9F%BA%E7%A1%80/">
-			<div class="display-t">
-				<div class="display-tc">
-					<div>
-						<span>Prev</span>
-						<h3>
-							
-								“Node.j...
-									
-						</h3>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
-</div>
-</div>
 
-<footer>
-  <div>
-  Copyright &copy; 2022.<a href="/">那束光のBlog</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
-  </div>
-</footer>
 
-</div>
-
-<button class="hamburger hamburger--arrow-r" type="button" title="menu">
-    <div class="hamburger-box">
-      <div class="hamburger-inner"></div>
-    </div>
-</button>
-<div class="menu visibility">
-  <div class="menu-head">
-    <span class="layer">
-      <div class="col">
-        <div class="row for-pic">
-          <div class="profile-pic">
-            <a href="/"><img src="https://i.postimg.cc/7hJchpF6/1.jpg" alt="生命里那束光"/></a>
-          </div>
-        </div>
-        <div class="row for-name">
-          <p>生命里那束光</p>
-          <span class="tagline">Hello, World!</span>
-        </div>
-      </div>
-    </span>
-  </div>
-  <nav class="menu-container">
-  <ul class="menu-items">
-    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
-    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
     
-    <li class="has-sub"><span class="dropdown-heading">
-      <i class="fa fa-bookmark fa-fw"></i>页面</span>
-        <ul>
-          <li><a href="/guestbook/">Guestbook</a></li>
-        <li><a href="/about/">About</a></li>
-        </ul>
-    </li>
-    <li class="has-sub"><span class="dropdown-heading">
-      <i class="fa fa-link fa-fw"></i>友链</span>
-        <ul>
-          <li> <a href="https://lx.js.org" target="_blank">Theme-Lx</a></li>
-        </ul>
-    </li>
-  </ul>
-  </nav>
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/git%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">git版本控制</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/git%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/github%E4%BB%93%E5%BA%93/">github仓库</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/git%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/github%E4%BB%93%E5%BA%93/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/">前后端交互</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Git/" rel="tag">Git</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/GitHub/" rel="tag">GitHub</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%92%8C%E4%BB%93%E5%BA%93/" rel="tag">版本控制和仓库</a>
+    
 </div>
 
-<div class="gototop js-top">
-  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'nexmoe.github.io',
+        owner: 'nexmoe',
+        admin: 'nexmoe'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
 </div>
-<script src="https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/js/jquery.easing.min.js"></script>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%EF%BC%9AGit%E5%92%8CGitHub"><span class="toc-number">1.</span> <span class="toc-text">前后端交互：Git和GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fgithub%E5%8F%88%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">git是什么？github又是什么?</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Git%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.</span> <span class="toc-text">1. Git基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 版本管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-%E4%BB%80%E4%B9%88%E6%98%AF%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">1.1.1 什么是版本管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-%E4%BA%BA%E4%B8%BA%E7%BB%B4%E6%8A%A4%E6%96%87%E6%A1%A3%E7%89%88%E6%9C%AC%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">1.1.2 人为维护文档版本的问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-3-%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">1.1.3 版本控制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-4-%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7"><span class="toc-number">1.1.1.4.</span> <span class="toc-text">1.1.4 版本控制工具</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Git-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 Git 是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-Git-%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3 Git 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Git%E5%92%8C%E4%BB%A3%E7%A0%81%E6%89%98%E7%AE%A1%E4%B8%AD%E5%BF%83"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">Git和代码托管中心</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-Git-%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.4.</span> <span class="toc-text">1.4 Git 基本工作流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-Git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.1.5.</span> <span class="toc-text">&#x3D;&#x3D;1.5 Git 常用命令&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81Git-%E4%BD%BF%E7%94%A8%E5%89%8D%E9%85%8D%E7%BD%AE%EF%BC%9A%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E7%AD%BE%E5%90%8D"><span class="toc-number">1.1.5.1.</span> <span class="toc-text">1、Git 使用前配置：设置用户签名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81-%E5%88%9D%E5%A7%8B%E5%8C%96%E6%9C%AC%E5%9C%B0%E5%BA%93%EF%BC%88git-init"><span class="toc-number">1.1.5.2.</span> <span class="toc-text">&#x3D;&#x3D;2、&#x3D;&#x3D;&#x3D;&#x3D;初始化本地库（git init)&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81-%E6%9F%A5%E7%9C%8B%E6%9C%AC%E5%9C%B0%E5%BA%93%E7%8A%B6%E6%80%81-git-status"><span class="toc-number">1.1.5.3.</span> <span class="toc-text">&#x3D;&#x3D;3、&#x3D;&#x3D;&#x3D;&#x3D;查看本地库状态(git status)&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1%E3%80%81%E6%96%B0%E5%A2%9E%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.5.3.1.</span> <span class="toc-text">3.1、新增文件</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%E3%80%81-%E6%B7%BB%E5%8A%A0%E6%9A%82%E5%AD%98%E5%8C%BA-git-add-%E6%96%87%E4%BB%B6%E5%90%8D"><span class="toc-number">1.1.5.4.</span> <span class="toc-text">&#x3D;&#x3D;4、&#x3D;&#x3D;&#x3D;&#x3D;添加暂存区(git add 文件名)&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5%E3%80%81-%E6%8F%90%E4%BA%A4%E6%9C%AC%E5%9C%B0%E5%BA%93%EF%BC%88git-commit-m-%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AF%EF%BC%89"><span class="toc-number">1.1.5.5.</span> <span class="toc-text">&#x3D;&#x3D;5、&#x3D;&#x3D;&#x3D;&#x3D;提交本地库（git commit -m 提交信息）&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6%E3%80%81%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.5.6.</span> <span class="toc-text">6、修改文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7%E3%80%81%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC"><span class="toc-number">1.1.5.7.</span> <span class="toc-text">7、历史版本</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#7-1%E3%80%81%E6%9F%A5%E7%9C%8B%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC%EF%BC%88git-log"><span class="toc-number">1.1.5.7.1.</span> <span class="toc-text">&#x3D;&#x3D;7.1、查看历史版本（git log)&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-2%E3%80%81%E7%89%88%E6%9C%AC%E7%A9%BF%E6%A2%AD"><span class="toc-number">1.1.5.7.2.</span> <span class="toc-text">7.2、版本穿梭</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8%E3%80%81%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.5.8.</span> <span class="toc-text">8、切换版本原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9%E3%80%81-%E6%92%A4%E9%94%80"><span class="toc-number">1.1.5.9.</span> <span class="toc-text">9、 撤销</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Git%E8%BF%9B%E9%98%B6"><span class="toc-number">1.2.</span> <span class="toc-text">2. Git进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E3%80%81%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.</span> <span class="toc-text">&#x3D;&#x3D;2.1 、分支&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">2.1.1 什么是分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">2.1.2 什么是分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-%E5%88%86%E6%94%AF%E7%BB%86%E5%88%86"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">2.1.3 分支细分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-4-%E5%88%86%E6%94%AF%E5%91%BD%E4%BB%A4-%E9%83%BD%E5%BE%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">&#x3D;&#x3D;2.1.4 分支命令(都很重要）&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%E3%80%81%E6%9F%A5%E7%9C%8B%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.4.1.</span> <span class="toc-text">1、查看分支</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%E3%80%81%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.4.2.</span> <span class="toc-text">2、创建分支</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%E3%80%81%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.4.3.</span> <span class="toc-text">3、切换分支</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4%E3%80%81%E4%BF%AE%E6%94%B9%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.4.4.</span> <span class="toc-text">4、修改分支</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5%E3%80%81%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.4.5.</span> <span class="toc-text">5、合并分支</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E3%80%81%E6%9A%82%E6%97%B6%E4%BF%9D%E5%AD%98%E6%9B%B4%E6%94%B9"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 、暂时保存更改</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Github"><span class="toc-number">1.3.</span> <span class="toc-text">&#x3D;&#x3D;3. Github&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E3%80%81-%E6%B3%A8%E5%86%8C"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1、 注册</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E3%80%81%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 、多人协作开发流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3%E3%80%81%E5%88%9B%E5%BB%BA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">1.3.3.</span> <span class="toc-text">&#x3D;&#x3D;3.3、创建远程仓库&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1%E3%80%81Github%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">3.3.1、Github远程仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2%E3%80%81Gitee%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">3.3.2、Gitee远程仓库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="toc-number">1.3.4.</span> <span class="toc-text">&#x3D;&#x3D;3.4 远程仓库操作&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-1%E3%80%81%E5%88%9B%E5%BB%BA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%AB%E5%90%8D"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">3.4.1、创建远程仓库别名</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link"><span class="toc-number">1.3.4.1.0.1.</span> <span class="toc-text"></span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-2%E3%80%81%E6%8E%A8%E9%80%81%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">3.4.2、推送本地分支到远程仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-3%E3%80%81%E6%8B%89%E5%8F%96%E8%BF%9C%E7%A8%8B%E5%BA%93%E5%88%86%E6%94%AF%E5%88%B0%E6%9C%AC%E5%9C%B0%E5%BA%93"><span class="toc-number">1.3.4.3.</span> <span class="toc-text">3.4.3、拉取远程库分支到本地库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-4%E3%80%81%E5%85%8B%E9%9A%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="toc-number">1.3.4.4.</span> <span class="toc-text">3.4.4、克隆远程仓库到本地</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E3%80%81%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81"><span class="toc-number">1.3.5.</span> <span class="toc-text">3.5 、解决冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6%E3%80%81%E9%82%80%E8%AF%B7%E5%8A%A0%E5%85%A5%E5%9B%A2%E9%98%9F"><span class="toc-number">1.3.6.</span> <span class="toc-text">3.6、邀请加入团队</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-6-1%E3%80%81Gitee"><span class="toc-number">1.3.6.1.</span> <span class="toc-text">3.6.1、Gitee</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-6-2%E3%80%81Github"><span class="toc-number">1.3.6.2.</span> <span class="toc-text">3.6.2、Github</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-%E3%80%81%E8%B7%A8%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C"><span class="toc-number">1.3.7.</span> <span class="toc-text">3.7 、跨团队协作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-7-1%E3%80%81Gitee"><span class="toc-number">1.3.7.1.</span> <span class="toc-text">3.7.1、Gitee</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-7-2%E3%80%81Github"><span class="toc-number">1.3.7.2.</span> <span class="toc-text">3.7.2、Github</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8-%E3%80%81ssh%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86"><span class="toc-number">1.3.8.</span> <span class="toc-text">3.8 、ssh免密登陆</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-8-1%E3%80%81Gitee"><span class="toc-number">1.3.8.1.</span> <span class="toc-text">3.8.1、Gitee</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-8-2%E3%80%81Github"><span class="toc-number">1.3.8.2.</span> <span class="toc-text">3.8.2、Github</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-%E3%80%81GIT%E5%BF%BD%E7%95%A5%E6%B8%85%E5%8D%95"><span class="toc-number">1.3.9.</span> <span class="toc-text">3.9 、GIT忽略清单</span></a></li></ol></li></ol></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="Search" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1647749586970"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
-(function () {
-	"use strict";
-	var goToTop = function() {
-		$(".js-gotop").on("click", function(event){
-			event.preventDefault();
-			$("html, body").animate({
-				scrollTop: $("html").offset().top
-			}, 500, "easeInOutExpo");
-			return false;
-		});
-		$(window).scroll(function(){
-			var $win = $(window);
-			if ($win.scrollTop() > 200) {
-				$(".js-top").addClass("active");
-			} else {
-				$(".js-top").removeClass("active");
-			}
-		});
-	};
-	$(function(){
-		goToTop();
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
 	});
-}());
 </script>
 
 
+    
+
+
+
+
+
 </body>
+
 </html>

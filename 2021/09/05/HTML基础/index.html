@@ -1,98 +1,330 @@
 <!DOCTYPE html>
-<html lang="zh">
+
+<html lang="zh-Hans">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="theme-color" content=#58b77a>
-  <title>“总结归纳：HTML基础” | 那束光のBlog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="生命里那束光">
-  <meta name="keywords" content="">
-  <meta name="description" content="">
-  <script id="hexo-configurations">
-  var CONFIG = {
-    root: '/',
-    theme: 'hexo-theme-lx-master',
-    version: '0.4.3',
-    localsearch: {
-      "enable": ,
-      "trigger": "auto",
-      "top_n_per_article": ,
-      "unescape": ,
-      "preload": 
-      },
-    path: 'null'
-  };
-</script>
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/css/main.min.css">
-  
-  <style type="text/css">
-    pre,
-    code {
-      font-family: 'Fira Code', monospace;
-    }
-    html {
-      font-family: sans-serif;
-    }
-    body {
-      font-family: sans-serif;
-    }
-    h1, h2, h3, h4, h5, figure {
-      font-family: sans-serif;
-    }
-    .menu-container{
-      font-family: sans-serif;
-    }
-  </style>
+    
+    <title>“总结归纳：HTML基础” - 那束光のBlog</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
 
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/js/jquery.jside.menu.min.js"></script>
-	<script>
-	$(document).ready(function(){
-	$(".menu-container").jSideMenu({
-	    jSidePosition: "position-right",
-	    jSideSticky: true,
-	    jSideSkin: "",
-	     });
-	}); 
-	</script>
-  
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="HTML网页设计Web标准（Web标准不是某一个标准，而是一系列标准的集合。）​    网页主要由三部分组成：结构（Structure）、表现（Presentation）和行为（Behavior）。 ​    对应的标准也分三方面： ​                       1.结构化标准语言主要包括HTML, XHTML和XML,用于对网页元素进行整理和分类 。（躯壳） ​">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“总结归纳：HTML基础”">
+<meta property="og:url" content="https://xxxxxx-collab.github.io/2021/09/05/HTML%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="那束光のBlog">
+<meta property="og:description" content="HTML网页设计Web标准（Web标准不是某一个标准，而是一系列标准的集合。）​    网页主要由三部分组成：结构（Structure）、表现（Presentation）和行为（Behavior）。 ​    对应的标准也分三方面： ​                       1.结构化标准语言主要包括HTML, XHTML和XML,用于对网页元素进行整理和分类 。（躯壳） ​">
+<meta property="og:locale">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20211026133906970.png">
+<meta property="og:image" content="file:///C:/Users/ACER/Documents/My%20Knowledge/temp/5ea6619a-ef3c-4093-ae34-7c6639320b7a/128/index_files/0.853223006075271.png">
+<meta property="article:published_time" content="2021-09-05T11:23:00.000Z">
+<meta property="article:modified_time" content="2022-03-17T09:28:35.570Z">
+<meta property="article:author" content="生命里那束光">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20211026133906970.png">
+    <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1647749587120">
+    
+    <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1647749587120">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647749587120">
+    <link rel="stylesheet" href="/css/style.css?v=1647749587120">
+     
+    
 <meta name="generator" content="Hexo 5.4.1"></head>
-<body>
-<div class="single">
 
-<div id="page">
-<div class="header">
-  <div id="lx-aside" style="background-image: url(https://cdn.pixabay.com/photo/2021/11/21/14/17/desert-6814275__340.png)" data-stellar-background-ratio="0.5">
-    <div class="overlay">
-      
-            <div class="page-title">
-              <div class="avatar"><a href="/"><img src="https://i.postimg.cc/7hJchpF6/1.jpg"
-                    alt="生命里那束光"></a></div>
-              <span>
-                2021-09-05
-              </span>
-              <h2>
-                “总结归纳：HTML基础”
-              </h2>
-              
-                <div class="tags"><i class="fa fa-tag"></i>
-                  <a class="tag-none-link" href="/tags/HTML/" rel="tag">HTML</a> <i class="fa fa-tag"></i><a class="tag-none-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a> <i class="fa fa-tag"></i><a class="tag-none-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a>
-                </div>
-                
-                  
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="生命里那束光" class="mdui-btn mdui-btn-icon"><img src="https://i.postimg.cc/7hJchpF6/1.jpg" alt="生命里那束光"></a>
             </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="生命里那束光">
+            <img src="https://i.postimg.cc/7hJchpF6/1.jpg" alt="生命里那束光"
+                alt="生命里那束光">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>
+                文章
+            </span>
+            12
+        </div>
+        <div><span>
+                标签
+            </span>
+            25
+        </div>
+        <div><span>
+                分类
+            </span>
+            19
+        </div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/" title="回到首页">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-home"></i>
+                <div class="mdui-list-item-content">
+                    回到首页
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/about.html" title="关于博客">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-battlenet"></i>
+                <div class="mdui-list-item-content">
+                    关于博客
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/PY.html" title="学习路线">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+                <div class="mdui-list-item-content">
+                    学习路线
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/icon-eye-fill" title="我的笔记">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+                <div class="mdui-list-item-content">
+                    我的笔记
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/icon-container" title="我的简历">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+                <div class="mdui-list-item-content">
+                    我的简历
+                </div>
+            </a>
+            
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <h2 class="nexmoe-widget-title">站内搜索</h2>
+    <div class="nexmoe-widget nexmoe-search">
+        
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder=" 请输入想要搜索的内容"></label>
+            </form>
+            
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://postimg.cc/tZwsMrDy" target="_blank" mdui-tooltip="{content: 'WeChat'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-wechat-fill"></i>
+        </a><a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=2578657473&site=qq&menu=yes" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/480369104" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://weibo.com/u/5967530462" target="_blank" mdui-tooltip="{content: '微博'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-weibo"></i>
+        </a><a class="mdui-ripple" href="https://github.com/XXXxxx-collab" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=2578657473&site=qq&menu=yes" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-steam"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Categories</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JS/API/">API</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/CSS/">CSS</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Html/">Html</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JS/">JS</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JavaScript/">JavaScript</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Web前端/">Web前端</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/git版本控制/github仓库/">github仓库</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/git版本控制/">git版本控制</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/jquery常用API/">jquery常用API</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前后端交互/node-js/">node.js</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JavaScript/函数/作用域/">作用域</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JavaScript/函数/">函数</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前后端交互/">前后端交互</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/博客/">博客</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JavaScript/基础语法/">基础语法</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Html/网页布局/">网页布局</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
     </div>
   </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/APi/" style="font-size: 10px;">APi</a> <a href="/tags/BOM-API/" style="font-size: 10px;">BOM(API)</a> <a href="/tags/DOM-API/" style="font-size: 10px;">DOM(API)</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/Java-Script/" style="font-size: 10px;">Java Script</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/Web%E5%89%8D%E7%AB%AF/" style="font-size: 15px;">Web前端</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F%E3%80%81/" style="font-size: 10px;">作用域、</a> <a href="/tags/%E5%87%BD%E6%95%B0/" style="font-size: 10px;">函数</a> <a href="/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/" style="font-size: 10px;">前后端交互</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 20px;">博客</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" style="font-size: 10px;">基础语法</a> <a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 10px;">布局</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">服务器</a> <a href="/tags/%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">概念</a> <a href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%92%8C%E4%BB%93%E5%BA%93/" style="font-size: 10px;">版本控制和仓库</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">编程</a>
+    </div>
+    
+  </div>
+
+    
+</aside>
+        <div class="nexmoe-copyright">
+            &copy; 2022
+                生命里那束光
+                    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+                        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+                        
+        </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="“总结归纳：HTML基础”" class="lazyload">
+              <h1>“总结归纳：HTML基础”</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2021年09月05日</a>
 </div>
-<div id="lx-main-content">
-  <div class="lx-post">
-    <div class="lx-entry padding">
-      <div>
-        <h1 id="HTML网页设计"><a href="#HTML网页设计" class="headerlink" title="HTML网页设计"></a>HTML网页设计</h1><h5 id="Web标准（Web标准不是某一个标准，而是一系列标准的集合。）"><a href="#Web标准（Web标准不是某一个标准，而是一系列标准的集合。）" class="headerlink" title="Web标准（Web标准不是某一个标准，而是一系列标准的集合。）"></a>Web标准（Web标准不是某一个标准，而是一系列标准的集合。）</h5><p>​    网页主要由三部分组成：结构（Structure）、表现（Presentation）和行为（Behavior）。</p>
+
+      
+
+      <h1 id="HTML网页设计"><a href="#HTML网页设计" class="headerlink" title="HTML网页设计"></a>HTML网页设计</h1><h5 id="Web标准（Web标准不是某一个标准，而是一系列标准的集合。）"><a href="#Web标准（Web标准不是某一个标准，而是一系列标准的集合。）" class="headerlink" title="Web标准（Web标准不是某一个标准，而是一系列标准的集合。）"></a>Web标准（Web标准不是某一个标准，而是一系列标准的集合。）</h5><p>​    网页主要由三部分组成：结构（Structure）、表现（Presentation）和行为（Behavior）。</p>
 <p>​    对应的标准也分三方面：</p>
 <p>​                       1.结构化标准语言主要包括HTML, XHTML和XML,用于对网页元素进行整理和分类 。（躯壳）</p>
 <p>​                       2.表现标准语言主要包括CSS，用于设置网页元素的外观样式。（外貌）</p>
@@ -177,7 +409,7 @@
 <p>2.使用相应的id名标注跳转目标的位置。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h3 id=&quot;two&quot;&gt;第2集&lt;/h3&gt;</span><br></pre></td></tr></table></figure>
 
-<h5 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h5><h6 id="img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-82b4f860-54d8-4623-8cc2-93defc05cd0e-jpg-img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-6026ac6a-5c45-4329-bf7d-afd4794182c9-jpg"><a href="#img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-82b4f860-54d8-4623-8cc2-93defc05cd0e-jpg-img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-6026ac6a-5c45-4329-bf7d-afd4794182c9-jpg" class="headerlink" title="![img](file:///C:/Users/ACER/Documents/My Knowledge/temp/5ea6619a-ef3c-4093-ae34-7c6639320b7a/128/index_files/82b4f860-54d8-4623-8cc2-93defc05cd0e.jpg)  ![img](file:///C:/Users/ACER/Documents/My Knowledge/temp/5ea6619a-ef3c-4093-ae34-7c6639320b7a/128/index_files/6026ac6a-5c45-4329-bf7d-afd4794182c9.jpg)"></a>![img](file:///C:/Users/ACER/Documents/My Knowledge/temp/5ea6619a-ef3c-4093-ae34-7c6639320b7a/128/index_files/82b4f860-54d8-4623-8cc2-93defc05cd0e.jpg)  ![img](file:///C:/Users/ACER/Documents/My Knowledge/temp/5ea6619a-ef3c-4093-ae34-7c6639320b7a/128/index_files/6026ac6a-5c45-4329-bf7d-afd4794182c9.jpg)</h6><h6 id="最终效果：实现-点击-img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-63423e41-2c1f-4604-b820-2bfff15d251d-jpg-跳转到-img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-5ce92e90-40db-4998-b545-a2859293caec-jpg"><a href="#最终效果：实现-点击-img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-63423e41-2c1f-4604-b820-2bfff15d251d-jpg-跳转到-img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-5ce92e90-40db-4998-b545-a2859293caec-jpg" class="headerlink" title="最终效果：实现   点击 ![img](file:///C:/Users/ACER/Documents/My Knowledge/temp/5ea6619a-ef3c-4093-ae34-7c6639320b7a/128/index_files/63423e41-2c1f-4604-b820-2bfff15d251d.jpg)  跳转到   ![img](file:///C:/Users/ACER/Documents/My Knowledge/temp/5ea6619a-ef3c-4093-ae34-7c6639320b7a/128/index_files/5ce92e90-40db-4998-b545-a2859293caec.jpg)"></a>最终效果：实现   点击 ![img](file:///C:/Users/ACER/Documents/My Knowledge/temp/5ea6619a-ef3c-4093-ae34-7c6639320b7a/128/index_files/63423e41-2c1f-4604-b820-2bfff15d251d.jpg)  跳转到   ![img](file:///C:/Users/ACER/Documents/My Knowledge/temp/5ea6619a-ef3c-4093-ae34-7c6639320b7a/128/index_files/5ce92e90-40db-4998-b545-a2859293caec.jpg)</h6><h4 id="4-3、路径（相对路径和绝对路径）"><a href="#4-3、路径（相对路径和绝对路径）" class="headerlink" title="4.3、路径（相对路径和绝对路径）"></a>4.3、路径（相对路径和绝对路径）</h4><h5 id="相对路径："><a href="#相对路径：" class="headerlink" title="相对路径："></a><strong>相对路径</strong>：</h5><p><img src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20211026133906970.png" alt="image-20211026133906970"></p>
+<h5 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h5><h6 id="img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-82b4f860-54d8-4623-8cc2-93defc05cd0e-jpg-img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-6026ac6a-5c45-4329-bf7d-afd4794182c9-jpg"><a href="#img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-82b4f860-54d8-4623-8cc2-93defc05cd0e-jpg-img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-6026ac6a-5c45-4329-bf7d-afd4794182c9-jpg" class="headerlink" title="![img](file:///C:/Users/ACER/Documents/My Knowledge/temp/5ea6619a-ef3c-4093-ae34-7c6639320b7a/128/index_files/82b4f860-54d8-4623-8cc2-93defc05cd0e.jpg)  ![img](file:///C:/Users/ACER/Documents/My Knowledge/temp/5ea6619a-ef3c-4093-ae34-7c6639320b7a/128/index_files/6026ac6a-5c45-4329-bf7d-afd4794182c9.jpg)"></a>![img](file:///C:/Users/ACER/Documents/My Knowledge/temp/5ea6619a-ef3c-4093-ae34-7c6639320b7a/128/index_files/82b4f860-54d8-4623-8cc2-93defc05cd0e.jpg)  ![img](file:///C:/Users/ACER/Documents/My Knowledge/temp/5ea6619a-ef3c-4093-ae34-7c6639320b7a/128/index_files/6026ac6a-5c45-4329-bf7d-afd4794182c9.jpg)</h6><h6 id="最终效果：实现-点击-img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-63423e41-2c1f-4604-b820-2bfff15d251d-jpg-跳转到-img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-5ce92e90-40db-4998-b545-a2859293caec-jpg"><a href="#最终效果：实现-点击-img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-63423e41-2c1f-4604-b820-2bfff15d251d-jpg-跳转到-img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-5ce92e90-40db-4998-b545-a2859293caec-jpg" class="headerlink" title="最终效果：实现   点击 ![img](file:///C:/Users/ACER/Documents/My Knowledge/temp/5ea6619a-ef3c-4093-ae34-7c6639320b7a/128/index_files/63423e41-2c1f-4604-b820-2bfff15d251d.jpg)  跳转到   ![img](file:///C:/Users/ACER/Documents/My Knowledge/temp/5ea6619a-ef3c-4093-ae34-7c6639320b7a/128/index_files/5ce92e90-40db-4998-b545-a2859293caec.jpg)"></a>最终效果：实现   点击 ![img](file:///C:/Users/ACER/Documents/My Knowledge/temp/5ea6619a-ef3c-4093-ae34-7c6639320b7a/128/index_files/63423e41-2c1f-4604-b820-2bfff15d251d.jpg)  跳转到   ![img](file:///C:/Users/ACER/Documents/My Knowledge/temp/5ea6619a-ef3c-4093-ae34-7c6639320b7a/128/index_files/5ce92e90-40db-4998-b545-a2859293caec.jpg)</h6><h4 id="4-3、路径（相对路径和绝对路径）"><a href="#4-3、路径（相对路径和绝对路径）" class="headerlink" title="4.3、路径（相对路径和绝对路径）"></a>4.3、路径（相对路径和绝对路径）</h4><h5 id="相对路径："><a href="#相对路径：" class="headerlink" title="相对路径："></a><strong>相对路径</strong>：</h5><p><img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20211026133906970.png" alt="image-20211026133906970" class="lazyload"></p>
 <p><strong>相关说明：</strong></p>
 <table>
 <thead>
@@ -261,7 +493,7 @@
 <h3 id="七、HTML中的表单"><a href="#七、HTML中的表单" class="headerlink" title="七、HTML中的表单"></a>七、HTML中的表单</h3><h4 id="7-1、表单标签"><a href="#7-1、表单标签" class="headerlink" title="7.1、表单标签"></a><strong>7.1、表单标签</strong></h4><p><strong>目的是为了收集用户信息。</strong></p>
 <p>在我们网页中， 我们也需要跟用户进行交互，收集用户资料，此时也需要表单。</p>
 <p>在HTML中，一个完整的表单通常由表单控件（也称为表单元素）、提示信息和表单域3个部分构成。</p>
-<img src="file:///C:/Users/ACER/Documents/My Knowledge/temp/5ea6619a-ef3c-4093-ae34-7c6639320b7a/128/index_files/0.853223006075271.png" alt="img" style="zoom: 80%;">
+<img data-fancybox="gallery" data-sizes="auto" data-src="file:///C:/Users/ACER/Documents/My Knowledge/temp/5ea6619a-ef3c-4093-ae34-7c6639320b7a/128/index_files/0.853223006075271.png" alt="img" class="lazyload">
 
 <p><strong>表单控件：</strong>包含了具体的表单功能项，如单行文本输入框、密码输入框、复选框、提交按钮、重置按钮等。</p>
 <p><strong>提示信息：</strong>一个表单中通常还需要包含一些说明性的文字，提示用户进行填写和操作。</p>
@@ -293,129 +525,843 @@
 <h4 id="7-5、textarea标签-文本域"><a href="#7-5、textarea标签-文本域" class="headerlink" title="7.5、textarea标签(文本域)"></a><strong>7.5、textarea标签(文本域)</strong></h4><h4 id="img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-da30a2c3-f98a-4d68-8ade-3934a5c2e65e-jpg"><a href="#img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-da30a2c3-f98a-4d68-8ade-3934a5c2e65e-jpg" class="headerlink" title="![img](file:///C:/Users/ACER/Documents/My Knowledge/temp/5ea6619a-ef3c-4093-ae34-7c6639320b7a/128/index_files/da30a2c3-f98a-4d68-8ade-3934a5c2e65e.jpg)"></a>![img](file:///C:/Users/ACER/Documents/My Knowledge/temp/5ea6619a-ef3c-4093-ae34-7c6639320b7a/128/index_files/da30a2c3-f98a-4d68-8ade-3934a5c2e65e.jpg)</h4><p><strong>如果需要输入大量的文本信息，就需要用到textarea/textarea标签。通过textarea控件可以轻松地创建多行文本输入框，其基本语法格式如下：</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;textarea cols=&quot;每行中的字符数&quot; rows=&quot;显示的行数&quot;&gt;文本内容</span><br><span class="line">&lt;/textarea&gt;</span><br></pre></td></tr></table></figure>
 </h1></h1>
-      </div>
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>生命里那束光<br>
+        <strong>Link：</strong><a href="https://xxxxxx-collab.github.io/2021/09/05/HTML%E5%9F%BA%E7%A1%80/" title="https:&#x2F;&#x2F;xxxxxx-collab.github.io&#x2F;2021&#x2F;09&#x2F;05&#x2F;HTML%E5%9F%BA%E7%A1%80&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;xxxxxx-collab.github.io&#x2F;2021&#x2F;09&#x2F;05&#x2F;HTML%E5%9F%BA%E7%A1%80&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
     </div>
-  </div>
-</div>
-<div class="lx-navigation">
-	<div class="lx-cover next lx-cover-sm" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/images/footer-l.min.jpeg)">
-		<div class="overlay"></div>
-		<a class="copy" href="/2021/10/01/CSS%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%882%EF%BC%89/">
-			<div class="display-t">
-				<div class="display-tc">
-					<div>
-						<span>Next</span>
-						<h3>
-							
-								“总结归纳：C...
-									
-						</h3>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
-	<div class="lx-cover prev lx-cover-sm" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/images/footer-r.min.jpeg)">
-		<div class="overlay"></div>
-		<a class="copy" href="/2021/08/16/CSS%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/">
-			<div class="display-t">
-				<div class="display-tc">
-					<div>
-						<span>Prev</span>
-						<h3>
-							
-								“总结归纳：C...
-									
-						</h3>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
-</div>
-</div>
 
-<footer>
-  <div>
-  Copyright &copy; 2022.<a href="/">那束光のBlog</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
-  </div>
-</footer>
 
-</div>
-
-<button class="hamburger hamburger--arrow-r" type="button" title="menu">
-    <div class="hamburger-box">
-      <div class="hamburger-inner"></div>
-    </div>
-</button>
-<div class="menu visibility">
-  <div class="menu-head">
-    <span class="layer">
-      <div class="col">
-        <div class="row for-pic">
-          <div class="profile-pic">
-            <a href="/"><img src="https://i.postimg.cc/7hJchpF6/1.jpg" alt="生命里那束光"/></a>
-          </div>
-        </div>
-        <div class="row for-name">
-          <p>生命里那束光</p>
-          <span class="tagline">Hello, World!</span>
-        </div>
-      </div>
-    </span>
-  </div>
-  <nav class="menu-container">
-  <ul class="menu-items">
-    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
-    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
     
-    <li class="has-sub"><span class="dropdown-heading">
-      <i class="fa fa-bookmark fa-fw"></i>页面</span>
-        <ul>
-          <li><a href="/guestbook/">Guestbook</a></li>
-        <li><a href="/about/">About</a></li>
-        </ul>
-    </li>
-    <li class="has-sub"><span class="dropdown-heading">
-      <i class="fa fa-link fa-fw"></i>友链</span>
-        <ul>
-          <li> <a href="https://lx.js.org" target="_blank">Theme-Lx</a></li>
-        </ul>
-    </li>
-  </ul>
-  </nav>
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/Html/">Html</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/Html/%E7%BD%91%E9%A1%B5%E5%B8%83%E5%B1%80/">网页布局</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/HTML/" rel="tag">HTML</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a>
+    
 </div>
 
-<div class="gototop js-top">
-  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'nexmoe.github.io',
+        owner: 'nexmoe',
+        admin: 'nexmoe'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
 </div>
-<script src="https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/js/jquery.easing.min.js"></script>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.</span> <span class="toc-text">HTML网页设计</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Web%E6%A0%87%E5%87%86%EF%BC%88Web%E6%A0%87%E5%87%86%E4%B8%8D%E6%98%AF%E6%9F%90%E4%B8%80%E4%B8%AA%E6%A0%87%E5%87%86%EF%BC%8C%E8%80%8C%E6%98%AF%E4%B8%80%E7%B3%BB%E5%88%97%E6%A0%87%E5%87%86%E7%9A%84%E9%9B%86%E5%90%88%E3%80%82%EF%BC%89"><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">Web标准（Web标准不是某一个标准，而是一系列标准的集合。）</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">HTML概念</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">。虽然现在我们还不知道具体标签代表的意思，但标签一定是这样的格式：有一对开始&lt;&gt;和结束&lt;&#x2F;&gt;。一般标签名推荐用小写。标签具有属性，属性用来表示标签的特征。比如，我们用大小这个属性，来衡量一个苹果。所以，大小可以用来表示苹果的特征。属性时写在标签里面的，而且是开始标签内。
+三、HTML 的基本结构
+ 结构由网页的头部和网页的身体组成。如下例子：
+1
+2
+3
+4
+5
+6
+7
+8
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;这是我的博客&lt;&#x2F;title&gt;         &lt;!-- 网页标题 --&gt;
+    &lt;&#x2F;head&gt;
+    &lt;body&gt;
+      这是我的身体。        &lt;!-- 文档的主体，页面内容基本放在body里面 --&gt;
+    &lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;
+
+
+HTML标签分类在HTML页面中，带有“&lt; &gt;”符号的元素被称为HTML标签。所谓标签就是放在“&lt; &gt;” 标签符中表示某个功能的编码命令，也称为HTML标签或 HTML元素****。
+1.双标签
+&lt;标签名&gt; 内容 &lt;&#x2F;标签名&gt;
+该语法中“&lt;标签名&gt;”表示该标签的作用开始，一般称为“开始标签（start tag）”，“&lt;&#x2F;标签名&gt;” 表示该标签的作用结束，一般称为“结束标签（end tag）”。和开始标签相比，结束标签只是在前面加了一个关闭符“&#x2F;”。
+比如 ****我是文字 
+2.单标签
+&lt;标签名 &#x2F;&gt;
+单标签也称空标签，是指用一个标签符号即可完整地描述某个功能的标签。
+比如 
+
+**
+**
+HTML标签关系标签的相互关系就分为两种：
+1.嵌套关系
+   
+2.并列关系
+**
+**
+
+**
+**
+**
+**
+&#x3D;&#x3D;HTML常用标签&#x3D;&#x3D;一、HTML中的标题（-）1.1、标题标签基本语法格式如下：&lt;h#&gt; 标题文本 &lt;&#x2F;h#&gt;注意： h1 标签因为重要，尽量少用，不要动不动就向你扔了一个h1。 一般h1 都是给logo使用，或者页面中最重要标题信息。
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+&lt;h1&gt;标题1&lt;&#x2F;h1&gt;             
+ 
+&lt;h2&gt;标题2&lt;&#x2F;h2&gt;
+ 
+&lt;h3&gt;标题3&lt;&#x2F;h3&gt;
+ 
+&lt;h4&gt;标题4&lt;&#x2F;h4&gt;
+ 
+&lt;h5&gt;标题5&lt;&#x2F;h5&gt;
+ 
+&lt;h6&gt;标题6&lt;&#x2F;h6&gt;
+
+
+![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;11c9251e-eb1b-497f-90db-db093e395047.jpg)
+2.注释标签
+在HTML中还有一种特殊的标签——注释标签。如果需要在HTML文档中添加一些便于阅读和理解但又不需要显示在页面中的注释文字，就需要使用注释标签。其基本语法格式如下：
+1
+&lt;!-- 注释语句 --&gt;   ctrl + &#x2F;       或者 ctrl +shift + &#x2F;
+
+
+注释内容不会显示在浏览器窗口中，但是作为HTML文档内容的一部分，也会被下载到用户的计算机上，查看源代码时就可以看到。
+二、HTML中的文字2.1、段落标签单词缩写： paragraph 段落 [ˈpærəgræf] 无须记这个单词
+在网页中要把文字有条理地显示出来，离不开段落标签，就如同我们平常写文章一样，整个网页也可以分为若干个段落，而段落的标签就是
+1
+&lt;p&gt;  文本内容  &lt;&#x2F;p&gt;
+
+
+是HTML文档中最常见的标签，默认情况下，文本在一个段落中会根据浏览器窗口的大小自动换行。
+2.2、换行标签单词缩写： break 打断 ,换行
+在HTML中，一个段落中的文字会从左到右依次排列，直到浏览器窗口的右端，然后自动换行。如果希望某段文本强制换行显示，就需要使用换行标签
+1
+&lt;br &#x2F;&gt;
+
+
+2.3、div span标签div span 是没有语义的 是我们网页布局主要的2个盒子 css+div
+div 就是 division 的缩写 分割， 分区的意思 其实有很多div 来组合网页。
+语法格式：
+1
+&lt;div&gt; 这是头部 &lt;&#x2F;div&gt;    &lt;span&gt;今日价格&lt;&#x2F;span&gt;
+
+
+2.4、文本格式标签在网页中，有时需要为文字设置粗体、斜体或下划线效果，这时就需要用到HTML中的文本格式化标签，使文字以特殊的方式显示。
+![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;0.8733203296777664.png)
+三、HTML中的图像3.1、图像标签imgHTML网页中任何元素的实现都要依靠HTML标签，要想在网页中显示图像就需要使用图像标签，接下来将详细介绍图像标签以及和他相关的属性。其基本语法格式如下：
+该语法中src属性用于指定图像文件的路径和文件名，他是img标签的必需属性。
+1
+&lt;img src&#x3D;&quot;图像URL&quot; &#x2F;&gt;
+
+
+*![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;0.14571880950511662.png)
+*
+四、HTML中的超链接4.1、链接标签在HTML中创建超链接非常简单，只需用标签环绕需要被链接的对象即可，其基本语法格式如下：
+1
+&lt;a href&#x3D;&quot;跳转目标&quot; target&#x3D;&quot;目标窗口的弹出方式&quot;&gt;文本或图像&lt;&#x2F;a&gt;
+
+
+
+href：用于指定链接目标的url地址，当为标签应用href属性时，它就具有了超链接的功能。 Hypertext Reference的缩写。意思是超文本引用
+target：用于指定链接页面的打开方式，其取值有self和blank两种，其中self为默认值，blank为在新窗口中打开方式。
+
+注意：
+
+1.外部链接 需要添加 http:&#x2F;&#x2F; www.baidu.com
+2.内部链接 直接链接内部页面名称即可 比如 &lt; a href&#x3D;”index.html”&gt; 首页 
+3.如果当时没有确定链接目标时，通常将链接标签的href属性值定义为“#”(即href&#x3D;”#”)，表示该链接暂时为一个空链接。
+4.不仅可以创建文本超链接，在网页中各种网页元素，如图像、表格、音频、视频等都可以添加超链接。
+
+4.2、锚点链接定位 （寻址和地址搭配使用 快速定位相关内容）创建锚点链接，用户能够快速定位到目标内容。创建锚点链接分为两步：
+1.使用&lt;“a href&#x3D;”#id名&gt;“链接文本”创建链接文本（被点击的）
+1
+&lt;a href&#x3D;&quot;#two&quot;&gt;  
+
+
+2.使用相应的id名标注跳转目标的位置。
+1
+&lt;h3 id&#x3D;&quot;two&quot;&gt;第2集&lt;&#x2F;h3&gt;
+
+
+实例：![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;82b4f860-54d8-4623-8cc2-93defc05cd0e.jpg)  ![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;6026ac6a-5c45-4329-bf7d-afd4794182c9.jpg)最终效果：实现   点击 ![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;63423e41-2c1f-4604-b820-2bfff15d251d.jpg)  跳转到   ![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;5ce92e90-40db-4998-b545-a2859293caec.jpg)4.3、路径（相对路径和绝对路径）相对路径：
+相关说明：
+
+
+
+.&#x2F;                 当前目录
+
+
+
+
+..&#x2F;                回到上一层目录
+
+
+
+images&#x2F;       进入一层目录
+
+
+
+..&#x2F;images&#x2F;    回到上一层目录，然后再进入images目录
+
+
+
+绝对路径绝对路径以Web站点根目录为参考基础的目录路径。之所以称为绝对，意指当所有网页引用同一个文件时，所使用的路径都是一样的
+“D:\web\img\logo.gif”，或完整的网络地址，例如“http:&#x2F;&#x2F;www.itcast.cn&#x2F;images&#x2F;logo.gif”。
+五、HTML中的表格5.1、表格 table表格的现在还是较为常用的一种标签，但不是用来布局，常见处理、显示表格式数据。
+表格的创建：在HTML网页中，要想创建表格，就需要使用表格相关的标签。创建表格的基本语法格式如下：
+1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;table&gt;
+  &lt;tr&gt;           &lt;!--表格第一行--&gt;
+    &lt;td&gt;单元格内的文字&lt;&#x2F;td&gt;    &lt;!--表格第一行第一个空格--&gt;
+    ...
+  &lt;&#x2F;tr&gt;
+  &lt;tr&gt;           &lt;!--表格第二行--&gt;
+    ...
+  &lt;&#x2F;tr&gt;
+&lt;&#x2F;table&gt;
+
+
+在上面的语法中包含三对HTML标签，分别为 table&lt;&#x2F;table、tr&lt;&#x2F;tr、td&lt;&#x2F;td，他们是创建表格的基本标签，缺一不可，下面对他们进行具体地解释:
+1.table用于定义一个表格。
+2.tr 用于定义表格中的一行，必须嵌套在 table标签中，在 table中包含几对 tr，就有几行表格。
+3.td &#x2F;td：用于定义表格中的单元格，必须嵌套在标签中，一对  中包含几对，就表示该行中有多少列（或多少个单元格）。
+注意：
+
+中只能嵌套
+标签，他就像一个容器，可以容纳所有的元素
+
+5.2、表格属性用法：
+1
+2
+3
+&lt;table witdth&#x3D;&quot;500&quot; border&#x3D;&quot;1&quot; &gt;
+    ...
+&lt;&#x2F;table&gt;
+
+
+![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;0.9438506086094592.png)![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;0.54452529910397.png)
+5.3、表格结构（了解即可）在使用表格进行布局时，可以将表格划分为头部、主体和页脚（页脚因为有兼容性问题，我们不在赘述），具体 如下所示：
+：用于定义表格的头部。
+
+必须位于 标签中，一般包含网页的logo和导航等头部信息。
+：用于定义表格的主体。
+
+位于标签中，一般包含网页中除头部和底部之外的其他内容。
+![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;0.2732266909440791.png)
+5.4、表格标题表格的标题： caption
+用法：caption 元素定义表格标题。
+1
+2
+3
+&lt;table&gt;
+   &lt;caption&gt;我是表格标题&lt;&#x2F;caption&gt;
+&lt;&#x2F;table&gt;
+
+
+caption 标签必须紧随 table 标签之后。您只能对每个表格定义一个标题。通常这个标题会被居中于表格之上。
+5.5、合并单元格(难点)跨行合并：rowspan    跨列合并：colspan
+合并单元格的思想：
+ 将多个内容合并的时候，就会有多余的东西，把它删除。 例如 把 3个 td 合并成一个， 那就多余了2个，需要删除。
+ 公式： 删除的个数 &#x3D; 合并的个数 - 1
+合并的顺序 先上 先左.
+总结表格表格提供了HTML 中定义表格式数据的方法。
+表格中由行中的单元格组成。
+表格中没有列元素，列的个数取决于行的单元格个数。
+表格不要纠结于外观，那是CSS 的作用。
+六、HTML中的列表（无序列表、有序列表、自定义列表）6.1、无序列表 ul （重点）![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;31b91f22-4971-4b65-afbe-c4fe108a6bc6.png)无序列表的各个列表项之间没有顺序级别之分，是并列的。其基本语法格式如下：
+1
+2
+3
+4
+5
+6
+&lt;ul&gt;
+  &lt;li&gt;列表项1&lt;&#x2F;li&gt;
+  &lt;li&gt;列表项2&lt;&#x2F;li&gt;
+  &lt;li&gt;列表项3&lt;&#x2F;li&gt;
+  ......
+&lt;&#x2F;ul&gt;
+
+
+先到先得，后发布先显示。
+注意：
+
+中只能嵌套，直接在标签中输入其他标签或者文字的做法是不被允许的。
+与之间相当于一个容器，可以容纳所有元素。
+无序列表会带有自己样式属性，放下那个样式，一会让CSS来！
+
+
+6.2、有序列表 ol （了解）![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;537a3377-5bda-483c-8e21-71fe6ecc248a.png)有序列表即为有排列顺序的列表，其各个列表项按照一定的顺序排列定义，有序列表的基本语法格式如下：
+1
+2
+3
+4
+5
+6
+&lt;ol&gt;
+  &lt;li&gt;列表项1&lt;&#x2F;li&gt;
+  &lt;li&gt;列表项2&lt;&#x2F;li&gt;
+  &lt;li&gt;列表项3&lt;&#x2F;li&gt;
+  ......
+&lt;&#x2F;ol&gt;
+
+
+所有特性基本与ul 一致。 但是实际工作中， 较少用 ol
+6.3、自定义列表（理解）![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;b6fa099d-d9cf-4286-939e-08750cd94e03.png)定义列表常用于对术语或名词进行解释和描述，定义列表的列表项前没有任何项目符号。其基本语法如下：
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+&lt;dl&gt;
+  &lt;dt&gt;名词1&lt;&#x2F;dt&gt;
+  &lt;dd&gt;名词1解释1&lt;&#x2F;dd&gt;
+  &lt;dd&gt;名词1解释2&lt;&#x2F;dd&gt;
+  ...
+  &lt;dt&gt;名词2&lt;&#x2F;dt&gt;
+  &lt;dd&gt;名词2解释1&lt;&#x2F;dd&gt;
+  &lt;dd&gt;名词2解释2&lt;&#x2F;dd&gt;
+  ...
+&lt;&#x2F;dl&gt;
+
+
+七、HTML中的表单7.1、表单标签目的是为了收集用户信息。
+在我们网页中， 我们也需要跟用户进行交互，收集用户资料，此时也需要表单。
+在HTML中，一个完整的表单通常由表单控件（也称为表单元素）、提示信息和表单域3个部分构成。
+
+
+表单控件：包含了具体的表单功能项，如单行文本输入框、密码输入框、复选框、提交按钮、重置按钮等。
+提示信息：一个表单中通常还需要包含一些说明性的文字，提示用户进行填写和操作。
+表单域：他相当于一个容器，用来容纳所有的表单控件和提示信息，可以通过他定义处理表单数据所用程序的url地址，以及数据提交到服务器的方法。如果不定义表单域，表单中的数据就无法传送到后台服务器。
+表单域在HTML中，form标签被用于定义表单域，即创建一个表单，以实现用户信息的收集和传递，form中的所有内容都会被提交给服务器。创建表单的基本语法格式如下：
+1
+2
+3
+&lt;form action&#x3D;&quot;url地址&quot; method&#x3D;&quot;提交方式&quot; name&#x3D;&quot;表单名称&quot;&gt;
+  各种表单控件
+&lt;&#x2F;form&gt;
+
+
+常用属性：
+Action在表单收集到信息后，需要将信息传递给服务器进行处理，action属性用于指定接收并处理表单数据的服务器程序的url地址。
+method用于设置表单数据的提交方式，其取值为get或post。
+name用于指定表单的名称，以区分同一个页面中的多个表单。
+注意： 每个表单都应该有自己表单域。
+7.2、input 控件(重点)在上面的语法中，input &#x2F;标签为单标签，type属性为其最基本的属性，其取值有多种，用于指定不同的控件类型。除了type属性之外，input &#x2F;标签还可以定义很多其他的属性，其常用属性如下表所示。
+1
+2
+3
+4
+5
+6
+7
+8
+&lt;form&gt;
+  用户名：&lt;input type&#x3D;&quot;text&quot; value&#x3D;&quot;请输入用户名&quot; maxlength&#x3D;&quot;8&quot;&gt; &lt;br&gt;       &lt;!--框内提示“请输入用户名” 最多输入8位--&gt;
+  密码：&lt;input type&#x3D;&quot;password&quot;&gt; &lt;br&gt;            &lt;!--类型为密码输入框 可以隐藏输入内容--&gt;
+  性别：&lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot; checked&#x3D;&quot;checked&quot;&gt;男    &lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot;&gt;女 &lt;br&gt;    &lt;!--性别默认（checked控件）为男 只能单选（name控件）--&gt;
+  爱好：&lt;input type&#x3D;&quot;checkbox&quot;&gt;看书 &lt;input type&#x3D;&quot;checkbox&quot;&gt;听歌 &lt;input type&#x3D;&quot;checkbox&quot;&gt;健身 &lt;br&gt;         &lt;!--爱好为多选框--&gt;
+  个人介绍：&lt;textarea&gt;个人简介&lt;&#x2F;textarea&gt; &lt;br&gt;      &lt;!--多行文本框--&gt;
+  &lt;input type&#x3D;&quot;submit&quot; value&#x3D;&quot;提交&quot;&gt;       &lt;!--按钮 通过value属性更改按钮内文字--&gt; 
+&lt;&#x2F;form&gt;
+
+
+![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;0.834206246864057.png)![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;1dbeb5e8-f1ba-42a7-ab30-a88e4186eaf1.png)
+7.3、label标签![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;8e4e7726-65e1-44a8-a828-04855f9ec285.jpg)![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;e1972fcf-7ae2-4bf4-bccf-ab49b1c5694a.png)label 标签为 input 元素定义标注（标签）。
+作用： 用于绑定一个表单元素, 当点击label标签的时候, 被绑定的表单元素就会获得输入焦点，用来增加用户体贴
+相关语法（搭配使用）：
+1
+2
+性别：&lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot; id&#x3D;&quot;man&quot;&gt; 
+&lt;label for&#x3D;&quot;man&quot;&gt;男&lt;&gt;label&gt;         &lt;!--扩大点击的范围--&gt;
+
+
+ for&#x3D;”male”&gt;Male
+
+7.4、select标签(下拉表单）![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;a6cca191-41fc-4c22-8a67-0ba4558d7006.jpg)1
+2
+3
+4
+5
+6
+&lt;select&gt;
+  &lt;option&gt;选项1&lt;&#x2F;option&gt;
+  &lt;option&gt;选项2&lt;&#x2F;option&gt;
+  &lt;option selected&#x3D;&quot;selected&quot;&gt;选项3&lt;&#x2F;option&gt;    &lt;!-- 该选项为默认选中项 --&gt;
+  ...
+&lt;&#x2F;select&gt;
+
+
+注意：
+1、select&lt;&#x2F;select中至少应包含一对option&gt;&lt;&#x2F;option。
+2、在option 中定义selected &#x3D;” selected “时，当前项即为默认选中项
+7.5、textarea标签(文本域)![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;da30a2c3-f98a-4d68-8ade-3934a5c2e65e.jpg)如果需要输入大量的文本信息，就需要用到textarea&#x2F;textarea标签。通过textarea控件可以轻松地创建多行文本输入框，其基本语法格式如下：
+1
+2
+&lt;textarea cols&#x3D;&quot;每行中的字符数&quot; rows&#x3D;&quot;显示的行数&quot;&gt;文本内容
+&lt;&#x2F;textarea&gt;
+
+</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">。虽然现在我们还不知道具体标签代表的意思，但标签一定是这样的格式：有一对开始&lt;&gt;和结束&lt;&#x2F;&gt;。一般标签名推荐用小写。标签具有属性，属性用来表示标签的特征。比如，我们用大小这个属性，来衡量一个苹果。所以，大小可以用来表示苹果的特征。属性时写在标签里面的，而且是开始标签内。
+三、HTML 的基本结构
+ 结构由网页的头部和网页的身体组成。如下例子：
+1
+2
+3
+4
+5
+6
+7
+8
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;这是我的博客&lt;&#x2F;title&gt;         &lt;!-- 网页标题 --&gt;
+    &lt;&#x2F;head&gt;
+    &lt;body&gt;
+      这是我的身体。        &lt;!-- 文档的主体，页面内容基本放在body里面 --&gt;
+    &lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;
+
+
+HTML标签分类在HTML页面中，带有“&lt; &gt;”符号的元素被称为HTML标签。所谓标签就是放在“&lt; &gt;” 标签符中表示某个功能的编码命令，也称为HTML标签或 HTML元素****。
+1.双标签
+&lt;标签名&gt; 内容 &lt;&#x2F;标签名&gt;
+该语法中“&lt;标签名&gt;”表示该标签的作用开始，一般称为“开始标签（start tag）”，“&lt;&#x2F;标签名&gt;” 表示该标签的作用结束，一般称为“结束标签（end tag）”。和开始标签相比，结束标签只是在前面加了一个关闭符“&#x2F;”。
+比如 ****我是文字 
+2.单标签
+&lt;标签名 &#x2F;&gt;
+单标签也称空标签，是指用一个标签符号即可完整地描述某个功能的标签。
+比如 
+
+**
+**
+HTML标签关系标签的相互关系就分为两种：
+1.嵌套关系
+   
+2.并列关系
+**
+**
+
+**
+**
+**
+**
+&#x3D;&#x3D;HTML常用标签&#x3D;&#x3D;一、HTML中的标题（-）1.1、标题标签基本语法格式如下：&lt;h#&gt; 标题文本 &lt;&#x2F;h#&gt;注意： h1 标签因为重要，尽量少用，不要动不动就向你扔了一个h1。 一般h1 都是给logo使用，或者页面中最重要标题信息。
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+&lt;h1&gt;标题1&lt;&#x2F;h1&gt;             
+ 
+&lt;h2&gt;标题2&lt;&#x2F;h2&gt;
+ 
+&lt;h3&gt;标题3&lt;&#x2F;h3&gt;
+ 
+&lt;h4&gt;标题4&lt;&#x2F;h4&gt;
+ 
+&lt;h5&gt;标题5&lt;&#x2F;h5&gt;
+ 
+&lt;h6&gt;标题6&lt;&#x2F;h6&gt;
+
+
+![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;11c9251e-eb1b-497f-90db-db093e395047.jpg)
+2.注释标签
+在HTML中还有一种特殊的标签——注释标签。如果需要在HTML文档中添加一些便于阅读和理解但又不需要显示在页面中的注释文字，就需要使用注释标签。其基本语法格式如下：
+1
+&lt;!-- 注释语句 --&gt;   ctrl + &#x2F;       或者 ctrl +shift + &#x2F;
+
+
+注释内容不会显示在浏览器窗口中，但是作为HTML文档内容的一部分，也会被下载到用户的计算机上，查看源代码时就可以看到。
+二、HTML中的文字2.1、段落标签单词缩写： paragraph 段落 [ˈpærəgræf] 无须记这个单词
+在网页中要把文字有条理地显示出来，离不开段落标签，就如同我们平常写文章一样，整个网页也可以分为若干个段落，而段落的标签就是
+1
+&lt;p&gt;  文本内容  &lt;&#x2F;p&gt;
+
+
+是HTML文档中最常见的标签，默认情况下，文本在一个段落中会根据浏览器窗口的大小自动换行。
+2.2、换行标签单词缩写： break 打断 ,换行
+在HTML中，一个段落中的文字会从左到右依次排列，直到浏览器窗口的右端，然后自动换行。如果希望某段文本强制换行显示，就需要使用换行标签
+1
+&lt;br &#x2F;&gt;
+
+
+2.3、div span标签div span 是没有语义的 是我们网页布局主要的2个盒子 css+div
+div 就是 division 的缩写 分割， 分区的意思 其实有很多div 来组合网页。
+语法格式：
+1
+&lt;div&gt; 这是头部 &lt;&#x2F;div&gt;    &lt;span&gt;今日价格&lt;&#x2F;span&gt;
+
+
+2.4、文本格式标签在网页中，有时需要为文字设置粗体、斜体或下划线效果，这时就需要用到HTML中的文本格式化标签，使文字以特殊的方式显示。
+![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;0.8733203296777664.png)
+三、HTML中的图像3.1、图像标签imgHTML网页中任何元素的实现都要依靠HTML标签，要想在网页中显示图像就需要使用图像标签，接下来将详细介绍图像标签以及和他相关的属性。其基本语法格式如下：
+该语法中src属性用于指定图像文件的路径和文件名，他是img标签的必需属性。
+1
+&lt;img src&#x3D;&quot;图像URL&quot; &#x2F;&gt;
+
+
+*![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;0.14571880950511662.png)
+*
+四、HTML中的超链接4.1、链接标签在HTML中创建超链接非常简单，只需用标签环绕需要被链接的对象即可，其基本语法格式如下：
+1
+&lt;a href&#x3D;&quot;跳转目标&quot; target&#x3D;&quot;目标窗口的弹出方式&quot;&gt;文本或图像&lt;&#x2F;a&gt;
+
+
+
+href：用于指定链接目标的url地址，当为标签应用href属性时，它就具有了超链接的功能。 Hypertext Reference的缩写。意思是超文本引用
+target：用于指定链接页面的打开方式，其取值有self和blank两种，其中self为默认值，blank为在新窗口中打开方式。
+
+注意：
+
+1.外部链接 需要添加 http:&#x2F;&#x2F; www.baidu.com
+2.内部链接 直接链接内部页面名称即可 比如 &lt; a href&#x3D;”index.html”&gt; 首页 
+3.如果当时没有确定链接目标时，通常将链接标签的href属性值定义为“#”(即href&#x3D;”#”)，表示该链接暂时为一个空链接。
+4.不仅可以创建文本超链接，在网页中各种网页元素，如图像、表格、音频、视频等都可以添加超链接。
+
+4.2、锚点链接定位 （寻址和地址搭配使用 快速定位相关内容）创建锚点链接，用户能够快速定位到目标内容。创建锚点链接分为两步：
+1.使用&lt;“a href&#x3D;”#id名&gt;“链接文本”创建链接文本（被点击的）
+1
+&lt;a href&#x3D;&quot;#two&quot;&gt;  
+
+
+2.使用相应的id名标注跳转目标的位置。
+1
+&lt;h3 id&#x3D;&quot;two&quot;&gt;第2集&lt;&#x2F;h3&gt;
+
+
+实例：![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;82b4f860-54d8-4623-8cc2-93defc05cd0e.jpg)  ![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;6026ac6a-5c45-4329-bf7d-afd4794182c9.jpg)最终效果：实现   点击 ![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;63423e41-2c1f-4604-b820-2bfff15d251d.jpg)  跳转到   ![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;5ce92e90-40db-4998-b545-a2859293caec.jpg)4.3、路径（相对路径和绝对路径）相对路径：
+相关说明：
+
+
+
+.&#x2F;                 当前目录
+
+
+
+
+..&#x2F;                回到上一层目录
+
+
+
+images&#x2F;       进入一层目录
+
+
+
+..&#x2F;images&#x2F;    回到上一层目录，然后再进入images目录
+
+
+
+绝对路径绝对路径以Web站点根目录为参考基础的目录路径。之所以称为绝对，意指当所有网页引用同一个文件时，所使用的路径都是一样的
+“D:\web\img\logo.gif”，或完整的网络地址，例如“http:&#x2F;&#x2F;www.itcast.cn&#x2F;images&#x2F;logo.gif”。
+五、HTML中的表格5.1、表格 table表格的现在还是较为常用的一种标签，但不是用来布局，常见处理、显示表格式数据。
+表格的创建：在HTML网页中，要想创建表格，就需要使用表格相关的标签。创建表格的基本语法格式如下：
+1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;table&gt;
+  &lt;tr&gt;           &lt;!--表格第一行--&gt;
+    &lt;td&gt;单元格内的文字&lt;&#x2F;td&gt;    &lt;!--表格第一行第一个空格--&gt;
+    ...
+  &lt;&#x2F;tr&gt;
+  &lt;tr&gt;           &lt;!--表格第二行--&gt;
+    ...
+  &lt;&#x2F;tr&gt;
+&lt;&#x2F;table&gt;
+
+
+在上面的语法中包含三对HTML标签，分别为 table&lt;&#x2F;table、tr&lt;&#x2F;tr、td&lt;&#x2F;td，他们是创建表格的基本标签，缺一不可，下面对他们进行具体地解释:
+1.table用于定义一个表格。
+2.tr 用于定义表格中的一行，必须嵌套在 table标签中，在 table中包含几对 tr，就有几行表格。
+3.td &#x2F;td：用于定义表格中的单元格，必须嵌套在标签中，一对  中包含几对，就表示该行中有多少列（或多少个单元格）。
+注意：
+
+中只能嵌套
+标签，他就像一个容器，可以容纳所有的元素
+
+5.2、表格属性用法：
+1
+2
+3
+&lt;table witdth&#x3D;&quot;500&quot; border&#x3D;&quot;1&quot; &gt;
+    ...
+&lt;&#x2F;table&gt;
+
+
+![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;0.9438506086094592.png)![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;0.54452529910397.png)
+5.3、表格结构（了解即可）在使用表格进行布局时，可以将表格划分为头部、主体和页脚（页脚因为有兼容性问题，我们不在赘述），具体 如下所示：
+：用于定义表格的头部。
+
+必须位于 标签中，一般包含网页的logo和导航等头部信息。
+：用于定义表格的主体。
+
+位于标签中，一般包含网页中除头部和底部之外的其他内容。
+![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;0.2732266909440791.png)
+5.4、表格标题表格的标题： caption
+用法：caption 元素定义表格标题。
+1
+2
+3
+&lt;table&gt;
+   &lt;caption&gt;我是表格标题&lt;&#x2F;caption&gt;
+&lt;&#x2F;table&gt;
+
+
+caption 标签必须紧随 table 标签之后。您只能对每个表格定义一个标题。通常这个标题会被居中于表格之上。
+5.5、合并单元格(难点)跨行合并：rowspan    跨列合并：colspan
+合并单元格的思想：
+ 将多个内容合并的时候，就会有多余的东西，把它删除。 例如 把 3个 td 合并成一个， 那就多余了2个，需要删除。
+ 公式： 删除的个数 &#x3D; 合并的个数 - 1
+合并的顺序 先上 先左.
+总结表格表格提供了HTML 中定义表格式数据的方法。
+表格中由行中的单元格组成。
+表格中没有列元素，列的个数取决于行的单元格个数。
+表格不要纠结于外观，那是CSS 的作用。
+六、HTML中的列表（无序列表、有序列表、自定义列表）6.1、无序列表 ul （重点）![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;31b91f22-4971-4b65-afbe-c4fe108a6bc6.png)无序列表的各个列表项之间没有顺序级别之分，是并列的。其基本语法格式如下：
+1
+2
+3
+4
+5
+6
+&lt;ul&gt;
+  &lt;li&gt;列表项1&lt;&#x2F;li&gt;
+  &lt;li&gt;列表项2&lt;&#x2F;li&gt;
+  &lt;li&gt;列表项3&lt;&#x2F;li&gt;
+  ......
+&lt;&#x2F;ul&gt;
+
+
+先到先得，后发布先显示。
+注意：
+
+中只能嵌套，直接在标签中输入其他标签或者文字的做法是不被允许的。
+与之间相当于一个容器，可以容纳所有元素。
+无序列表会带有自己样式属性，放下那个样式，一会让CSS来！
+
+
+6.2、有序列表 ol （了解）![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;537a3377-5bda-483c-8e21-71fe6ecc248a.png)有序列表即为有排列顺序的列表，其各个列表项按照一定的顺序排列定义，有序列表的基本语法格式如下：
+1
+2
+3
+4
+5
+6
+&lt;ol&gt;
+  &lt;li&gt;列表项1&lt;&#x2F;li&gt;
+  &lt;li&gt;列表项2&lt;&#x2F;li&gt;
+  &lt;li&gt;列表项3&lt;&#x2F;li&gt;
+  ......
+&lt;&#x2F;ol&gt;
+
+
+所有特性基本与ul 一致。 但是实际工作中， 较少用 ol
+6.3、自定义列表（理解）![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;b6fa099d-d9cf-4286-939e-08750cd94e03.png)定义列表常用于对术语或名词进行解释和描述，定义列表的列表项前没有任何项目符号。其基本语法如下：
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+&lt;dl&gt;
+  &lt;dt&gt;名词1&lt;&#x2F;dt&gt;
+  &lt;dd&gt;名词1解释1&lt;&#x2F;dd&gt;
+  &lt;dd&gt;名词1解释2&lt;&#x2F;dd&gt;
+  ...
+  &lt;dt&gt;名词2&lt;&#x2F;dt&gt;
+  &lt;dd&gt;名词2解释1&lt;&#x2F;dd&gt;
+  &lt;dd&gt;名词2解释2&lt;&#x2F;dd&gt;
+  ...
+&lt;&#x2F;dl&gt;
+
+
+七、HTML中的表单7.1、表单标签目的是为了收集用户信息。
+在我们网页中， 我们也需要跟用户进行交互，收集用户资料，此时也需要表单。
+在HTML中，一个完整的表单通常由表单控件（也称为表单元素）、提示信息和表单域3个部分构成。
+
+
+表单控件：包含了具体的表单功能项，如单行文本输入框、密码输入框、复选框、提交按钮、重置按钮等。
+提示信息：一个表单中通常还需要包含一些说明性的文字，提示用户进行填写和操作。
+表单域：他相当于一个容器，用来容纳所有的表单控件和提示信息，可以通过他定义处理表单数据所用程序的url地址，以及数据提交到服务器的方法。如果不定义表单域，表单中的数据就无法传送到后台服务器。
+表单域在HTML中，form标签被用于定义表单域，即创建一个表单，以实现用户信息的收集和传递，form中的所有内容都会被提交给服务器。创建表单的基本语法格式如下：
+1
+2
+3
+&lt;form action&#x3D;&quot;url地址&quot; method&#x3D;&quot;提交方式&quot; name&#x3D;&quot;表单名称&quot;&gt;
+  各种表单控件
+&lt;&#x2F;form&gt;
+
+
+常用属性：
+Action在表单收集到信息后，需要将信息传递给服务器进行处理，action属性用于指定接收并处理表单数据的服务器程序的url地址。
+method用于设置表单数据的提交方式，其取值为get或post。
+name用于指定表单的名称，以区分同一个页面中的多个表单。
+注意： 每个表单都应该有自己表单域。
+7.2、input 控件(重点)在上面的语法中，input &#x2F;标签为单标签，type属性为其最基本的属性，其取值有多种，用于指定不同的控件类型。除了type属性之外，input &#x2F;标签还可以定义很多其他的属性，其常用属性如下表所示。
+1
+2
+3
+4
+5
+6
+7
+8
+&lt;form&gt;
+  用户名：&lt;input type&#x3D;&quot;text&quot; value&#x3D;&quot;请输入用户名&quot; maxlength&#x3D;&quot;8&quot;&gt; &lt;br&gt;       &lt;!--框内提示“请输入用户名” 最多输入8位--&gt;
+  密码：&lt;input type&#x3D;&quot;password&quot;&gt; &lt;br&gt;            &lt;!--类型为密码输入框 可以隐藏输入内容--&gt;
+  性别：&lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot; checked&#x3D;&quot;checked&quot;&gt;男    &lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot;&gt;女 &lt;br&gt;    &lt;!--性别默认（checked控件）为男 只能单选（name控件）--&gt;
+  爱好：&lt;input type&#x3D;&quot;checkbox&quot;&gt;看书 &lt;input type&#x3D;&quot;checkbox&quot;&gt;听歌 &lt;input type&#x3D;&quot;checkbox&quot;&gt;健身 &lt;br&gt;         &lt;!--爱好为多选框--&gt;
+  个人介绍：&lt;textarea&gt;个人简介&lt;&#x2F;textarea&gt; &lt;br&gt;      &lt;!--多行文本框--&gt;
+  &lt;input type&#x3D;&quot;submit&quot; value&#x3D;&quot;提交&quot;&gt;       &lt;!--按钮 通过value属性更改按钮内文字--&gt; 
+&lt;&#x2F;form&gt;
+
+
+![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;0.834206246864057.png)![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;1dbeb5e8-f1ba-42a7-ab30-a88e4186eaf1.png)
+7.3、label标签![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;8e4e7726-65e1-44a8-a828-04855f9ec285.jpg)![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;e1972fcf-7ae2-4bf4-bccf-ab49b1c5694a.png)label 标签为 input 元素定义标注（标签）。
+作用： 用于绑定一个表单元素, 当点击label标签的时候, 被绑定的表单元素就会获得输入焦点，用来增加用户体贴
+相关语法（搭配使用）：
+1
+2
+性别：&lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot; id&#x3D;&quot;man&quot;&gt; 
+&lt;label for&#x3D;&quot;man&quot;&gt;男&lt;&gt;label&gt;         &lt;!--扩大点击的范围--&gt;
+
+
+ for&#x3D;”male”&gt;Male
+
+7.4、select标签(下拉表单）![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;a6cca191-41fc-4c22-8a67-0ba4558d7006.jpg)1
+2
+3
+4
+5
+6
+&lt;select&gt;
+  &lt;option&gt;选项1&lt;&#x2F;option&gt;
+  &lt;option&gt;选项2&lt;&#x2F;option&gt;
+  &lt;option selected&#x3D;&quot;selected&quot;&gt;选项3&lt;&#x2F;option&gt;    &lt;!-- 该选项为默认选中项 --&gt;
+  ...
+&lt;&#x2F;select&gt;
+
+
+注意：
+1、select&lt;&#x2F;select中至少应包含一对option&gt;&lt;&#x2F;option。
+2、在option 中定义selected &#x3D;” selected “时，当前项即为默认选中项
+7.5、textarea标签(文本域)![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;da30a2c3-f98a-4d68-8ade-3934a5c2e65e.jpg)如果需要输入大量的文本信息，就需要用到textarea&#x2F;textarea标签。通过textarea控件可以轻松地创建多行文本输入框，其基本语法格式如下：
+1
+2
+&lt;textarea cols&#x3D;&quot;每行中的字符数&quot; rows&#x3D;&quot;显示的行数&quot;&gt;文本内容
+&lt;&#x2F;textarea&gt;
+
+</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML%E6%A0%87%E7%AD%BE%E5%88%86%E7%B1%BB"><span class="toc-number">3.1.</span> <span class="toc-text">HTML标签分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML%E6%A0%87%E7%AD%BE%E5%85%B3%E7%B3%BB"><span class="toc-number">3.2.</span> <span class="toc-text">HTML标签关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE"><span class="toc-number">3.3.</span> <span class="toc-text">&#x3D;&#x3D;HTML常用标签&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81HTML%E4%B8%AD%E7%9A%84%E6%A0%87%E9%A2%98%EF%BC%88-%EF%BC%89"><span class="toc-number">3.3.1.</span> <span class="toc-text">一、HTML中的标题（-）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81HTML%E4%B8%AD%E7%9A%84%E6%A0%87%E9%A2%98%EF%BC%88-%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">-）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%80%E3%80%81HTML%E4%B8%AD%E7%9A%84%E6%A0%87%E9%A2%98%EF%BC%88-%EF%BC%89"><span class="toc-number">4.0.0.0.0.1.</span> <span class="toc-text">）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1%E3%80%81%E6%A0%87%E9%A2%98%E6%A0%87%E7%AD%BE"><span class="toc-number">4.0.0.1.</span> <span class="toc-text">1.1、标题标签</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">4.0.1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81HTML%E4%B8%AD%E7%9A%84%E6%96%87%E5%AD%97"><span class="toc-number">4.0.2.</span> <span class="toc-text">二、HTML中的文字</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1%E3%80%81%E6%AE%B5%E8%90%BD%E6%A0%87%E7%AD%BE"><span class="toc-number">4.0.2.1.</span> <span class="toc-text">2.1、段落标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2%E3%80%81%E6%8D%A2%E8%A1%8C%E6%A0%87%E7%AD%BE"><span class="toc-number">4.0.2.2.</span> <span class="toc-text">2.2、换行标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3%E3%80%81div-span%E6%A0%87%E7%AD%BE"><span class="toc-number">4.0.2.3.</span> <span class="toc-text">2.3、div span标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4%E3%80%81%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F%E6%A0%87%E7%AD%BE"><span class="toc-number">4.0.2.4.</span> <span class="toc-text">2.4、文本格式标签</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81HTML%E4%B8%AD%E7%9A%84%E5%9B%BE%E5%83%8F"><span class="toc-number">4.0.3.</span> <span class="toc-text">三、HTML中的图像</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1%E3%80%81%E5%9B%BE%E5%83%8F%E6%A0%87%E7%AD%BEimg"><span class="toc-number">4.0.3.1.</span> <span class="toc-text">3.1、图像标签img</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81HTML%E4%B8%AD%E7%9A%84%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="toc-number">4.0.4.</span> <span class="toc-text">四、HTML中的超链接</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1%E3%80%81%E9%93%BE%E6%8E%A5%E6%A0%87%E7%AD%BE"><span class="toc-number">4.0.4.1.</span> <span class="toc-text">4.1、链接标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2%E3%80%81%E9%94%9A%E7%82%B9%E9%93%BE%E6%8E%A5%E5%AE%9A%E4%BD%8D-%EF%BC%88%E5%AF%BB%E5%9D%80%E5%92%8C%E5%9C%B0%E5%9D%80%E6%90%AD%E9%85%8D%E4%BD%BF%E7%94%A8-%E5%BF%AB%E9%80%9F%E5%AE%9A%E4%BD%8D%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9%EF%BC%89"><span class="toc-number">4.0.4.2.</span> <span class="toc-text">4.2、锚点链接定位 （寻址和地址搭配使用 快速定位相关内容）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%EF%BC%9A"><span class="toc-number">4.0.4.2.1.</span> <span class="toc-text">实例：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-82b4f860-54d8-4623-8cc2-93defc05cd0e-jpg-img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-6026ac6a-5c45-4329-bf7d-afd4794182c9-jpg"><span class="toc-number">4.0.4.2.1.1.</span> <span class="toc-text">![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;82b4f860-54d8-4623-8cc2-93defc05cd0e.jpg)  ![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;6026ac6a-5c45-4329-bf7d-afd4794182c9.jpg)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C%EF%BC%9A%E5%AE%9E%E7%8E%B0-%E7%82%B9%E5%87%BB-img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-63423e41-2c1f-4604-b820-2bfff15d251d-jpg-%E8%B7%B3%E8%BD%AC%E5%88%B0-img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-5ce92e90-40db-4998-b545-a2859293caec-jpg"><span class="toc-number">4.0.4.2.1.2.</span> <span class="toc-text">最终效果：实现   点击 ![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;63423e41-2c1f-4604-b820-2bfff15d251d.jpg)  跳转到   ![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;5ce92e90-40db-4998-b545-a2859293caec.jpg)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3%E3%80%81%E8%B7%AF%E5%BE%84%EF%BC%88%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%92%8C%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84%EF%BC%89"><span class="toc-number">4.0.4.3.</span> <span class="toc-text">4.3、路径（相对路径和绝对路径）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%EF%BC%9A"><span class="toc-number">4.0.4.3.1.</span> <span class="toc-text">相对路径：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84"><span class="toc-number">4.0.4.3.2.</span> <span class="toc-text">绝对路径</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81HTML%E4%B8%AD%E7%9A%84%E8%A1%A8%E6%A0%BC"><span class="toc-number">4.0.5.</span> <span class="toc-text">五、HTML中的表格</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1%E3%80%81%E8%A1%A8%E6%A0%BC-table"><span class="toc-number">4.0.5.1.</span> <span class="toc-text">5.1、表格 table</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2%E3%80%81%E8%A1%A8%E6%A0%BC%E5%B1%9E%E6%80%A7"><span class="toc-number">4.0.5.2.</span> <span class="toc-text">5.2、表格属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3%E3%80%81%E8%A1%A8%E6%A0%BC%E7%BB%93%E6%9E%84%EF%BC%88%E4%BA%86%E8%A7%A3%E5%8D%B3%E5%8F%AF%EF%BC%89"><span class="toc-number">4.0.5.3.</span> <span class="toc-text">5.3、表格结构（了解即可）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4%E3%80%81%E8%A1%A8%E6%A0%BC%E6%A0%87%E9%A2%98"><span class="toc-number">4.0.5.4.</span> <span class="toc-text">5.4、表格标题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-5%E3%80%81%E5%90%88%E5%B9%B6%E5%8D%95%E5%85%83%E6%A0%BC-%E9%9A%BE%E7%82%B9"><span class="toc-number">4.0.5.5.</span> <span class="toc-text">5.5、合并单元格(难点)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E8%A1%A8%E6%A0%BC"><span class="toc-number">4.0.5.6.</span> <span class="toc-text">总结表格</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD%E3%80%81HTML%E4%B8%AD%E7%9A%84%E5%88%97%E8%A1%A8%EF%BC%88%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8%E3%80%81%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%97%E8%A1%A8%EF%BC%89"><span class="toc-number">4.0.6.</span> <span class="toc-text">六、HTML中的列表（无序列表、有序列表、自定义列表）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1%E3%80%81%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8-ul-%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89-img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-31b91f22-4971-4b65-afbe-c4fe108a6bc6-png"><span class="toc-number">4.0.6.1.</span> <span class="toc-text">6.1、无序列表 ul （重点）![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;31b91f22-4971-4b65-afbe-c4fe108a6bc6.png)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2%E3%80%81%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8-ol-%EF%BC%88%E4%BA%86%E8%A7%A3%EF%BC%89-img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-537a3377-5bda-483c-8e21-71fe6ecc248a-png"><span class="toc-number">4.0.6.2.</span> <span class="toc-text">6.2、有序列表 ol （了解）![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;537a3377-5bda-483c-8e21-71fe6ecc248a.png)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%97%E8%A1%A8%EF%BC%88%E7%90%86%E8%A7%A3%EF%BC%89-img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-b6fa099d-d9cf-4286-939e-08750cd94e03-png"><span class="toc-number">4.0.6.3.</span> <span class="toc-text">6.3、自定义列表（理解）![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;b6fa099d-d9cf-4286-939e-08750cd94e03.png)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83%E3%80%81HTML%E4%B8%AD%E7%9A%84%E8%A1%A8%E5%8D%95"><span class="toc-number">4.0.7.</span> <span class="toc-text">七、HTML中的表单</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-1%E3%80%81%E8%A1%A8%E5%8D%95%E6%A0%87%E7%AD%BE"><span class="toc-number">4.0.7.1.</span> <span class="toc-text">7.1、表单标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E5%9F%9F"><span class="toc-number">4.0.7.2.</span> <span class="toc-text">表单域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-2%E3%80%81input-%E6%8E%A7%E4%BB%B6-%E9%87%8D%E7%82%B9"><span class="toc-number">4.0.7.3.</span> <span class="toc-text">7.2、input 控件(重点)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-3%E3%80%81label%E6%A0%87%E7%AD%BE-img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-8e4e7726-65e1-44a8-a828-04855f9ec285-jpg-img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-e1972fcf-7ae2-4bf4-bccf-ab49b1c5694a-png"><span class="toc-number">4.0.7.4.</span> <span class="toc-text">7.3、label标签![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;8e4e7726-65e1-44a8-a828-04855f9ec285.jpg)![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;e1972fcf-7ae2-4bf4-bccf-ab49b1c5694a.png)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-4%E3%80%81select%E6%A0%87%E7%AD%BE-%E4%B8%8B%E6%8B%89%E8%A1%A8%E5%8D%95%EF%BC%89-img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-a6cca191-41fc-4c22-8a67-0ba4558d7006-jpg"><span class="toc-number">4.0.7.5.</span> <span class="toc-text">7.4、select标签(下拉表单）![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;a6cca191-41fc-4c22-8a67-0ba4558d7006.jpg)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-5%E3%80%81textarea%E6%A0%87%E7%AD%BE-%E6%96%87%E6%9C%AC%E5%9F%9F"><span class="toc-number">4.0.7.6.</span> <span class="toc-text">7.5、textarea标签(文本域)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#img-file-C-Users-ACER-Documents-My-Knowledge-temp-5ea6619a-ef3c-4093-ae34-7c6639320b7a-128-index-files-da30a2c3-f98a-4d68-8ade-3934a5c2e65e-jpg"><span class="toc-number">4.0.7.7.</span> <span class="toc-text">![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;ACER&#x2F;Documents&#x2F;My Knowledge&#x2F;temp&#x2F;5ea6619a-ef3c-4093-ae34-7c6639320b7a&#x2F;128&#x2F;index_files&#x2F;da30a2c3-f98a-4d68-8ade-3934a5c2e65e.jpg)</span></a></li></ol></li></ol></li></ol></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="Search" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1647749587126"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
-(function () {
-	"use strict";
-	var goToTop = function() {
-		$(".js-gotop").on("click", function(event){
-			event.preventDefault();
-			$("html, body").animate({
-				scrollTop: $("html").offset().top
-			}, 500, "easeInOutExpo");
-			return false;
-		});
-		$(window).scroll(function(){
-			var $win = $(window);
-			if ($win.scrollTop() > 200) {
-				$(".js-top").addClass("active");
-			} else {
-				$(".js-top").removeClass("active");
-			}
-		});
-	};
-	$(function(){
-		goToTop();
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
 	});
-}());
 </script>
 
 
+    
+
+
+
+
+
 </body>
+
 </html>

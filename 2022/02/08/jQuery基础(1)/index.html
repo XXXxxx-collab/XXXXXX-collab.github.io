@@ -1,101 +1,336 @@
 <!DOCTYPE html>
-<html lang="zh">
+
+<html lang="zh-Hans">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="theme-color" content=#58b77a>
-  <title>“总结归纳：jQuery基础（一）” | 那束光のBlog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="生命里那束光">
-  <meta name="keywords" content="">
-  <meta name="description" content="">
-  <script id="hexo-configurations">
-  var CONFIG = {
-    root: '/',
-    theme: 'hexo-theme-lx-master',
-    version: '0.4.3',
-    localsearch: {
-      "enable": ,
-      "trigger": "auto",
-      "top_n_per_article": ,
-      "unescape": ,
-      "preload": 
-      },
-    path: 'null'
-  };
-</script>
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/css/main.min.css">
-  
-  <style type="text/css">
-    pre,
-    code {
-      font-family: 'Fira Code', monospace;
-    }
-    html {
-      font-family: sans-serif;
-    }
-    body {
-      font-family: sans-serif;
-    }
-    h1, h2, h3, h4, h5, figure {
-      font-family: sans-serif;
-    }
-    .menu-container{
-      font-family: sans-serif;
-    }
-  </style>
+    
+    <title>“总结归纳：jQuery基础（一）” - 那束光のBlog</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
 
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/js/jquery.jside.menu.min.js"></script>
-	<script>
-	$(document).ready(function(){
-	$(".menu-container").jSideMenu({
-	    jSidePosition: "position-right",
-	    jSideSticky: true,
-	    jSideSkin: "",
-	     });
-	}); 
-	</script>
-  
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="jQuery基础语法和常用API✍目录总览：JQuery常用API【选择器、样式操作、效果、属性操作、内容文本值、元素操作、JQ尺寸、JQ位置】">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“总结归纳：jQuery基础（一）”">
+<meta property="og:url" content="https://xxxxxx-collab.github.io/2022/02/08/jQuery%E5%9F%BA%E7%A1%80(1)/index.html">
+<meta property="og:site_name" content="那束光のBlog">
+<meta property="og:description" content="jQuery基础语法和常用API✍目录总览：JQuery常用API【选择器、样式操作、效果、属性操作、内容文本值、元素操作、JQ尺寸、JQ位置】">
+<meta property="og:locale">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/7b5a594dab4c4c9abcc42e1054e698e8.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/fb31d5f2ca914bbca3c19e0381a18564.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/bf941edc7f914098816ac512fbadbcbe.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ab8086b9809f40ae9aa859c8e6a05cbf.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b357f95c4a3641139e56cae9212db87c.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="article:published_time" content="2022-02-08T02:55:22.000Z">
+<meta property="article:modified_time" content="2022-03-17T09:36:28.786Z">
+<meta property="article:author" content="生命里那束光">
+<meta property="article:tag" content="JS">
+<meta property="article:tag" content="jQuery">
+<meta property="article:tag" content="APi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/7b5a594dab4c4c9abcc42e1054e698e8.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center">
+    <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1647749587026">
+    
+    <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1647749587026">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647749587026">
+    <link rel="stylesheet" href="/css/style.css?v=1647749587026">
+     
+    
 <meta name="generator" content="Hexo 5.4.1"></head>
-<body>
-<div class="single">
 
-<div id="page">
-<div class="header">
-  <div id="lx-aside" style="background-image: url(https://cdn.pixabay.com/photo/2021/11/21/14/17/desert-6814275__340.png)" data-stellar-background-ratio="0.5">
-    <div class="overlay">
-      
-            <div class="page-title">
-              <div class="avatar"><a href="/"><img src="https://i.postimg.cc/7hJchpF6/1.jpg"
-                    alt="生命里那束光"></a></div>
-              <span>
-                2022-02-08
-              </span>
-              <h2>
-                “总结归纳：jQuery...
-              </h2>
-              
-                <div class="tags"><i class="fa fa-tag"></i>
-                  <a class="tag-none-link" href="/tags/APi/" rel="tag">APi</a> <i class="fa fa-tag"></i><a class="tag-none-link" href="/tags/JS/" rel="tag">JS</a> <i class="fa fa-tag"></i><a class="tag-none-link" href="/tags/jQuery/" rel="tag">jQuery</a>
-                </div>
-                
-                  
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="生命里那束光" class="mdui-btn mdui-btn-icon"><img src="https://i.postimg.cc/7hJchpF6/1.jpg" alt="生命里那束光"></a>
             </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="生命里那束光">
+            <img src="https://i.postimg.cc/7hJchpF6/1.jpg" alt="生命里那束光"
+                alt="生命里那束光">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>
+                文章
+            </span>
+            12
+        </div>
+        <div><span>
+                标签
+            </span>
+            25
+        </div>
+        <div><span>
+                分类
+            </span>
+            19
+        </div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/" title="回到首页">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-home"></i>
+                <div class="mdui-list-item-content">
+                    回到首页
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/about.html" title="关于博客">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-battlenet"></i>
+                <div class="mdui-list-item-content">
+                    关于博客
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/PY.html" title="学习路线">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+                <div class="mdui-list-item-content">
+                    学习路线
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/icon-eye-fill" title="我的笔记">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+                <div class="mdui-list-item-content">
+                    我的笔记
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/icon-container" title="我的简历">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+                <div class="mdui-list-item-content">
+                    我的简历
+                </div>
+            </a>
+            
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <h2 class="nexmoe-widget-title">站内搜索</h2>
+    <div class="nexmoe-widget nexmoe-search">
+        
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder=" 请输入想要搜索的内容"></label>
+            </form>
+            
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://postimg.cc/tZwsMrDy" target="_blank" mdui-tooltip="{content: 'WeChat'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-wechat-fill"></i>
+        </a><a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=2578657473&site=qq&menu=yes" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/480369104" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://weibo.com/u/5967530462" target="_blank" mdui-tooltip="{content: '微博'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-weibo"></i>
+        </a><a class="mdui-ripple" href="https://github.com/XXXxxx-collab" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=2578657473&site=qq&menu=yes" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-steam"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Categories</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JS/API/">API</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/CSS/">CSS</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Html/">Html</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JS/">JS</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JavaScript/">JavaScript</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Web前端/">Web前端</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/git版本控制/github仓库/">github仓库</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/git版本控制/">git版本控制</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/jquery常用API/">jquery常用API</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前后端交互/node-js/">node.js</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JavaScript/函数/作用域/">作用域</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JavaScript/函数/">函数</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前后端交互/">前后端交互</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/博客/">博客</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JavaScript/基础语法/">基础语法</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Html/网页布局/">网页布局</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
     </div>
   </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/APi/" style="font-size: 10px;">APi</a> <a href="/tags/BOM-API/" style="font-size: 10px;">BOM(API)</a> <a href="/tags/DOM-API/" style="font-size: 10px;">DOM(API)</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/Java-Script/" style="font-size: 10px;">Java Script</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/Web%E5%89%8D%E7%AB%AF/" style="font-size: 15px;">Web前端</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F%E3%80%81/" style="font-size: 10px;">作用域、</a> <a href="/tags/%E5%87%BD%E6%95%B0/" style="font-size: 10px;">函数</a> <a href="/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/" style="font-size: 10px;">前后端交互</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 20px;">博客</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" style="font-size: 10px;">基础语法</a> <a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 10px;">布局</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">服务器</a> <a href="/tags/%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">概念</a> <a href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%92%8C%E4%BB%93%E5%BA%93/" style="font-size: 10px;">版本控制和仓库</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">编程</a>
+    </div>
+    
+  </div>
+
+    
+</aside>
+        <div class="nexmoe-copyright">
+            &copy; 2022
+                生命里那束光
+                    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+                        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+                        
+        </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="“总结归纳：jQuery基础（一）”" class="lazyload">
+              <h1>“总结归纳：jQuery基础（一）”</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年02月08日</a>
 </div>
-<div id="lx-main-content">
-  <div class="lx-post">
-    <div class="lx-entry padding">
-      <div>
-        <h1 id="jQuery基础语法和常用API"><a href="#jQuery基础语法和常用API" class="headerlink" title="jQuery基础语法和常用API"></a>jQuery基础语法和常用API</h1><p>✍目录总览：JQuery常用API【选择器、样式操作、效果、属性操作、内容文本值、元素操作、JQ尺寸、JQ位置】</p>
+
+      
+
+      <h1 id="jQuery基础语法和常用API"><a href="#jQuery基础语法和常用API" class="headerlink" title="jQuery基础语法和常用API"></a>jQuery基础语法和常用API</h1><p>✍目录总览：JQuery常用API【选择器、样式操作、效果、属性操作、内容文本值、元素操作、JQ尺寸、JQ位置】</p>
 <span id="more"></span>
 
-<img src="https://img-blog.csdnimg.cn/7b5a594dab4c4c9abcc42e1054e698e8.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center" alt="思维导图">
+<img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/7b5a594dab4c4c9abcc42e1054e698e8.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center" alt="思维导图" class="lazyload">
 
 <h2 id="1、jQuery"><a href="#1、jQuery" class="headerlink" title="1、jQuery"></a>1、jQuery</h2><h3 id="1-0、JavaScript库"><a href="#1-0、JavaScript库" class="headerlink" title="1.0、JavaScript库"></a>1.0、JavaScript库</h3><ul>
 <li><p>JavaScript 库：即 library，是一个==封装好====的特定的====集合==（方法和函数）。从封装一大堆函数的角度理解库，就是在这个库中，封装了很多预先定义好的函数在里面，比如动画animate、hide、show，比如获取元素等。</p>
@@ -130,12 +365,12 @@
 </li>
 </ul>
 <p><strong>1.我们在使用之前要先下载 ，步骤如下，首先打开官网</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/fb31d5f2ca914bbca3c19e0381a18564.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/fb31d5f2ca914bbca3c19e0381a18564.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <p><strong>2.打开官网，选择压缩的版本使用即可</strong></p>
-<img src="https://img-blog.csdnimg.cn/bf941edc7f914098816ac512fbadbcbe.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" style="zoom:67%;">
+<img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/bf941edc7f914098816ac512fbadbcbe.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" class="lazyload">
 
 <p><strong>3.点击压缩版本进入：<code>ctrl+A</code> 全选， <code>ctrl+c</code> 复制</strong></p>
-<img src="https://img-blog.csdnimg.cn/ab8086b9809f40ae9aa859c8e6a05cbf.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" style="zoom: 67%;">
+<img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/ab8086b9809f40ae9aa859c8e6a05cbf.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" class="lazyload">
 
 <p><strong>4.在vs中新建<code>jquery.min.js</code> 文件（此处任何名称均可，只要是js文件即可）</strong></p>
 <p><strong>5.在html 文件进行引入即可</strong></p>
@@ -376,7 +611,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;one two&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="comment">// var one = document.querySelector(&quot;.one&quot;);</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="comment">// one.className = &quot;two&quot;;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="comment">// $(&quot;.one&quot;).addClass(&quot;two&quot;);  这个addClass相当于追加类名 不影响以前的类名</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        $(<span class="string">&quot;.one&quot;</span>).<span class="title function_">removeClass</span>(<span class="string">&quot;two&quot;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-3、jQuery效果"><a href="#2-3、jQuery效果" class="headerlink" title="2.3、jQuery效果"></a>2.3、jQuery效果</h3><h4 id="2-3-1、jQuery显示与隐藏效果"><a href="#2-3-1、jQuery显示与隐藏效果" class="headerlink" title="2.3.1、jQuery显示与隐藏效果"></a>2.3.1、jQuery显示与隐藏效果</h4><p>jQuery 给我们封装了很多动画效果，最为常见的如下：</p>
-<p><img src="https://img-blog.csdnimg.cn/b357f95c4a3641139e56cae9212db87c.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/b357f95c4a3641139e56cae9212db87c.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <h6 id="①显示效果"><a href="#①显示效果" class="headerlink" title="①显示效果"></a>①显示效果</h6><p>语法：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 显示语法规范</span></span><br><span class="line"><span class="title function_">show</span>([speed,[easing],[fn]])       <span class="comment">//中括号表示参数都可以省略</span></span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">show</span>();</span><br></pre></td></tr></table></figure>
 
@@ -649,129 +884,113 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        body &#123;</span><br><span class="line">            height: 2000px;</span><br><span class="line">        &#125;</span><br><span class="line">        .back &#123;</span><br><span class="line">            position: fixed;</span><br><span class="line">            width: 50px;</span><br><span class="line">            height: 50px;</span><br><span class="line">            background-color: pink;</span><br><span class="line">            right: 30px;</span><br><span class="line">            bottom: 100px;</span><br><span class="line">            display: none;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        .container &#123;</span><br><span class="line">            width: 900px;</span><br><span class="line">            height: 500px;</span><br><span class="line">            background-color: skyblue;</span><br><span class="line">            margin: 400px auto;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;script src=&quot;jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;back&quot;&gt;返回顶部&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        $(function() &#123;</span><br><span class="line">            $(document).scrollTop(100);</span><br><span class="line">            // 被卷去的头部 scrollTop()  / 被卷去的左侧 scrollLeft()</span><br><span class="line">            // 页面滚动事件</span><br><span class="line">            var boxTop = $(&quot;.container&quot;).offset().top;</span><br><span class="line">            $(window).scroll(function() &#123;</span><br><span class="line">                // console.log(11);</span><br><span class="line">                console.log($(document).scrollTop());</span><br><span class="line">                if ($(document).scrollTop() &gt;= boxTop) &#123;</span><br><span class="line">                    $(&quot;.back&quot;).fadeIn();</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    $(&quot;.back&quot;).fadeOut();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            // 返回顶部</span><br><span class="line">            $(&quot;.back&quot;).click(function() &#123;</span><br><span class="line">                // $(document).scrollTop(0);</span><br><span class="line">                $(&quot;body, html&quot;).stop().animate(&#123;</span><br><span class="line">                    scrollTop: 0</span><br><span class="line">                &#125;);</span><br><span class="line">                // $(document).stop().animate(&#123;</span><br><span class="line">                //     scrollTop: 0</span><br><span class="line">                // &#125;); 不能是文档而是 html和body元素做动画</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
 
 
-      </div>
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>生命里那束光<br>
+        <strong>Link：</strong><a href="https://xxxxxx-collab.github.io/2022/02/08/jQuery%E5%9F%BA%E7%A1%80(1)/" title="https:&#x2F;&#x2F;xxxxxx-collab.github.io&#x2F;2022&#x2F;02&#x2F;08&#x2F;jQuery%E5%9F%BA%E7%A1%80(1)&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;xxxxxx-collab.github.io&#x2F;2022&#x2F;02&#x2F;08&#x2F;jQuery%E5%9F%BA%E7%A1%80(1)&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
     </div>
-  </div>
-</div>
-<div class="lx-navigation">
-	<div class="lx-cover next lx-cover-sm" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/images/footer-l.min.jpeg)">
-		<div class="overlay"></div>
-		<a class="copy" href="/2022/02/22/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92Node%E5%9F%BA%E7%A1%80/">
-			<div class="display-t">
-				<div class="display-tc">
-					<div>
-						<span>Next</span>
-						<h3>
-							
-								“Node.j...
-									
-						</h3>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
-	<div class="lx-cover prev lx-cover-sm" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/images/footer-r.min.jpeg)">
-		<div class="overlay"></div>
-		<a class="copy" href="/2022/02/01/JavaScript%EF%BC%882%EF%BC%89%E5%87%BD%E6%95%B0%E4%BB%A5%E5%8F%8A%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%A1%A5%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/">
-			<div class="display-t">
-				<div class="display-tc">
-					<div>
-						<span>Prev</span>
-						<h3>
-							
-								“总结归纳：J...
-									
-						</h3>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
-</div>
-</div>
 
-<footer>
-  <div>
-  Copyright &copy; 2022.<a href="/">那束光のBlog</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
-  </div>
-</footer>
 
-</div>
-
-<button class="hamburger hamburger--arrow-r" type="button" title="menu">
-    <div class="hamburger-box">
-      <div class="hamburger-inner"></div>
-    </div>
-</button>
-<div class="menu visibility">
-  <div class="menu-head">
-    <span class="layer">
-      <div class="col">
-        <div class="row for-pic">
-          <div class="profile-pic">
-            <a href="/"><img src="https://i.postimg.cc/7hJchpF6/1.jpg" alt="生命里那束光"/></a>
-          </div>
-        </div>
-        <div class="row for-name">
-          <p>生命里那束光</p>
-          <span class="tagline">Hello, World!</span>
-        </div>
-      </div>
-    </span>
-  </div>
-  <nav class="menu-container">
-  <ul class="menu-items">
-    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
-    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
     
-    <li class="has-sub"><span class="dropdown-heading">
-      <i class="fa fa-bookmark fa-fw"></i>页面</span>
-        <ul>
-          <li><a href="/guestbook/">Guestbook</a></li>
-        <li><a href="/about/">About</a></li>
-        </ul>
-    </li>
-    <li class="has-sub"><span class="dropdown-heading">
-      <i class="fa fa-link fa-fw"></i>友链</span>
-        <ul>
-          <li> <a href="https://lx.js.org" target="_blank">Theme-Lx</a></li>
-        </ul>
-    </li>
-  </ul>
-  </nav>
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/jquery%E5%B8%B8%E7%94%A8API/">jquery常用API</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/jquery%E5%B8%B8%E7%94%A8API/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">基础语法</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/APi/" rel="tag">APi</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/JS/" rel="tag">JS</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/jQuery/" rel="tag">jQuery</a>
+    
 </div>
 
-<div class="gototop js-top">
-  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'nexmoe.github.io',
+        owner: 'nexmoe',
+        admin: 'nexmoe'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
 </div>
-<script src="https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/js/jquery.easing.min.js"></script>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jQuery%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%92%8C%E5%B8%B8%E7%94%A8API"><span class="toc-number">1.</span> <span class="toc-text">jQuery基础语法和常用API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81jQuery"><span class="toc-number">1.1.</span> <span class="toc-text">1、jQuery</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-0%E3%80%81JavaScript%E5%BA%93"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.0、JavaScript库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1%E3%80%81jQuery%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.1、jQuery下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2%E3%80%81jQuery%E7%9A%84%E5%85%A5%E5%8F%A3%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.2、jQuery的入口函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3%E3%80%81jQuery%E7%9A%84%E9%A1%B6%E7%BA%A7%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.1.4.</span> <span class="toc-text">1.3、jQuery的顶级对象$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4%E3%80%81jQuery%E5%AF%B9%E8%B1%A1%E5%92%8CDOM%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.1.5.</span> <span class="toc-text">1.4、jQuery对象和DOM对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5%E3%80%81jQuery%E5%AF%B9%E8%B1%A1%E5%92%8CDOM%E5%AF%B9%E8%B1%A1%E8%BD%AC%E5%8C%96"><span class="toc-number">1.1.6.</span> <span class="toc-text">1.5、jQuery对象和DOM对象转化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-1%E3%80%81DOM-%E5%AF%B9%E8%B1%A1%E8%BD%AC%E6%8D%A2%E4%B8%BA-jQuery-%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.1.6.1.</span> <span class="toc-text">1.5.1、DOM 对象转换为 jQuery 对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-2%E3%80%81jQuery-%E5%AF%B9%E8%B1%A1%E8%BD%AC%E6%8D%A2%E4%B8%BA-DOM-%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.1.6.2.</span> <span class="toc-text">1.5.2、jQuery 对象转换为 DOM 对象</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81j-Query%E5%B8%B8%E7%94%A8API"><span class="toc-number">1.2.</span> <span class="toc-text">2、j Query常用API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1%E3%80%81jQuery%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1、jQuery选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-0%E3%80%81jQuery%E5%9F%BA%E7%A1%80%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">2.1.0、jQuery基础选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1%E3%80%81jQuery%E5%B1%82%E7%BA%A7%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">2.1.1、jQuery层级选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2%E3%80%81%E7%9F%A5%E8%AF%86%E9%93%BA%E5%9E%AB"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">2.1.2、知识铺垫</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3%E3%80%81jQuery%E9%9A%90%E5%BC%8F%E8%BF%AD%E4%BB%A3"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">2.1.3、jQuery隐式迭代</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jQuery%E7%AD%9B%E9%80%89%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.2.1.5.</span> <span class="toc-text">jQuery筛选选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-4-jQuery%E7%AD%9B%E9%80%89%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.1.6.</span> <span class="toc-text">2.1.4 jQuery筛选方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-5-jQuery%E6%8E%92%E4%BB%96%E6%80%9D%E6%83%B3"><span class="toc-number">1.2.1.7.</span> <span class="toc-text">2.1.5 jQuery排他思想</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-6-jQuerty%E9%93%BE%E5%BC%8F%E7%BC%96%E7%A8%8B"><span class="toc-number">1.2.1.8.</span> <span class="toc-text">2.1.6 jQuerty链式编程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2%E3%80%81jQuery%E6%A0%B7%E5%BC%8F%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2、jQuery样式操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1%E3%80%81jQuery%E4%BF%AE%E6%94%B9%E6%A0%B7%E5%BC%8Fcss%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">2.2.1、jQuery修改样式css方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2%E3%80%81jQuery%E8%AE%BE%E7%BD%AE%E7%B1%BB%E6%A0%B7%E5%BC%8F%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">2.2.2、jQuery设置类样式方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3%E3%80%81jQuery%E7%B1%BB%E6%93%8D%E4%BD%9C%E5%92%8CclassName%E5%8C%BA%E5%88%AB"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">2.2.3、jQuery类操作和className区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3%E3%80%81jQuery%E6%95%88%E6%9E%9C"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3、jQuery效果</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-1%E3%80%81jQuery%E6%98%BE%E7%A4%BA%E4%B8%8E%E9%9A%90%E8%97%8F%E6%95%88%E6%9E%9C"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">2.3.1、jQuery显示与隐藏效果</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A0%E6%98%BE%E7%A4%BA%E6%95%88%E6%9E%9C"><span class="toc-number">1.2.3.1.0.1.</span> <span class="toc-text">①显示效果</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A1%E9%9A%90%E8%97%8F%E6%95%88%E6%9E%9C"><span class="toc-number">1.2.3.1.0.2.</span> <span class="toc-text">②隐藏效果</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A2%E5%88%87%E6%8D%A2%E6%95%88%E6%9E%9C"><span class="toc-number">1.2.3.1.0.3.</span> <span class="toc-text">③切换效果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2%E3%80%81jQuery%E6%BB%91%E5%8A%A8%E6%95%88%E6%9E%9C%E4%B8%8E%E4%BA%8B%E4%BB%B6%E5%88%87%E6%8D%A2"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">2.3.2、jQuery滑动效果与事件切换</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A0%E4%B8%8B%E6%BB%91%E5%8A%A8"><span class="toc-number">1.2.3.2.0.1.</span> <span class="toc-text">①下滑动</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A1%E4%B8%8A%E6%BB%91%E5%8A%A8"><span class="toc-number">1.2.3.2.0.2.</span> <span class="toc-text">②上滑动</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A2%E6%BB%91%E5%8A%A8%E5%88%87%E6%8D%A2"><span class="toc-number">1.2.3.2.0.3.</span> <span class="toc-text">③滑动切换</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A3%E4%BA%8B%E4%BB%B6%E5%88%87%E6%8D%A2"><span class="toc-number">1.2.3.2.0.4.</span> <span class="toc-text">④事件切换</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-3%E3%80%81jQuery%E5%8A%A8%E7%94%BB%E9%98%9F%E5%88%97%E5%8F%8A%E5%85%B6%E5%81%9C%E6%AD%A2%E6%8E%92%E9%98%9F%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">2.3.3、jQuery动画队列及其停止排队方法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A0%E5%81%9C%E6%AD%A2%E6%8E%92%E9%98%9F"><span class="toc-number">1.2.3.3.0.1.</span> <span class="toc-text">①停止排队</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-4%E3%80%81jQuery%E6%B7%A1%E5%85%A5%E6%B7%A1%E5%87%BA%E4%BB%A5%E5%8F%8A%E7%AA%81%E5%87%BA%E6%95%88%E6%9E%9C"><span class="toc-number">1.2.3.4.</span> <span class="toc-text">2.3.4、jQuery淡入淡出以及突出效果</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A0%E6%B7%A1%E5%85%A5%E6%B7%A1%E5%87%BA%E5%88%87%E6%8D%A2"><span class="toc-number">1.2.3.4.0.1.</span> <span class="toc-text">①淡入淡出切换</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A1%E6%B8%90%E8%BF%9B%E6%96%B9%E5%BC%8F%E8%B0%83%E6%95%B4%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9A%84%E4%B8%8D%E9%80%8F%E6%98%8E%E5%BA%A6"><span class="toc-number">1.2.3.4.0.2.</span> <span class="toc-text">②渐进方式调整到指定的不透明度</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-5%E3%80%81jQuery%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8A%A8%E7%94%BBanimate%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.3.5.</span> <span class="toc-text">2.3.5、jQuery自定义动画animate方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4%E3%80%81jQuery%E5%B1%9E%E6%80%A7%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4、jQuery属性操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-1%E3%80%81%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9B%BA%E6%9C%89%E5%B1%9E%E6%80%A7%E5%80%BCprop"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">2.4.1、获取元素固有属性值prop()</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-4-2%E3%80%81%E8%AE%BE%E7%BD%AE%E5%85%83%E7%B4%A0%E5%9B%BA%E6%9C%89%E5%B1%9E%E6%80%A7%E5%80%BC"><span class="toc-number">1.2.4.1.1.</span> <span class="toc-text">2.4.2、设置元素固有属性值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-4-3%E3%80%81%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7%E5%80%BC"><span class="toc-number">1.2.4.1.2.</span> <span class="toc-text">2.4.3、获取元素自定义属性值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-4-4%E3%80%81%E8%AE%BE%E7%BD%AE%E5%85%83%E7%B4%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7%E5%80%BC"><span class="toc-number">1.2.4.1.3.</span> <span class="toc-text">2.4.4、设置元素自定义属性值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-4-5%E3%80%81%E6%95%B0%E6%8D%AE%E7%BC%93%E5%AD%98data"><span class="toc-number">1.2.4.1.4.</span> <span class="toc-text">2.4.5、数据缓存data()</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A0%E9%99%84%E5%8A%A0%E6%95%B0%E6%8D%AE%E8%AF%AD%E6%B3%95"><span class="toc-number">1.2.4.1.4.1.</span> <span class="toc-text">①附加数据语法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A1%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E8%AF%AD%E6%B3%95"><span class="toc-number">1.2.4.1.4.2.</span> <span class="toc-text">②获取数据语法</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5%E3%80%81jQuery%E5%86%85%E5%AE%B9%E6%96%87%E6%9C%AC%E5%80%BC"><span class="toc-number">1.2.5.</span> <span class="toc-text">2.5、jQuery内容文本值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-1-%E6%99%AE%E9%80%9A%E5%85%83%E7%B4%A0%E5%86%85%E5%AE%B9html"><span class="toc-number">1.2.5.1.</span> <span class="toc-text">2.5.1 普通元素内容html()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-2%E3%80%81%E6%99%AE%E9%80%9A%E5%85%83%E7%B4%A0%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9text"><span class="toc-number">1.2.5.2.</span> <span class="toc-text">2.5.2、普通元素文本内容text()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-3%E3%80%81%E8%8E%B7%E5%8F%96%E8%AE%BE%E7%BD%AE%E8%A1%A8%E5%8D%95%E5%80%BC-val"><span class="toc-number">1.2.5.3.</span> <span class="toc-text">2.5.3、获取设置表单值 val()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6%E3%80%81jQuery%E5%85%83%E7%B4%A0%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.6.</span> <span class="toc-text">2.6、jQuery元素操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-1%E3%80%81%E9%81%8D%E5%8E%86%E5%85%83%E7%B4%A0"><span class="toc-number">1.2.6.1.</span> <span class="toc-text">2.6.1、遍历元素</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A0%E8%AF%AD%E6%B3%95%E4%B8%80"><span class="toc-number">1.2.6.1.0.1.</span> <span class="toc-text">①语法一</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A1%E8%AF%AD%E6%B3%95%E4%BA%8C"><span class="toc-number">1.2.6.1.0.2.</span> <span class="toc-text">②语法二</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-2%E3%80%81%E5%88%9B%E5%BB%BA%E5%85%83%E7%B4%A0"><span class="toc-number">1.2.6.2.</span> <span class="toc-text">2.6.2、创建元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-3%E3%80%81%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0"><span class="toc-number">1.2.6.3.</span> <span class="toc-text">2.6.3、添加元素</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A0%E5%86%85%E9%83%A8%E6%B7%BB%E5%8A%A0"><span class="toc-number">1.2.6.3.0.1.</span> <span class="toc-text">①内部添加</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A1%E5%A4%96%E9%83%A8%E6%B7%BB%E5%8A%A0"><span class="toc-number">1.2.6.3.0.2.</span> <span class="toc-text">②外部添加</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-4%E3%80%81%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0"><span class="toc-number">1.2.6.4.</span> <span class="toc-text">2.6.4、删除元素</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7%E3%80%81jQuery-%E5%B0%BA%E5%AF%B8"><span class="toc-number">1.2.7.</span> <span class="toc-text">2.7、jQuery 尺寸</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8%E3%80%81jQuery%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.2.8.</span> <span class="toc-text">2.8、jQuery位置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-8-1%E3%80%81offset-%E8%AE%BE%E7%BD%AE%E6%88%96%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%81%8F%E7%A7%BB"><span class="toc-number">1.2.8.1.</span> <span class="toc-text">2.8.1、offset() 设置或获取元素偏移</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-8-2%E3%80%81position-%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%81%8F%E7%A7%BB"><span class="toc-number">1.2.8.2.</span> <span class="toc-text">2.8.2、position()获取元素偏移</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-8-3-scrollTop-scrollLeft-%E8%AE%BE%E7%BD%AE%E6%88%96%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E8%A2%AB%E5%8D%B7%E5%8E%BB%E7%9A%84%E5%A4%B4%E9%83%A8%E5%92%8C%E5%B7%A6%E4%BE%A7"><span class="toc-number">1.2.8.3.</span> <span class="toc-text">2.8.3 scrollTop() &#x2F; scrollLeft() 设置或获取元素被卷去的头部和左侧</span></a></li></ol></li></ol></li></ol></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="Search" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1647749587064"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
-(function () {
-	"use strict";
-	var goToTop = function() {
-		$(".js-gotop").on("click", function(event){
-			event.preventDefault();
-			$("html, body").animate({
-				scrollTop: $("html").offset().top
-			}, 500, "easeInOutExpo");
-			return false;
-		});
-		$(window).scroll(function(){
-			var $win = $(window);
-			if ($win.scrollTop() > 200) {
-				$(".js-top").addClass("active");
-			} else {
-				$(".js-top").removeClass("active");
-			}
-		});
-	};
-	$(function(){
-		goToTop();
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
 	});
-}());
 </script>
 
 
+    
+
+
+
+
+
 </body>
+
 </html>
