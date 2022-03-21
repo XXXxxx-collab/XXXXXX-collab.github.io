@@ -843,6 +843,13 @@ a {
   text-decoration: none;
   cursor: url("https://yjlaugus.gitee.io/blog/img/body/OW-Hand.cur"), auto !important;
 }
+.music {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 100;
+  margin: 0;
+}
 .medium-zoom-overlay {
   z-index: 9999;
 }
