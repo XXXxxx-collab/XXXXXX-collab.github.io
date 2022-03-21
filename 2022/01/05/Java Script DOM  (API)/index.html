@@ -6,7 +6,7 @@
             
                 <title>
                     
-                        “总结归纳：DOM(API)” - 
+                        “JavaScript DOM(API) ” - 
                                 那束光の博客
                 </title>
                 <meta charset="UTF-8">
@@ -16,12 +16,12 @@
                     
 
                         <link rel="shortcut icon" href="https://i.postimg.cc/CxYbzphJ/image.png" type="image/png" />
-                        <meta name="description" content="JavaScript の DOM(API)✍目录总览：（DOM概述、元素获取、事件基础、元素操作、节点操作、DOM核心操作【增删改查等】、事件高级）">
+                        <meta name="description" content="✍目录总览：（DOM概述、元素获取、事件基础、元素操作、节点操作、DOM核心操作【增删改查等】、事件高级）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="“总结归纳：DOM(API)”">
+<meta property="og:title" content="“JavaScript DOM(API) ”">
 <meta property="og:url" content="https://xxxxxx-collab.github.io/2022/01/05/Java%20Script%20DOM%20%20(API)/index.html">
 <meta property="og:site_name" content="那束光の博客">
-<meta property="og:description" content="JavaScript の DOM(API)✍目录总览：（DOM概述、元素获取、事件基础、元素操作、节点操作、DOM核心操作【增删改查等】、事件高级）">
+<meta property="og:description" content="✍目录总览：（DOM概述、元素获取、事件基础、元素操作、节点操作、DOM核心操作【增删改查等】、事件高级）">
 <meta property="og:locale">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/f073657f05c248ffa8056bf437e66edb.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/fc42557d25be4683881c2f0f231bc778.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center">
@@ -35,18 +35,18 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/65d6a7c8038f414fbf03c3ac4d2ce293.gif#pic_center">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/9ab4190f50d14c7aa879789476a394e9.gif#pic_center">
 <meta property="article:published_time" content="2022-01-05T00:23:38.000Z">
-<meta property="article:modified_time" content="2022-03-17T06:05:29.460Z">
+<meta property="article:modified_time" content="2022-03-21T06:50:17.654Z">
 <meta property="article:author" content="生命里那束光">
 <meta property="article:tag" content="Web前端">
 <meta property="article:tag" content="DOM(API)">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/f073657f05c248ffa8056bf437e66edb.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center">
-                            <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1647834325137">
+                            <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1647848741527">
                                 
-                                        <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1647834325137">
-                                            <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647834325137">
-                                                <link rel="stylesheet" href="/css/style.css?v=1647834325137">
+                                        <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1647848741527">
+                                            <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647848741527">
+                                                <link rel="stylesheet" href="/css/style.css?v=1647848741527">
                                                     
                                                                 
 
@@ -99,7 +99,7 @@
         <div><span>
                 分类
             </span>
-            21
+            19
         </div>
     </div>
     <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
@@ -137,15 +137,6 @@
                     class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
                 <div class="mdui-list-item-content">
                     学习路线
-                </div>
-            </a>
-            
-            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
-                href="/note" title="我的笔记">
-                <i
-                    class="mdui-list-item-icon nexmoefont icon-eye-fill"></i>
-                <div class="mdui-list-item-content">
-                    我的笔记
                 </div>
             </a>
             
@@ -262,17 +253,6 @@
             
 
         <li class=" category-list-item">
-            <a class="category-list-link" href="/categories/关于我/Self-introduction/">
-              Self-introduction
-            </a>
-            <span class="category-list-count">
-              1
-            </span>
-            </li>
-
-            
-
-        <li class=" category-list-item">
             <a class="category-list-link" href="/categories/Web前端/">
               Web前端
             </a>
@@ -330,17 +310,6 @@
         <li class=" category-list-item">
             <a class="category-list-link" href="/categories/JavaScript/函数/作用域/">
               作用域
-            </a>
-            <span class="category-list-count">
-              1
-            </span>
-            </li>
-
-            
-
-        <li class=" category-list-item">
-            <a class="category-list-link" href="/categories/关于我/">
-              关于我
             </a>
             <span class="category-list-count">
               1
@@ -434,9 +403,9 @@
 
   <article>
       
-          <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
-              <img data-src="https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" data-sizes="auto" alt="“总结归纳：DOM(API)”" class="lazyload">
-              <h1>“总结归纳：DOM(API)”</h1>
+          <div class="nexmoe-post-cover" style="padding-bottom: 40%;"> 
+              <img data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2Fv2-5d1c87907b851d144dfb7b808f5cb71f_1440w.jpg%3Fsource%3D172ae18b&refer=http%3A%2F%2Fpic1.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1650437230&t=9b80f9a6a6883a56d8bc5e7b0083df57" data-sizes="auto" alt="“JavaScript DOM(API) ”" class="lazyload">
+              <h1>“JavaScript DOM(API) ”</h1>
           </div>
       
       
@@ -446,10 +415,10 @@
 
       
 
-      <h1 id="JavaScript-の-DOM-API"><a href="#JavaScript-の-DOM-API" class="headerlink" title="JavaScript の DOM(API)"></a>JavaScript の DOM(API)</h1><p>✍目录总览：（DOM概述、元素获取、事件基础、元素操作、节点操作、DOM核心操作【增删改查等】、事件高级）</p>
+      <p>✍目录总览：（DOM概述、元素获取、事件基础、元素操作、节点操作、DOM核心操作【增删改查等】、事件高级）</p>
 <span id="more"></span>
 
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/f073657f05c248ffa8056bf437e66edb.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center" alt="思维导图" class="lazyload"></p>
+<h1 id="JavaScript-の-DOM-API"><a href="#JavaScript-の-DOM-API" class="headerlink" title="JavaScript の DOM(API)"></a>JavaScript の DOM(API)</h1><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/f073657f05c248ffa8056bf437e66edb.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center" alt="思维导图" class="lazyload"></p>
 <h2 id="1、DOM简介"><a href="#1、DOM简介" class="headerlink" title="1、DOM简介"></a>1、DOM简介</h2><h4 id="1-1、什么是DOM"><a href="#1-1、什么是DOM" class="headerlink" title="1.1、什么是DOM"></a>1.1、什么是DOM</h4><p>文档对象模型（Document Object Model，简称 DOM），是 W3C 组织推荐的处理可扩展标记语言（HTML或者XML）的标准编程接口，W3C 已经定义了一系列的 DOM 接口，通过这些 DOM 接口可以改变网页的内容、结构和样式。</p>
 <p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/fc42557d25be4683881c2f0f231bc778.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
 <ul>
@@ -1339,7 +1308,7 @@
 
  
 
-<script async src="/js/app.js?v=1647834325166"></script>
+<script async src="/js/app.js?v=1647848741563"></script>
 
 
 

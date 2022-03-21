@@ -6,7 +6,7 @@
             
                 <title>
                     
-                        “总结归纳：jQuery基础（一）” - 
+                        “jQuery基础语法和常用API” - 
                                 那束光の博客
                 </title>
                 <meta charset="UTF-8">
@@ -16,12 +16,12 @@
                     
 
                         <link rel="shortcut icon" href="https://i.postimg.cc/CxYbzphJ/image.png" type="image/png" />
-                        <meta name="description" content="jQuery基础语法和常用API✍目录总览：JQuery常用API【选择器、样式操作、效果、属性操作、内容文本值、元素操作、JQ尺寸、JQ位置】">
+                        <meta name="description" content="✍目录总览：JQuery常用API【选择器、样式操作、效果、属性操作、内容文本值、元素操作、JQ尺寸、JQ位置】">
 <meta property="og:type" content="article">
-<meta property="og:title" content="“总结归纳：jQuery基础（一）”">
+<meta property="og:title" content="“jQuery基础语法和常用API”">
 <meta property="og:url" content="https://xxxxxx-collab.github.io/2022/02/08/jQuery%E5%9F%BA%E7%A1%80(1)/index.html">
 <meta property="og:site_name" content="那束光の博客">
-<meta property="og:description" content="jQuery基础语法和常用API✍目录总览：JQuery常用API【选择器、样式操作、效果、属性操作、内容文本值、元素操作、JQ尺寸、JQ位置】">
+<meta property="og:description" content="✍目录总览：JQuery常用API【选择器、样式操作、效果、属性操作、内容文本值、元素操作、JQ尺寸、JQ位置】">
 <meta property="og:locale">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/7b5a594dab4c4c9abcc42e1054e698e8.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/fb31d5f2ca914bbca3c19e0381a18564.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center">
@@ -29,18 +29,18 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/ab8086b9809f40ae9aa859c8e6a05cbf.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/b357f95c4a3641139e56cae9212db87c.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center">
 <meta property="article:published_time" content="2022-02-08T02:55:22.000Z">
-<meta property="article:modified_time" content="2022-03-17T09:36:28.786Z">
+<meta property="article:modified_time" content="2022-03-21T07:40:03.808Z">
 <meta property="article:author" content="生命里那束光">
 <meta property="article:tag" content="JS">
 <meta property="article:tag" content="jQuery">
 <meta property="article:tag" content="APi">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/7b5a594dab4c4c9abcc42e1054e698e8.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center">
-                            <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1647834325062">
+                            <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1647848741450">
                                 
-                                        <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1647834325062">
-                                            <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647834325062">
-                                                <link rel="stylesheet" href="/css/style.css?v=1647834325062">
+                                        <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1647848741450">
+                                            <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647848741450">
+                                                <link rel="stylesheet" href="/css/style.css?v=1647848741450">
                                                     
                                                                 
 
@@ -93,7 +93,7 @@
         <div><span>
                 分类
             </span>
-            21
+            19
         </div>
     </div>
     <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
@@ -131,15 +131,6 @@
                     class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
                 <div class="mdui-list-item-content">
                     学习路线
-                </div>
-            </a>
-            
-            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
-                href="/note" title="我的笔记">
-                <i
-                    class="mdui-list-item-icon nexmoefont icon-eye-fill"></i>
-                <div class="mdui-list-item-content">
-                    我的笔记
                 </div>
             </a>
             
@@ -256,17 +247,6 @@
             
 
         <li class=" category-list-item">
-            <a class="category-list-link" href="/categories/关于我/Self-introduction/">
-              Self-introduction
-            </a>
-            <span class="category-list-count">
-              1
-            </span>
-            </li>
-
-            
-
-        <li class=" category-list-item">
             <a class="category-list-link" href="/categories/Web前端/">
               Web前端
             </a>
@@ -324,17 +304,6 @@
         <li class=" category-list-item">
             <a class="category-list-link" href="/categories/JavaScript/函数/作用域/">
               作用域
-            </a>
-            <span class="category-list-count">
-              1
-            </span>
-            </li>
-
-            
-
-        <li class=" category-list-item">
-            <a class="category-list-link" href="/categories/关于我/">
-              关于我
             </a>
             <span class="category-list-count">
               1
@@ -428,9 +397,9 @@
 
   <article>
       
-          <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
-              <img data-src="https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" data-sizes="auto" alt="“总结归纳：jQuery基础（一）”" class="lazyload">
-              <h1>“总结归纳：jQuery基础（一）”</h1>
+          <div class="nexmoe-post-cover" style="padding-bottom: 43.75%;"> 
+              <img data-src="https://shallowink.com/img/post/technology/jQuery1.png" data-sizes="auto" alt="“jQuery基础语法和常用API”" class="lazyload">
+              <h1>“jQuery基础语法和常用API”</h1>
           </div>
       
       
@@ -440,10 +409,10 @@
 
       
 
-      <h1 id="jQuery基础语法和常用API"><a href="#jQuery基础语法和常用API" class="headerlink" title="jQuery基础语法和常用API"></a>jQuery基础语法和常用API</h1><p>✍目录总览：JQuery常用API【选择器、样式操作、效果、属性操作、内容文本值、元素操作、JQ尺寸、JQ位置】</p>
+      <p>✍目录总览：JQuery常用API【选择器、样式操作、效果、属性操作、内容文本值、元素操作、JQ尺寸、JQ位置】</p>
 <span id="more"></span>
 
-<img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/7b5a594dab4c4c9abcc42e1054e698e8.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center" alt="思维导图" class="lazyload">
+<h1 id="jQuery基础语法和常用API"><a href="#jQuery基础语法和常用API" class="headerlink" title="jQuery基础语法和常用API"></a>jQuery基础语法和常用API</h1><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/7b5a594dab4c4c9abcc42e1054e698e8.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center" alt="思维导图" class="lazyload">
 
 <h2 id="1、jQuery"><a href="#1、jQuery" class="headerlink" title="1、jQuery"></a>1、jQuery</h2><h3 id="1-0、JavaScript库"><a href="#1-0、JavaScript库" class="headerlink" title="1.0、JavaScript库"></a>1.0、JavaScript库</h3><ul>
 <li><p>JavaScript 库：即 library，是一个==封装好====的特定的====集合==（方法和函数）。从封装一大堆函数的角度理解库，就是在这个库中，封装了很多预先定义好的函数在里面，比如动画animate、hide、show，比如获取元素等。</p>
@@ -1087,7 +1056,7 @@
 
  
 
-<script async src="/js/app.js?v=1647834325111"></script>
+<script async src="/js/app.js?v=1647848741505"></script>
 
 
 
