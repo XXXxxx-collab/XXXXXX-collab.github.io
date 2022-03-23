@@ -850,6 +850,9 @@ a {
   right: 100;
   margin: 0;
 }
+.mdui-overlay {
+  background: rgba(0,0,0,0) !important;
+}
 .medium-zoom-overlay {
   z-index: 9999;
 }
