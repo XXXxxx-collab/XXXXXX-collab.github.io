@@ -884,11 +884,13 @@ a {
     display: block !important;
   }
 }
+.aplayer {
+  z-index: 5001 !important;
+}
 #nexmoe-header {
   margin-left: -240px;
 }
 #nexmoe-header .mdui-drawer {
-  z-index: 90 !important;
   left: unset;
   scrollbar-width: none;
 }
