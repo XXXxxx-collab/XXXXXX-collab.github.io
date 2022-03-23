@@ -11,12 +11,6 @@ const ap = new APlayer({
       cover: 'http://p2.music.126.net/bD6Mc8u993RcXa16-26XsQ==/109951167138581770.jpg?param=177y177',
     },
     {
-      name: "Letting Go",
-      artist: '蔡健雅',
-      url: 'http://music.163.com/song/media/outer/url?id=208891.mp3',
-      cover: 'http://p2.music.126.net/VTZde5VdBm_u2WH0Pc9HQQ==/109951165561227373.jpg?param=130y130',
-    },
-    {
       name: '多远都要在一起',
       artist: 'G.E.M.邓紫棋',
       url: 'http://music.163.com/song/media/outer/url?id=30612793.mp3',
@@ -33,6 +27,24 @@ const ap = new APlayer({
       artist: '福禄寿FloruitShow',
       url: 'http://music.163.com/song/media/outer/url?id=1860678388.mp3',
       cover: 'http://p1.music.126.net/-pS9QZROJ4UTSI1Tg2VSyg==/109951163529550258.jpg?param=130y130',
+    },
+    {
+      name: "虚拟",
+      artist: '陈粒',
+      url: 'http://music.163.com/song/media/outer/url?id=421423808.mp3',
+      cover: 'http://p1.music.126.net/HQxTggMCB7AHUXN-ZFEtmA==/1371091013186741.jpg?param=130y130',
+    },
+    {
+      name: "水星记",
+      artist: '郭顶',
+      url: 'http://music.163.com/song/media/outer/url?id=441491828.mp3',
+      cover: 'http://p2.music.126.net/wSMfGvFzOAYRU_yVIfquAA==/2946691248081599.jpg?param=130y130',
+    },
+    {
+      name: "陪你度过漫长岁月",
+      artist: '陈奕迅',
+      url: 'http://music.163.com/song/media/outer/url?id=35403523.mp3',
+      cover: 'http://p1.music.126.net/Nm5rwMYaH_20Zh61XhGn8Q==/109951166600775221.jpg?param=130y130',
     },
   ]
 });

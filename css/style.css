@@ -885,9 +885,9 @@ a {
   margin-left: -240px;
 }
 #nexmoe-header .mdui-drawer {
+  z-index: 90 !important;
   left: unset;
   scrollbar-width: none;
-  z-index: 0 !important;
 }
 #nexmoe-header .mdui-drawer::-webkit-scrollbar {
   display: none;
@@ -1085,8 +1085,10 @@ a {
 }
 #nexmoe-content {
   position: relative;
+  z-index: 70 !important;
 }
 #nexmoe-content .nexmoe-primary {
+  z-index: 10;
   box-shadow: 0 0 1rem rgba(161,177,204,0.4);
   background-color: #fff;
   float: left;
