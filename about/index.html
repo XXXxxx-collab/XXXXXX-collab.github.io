@@ -27,11 +27,11 @@
 <meta property="article:modified_time" content="2022-03-23T05:17:46.112Z">
 <meta property="article:author" content="生命里那束光">
 <meta name="twitter:card" content="summary">
-                            <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1648012786345">
+                            <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1648092271929">
                                 
-                                        <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1648012786345">
-                                            <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648012786345">
-                                                <link rel="stylesheet" href="/css/style.css?v=1648012786345">
+                                        <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1648092271929">
+                                            <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648092271929">
+                                                <link rel="stylesheet" href="/css/style.css?v=1648092271929">
                                                     
                                                                 
 
@@ -65,23 +65,12 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 音乐播放器 -->
                 <link rel="stylesheet" href="/dist/APlayer.min.css">
                 <div id="aplayer"></div>
                 <script type="text/javascript" src="/dist/APlayer.min.js"></script>
                 <script type="text/javascript" src="/dist/music.js"></script>
-
-                <!-- 引用Aplayer和metingjs -->
-
-                <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-
-                <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
-
-                <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
-
-                <div id="my-aplayer" class="aplayer" data-id="7344226050" data-server="netease" data-type="playlist"
-                    data-fixed="true" // 吸底模式可以固定播放器于页面底部 data-autoplay="false" data-order="list" data-volume="0.15"
-                    data-theme="#cc543a" data-preload="auto"></div> -->
-
 
                 <div id="nexmoe-header">
                     <div class="nexmoe-drawer mdui-drawer" id="drawer">
@@ -336,7 +325,7 @@
             
 
         <li class=" category-list-item">
-            <a class="category-list-link" href="/categories/git版本控制/github仓库/前后端交互/">
+            <a class="category-list-link" href="/categories/前后端交互/">
               前后端交互
             </a>
             <span class="category-list-count">
@@ -423,7 +412,7 @@
 
       <h6 id="希望每个人都能找到自己生命里的那束光"><a href="#希望每个人都能找到自己生命里的那束光" class="headerlink" title="希望每个人都能找到自己生命里的那束光"></a>希望每个人都能找到自己生命里的那束光</h6><!-- 简单示例 (id, server, type)  -->
 
-    <div id="aplayer-PgJsDaie" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1808845863" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86" data-loop="one" data-volume="0.5"></div>
+    <div id="aplayer-IRpFHNLV" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1808845863" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86" data-loop="one" data-volume="0.5"></div>
 
 <h1 id="💻-关于博客"><a href="#💻-关于博客" class="headerlink" title="💻 关于博客"></a>💻 关于博客</h1><p>Hi~，欢迎光临我的小站，下面是本站一些基本信息：</p>
 <blockquote>
@@ -457,7 +446,7 @@
 <h1 id="📞-联系方式"><a href="#📞-联系方式" class="headerlink" title="📞 联系方式"></a>📞 联系方式</h1><ul>
 <li>WeChat:13099462370</li>
 <li>QQ: 2578657473</li>
-<li>E-mail: <a href="mailto:&#50;&#53;&#55;&#56;&#54;&#53;&#x37;&#52;&#55;&#51;&#64;&#113;&#x71;&#46;&#x63;&#111;&#x6d;">&#50;&#53;&#55;&#56;&#54;&#53;&#x37;&#52;&#55;&#51;&#64;&#113;&#x71;&#46;&#x63;&#111;&#x6d;</a></li>
+<li>E-mail: <a href="mailto:&#50;&#x35;&#55;&#x38;&#54;&#53;&#x37;&#52;&#55;&#x33;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#x6d;">&#50;&#x35;&#55;&#x38;&#54;&#53;&#x37;&#52;&#55;&#x33;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#x6d;</a></li>
 <li>Github: <a target="_blank" rel="noopener" href="https://github.com/XXXxxx-collab">https://github.com/XXXxxx-collab</a></li>
 <li>社交平台：<ul>
 <li><a target="_blank" rel="noopener" href="https://space.bilibili.com/480369104?spm_id_from=333.1007.0.0">哔哩哔哩</a></li>
@@ -556,7 +545,7 @@
 
 
 
-		<script async src="/js/app.js?v=1648012786364"></script>
+		<script async src="/js/app.js?v=1648092271934"></script>
 
 			
 
@@ -578,8 +567,24 @@
 
         </body>
 
+        <script>
+            // 对全部连接跳转事件绑定pjax容器container
+            $(document).pjax('a', '#pjax-containere', { fragment: '##pjax-container', timeout: 8000 });
+        </script>
+
 </html>
 
 
 <!--樱花背景-->
 <script type="text/javascript" src="https://yremp.live/wp-content/uploads/resource/js/sakura.js"></script>
+
+
+<!-- 
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script>
+    // 对全部连接跳转事件绑定pjax容器container
+    $(document).pjax('a[target!=_blank]', '#container', { fragment: '#container', timeout: 8000 })
+</script> -->

@@ -23,11 +23,11 @@
 <meta property="og:locale">
 <meta property="article:author" content="生命里那束光">
 <meta name="twitter:card" content="summary">
-                            <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1648012787522">
+                            <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1648092272140">
                                 
-                                        <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1648012787522">
-                                            <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648012787522">
-                                                <link rel="stylesheet" href="/css/style.css?v=1648012787522">
+                                        <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1648092272140">
+                                            <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648092272140">
+                                                <link rel="stylesheet" href="/css/style.css?v=1648092272140">
                                                     
                                                                 
 
@@ -58,23 +58,12 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 音乐播放器 -->
                 <link rel="stylesheet" href="/dist/APlayer.min.css">
                 <div id="aplayer"></div>
                 <script type="text/javascript" src="/dist/APlayer.min.js"></script>
                 <script type="text/javascript" src="/dist/music.js"></script>
-
-                <!-- 引用Aplayer和metingjs -->
-
-                <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-
-                <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
-
-                <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
-
-                <div id="my-aplayer" class="aplayer" data-id="7344226050" data-server="netease" data-type="playlist"
-                    data-fixed="true" // 吸底模式可以固定播放器于页面底部 data-autoplay="false" data-order="list" data-volume="0.15"
-                    data-theme="#cc543a" data-preload="auto"></div> -->
-
 
                 <div id="nexmoe-header">
                     <div class="nexmoe-drawer mdui-drawer" id="drawer">
@@ -329,7 +318,7 @@
             
 
         <li class=" category-list-item">
-            <a class="category-list-link" href="/categories/git版本控制/github仓库/前后端交互/">
+            <a class="category-list-link" href="/categories/前后端交互/">
               前后端交互
             </a>
             <span class="category-list-count">
@@ -479,7 +468,7 @@
 
 
 
-		<script async src="/js/app.js?v=1648012787524"></script>
+		<script async src="/js/app.js?v=1648092272141"></script>
 
 			
 
@@ -501,8 +490,24 @@
 
         </body>
 
+        <script>
+            // 对全部连接跳转事件绑定pjax容器container
+            $(document).pjax('a', '#pjax-containere', { fragment: '##pjax-container', timeout: 8000 });
+        </script>
+
 </html>
 
 
 <!--樱花背景-->
 <script type="text/javascript" src="https://yremp.live/wp-content/uploads/resource/js/sakura.js"></script>
+
+
+<!-- 
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script>
+    // 对全部连接跳转事件绑定pjax容器container
+    $(document).pjax('a[target!=_blank]', '#container', { fragment: '#container', timeout: 8000 })
+</script> -->
