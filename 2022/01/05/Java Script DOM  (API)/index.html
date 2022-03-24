@@ -42,11 +42,11 @@
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/f073657f05c248ffa8056bf437e66edb.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center">
-                            <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1648100235258">
+                            <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1648120210309">
                                 
-                                        <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1648100235258">
-                                            <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648100235258">
-                                                <link rel="stylesheet" href="/css/style.css?v=1648100235258">
+                                        <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1648120210309">
+                                            <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648120210309">
+                                                <link rel="stylesheet" href="/css/style.css?v=1648120210309">
                                                     
                                                                 
 
@@ -408,21 +408,23 @@
                     <div class="nexmoe-primary">
                         <div class="nexmoe-post">
 
-  <article>
-      
-          <div class="nexmoe-post-cover" style="padding-bottom: 40%;"> 
-              <img data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2Fv2-5d1c87907b851d144dfb7b808f5cb71f_1440w.jpg%3Fsource%3D172ae18b&refer=http%3A%2F%2Fpic1.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1650437230&t=9b80f9a6a6883a56d8bc5e7b0083df57" data-sizes="auto" alt="“JavaScript DOM(API) ”" class="lazyload">
-              <h1>“JavaScript DOM(API) ”</h1>
-          </div>
-      
-      
-      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <article>
+        
+            <div class="nexmoe-post-cover" style="padding-bottom: 40%;">
+                <img data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2Fv2-5d1c87907b851d144dfb7b808f5cb71f_1440w.jpg%3Fsource%3D172ae18b&refer=http%3A%2F%2Fpic1.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1650437230&t=9b80f9a6a6883a56d8bc5e7b0083df57" data-sizes="auto" alt="“JavaScript DOM(API) ”" class="lazyload">
+                <h1>
+                    “JavaScript DOM(API) ”
+                </h1>
+            </div>
+            
+
+                    <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2022年01月05日</a>
 </div>
 
-      
 
-      <p>✍目录总览：（DOM概述、元素获取、事件基础、元素操作、节点操作、DOM核心操作【增删改查等】、事件高级）</p>
+
+                        <p>✍目录总览：（DOM概述、元素获取、事件基础、元素操作、节点操作、DOM核心操作【增删改查等】、事件高级）</p>
 <span id="more"></span>
 
 <h1 id="JavaScript-の-DOM-API"><a href="#JavaScript-の-DOM-API" class="headerlink" title="JavaScript の DOM(API)"></a>JavaScript の DOM(API)</h1><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/f073657f05c248ffa8056bf437e66edb.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center" alt="思维导图" class="lazyload"></p>
@@ -1225,10 +1227,10 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="comment">// 键盘事件对象中的keyCode属性可以得到相应键的ASCII码值</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="comment">// 1. 我们的keyup 和keydown事件不区分字母大小写  a 和 A 得到的都是65</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="comment">// 2. 我们的keypress 事件 区分字母大小写  a  97 和 A 得到的是65</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;keyup&#x27;</span>, <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;up:&#x27;</span> + e.<span class="property">keyCode</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="comment">// 我们可以利用keycode返回的ASCII码值来判断用户按下了那个键</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">if</span> (e.<span class="property">keyCode</span> === <span class="number">65</span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="title function_">alert</span>(<span class="string">&#x27;您按下的a键&#x27;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            &#125; <span class="keyword">else</span> &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="title function_">alert</span>(<span class="string">&#x27;您没有按下a键&#x27;</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        &#125;)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;keypress&#x27;</span>, <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;press:&#x27;</span> + e.<span class="property">keyCode</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        &#125;)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
 
 </script></body>
-  </article>
+    </article>
 
-  
-      
+    
+        
     <div class="nexmoe-post-copyright">
         <strong>Author：</strong>生命里那束光<br>
         <strong>Link：</strong><a href="https://xxxxxx-collab.github.io/2022/01/05/Java%20Script%20DOM%20%20(API)/" title="https:&#x2F;&#x2F;xxxxxx-collab.github.io&#x2F;2022&#x2F;01&#x2F;05&#x2F;Java%20Script%20DOM%20%20(API)&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;xxxxxx-collab.github.io&#x2F;2022&#x2F;01&#x2F;05&#x2F;Java%20Script%20DOM%20%20(API)&#x2F;</a><br>
@@ -1238,9 +1240,9 @@
     </div>
 
 
-  
-  
-  <div class="nexmoe-post-meta nexmoe-rainbow">
+            
+
+                <div class="nexmoe-post-meta nexmoe-rainbow">
     
         <a class="nexmoefont icon-appstore-fill -link" href="/categories/JS/">JS</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/JS/API/">API</a>
     
@@ -1249,9 +1251,9 @@
     
 </div>
 
-  
-      <div class="nexmoe-post-footer">
-          <section class="nexmoe-comment">
+                    
+                        <div class="nexmoe-post-footer">
+                            <section class="nexmoe-comment">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
 <div id="gitalk"></div>
 <script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
@@ -1267,8 +1269,8 @@
     gitalk.render('gitalk')
 </script>
 </section>
-      </div>
-  
+                        </div>
+                        
 </div>
                             <div class="nexmoe-post-right">
                                 <div class="nexmoe-fixed">
@@ -1296,7 +1298,7 @@
                             </div>
                     </div>
                 </div>
-                 
+                
     <div id="nexmoe-search-space">
         <div class="search-container">
             <div class="search-header">
@@ -1308,7 +1310,7 @@
             <div class="search-body"></div>
         </div>
     </div>
-
+    
                     <script
 	src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
@@ -1316,7 +1318,7 @@
 
 
 
-		<script async src="/js/app.js?v=1648100235269"></script>
+		<script async src="/js/app.js?v=1648120210318"></script>
 
 			
 
