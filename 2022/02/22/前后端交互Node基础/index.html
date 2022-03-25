@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+
+        <head>
+            
+                <title>
+                    
+                        “ Node.js 基础 ” - 
+                                那束光の博客
+                </title>
+                <meta charset="UTF-8">
+                <meta name="keywords" content="">
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+                
+                    
+        
+                        <link rel="shortcut icon" href="https://i.postimg.cc/CxYbzphJ/image.png" type="image/png" />
+                        <meta name="description" content="✍目录总览：Node.js基础【概述、环境搭建、Node.js快速入门】，模块化开发【概述、系统模块、第三方模块（包）、package.json文件、Node.js模块加载机制】，服务器请求响应原理及HTTP协议">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“ Node.js 基础 ”">
+<meta property="og:url" content="https://xxxxxx-collab.github.io/2022/02/22/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92Node%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="那束光の博客">
+<meta property="og:description" content="✍目录总览：Node.js基础【概述、环境搭建、Node.js快速入门】，模块化开发【概述、系统模块、第三方模块（包）、package.json文件、Node.js模块加载机制】，服务器请求响应原理及HTTP协议">
+<meta property="og:locale">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220219205205076.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220220140200515.png">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220220144149467.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/684a92b73e7d4272b25c90a81f5c1426.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2becf15aab2d49e99b732ac741b7e885.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/692d30934aa54ba685410b0589e93ea5.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/1159216f22304e7fa244dfe0dffb4d71.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2e12889b045f4a568f62108615329d4e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/dbf0d2802db6412da7ca275e84b6730c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/628bfc483126460983783db3097585e2.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b215b40f3f514ba9ac4c6a46da657a26.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/48a3627399bb4de38a66913b5398f6c4.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8e85809e295b4784af684fbd95244a5b.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b6598f22b5ee4da2b14242c0f832c93d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a6b91ab91325402bbe93444b9b8bb3d9.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8d67c441d7ce441aa8d096f73bb60126.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/15a6506b29164d83a3e3ce3df04894a9.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d755589913454069b54436686ba6e0c1.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/159fd19e59c847029b5b4d5a96fed601.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f1f58104610b4a46a6a7141b8f8a87b7.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/38dde8775adb4645b8b1a754d58e6b87.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3fb96d34ecb341449a1d35ca7434e768.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
+<meta property="og:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220221120222654.png">
+<meta property="article:published_time" content="2022-02-21T18:22:22.000Z">
+<meta property="article:modified_time" content="2022-03-21T06:14:53.775Z">
+<meta property="article:author" content="生命里那束光">
+<meta property="article:tag" content="前后端交互">
+<meta property="article:tag" content="Node">
+<meta property="article:tag" content="服务器">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/image-20220219205205076.png">
+                            <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1648206422887">
+                                
+                                        <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1648206422887">
+                                            <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648206422887">
+                                                <link rel="stylesheet" href="/css/style.css?v=1648206422887">
+                                                    
+                                                                
+
+
+                                                                        <!-- 爆炸红心效果
+                                                                        <canvas class="fireworks"
+                                                                            style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+                                                                        <script type="text/javascript"
+                                                                            src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+                                                                        <script type="text/javascript"
+                                                                            src="/js/firework.js"></script> -->
+        <meta name="generator" content="Hexo 5.4.1"></head>
+
+        <body class="mdui-drawer-body-left">
+            
+                <div id="nexmoe-background">
+                    <div class="nexmoe-bg" style="background-image: url(https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500)"></div>
+                    <div class="mdui-appbar mdui-shadow-0">
+                        <div class="mdui-toolbar">
+                            <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu"
+                                class="mdui-btn mdui-btn-icon mdui-ripple"><i
+                                    class="mdui-icon nexmoefont icon-menu"></i></a>
+                            <div class="mdui-toolbar-spacer"></div>
+                            <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                            <a href="/" title="生命里那束光"
+                                class="mdui-btn mdui-btn-icon"><img src="https://i.postimg.cc/7hJchpF6/1.jpg"
+                                    alt="生命里那束光"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 音乐播放器 -->
+                <link rel="stylesheet" href="/dist/APlayer.min.css">
+                <div id="aplayer"></div>
+                <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+                <script type="text/javascript" src="/dist/music.js"></script>
+
+                <div id="nexmoe-header">
+                    <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="生命里那束光">
+            <img src="https://i.postimg.cc/7hJchpF6/1.jpg" alt="生命里那束光"
+                alt="生命里那束光">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>
+                文章
+            </span>
+            13
+        </div>
+        <div><span>
+                标签
+            </span>
+            25
+        </div>
+        <div><span>
+                分类
+            </span>
+            19
+        </div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/" title="回到首页">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-home"></i>
+                <div class="mdui-list-item-content">
+                    回到首页
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/about" title="关于博客">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-battlenet"></i>
+                <div class="mdui-list-item-content">
+                    关于博客
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/archive" title="文章归档">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-container"></i>
+                <div class="mdui-list-item-content">
+                    文章归档
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/study" title="学习路线">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+                <div class="mdui-list-item-content">
+                    学习路线
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/resume" title="我的简历">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-ellipsis"></i>
+                <div class="mdui-list-item-content">
+                    我的简历
+                </div>
+            </a>
+            
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+        <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">站内搜索</h3>
+    <div class="nexmoe-widget nexmoe-search">
+        
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder=" 请输入搜索内容"></label>
+            </form>
+            
+    </div>
+</div>
+            
+        <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://postimg.cc/tZwsMrDy" target="_blank" mdui-tooltip="{content: 'WeChat'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-wechat-fill"></i>
+        </a><a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=2578657473&site=qq&menu=yes" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/480369104" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://weibo.com/u/5967530462" target="_blank" mdui-tooltip="{content: '微博'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-weibo"></i>
+        </a><a class="mdui-ripple" href="https://github.com/XXXxxx-collab" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=2578657473&site=qq&menu=yes" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-steam"></i>
+        </a>
+    </div>
+</div>
+            
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-art-title">
+      文章分类
+    </h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+          
+
+        
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/JS/API/">
+              API
+            </a>
+            <span class="category-list-count">
+              2
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/CSS/">
+              CSS
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/Html/">
+              Html
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/JS/">
+              JS
+            </a>
+            <span class="category-list-count">
+              2
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/JavaScript/">
+              JavaScript
+            </a>
+            <span class="category-list-count">
+              2
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/Web前端/">
+              Web前端
+            </a>
+            <span class="category-list-count">
+              3
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/git版本控制/github仓库/">
+              github仓库
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/git版本控制/">
+              git版本控制
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/jquery常用API/">
+              jquery常用API
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/前后端交互/node-js/">
+              node.js
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/JavaScript/函数/作用域/">
+              作用域
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/JavaScript/函数/">
+              函数
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/前后端交互/">
+              前后端交互
+            </a>
+            <span class="category-list-count">
+              2
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/博客/">
+              博客
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/JavaScript/基础语法/">
+              基础语法
+            </a>
+            <span class="category-list-count">
+              2
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/Html/网页布局/">
+              网页布局
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+      </ul>
+
+    </div>
+  </div>
+  
+            
+        
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/APi/" style="font-size: 10px;">APi</a> <a href="/tags/BOM-API/" style="font-size: 10px;">BOM(API)</a> <a href="/tags/DOM-API/" style="font-size: 10px;">DOM(API)</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/Java-Script/" style="font-size: 10px;">Java Script</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/Web%E5%89%8D%E7%AB%AF/" style="font-size: 15px;">Web前端</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F%E3%80%81/" style="font-size: 10px;">作用域、</a> <a href="/tags/%E5%87%BD%E6%95%B0/" style="font-size: 10px;">函数</a> <a href="/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/" style="font-size: 10px;">前后端交互</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 20px;">博客</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" style="font-size: 10px;">基础语法</a> <a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 10px;">布局</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">服务器</a> <a href="/tags/%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">概念</a> <a href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%92%8C%E4%BB%93%E5%BA%93/" style="font-size: 10px;">版本控制和仓库</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">编程</a>
+    </div>
+    
+  </div>
+
+            
+</aside>
+        <div class="nexmoe-copyright">
+            &copy; 2022
+                生命里那束光
+                    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+                        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+                        
+        </div>
+</div><!-- .nexmoe-drawer -->
+                </div>
+                <div id="nexmoe-content">
+                    <div class="nexmoe-primary">
+                        <div class="nexmoe-post">
+
+    <article>
+        
+            <div class="nexmoe-post-cover" style="padding-bottom: 61.16666666666667%;">
+                <img data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fyoomark.com%2Fsites%2Fdefault%2Ffiles%2Ffield%2Fimage%2Fnodejs.png&refer=http%3A%2F%2Fyoomark.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1650435106&t=99cc253ee293c5415d6028f3fc55369epng&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1650434183&t=a0c8bd368ac52ece82116589d15392a7.png&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1650432334&t=1f31b56dcca404a6206e67e6adb6f1a7" data-sizes="auto" alt="“ Node.js 基础 ”" class="lazyload">
+                <h1>
+                    “ Node.js 基础 ”
+                </h1>
+            </div>
+            
+
+                    <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年02月22日</a>
+</div>
+
+
+
+                        <p>✍目录总览：Node.js基础【概述、环境搭建、Node.js快速入门】，模块化开发【概述、系统模块、第三方模块（包）、package.json文件、Node.js模块加载机制】，服务器请求响应原理及HTTP协议</p>
+<span id="more"></span>
+
+<p><strong>Node.js 基础</strong></p>
+<img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220219205205076.png" alt="image-20220219205205076" class="lazyload">
+
+<h2 id="一、Node-js基础"><a href="#一、Node-js基础" class="headerlink" title="一、Node.js基础"></a>一、Node.js基础</h2><h4 id="1-1概述"><a href="#1-1概述" class="headerlink" title="1.1概述"></a>1.1概述</h4><ul>
+<li><p>Node 是一个基于 Chrome V8 引擎的 JavaScript 代码运行环境。</p>
+</li>
+<li><p>浏览器（软件）能够运行JavaScript代码，浏览器就是JavaScript代码的运行环境</p>
+</li>
+<li><p>Node（软件）能够运行JavaScript代码，Node就是JavaScript代码的运行环境</p>
+</li>
+<li><p>Node文档中文网：<a target="_blank" rel="noopener" href="http://nodejs.cn/api/url.html#url_new_url_input_base">http://nodejs.cn/api/url.html#url_new_url_input_base</a></p>
+</li>
+</ul>
+<p> <img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220220140200515.png" alt="image-20220220140200515" class="lazyload"></p>
+<h4 id="1-2环境搭建"><a href="#1-2环境搭建" class="headerlink" title="1.2环境搭建"></a>1.2环境搭建</h4><p>Node.js运行环境安装： <a target="_blank" rel="noopener" href="https://nodejs.org/en/">https://nodejs.org/en/</a></p>
+<p>PATH环境变量：设置好PATh变量，可以在任何目录下执行Node.js</p>
+<h4 id="1-3Node-js快速入门"><a href="#1-3Node-js快速入门" class="headerlink" title="1.3Node.js快速入门"></a>1.3Node.js快速入门</h4><h5 id="1-3-1-Node-js组成"><a href="#1-3-1-Node-js组成" class="headerlink" title="1.3.1 Node.js组成"></a>1.3.1 Node.js组成</h5> <img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220220144149467.png" alt="image-20220220144149467" class="lazyload">
+
+
+
+<h5 id="1-3-2-Node-js全局对象global"><a href="#1-3-2-Node-js全局对象global" class="headerlink" title="1.3.2 Node.js全局对象global"></a>1.3.2 Node.js全局对象global</h5><p>在**==浏览器==<strong>中全局对象是</strong>==window==<strong>，在</strong>==Node==<strong>中全局对象是</strong>==global==**。</p>
+<p>Node中全局对象下有以下方法，可以在任何地方使用，global可以省略。</p>
+<ul>
+<li>console.log()     在控制台中输出</li>
+<li>setTimeout()     设置超时定时器</li>
+<li>clearTimeout()  清除超时时定时器</li>
+<li>setInterval()      设置间歇定时器</li>
+<li>clearInterval()   清除间歇定时器</li>
+</ul>
+<h5 id="1-3-3-第一个Node程序"><a href="#1-3-3-第一个Node程序" class="headerlink" title="1.3.3 第一个Node程序"></a>1.3.3 第一个Node程序</h5><p>1.新建 app.js</p>
+<p>2.输入代码块 <code>node-http-server</code>,自动生成 Node 结构（安装插件：Node-snippets就可以快捷生成）</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/684a92b73e7d4272b25c90a81f5c1426.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<p>3.在终端使用 <code>node app.js</code> 运行程序</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/2becf15aab2d49e99b732ac741b7e885.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<p>4.假如要停止我们的服务器，在终端处按 <code>ctrl + c</code> 停止服务器</p>
+<h6 id="1-3-3-1解析第一个Node程序"><a href="#1-3-3-1解析第一个Node程序" class="headerlink" title="1.3.3.1解析第一个Node程序"></a>1.3.3.1解析第一个Node程序</h6><p>1.引入 http 模块</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>2.创建服务器</p>
+<p>   接下来我们使用 <code>http.createServer()</code> 方法创建服务器，并使用 <code>listen</code> 方法绑定 3000 端口。函数通过 request、response 参   数来接收和响应数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//表示引入http模块</span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    request    获取客户端(浏览器)传过来的信息</span></span><br><span class="line"><span class="comment">    response   给浏览器响应信息</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">http.<span class="title function_">createServer</span>(<span class="keyword">function</span> (<span class="params">request, response</span>) &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//发送响应头</span></span><br><span class="line">  <span class="comment">//设置HTTP头部,状态码是200,文件类型是 html,字符集是 utf8 </span></span><br><span class="line">  response.<span class="title function_">writeHead</span>(<span class="number">200</span>, &#123;<span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;text/html;charset=UTF-8&#x27;</span>&#125;);</span><br><span class="line">    </span><br><span class="line">  <span class="comment">//表示给我们页面上面输出一句话并且结束响应</span></span><br><span class="line">  response.<span class="title function_">end</span>(<span class="string">&#x27;Hello World&#x27;</span>);</span><br><span class="line">&#125;).<span class="title function_">listen</span>(<span class="number">3000</span>);  <span class="comment">//监听端口</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="二、JS模块化开发"><a href="#二、JS模块化开发" class="headerlink" title="二、JS模块化开发"></a>二、JS模块化开发</h2><h4 id><a href="#" class="headerlink" title></a><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/692d30934aa54ba685410b0589e93ea5.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述" class="lazyload"></h4><h3 id="1、JavaScript模块化"><a href="#1、JavaScript模块化" class="headerlink" title="1、JavaScript模块化"></a>1、JavaScript模块化</h3><p><strong>什么是模块化开发呢</strong>？</p>
+<ul>
+<li>事实上模块化开发最终的目的是将程序划分成一个个小的结构</li>
+<li>这个结构中编写属于自己的逻辑代码，有自己的作用域，不会影响到其他的结构</li>
+<li>这个结构可以将自己希望暴露的变量、函数、对象等导出给其结构使用</li>
+<li>也可以通过某种方式，导入另外结构中的变量、函数、对象等</li>
+</ul>
+<p>上面说提到的==结构==，就是==模块==；按照这种结构划分开发程序的过程，就是模块化开发的过程</p>
+<h5 id="1-1、CommonJS"><a href="#1-1、CommonJS" class="headerlink" title="1.1、CommonJS"></a>1.1、CommonJS</h5><p>我们需要知道CommonJS是一个规范，最初提出来是在浏览器以外的地方使用，并且当时被命名为ServerJS，后来为了体现它的广泛性，修改为CommonJS，平时我们也会简称为CJS。</p>
+<ul>
+<li><p>Node是CommonJS在服务器端一个具有代表性的实现</p>
+</li>
+<li><p>Node中对CommonJS进行了支持和实现，让我们在开发node的过程中可以方便的进行模块化开发</p>
+</li>
+<li><p>在Node中<strong>每一个js文件都是一个单独的模块</strong></p>
+</li>
+<li><p>这个模块中包括 <strong>CommonJS规范的核心变量</strong>：exports、module.exports、require</p>
+</li>
+<li><p>我们可以使用这些变量来方便的进行<strong>模块化开发</strong></p>
+</li>
+</ul>
+<p>模块化的核心是导出和导入，Node中对其进行了实现：</p>
+<ul>
+<li><code>==exports==</code>和<code>==module.exports==</code>可以负责对模块中的内容进行导出</li>
+<li><code>==require</code>== 函数可以帮助我们<strong>导入其他模块（自定义模块、系统模块、第三方库模块）中的内容</strong></li>
+</ul>
+<h5 id="1-2、自定义模块的规定"><a href="#1-2、自定义模块的规定" class="headerlink" title="1.2、自定义模块的规定"></a>1.2、自定义模块的规定</h5><ol>
+<li>我们可以把公共的功能抽离成为一个单独的 js 文件作为一个模块，Node.js规定一个 <strong>JavaScript 文件</strong>就是一个模块，模块<strong>内部定义的变量和函数</strong>默认情况下<strong>外部无法得到</strong>。如果要让外部可以访问模块里面的方法或属性，就必须在模块里面通过==exports== 或者 ==module.exports== 暴露属性或者方法</li>
+<li>在需要使用这些模块的文件中，通过 ==require== 的方式引入这个模块。这个时候就可以使用模块里面暴露的属性和方法</li>
+</ol>
+<p>注意：</p>
+<ul>
+<li>require 里面的路径要加 <strong>单引号</strong></li>
+<li>require 里面引入的模块可以跟后缀 .js，也可以不跟后缀 .js</li>
+<li>若我们要暴露的是对象(属性)，则建议使用 <code>module.exports</code> ;若我们要暴露的是方法，则建议使用<code>exports</code></li>
+</ul>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/1159216f22304e7fa244dfe0dffb4d71.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/2e12889b045f4a568f62108615329d4e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<ul>
+<li>我们以后的自定义模块都会放在 <code>node_modules</code> 文件夹下，此时引入不需要添加 <code>node_modules</code> 路径也可以引入</li>
+</ul>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/dbf0d2802db6412da7ca275e84b6730c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<h5 id="1-3、ES-Module"><a href="#1-3、ES-Module" class="headerlink" title="1.3、ES Module"></a>1.3、ES Module</h5><p>JavaScript没有模块化一直是它的痛点，所以才会产生我们前面学习的社区规范：CommonJS、AMD、CMD等，<br>所以在ES推出自己的模块化系统时，大家也是兴奋异常。</p>
+<p>ES Module和CommonJS的模块化有一些不同之处：</p>
+<ul>
+<li>一方面它使用了import和export关键字</li>
+<li>另一方面它采用编译期的静态分析，并且也加入了动态引用的方式</li>
+</ul>
+<p>ES Module模块采用export和import关键字来实现模块化</p>
+<ul>
+<li><code>export</code>负责将模块内的内容导出</li>
+<li><code>import</code>负责从其他模块导入内容</li>
+</ul>
+<h5 id="1-4、export关键字"><a href="#1-4、export关键字" class="headerlink" title="1.4、export关键字"></a>1.4、export关键字</h5><p>export关键字将一个模块中的变量、函数、类等导出</p>
+<ul>
+<li><code>export</code> 指令用于导出变量，比如下面的代码</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// info.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> name = <span class="string">&#x27;why&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> age = <span class="number">18</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> height = <span class="number">1.88</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="1-5、导出函数或类"><a href="#1-5、导出函数或类" class="headerlink" title="1.5、导出函数或类"></a>1.5、导出函数或类</h5><p>上面我们主要是输出变量，也可以输出函数或者输出类</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">test</span>(<span class="params">content</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(content);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">name,age</span>)&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">age</span> = age</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">run</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span> + <span class="string">&#x27;在奔跑&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-6、export-default"><a href="#1-6、export-default" class="headerlink" title="1.6、export default"></a>1.6、export default</h5><ul>
+<li>某些情况下，一个模块中包含某个功能，我们并不希望给这个功能命名，而是让导入者可以自己来命名</li>
+<li>这个时候就可以使用 <code>export default</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// info.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;default function&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>我们来到 <code>main.js</code> 中，这样使用就可以了</p>
+<ul>
+<li><p>这里的 <code>myFunc</code> 是我自己命名的，你可以根据需要命名它对应的名字</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> myFunc form <span class="string">&#x27;./info.js&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">myFunc</span>()</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>另外，需要注意：</p>
+<ul>
+<li><code>export default</code> 在同一个模块中，不允许同时存在多个</li>
+</ul>
+</li>
+</ul>
+<h5 id="1-7、ES6-import的使用"><a href="#1-7、ES6-import的使用" class="headerlink" title="1.7、ES6 import的使用"></a>1.7、ES6 import的使用</h5><p>我们使用 export 指令导出了模块对外提供的接口，下面我们就可以通过 <code>import</code> 命令来加载对应的这个模块了</p>
+<ul>
+<li><p>首先，我们需要在 HTML 代码中引入两个j文件，并且类型需要设置为 module</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src = <span class="string">&quot;info.js&quot;</span> type = <span class="string">&quot;module&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span> = <span class="string">&quot;main.js&quot;</span> <span class="attr">type</span> = <span class="string">&quot;module&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><code>import</code> 指令用于导入模块中的内容，比如 <code>main.js</code> 的代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;name,age,height&#125; <span class="keyword">from</span> <span class="string">&quot;./info.js&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name,age,height);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果我们希望某个模块中所有的信息都导入，一个个导入显然有些麻烦<ul>
+<li>p通过<code>*</code>可以导入模块中所有的export变量</li>
+<li>p但是通常情况下我们需要给<code>*</code>起一个别名，方便后续的使用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> info <span class="keyword">from</span> <span class="string">&#x27;./info.js&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(info.<span class="property">name</span>,info.<span class="property">age</span>,info.<span class="property">height</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、系统模块（内置模块）"><a href="#2、系统模块（内置模块）" class="headerlink" title="2、系统模块（内置模块）"></a>2、系统模块（内置模块）</h3><h4 id="1-内置模块HTTP"><a href="#1-内置模块HTTP" class="headerlink" title="1.内置模块HTTP"></a>1.内置模块HTTP</h4><p>Node.js中，将很多的功能，划分为一个个 module(模块)。 Node.js 中的很多功能都是通过模块实现。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//表示引入http模块</span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    request    获取客户端(浏览器)传过来的信息</span></span><br><span class="line"><span class="comment">    response   给浏览器响应信息</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">http.<span class="title function_">createServer</span>(<span class="keyword">function</span> (<span class="params">request, response</span>) &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//发送响应头</span></span><br><span class="line">  <span class="comment">//设置HTTP头部,状态码是200,文件类型是 html,字符集是 utf8 </span></span><br><span class="line">  response.<span class="title function_">writeHead</span>(<span class="number">200</span>, &#123;<span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;text/html;charset=UTF-8&#x27;</span>&#125;);</span><br><span class="line">    </span><br><span class="line">  <span class="comment">//表示给我们页面上面输出一句话并且结束响应</span></span><br><span class="line">  response.<span class="title function_">end</span>(<span class="string">&#x27;Hello World&#x27;</span>);</span><br><span class="line">&#125;).<span class="title function_">listen</span>(<span class="number">3000</span>);  <span class="comment">//监听端口</span></span><br></pre></td></tr></table></figure>
+
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/628bfc483126460983783db3097585e2.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<p>那我们如果想在屏幕上输出汉字呢？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"></span><br><span class="line">http.<span class="title function_">createServer</span>(<span class="keyword">function</span>(<span class="params">request, response</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//发送响应头</span></span><br><span class="line">    response.<span class="title function_">writeHead</span>(<span class="number">200</span>, &#123; <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;text/html;charset=UTF-8&#x27;</span> &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//表示给我们页面上面输出一句话并且结束响应</span></span><br><span class="line">    response.<span class="title function_">write</span>(<span class="string">&#x27;你好 Nodejs&#x27;</span>);</span><br><span class="line">    response.<span class="title function_">end</span>(<span class="string">&#x27;&lt;h2&gt;你好 Nodejs&lt;/h2&gt;&#x27;</span>);</span><br><span class="line">&#125;).<span class="title function_">listen</span>(<span class="number">3000</span>); <span class="comment">//监听端口</span></span><br></pre></td></tr></table></figure>
+
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/b215b40f3f514ba9ac4c6a46da657a26.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<p>如何解决 Preview 里面的乱码状态呢？只需要在<code>http.createServer</code>中添加下方代码即可</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.<span class="title function_">write</span>(<span class="string">&quot;&lt;head&gt; &lt;meta charset=&#x27;UTF-8&#x27;&gt;&lt;/head&gt;&quot;</span>); <span class="comment">//解决乱码   </span></span><br></pre></td></tr></table></figure>
+
+<h5 id="1-1、创建服务器"><a href="#1-1、创建服务器" class="headerlink" title="1.1、创建服务器"></a>1.1、创建服务器</h5><p>创建服务器对象，我们是通过 createServer 来完成的</p>
+<ul>
+<li>req：request请求对象，包含请求相关的信息</li>
+<li>res：response响应对象，包含我们要发送给客户端的信息</li>
+</ul>
+<h5 id="1-2、监听主机和端口号"><a href="#1-2、监听主机和端口号" class="headerlink" title="1.2、监听主机和端口号"></a>1.2、监听主机和端口号</h5><p>通过listen方法来开启服务器，并且在某一个主机和端口上监听网络请求</p>
+<p>listen函数有三个参数：</p>
+<ul>
+<li>端口port: 可以不传, 系统会默认分配端</li>
+<li>主机host: 通常可以传入localhost、ip地址127.0.0.1,或者ip地址0.0.0.0，默认是0.0.0.0</li>
+<li>回调函数：服务器启动成功时的回调函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 启动服务器,并且制定端口号和主机</span></span><br><span class="line">server.<span class="title function_">listen</span>(<span class="number">8888</span>, <span class="string">&#x27;0.0.0.0&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-3、request对象"><a href="#1-3、request对象" class="headerlink" title="1.3、request对象"></a>1.3、request对象</h5><p>在向服务器发送请求时，我们会携带很多信息，比如：</p>
+<ul>
+<li>本次请求的URL，服务器需要根据不同的URL进行不同的处理</li>
+<li>本次请求的请求方式，比如GET、POST请求传入的参数和处理的方式是不同的</li>
+<li>本次请求的 headers 中也会携带一些信息，比如客户端信息、接受数据的格式、支持的编码格式等</li>
+</ul>
+<p>这些信息，Node会帮助我们封装到一个request的对象中，我们可以直接来处理这个request对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个web服务器</span></span><br><span class="line"><span class="keyword">const</span> server = http.<span class="title function_">createServer</span>(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// request对象中封装了客户端给我们服务器传递过来的所有信息</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">url</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">method</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">headers</span>);</span><br><span class="line"></span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&quot;Hello Server&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 启动服务器,并且制定端口号和主机</span></span><br><span class="line">server.<span class="title function_">listen</span>(<span class="number">8888</span>, <span class="string">&#x27;0.0.0.0&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-4、URL的处理"><a href="#1-4、URL的处理" class="headerlink" title="1.4、URL的处理"></a>1.4、URL的处理</h5><p>客户端在发送请求时，会请求不同的数据，那么会传入不同的请求地址：</p>
+<ul>
+<li>比如<a target="_blank" rel="noopener" href="http://localhost:8000/login">http://localhost:8000/login</a></li>
+<li>比如<a target="_blank" rel="noopener" href="http://localhost:8000/products">http://localhost:8000/products</a></li>
+</ul>
+<p>服务器端需要根据不同的请求地址，作出不同的响应</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个web服务器</span></span><br><span class="line"><span class="keyword">const</span> server = http.<span class="title function_">createServer</span>(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//最基本的使用方式</span></span><br><span class="line">  <span class="keyword">if</span> (req.<span class="property">url</span> === <span class="string">&#x27;/login&#x27;</span>) &#123;</span><br><span class="line">    res.<span class="title function_">end</span>(<span class="string">&quot;欢迎回来~&quot;</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (req.<span class="property">url</span> === <span class="string">&#x27;/users&#x27;</span>) &#123;</span><br><span class="line">    res.<span class="title function_">end</span>(<span class="string">&quot;用户列表~&quot;</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    res.<span class="title function_">end</span>(<span class="string">&quot;错误请求, 检查~&quot;</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>那么如果用户发送的地址中还携带一些额外的参数呢？</p>
+<p>比如：<a target="_blank" rel="noopener" href="http://localhost:8000/login?name=why&amp;password=123">http://localhost:8000/login?name=why&amp;password=123</a></p>
+<p>这个时候，url的值是 /login?name=why&amp;password=123</p>
+<p>我们如何对它进行解析呢？使用**==内置模块url==**</p>
+<h4 id="2-内置模块url"><a href="#2-内置模块url" class="headerlink" title="2.内置模块url"></a>2.内置模块url</h4><h5 id="2-1、旧版url-API"><a href="#2-1、旧版url-API" class="headerlink" title="2.1、旧版url API"></a>2.1、旧版url API</h5><p>我们来看一下 req 里面能够使用的东西。</p>
+<ul>
+<li>最重要的是 <code>req.url</code> 属性，表示用户的请求URL 地址。所有路由设计，都是通过 <code>req.url</code> 来实现的。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"></span><br><span class="line">http.<span class="title function_">createServer</span>(<span class="keyword">function</span>(<span class="params">request, response</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(request.<span class="property">url</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//发送响应头</span></span><br><span class="line">    response.<span class="title function_">writeHead</span>(<span class="number">200</span>, &#123; <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;text/html;charset=&quot;UTF-8&quot;&#x27;</span> &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//表示给我们页面上面输出一句话并且结束响应</span></span><br><span class="line">    response.<span class="title function_">write</span>(<span class="string">&#x27;你好 Nodejs&#x27;</span>);</span><br><span class="line">    response.<span class="title function_">end</span>(<span class="string">&#x27;&lt;h2&gt;你好 Nodejs&lt;/h2&gt;&#x27;</span>);</span><br><span class="line">&#125;).<span class="title function_">listen</span>(<span class="number">3000</span>); <span class="comment">//监听端口</span></span><br></pre></td></tr></table></figure>
+
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/48a3627399bb4de38a66913b5398f6c4.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<p>这里注意一下输出是在 Nodejs 控制台输出，而不是在浏览器上输出。因为输出是在服务端，浏览器是客户端</p>
+<ul>
+<li>我们比较关心的不是拿到 URL，而是识别这个 URL。</li>
+<li>识别 URL，下面的 url 模块</li>
+</ul>
+<p>旧版本 Node 的 url 用法如下：</p>
+<table>
+<thead>
+<tr>
+<th>url模块的使用</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>url.parse()</td>
+<td>解析 url(第二个参数为true,可以将 query 里面的数据转换为对象)</td>
+</tr>
+<tr>
+<td>url.format(urlObject)</td>
+<td>是上面 url.parse() 操作的逆向操作</td>
+</tr>
+<tr>
+<td>url.resolve(from,to)</td>
+<td>添加或者替换地址</td>
+</tr>
+</tbody></table>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/8e85809e295b4784af684fbd95244a5b.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">&#x27;url&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> api = <span class="string">&#x27;http://www.itying.com?name=zhangsan&amp;age=20&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//console.log(url.parse(api, true));</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> getValue = url.<span class="title function_">parse</span>(api, <span class="literal">true</span>).<span class="property">query</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(getValue);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6中模板字符串写法</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`姓名：<span class="subst">$&#123;getValue.name&#125;</span>--年龄:<span class="subst">$&#123;getValue.age&#125;</span>`</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/b6598f22b5ee4da2b14242c0f832c93d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<h5 id="2-2、新版url-API"><a href="#2-2、新版url-API" class="headerlink" title="2.2、新版url API"></a>2.2、新版url API</h5><p>==新版本 Node 的 url 用法如下：==</p>
+<ul>
+<li>new URL(input,[,base])<ul>
+<li><code>input</code> 类型：String，要解析的绝对或相对的输入网址。如果 input 是相对的，则需要 base。如果 input 是绝对的，则忽略 base。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myURL = <span class="keyword">new</span> <span class="title function_">URL</span>(<span class="string">&#x27;/foo&#x27;</span>, <span class="string">&#x27;https://example.org/&#x27;</span>);</span><br><span class="line"><span class="comment">// https://example.org/foo</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">&#x27;url&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> myURL = <span class="keyword">new</span> <span class="title function_">URL</span>(</span><br><span class="line">    <span class="string">&quot;http://localhost:3000/p/a/t/h?name=zhangsan&amp;age=20#hash&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myURL);</span><br></pre></td></tr></table></figure>
+
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/a6b91ab91325402bbe93444b9b8bb3d9.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<h5 id="2-3、searchParams"><a href="#2-3、searchParams" class="headerlink" title="2.3、searchParams"></a>2.3、searchParams</h5><p>searchParams 可以获取到 url 参数的 value</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myURL = <span class="keyword">new</span> <span class="title function_">URL</span>(<span class="string">&#x27;https://example.org/?abc=123&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myURL.<span class="property">searchParams</span>.<span class="title function_">get</span>(<span class="string">&#x27;abc&#x27;</span>));</span><br><span class="line"><span class="comment">// 打印 123</span></span><br><span class="line"></span><br><span class="line">myURL.<span class="property">searchParams</span>.<span class="title function_">append</span>(<span class="string">&#x27;abc&#x27;</span>, <span class="string">&#x27;xyz&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myURL.<span class="property">href</span>);</span><br><span class="line"><span class="comment">// 打印 https://example.org/?abc=123&amp;abc=xyz</span></span><br><span class="line"></span><br><span class="line">myURL.<span class="property">searchParams</span>.<span class="title function_">delete</span>(<span class="string">&#x27;abc&#x27;</span>);</span><br><span class="line">myURL.<span class="property">searchParams</span>.<span class="title function_">set</span>(<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myURL.<span class="property">href</span>);</span><br><span class="line"><span class="comment">// 打印 https://example.org/?a=b</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-内置模块fs"><a href="#3-内置模块fs" class="headerlink" title="3.内置模块fs"></a>3.内置模块fs</h4><p>fs：file system ，文件操作系统，是系统模块，直接引入即可使用.</p>
+<p>文件系统的API非常的多，我们不可能，也没必要一个个去学习，更多的是使用是时候去查对应的API</p>
+<h5 id="3-1、fs-stat🔥"><a href="#3-1、fs-stat🔥" class="headerlink" title="3.1、fs.stat🔥"></a>3.1、fs.stat🔥</h5><p>fs.stat ：检测是文件还是目录：</p>
+<ul>
+<li>第一个参数是 path ：路径</li>
+<li>第二个参数是 callback：回调函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. fs.stat   检测是文件还是目录</span></span><br><span class="line">fs.<span class="title function_">stat</span>(<span class="string">&#x27;./html&#x27;</span>,<span class="function">(<span class="params">err,data</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`是文件:<span class="subst">$&#123;data.isFile()&#125;</span>`</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`是目录:<span class="subst">$&#123;data.isDirectory()&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-2、fs-mkdir🔥"><a href="#3-2、fs-mkdir🔥" class="headerlink" title="3.2、fs.mkdir🔥"></a>3.2、fs.mkdir🔥</h5><p>fs.mkdir()： 创建目录</p>
+<ul>
+<li>第一个参数 path：将要创建的目录路径</li>
+<li>第二个参数 mode：目录权限(读写权限)，默认为777</li>
+<li>第三个参数 callback：回调函数，传递异常参数 err</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">mkdir</span>(<span class="string">&#x27;./css&#x27;</span>,<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;创建成功&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-3、fs-writeFile🔥"><a href="#3-3、fs-writeFile🔥" class="headerlink" title="3.3、fs.writeFile🔥"></a>3.3、fs.writeFile🔥</h5><p>fs.writeFile ：创建写入文件</p>
+<ul>
+<li>第一个参数 filename：文件名称</li>
+<li>第二个参数 data：将要写入的内容，可以使用字符串或 buffer 数据</li>
+<li>第三个参数 options：option 数组对象，包含<ul>
+<li>encoding ：可选值，默认为 ‘utf8’，当 data 使用 buffer 时，该值应该为 ignored</li>
+<li>mode：文件读写权限，默认为 438</li>
+<li>flag ：默认为 ‘w’</li>
+</ul>
+</li>
+<li>第四个参数 callback：回调函数，传递一个异常参数 err</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">writeFile</span>(<span class="string">&#x27;./html/index.html&#x27;</span>,<span class="string">&#x27;你好nodejs&#x27;</span>,<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;创建写入文件成功&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">writeFile</span>(<span class="string">&#x27;./html/index.html&#x27;</span>,<span class="string">&#x27;你好nodejs 哈哈&#x27;</span>,<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;创建写入文件成功&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>注意：如果没有这个文件，则会新建一个文件，如果已经有这个文件，那么会覆盖这个文件里面的内容</p>
+<h5 id="3-4、fs-appendFile"><a href="#3-4、fs-appendFile" class="headerlink" title="3.4、fs.appendFile"></a>3.4、fs.appendFile</h5><p>fs.appendFile 追加文件</p>
+<ul>
+<li>第一个参数 path：将要追加的文件路径</li>
+<li>第二个参数 data：要追加的文件内容</li>
+<li>第三个参数callback：回调函数，传递一个异常参数 err</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">appendFile</span>(<span class="string">&#x27;./css/base.css&#x27;</span>,<span class="string">&#x27;body&#123;color:red&#125;&#x27;</span>,<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;appendFile 成功&#x27;</span>);</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> fs.<span class="title function_">appendFile</span>(<span class="string">&#x27;./css/base.css&#x27;</span>,<span class="string">&#x27;h3&#123;color:red&#125;\n&#x27;</span>,<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;appendFile 成功&#x27;</span>);</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>注意：如果这个文件不存在，则会新建文件，如果文件已经存在，则会在文件内容后面追加内容</p>
+<h5 id="3-5、fs-readFile"><a href="#3-5、fs-readFile" class="headerlink" title="3.5、fs.readFile"></a>3.5、fs.readFile</h5><p>fs.readFile 读取文件：</p>
+<ul>
+<li>第一个参数路径 path：想要读取的文件的路径</li>
+<li>第二个参数callback：回调函数，传递一个异常参数 err 和读取的文件数据 data，data类型是 Buffer</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">readFile</span>(<span class="string">&#x27;./html/index.html&#x27;</span>,<span class="function">(<span class="params">err,data</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data.<span class="title function_">toString</span>());  <span class="comment">//把Buffer 转化成string类型</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">readFile</span>(<span class="string">&#x27;./aaa/index.html&#x27;</span>,<span class="function">(<span class="params">err,data</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data.<span class="title function_">toString</span>());  <span class="comment">//把Buffer 转化成string类型</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-6、fs-readdir"><a href="#3-6、fs-readdir" class="headerlink" title="3.6、fs.readdir"></a>3.6、fs.readdir</h5><p>fs.readdir 读取目录：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">readdir</span>(<span class="string">&#x27;./html&#x27;</span>,<span class="function">(<span class="params">err,data</span>)=&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-7、fs-rename"><a href="#3-7、fs-rename" class="headerlink" title="3.7、fs.rename"></a>3.7、fs.rename</h5><p>fs.rename ：重命名，功能：1、表示重命名 2、移动文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">rename</span>(<span class="string">&#x27;./css/aaa.css&#x27;</span>,<span class="string">&#x27;./css/index.css&#x27;</span>,<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;重命名成功&#x27;</span>);</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">rename</span>(<span class="string">&#x27;./css/index.css&#x27;</span>,<span class="string">&#x27;./html/index.css&#x27;</span>,<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;移动文件成功&#x27;</span>);</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-8、fs-rmdir"><a href="#3-8、fs-rmdir" class="headerlink" title="3.8、fs.rmdir"></a>3.8、fs.rmdir</h5><p>fs.rmdir 删除目录</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">rmdir</span>(<span class="string">&#x27;./aaaa&#x27;</span>,<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;删除目录成功&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>注意：要删除目录之前需要先删除目录下的所有文件</p>
+<h5 id="3-9、fs-unlink"><a href="#3-9、fs-unlink" class="headerlink" title="3.9、fs.unlink"></a>3.9、fs.unlink</h5><p>fs.unlink 删除文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">unlink</span>(<span class="string">&#x27;./aaaa/index.html&#x27;</span>,<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;删除文件成功&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-10、fs-createReadStream"><a href="#3-10、fs-createReadStream" class="headerlink" title="3.10、fs.createReadStream"></a>3.10、fs.createReadStream</h5><p>fs.createReadStream： 从文件流中读取数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="comment">// 以流的方式读取 data 目录下的 aaa.txt</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">ReadStream</span> = fs.<span class="title function_">createReadStream</span>(<span class="string">&quot;./data/aaa.txt&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过 on 方法监听 data,表示我们读取到了这个数据</span></span><br><span class="line"><span class="title class_">ReadStream</span>.<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>, <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    str += data;</span><br><span class="line">    count++;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过 on 方法监听 end,表示我们读取完了这个数据</span></span><br><span class="line"><span class="title class_">ReadStream</span>.<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(count);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过 on 方法监听 error,表示读取过程中的错误信息</span></span><br><span class="line"><span class="title class_">ReadStream</span>.<span class="title function_">on</span>(<span class="string">&#x27;error&#x27;</span>, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-11、fs-createWriteStream"><a href="#3-11、fs-createWriteStream" class="headerlink" title="3.11、fs.createWriteStream"></a>3.11、fs.createWriteStream</h5><p>fs.createWriteStream：写入文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">500</span>;i++)&#123;</span><br><span class="line"></span><br><span class="line">    str +=<span class="string">&#x27;我是从数据库获取的数据,我要保存起来&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以流的方式写到 data目录下的 output.txt</span></span><br><span class="line"><span class="keyword">var</span> writeStream = fs.<span class="title function_">createWriteStream</span>(<span class="string">&#x27;/data/output.txt&#x27;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">writeStream.<span class="title function_">write</span>(str); </span><br><span class="line"></span><br><span class="line"><span class="comment">//标记写入完成</span></span><br><span class="line">writeStream.<span class="title function_">end</span>();</span><br><span class="line">writeStream.<span class="title function_">on</span>(<span class="string">&#x27;finish&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;写入完成&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-12、管道流🔥"><a href="#3-12、管道流🔥" class="headerlink" title="3.12、管道流🔥"></a>3.12、管道流🔥</h5><p>管道提供了一个输出流到输入流的机制。通常我们用于从一个流中获取数据并将数据传递到另外一个流中。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/8d67c441d7ce441aa8d096f73bb60126.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="comment">// 创建一个可读流</span></span><br><span class="line"><span class="keyword">var</span> readerStream = fs.<span class="title function_">createReadStream</span>(<span class="string">&#x27;input.txt&#x27;</span>);</span><br><span class="line"><span class="comment">// 创建一个可写流</span></span><br><span class="line"><span class="keyword">var</span> readStream = fs.<span class="title function_">createReadStream</span>(<span class="string">&#x27;output.txt&#x27;</span>)</span><br><span class="line"><span class="comment">// 管道读写操作</span></span><br><span class="line"><span class="comment">// 读取 input.txt 文件内容,并将内容写入到 output.txt 文件中</span></span><br><span class="line">readStream.<span class="title function_">pipi</span>(writeStream);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;程序执行完毕。&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-内置模块PATH"><a href="#4-内置模块PATH" class="headerlink" title="4.内置模块PATH"></a>4.内置模块PATH</h4><h5 id="4-1、path常见的API"><a href="#4-1、path常见的API" class="headerlink" title="4.1、path常见的API"></a>4.1、path常见的API</h5><ul>
+<li>从路径中获取信息<ul>
+<li>dirname：获取文件的父文件夹</li>
+<li>basename：获取文件名</li>
+<li>extname：获取文件扩展名</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.获取路径的信息</span></span><br><span class="line"><span class="keyword">const</span> filepath = <span class="string">&#x27;/User/why/abc.txt&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(path.<span class="title function_">dirname</span>(filepath)); <span class="comment">// /User/why</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(path.<span class="title function_">basename</span>(filepath)); <span class="comment">// abc.txt</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(path.<span class="title function_">extname</span>(filepath)); <span class="comment">// .txt</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>路径的拼接<ul>
+<li>如果我们希望将多个路径进行拼接，但是不同的操作系统可能使用的是不同的分隔符</li>
+<li>这个时候我们可以使用 <code>path.join</code> 函数</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2.join路径拼接</span></span><br><span class="line"><span class="keyword">const</span> basepath = <span class="string">&#x27;../User/why&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> filename = <span class="string">&#x27;./abc.txt&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> othername = <span class="string">&#x27;./why.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> filepath1 = path.<span class="title function_">join</span>(basepath, filename);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(filepath1);     <span class="comment">// ..\User\why\abc.txt</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将文件和某个文件夹拼接<ul>
+<li>如果我们希望将某个文件和文件夹拼接，可以使用<code>path.resolve</code></li>
+<li>resolve 函数会判断我们拼接的路径前面是否有 / 或 …/ 或 ./</li>
+<li>如果有表示是一个绝对路径，会返回对应的拼接路径</li>
+<li>如果没有，那么会和当前执行文件所在的文件夹进行路径的拼接</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> basepath = <span class="string">&#x27;../User/why&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> filename = <span class="string">&#x27;./abc.txt&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> othername = <span class="string">&#x27;./why.js&#x27;</span>;</span><br><span class="line"><span class="comment">// 3.resolve路径拼接</span></span><br><span class="line"><span class="comment">// resolve会判断拼接的路径字符串中,是否有以/或./或../开头的路径</span></span><br><span class="line"><span class="keyword">const</span> filepath2 = path.<span class="title function_">resolve</span>(basepath, filename, othername);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(filepath2);</span><br><span class="line"><span class="comment">// E:\Code\Node\NodeCodeWhy\User\why\abc.txt\why.js</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> basepath2 = <span class="string">&#x27;/User/coderwhy&#x27;</span>;</span><br><span class="line"><span class="comment">// const filename2 = &#x27;/why/abc.txt&#x27;;              // E:\why\abc.txt</span></span><br><span class="line"><span class="comment">// const filename2 = &#x27;./why/abc.txt&#x27;;             // E:\User\coderwhy\why\abc.txt</span></span><br><span class="line"><span class="comment">// const filename2 = &#x27;why/abc.txt&#x27;;               // E:\User\coderwhy\why\abc.txt</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// const filename2 = &#x27;../why/abc.txt&#x27;;            // E:\User\why\abc.txt</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> result = path.<span class="title function_">resolve</span>(basepath2, filename2);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result);</span><br></pre></td></tr></table></figure>
+
+<h6 id="4-1-1、path-extname"><a href="#4-1-1、path-extname" class="headerlink" title="4.1.1、path.extname"></a>4.1.1、path.extname</h6><ul>
+<li><code>path.extname()</code> 获取文件(可以是一个路径文件)的扩展名</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(path.<span class="title function_">extname</span>(<span class="string">&#x27;hello.md&#x27;</span>)); <span class="comment">// md</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取路径信息的扩展名</span></span><br><span class="line"><span class="keyword">let</span> strPath = <span class="string">&quot;http://www.xinhuanet.html&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(path.<span class="title function_">extname</span>(strPath)); <span class="comment">// html</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="4-1-2、path-resolve"><a href="#4-1-2、path-resolve" class="headerlink" title="4.1.2、path.resolve"></a>4.1.2、path.resolve</h6><ul>
+<li><code>path.resolve([...paths])</code> 把一个路径或路径片段的序列解析为一个绝对路径</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="string">&#x27;/sxt&#x27;</span>, <span class="string">&#x27;qianduan&#x27;</span>, <span class="string">&#x27;zhongji&#x27;</span>];</span><br><span class="line"><span class="keyword">let</span> info1 = path.<span class="title function_">resolve</span>(...arr);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(info1);</span><br><span class="line"><span class="comment">// D:\sxt\qianduan\zhongji</span></span><br></pre></td></tr></table></figure>
+
+<p>给定的路径的序列是”从右往左”被处理的，后面每个 <code>path</code> 被依次解析，直到构造完成一个绝对路径。</p>
+<h6 id="4-1-3、path-join"><a href="#4-1-3、path-join" class="headerlink" title="4.1.3、path.join"></a>4.1.3、path.join</h6><ul>
+<li><code>path.join([...paths])</code> 方法使用平台特定的分隔符把全部给定的 <code>path</code> 片段连接到一起，并规范化生成的路径。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">path.<span class="title function_">join</span>(__dirname,<span class="string">&#x27;./02art-template.js&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">path.<span class="title function_">join</span>(<span class="string">&#x27;/foo&#x27;</span>,<span class="string">&#x27;bar&#x27;</span>,<span class="string">&#x27;./baz&#x27;</span>);</span><br><span class="line"><span class="comment">// &#x27;foo/bar/baz&#x27;</span></span><br><span class="line"></span><br><span class="line">path.<span class="title function_">join</span>(<span class="string">&#x27;/foo&#x27;</span>,<span class="string">&#x27;bar&#x27;</span>,<span class="string">&#x27;/baz&#x27;</span>,<span class="string">&#x27;..&#x27;</span>);</span><br><span class="line"><span class="comment">// &#x27;foo/bar&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>__dirname</code> 获得当前执行文件所在目录的完整目录名</li>
+<li><code>__filename</code> 获得当前执行文件的带有完整绝对路径的文件名</li>
+</ul>
+<h3 id="3、第三方模块（包）"><a href="#3、第三方模块（包）" class="headerlink" title="3、第三方模块（包）"></a>3、第三方模块（包）</h3><h4 id="1-包管理工具npm"><a href="#1-包管理工具npm" class="headerlink" title="1.包管理工具npm"></a>1.包管理工具npm</h4><p>包管理工具npm</p>
+<ul>
+<li>Node Package Manager，也就是Node包管理器</li>
+<li>但是目前已经不仅仅是Node包管理器了，在前端项目中我们也在使用它来管理依赖的包</li>
+<li>比如express、koa、react、react-dom、axios、babel、webpack等等</li>
+</ul>
+<p>npm管理的包可以在哪里查看、搜索呢？</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/">https://www.npmjs.com/</a></li>
+<li>这是我们安装相关的npm包的官网</li>
+</ul>
+<p>完全符合 CommonJs 规范的包目录一般包含如下这些文件</p>
+<ul>
+<li>package.json ：包描述文件</li>
+<li>bin：用于存放可执行二进制文件的目录</li>
+<li>lib：用于存放 JavaScript 代码的目录</li>
+<li>doc：用于存放文档的目录</li>
+</ul>
+<h5 id="1-0、npm-init-生成package-json"><a href="#1-0、npm-init-生成package-json" class="headerlink" title="1.0、npm init 生成package.json"></a>1.0、npm init 生成<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=package&spm=1001.2101.3001.7020">package</a>.json</h5><p>package.json 定义了这个项目所需要的各种模块，以及项目的配置信息(比如名称、版本、许可证等元数据)</p>
+<p>我们这里以引入并使用 MD5加密包来举例 package.json 的用法</p>
+<p>1.首先在项目根路径下创建 package.json</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init  或者 npm init --yse</span><br></pre></td></tr></table></figure>
+
+<p>2.去 <a target="_blank" rel="noopener" href="https://www.npmjs.com/">www.npmjs.com</a> 搜索我们 MD5加密包</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/15a6506b29164d83a3e3ce3df04894a9.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<p>3.在我们的根目录下打开 cmd 下载</p>
+<p>我们使用 <code>npm install md5 --save</code> 下载，将 md5 写入 package.json</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/d755589913454069b54436686ba6e0c1.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<p>4.使用 MD5</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 加密 123456</span></span><br><span class="line"><span class="keyword">var</span> md5 = <span class="built_in">require</span>(<span class="string">&#x27;md5&#x27;</span>);</span><br><span class="line"><span class="comment">// 实现 md5 加密的功能</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">md5</span>(<span class="string">&#x27;123456&#x27;</span>));</span><br></pre></td></tr></table></figure>
+
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/159fd19e59c847029b5b4d5a96fed601.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<ul>
+<li>这样我们就实现了导模块并使用模块，此时查看我们的package.json 文件</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;name&quot;</span>: <span class="string">&quot;mytest&quot;</span>,</span><br><span class="line">  <span class="string">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">  <span class="string">&quot;description&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  <span class="string">&quot;main&quot;</span>: <span class="string">&quot;index.js&quot;</span>,</span><br><span class="line">  <span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;test&quot;</span>: <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;keywords&quot;</span>: [],</span><br><span class="line">  <span class="string">&quot;author&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  <span class="string">&quot;license&quot;</span>: <span class="string">&quot;ISC&quot;</span>,</span><br><span class="line">  <span class="string">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;md5&quot;</span>: <span class="string">&quot;^2.3.0&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;devDependencies&quot;</span>: &#123;     </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>dependencies -&gt; 配置当前程序所依赖的其他包</li>
+<li>devDependencie -&gt; 配置当前程序所依赖的其他包，比如一些工具之类的配置在这里</li>
+</ul>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/f1f58104610b4a46a6a7141b8f8a87b7.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<p>dependencies 与 devDependencies 之间的区别？</p>
+<ul>
+<li>使用 npm install node_module –save 会自动更新 dependencies 字段值</li>
+<li>使用 npm install node_module –save -dev 会自动更新 devDependencies 字段值</li>
+</ul>
+<h5 id="1-1、package-json🔥"><a href="#1-1、package-json🔥" class="headerlink" title="1.1、package.json🔥"></a>1.1、package.json🔥</h5><ul>
+<li><p>package.json 是项目描述文件，记录了当前项目信息，例如项目名称、版本、作者、github地址、当前项目依赖了哪些第三方模块等。</p>
+<p>package-lock.json文件的作用：</p>
+<ul>
+<li><p>锁定包的版本，确保再次下载时不会因为包版本不同而产生问题</p>
+</li>
+<li><p>加快下载速度，因为该文件中已经记录了项目所依赖第三方包的树状结构和包的下载地址，重新安装时只需下载即可，不需要做额外的工作</p>
+</li>
+</ul>
+</li>
+<li><p>==<strong>每次创建新项目，记得先 npm init 生成package.json</strong>==🔥</p>
+</li>
+</ul>
+<h5 id="1-2、package-json常见属性"><a href="#1-2、package-json常见属性" class="headerlink" title="1.2、package.json常见属性"></a>1.2、package.json常见属性</h5><p>必须填写的属性：name、version</p>
+<ul>
+<li>name 是项目的名称</li>
+<li>version 是当前项目的版本号</li>
+<li>description是描述信息，很多时候是作为项目的基本描述</li>
+<li>author是作者相关信息（发布时用到）</li>
+<li>license是开源协议（发布时用到）</li>
+</ul>
+<p><strong>private 属性</strong>：</p>
+<ul>
+<li>private属性记录当前的项目是否是私有的</li>
+<li>当值为true时，npm是不能发布它的，这是防止私有项目或模块发布出去的方式</li>
+</ul>
+<p><strong>main 属性</strong>：</p>
+<ul>
+<li>设置程序的入口。</li>
+</ul>
+<p><strong>scripts 属性</strong>：</p>
+<ul>
+<li>scripts 属性用于配置一些脚本命令，以键值对的形式存在</li>
+<li>配置后我们可以通过 npm run 命令的key来执行这个命令</li>
+<li>npm start和npm run start的区别是什么?<ul>
+<li>它们是等价的</li>
+<li>对于常用的start、test、stop、restart可以省略掉run直接通过npm start等方式运行</li>
+</ul>
+</li>
+</ul>
+<p><strong>dependencies 属性</strong>：==项目依赖==</p>
+<ul>
+<li>dependencies 属性是指定无论开发环境还是生成环境都需要依赖的包</li>
+<li>使用<strong>npm install</strong> 包名命令下载的文件会默认被添加到 <strong>package.json</strong> 文件的 <strong>dependencies</strong> 字段中</li>
+<li>与之对应的是devDependencies</li>
+</ul>
+<p><strong>devDependencies 属性</strong>：==开发依赖==</p>
+<ul>
+<li><p>一些包在生成环境是不需要的，比如webpack、babel等</p>
+</li>
+<li><p>这个时候我们会通过npm install webpack –save-dev，将它安装到devDependencies属性中</p>
+<p>那么在生成环境如何保证不安装这些包呢？</p>
+</li>
+<li><p>生成环境不需要安装时，我们需要通过npm install –production 来安装文件的依赖</p>
+</li>
+</ul>
+<h5 id="1-3、版本管理的问题"><a href="#1-3、版本管理的问题" class="headerlink" title="1.3、版本管理的问题"></a>1.3、版本管理的问题</h5><p>我们会发现安装的依赖版本出现：^2.0.3或~2.0.3，这是什么意思呢？</p>
+<p>我们这里解释一下^和~的区别：</p>
+<ul>
+<li>^x.y.z：表示x是保持不变的，y和z永远安装最新的版本</li>
+<li>~x.y.z：表示x和y保持不变的，z永远安装最新的版本</li>
+</ul>
+<h5 id="1-4、npm-install-命令🔥"><a href="#1-4、npm-install-命令🔥" class="headerlink" title="1.4、npm install 命令🔥"></a>1.4、npm install 命令🔥</h5><p>安装npm包分两种情况：</p>
+<ul>
+<li>全局安装（global install）： <code>npm install ModuleName -g</code></li>
+<li>项目（局部）安装（local install）： <code>npm install</code></li>
+</ul>
+<p>全局安装：</p>
+<ul>
+<li>全局安装是直接将某个包安装到全局</li>
+</ul>
+<p>但是很多人对全局安装有一些误会：</p>
+<ul>
+<li>通常使用npm全局安装的包都是一些工具包：yarn、webpack等</li>
+<li>并不是类似于axios、express、koa等库文件</li>
+<li>所以全局安装了之后并不能让我们在所有的项目中使用axios等库</li>
+</ul>
+<p>1.npm -v` 查看 npm 版本</p>
+<p>2.使用 npm 命令安装模块 <code>npm install ModuleName</code></p>
+<p>我们推荐安装模块后面加上 <code>--save</code>，这样可以安装模块并把模块写入 package.json</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如安装 jq 模块</span></span><br><span class="line">npm install jquery --save</span><br></pre></td></tr></table></figure>
+
+<p>3.卸载模块 <code>npm uninstall moduleName</code></p>
+<p>4.查看当前目录下已安装的 <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=node&spm=1001.2101.3001.7020">node</a> 包 <code>npm list</code></p>
+<p>5.查看 模块 的版本 <code>npm info 模块</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如查看 jquery 的版本</span></span><br><span class="line">npm info 模块</span><br></pre></td></tr></table></figure>
+
+<p>6.指定版本安装 <code>npm install jquery@1.8.0 --save</code> 🔥</p>
+<h5 id="1-5、项目安装"><a href="#1-5、项目安装" class="headerlink" title="1.5、项目安装"></a>1.5、项目安装</h5><p>项目安装会在当前目录下生产一个node_modules 文件夹</p>
+<p>局部安装分为开发时依赖和生产时依赖</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/38dde8775adb4645b8b1a754d58e6b87.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<h5 id="1-6、npm-install-原理"><a href="#1-6、npm-install-原理" class="headerlink" title="1.6、npm install 原理"></a>1.6、npm install 原理</h5><p>执行npm install它背后帮助我们完成了什么操作？</p>
+<p>我们会发现还有一个成为package-lock.json的文件，它的作用是什么？</p>
+<p>从npm5开始，npm支持缓存策略（来自yarn的压力），缓存有什么作用呢？</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img-blog.csdnimg.cn/3fb96d34ecb341449a1d35ca7434e768.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述" class="lazyload"></p>
+<p>npm install会检测是有package-lock.json文件：</p>
+<ul>
+<li><p>没有lock文件</p>
+<ul>
+<li>分析依赖关系，这是因为我们可能包会依赖其他的包，并且多个包之间会产生相同依赖的情况</li>
+<li>从registry仓库中下载压缩包（如果我们设置了镜像，那么会从镜像服务器下载压缩包）</li>
+<li>获取到压缩包后会对压缩包进行缓存（从npm5开始有的）</li>
+<li>将压缩包解压到项目的node_modules文件夹中</li>
+</ul>
+</li>
+<li><p>有lock文件</p>
+<ul>
+<li>检测lock中包的版本是否和package.json中一致<ul>
+<li>不一致，那么会重新构建依赖关系，直接会走顶层的流程</li>
+</ul>
+</li>
+<li>一致的情况下，会去优先查找缓存<ul>
+<li>没有找到，会从registry仓库下载，直接走顶层流程</li>
+<li>查找到，会获取缓存中的压缩文件，并且将压缩文件解压到node_modules文件夹中</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="1-7、package-lock-json"><a href="#1-7、package-lock-json" class="headerlink" title="1.7、package-lock.json"></a>1.7、package-lock.json</h5><p>package-lock.json文件解析：</p>
+<ul>
+<li>name：项目的名称</li>
+<li>version：项目的版本</li>
+<li>lockfileVersion：lock文件的版本</li>
+<li>requires：使用requires来跟着模块的依赖关系</li>
+<li>dependencies：项目的依赖</li>
+</ul>
+<h5 id="1-8、npm其他命令"><a href="#1-8、npm其他命令" class="headerlink" title="1.8、npm其他命令"></a>1.8、npm其他命令</h5><p>卸载某个依赖包：</p>
+<ul>
+<li>npm uninstall package</li>
+<li>npm uninstall package –save-dev</li>
+<li>npm uninstall package -D</li>
+</ul>
+<p>强制重新build</p>
+<ul>
+<li>npm rebuild</li>
+</ul>
+<p>清除缓存</p>
+<ul>
+<li>npm cache clean</li>
+</ul>
+<h5 id="1-9、cnpm工具"><a href="#1-9、cnpm工具" class="headerlink" title="1.9、cnpm工具"></a>1.9、cnpm工具</h5><p>查看npm镜像</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
+
+<p>我们可以直接设置npm的淘宝镜像</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry <span class="attr">https</span>:<span class="comment">//registry.npm.taobao.org</span></span><br></pre></td></tr></table></figure>
+
+<p>但是对于大多数人来说），并不希望将npm镜像修改了</p>
+<ul>
+<li>第一，不太希望随意修改npm原本从官方下来包的渠道</li>
+<li>第二，担心某天淘宝的镜像挂了或者不维护了，又要改来改去</li>
+</ul>
+<p>这个时候，我们可以使用cnpm，并且将cnpm设置为淘宝的镜像</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=<span class="attr">https</span>:<span class="comment">//registry.npm.taobao.org</span></span><br></pre></td></tr></table></figure>
+
+<p>查看cnpm镜像</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm config get registry</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="2-Nodejs工具（supervisor-和nodemon-相同作用"><a href="#2-Nodejs工具（supervisor-和nodemon-相同作用" class="headerlink" title="2.Nodejs工具（supervisor 和nodemon)相同作用"></a>2.Nodejs工具（supervisor 和nodemon)相同作用</h4><h5 id="2-1-supervisor"><a href="#2-1-supervisor" class="headerlink" title="2.1 supervisor"></a>2.1 supervisor</h5><p>supervisor 会不停的watch 你应用下面的所有文件，发现有文件被修改，就重新载入程序文件这样就实现了部署，==<strong>修改了程序文件后马上就能看到变更后的结果</strong>==。再也不用担心重启nodejs </p>
+<p>1.首先安装 supervisor(在cmd控制台输入下方代码)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g supervisor</span><br></pre></td></tr></table></figure>
+
+<p>2.使用 supervisor 代替 node 命令启动应用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisor app.<span class="property">js</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2-2-nodemon（用得多）"><a href="#2-2-nodemon（用得多）" class="headerlink" title="2.2 nodemon（用得多）"></a>2.2 nodemon（用得多）</h5><ul>
+<li><strong>==nodemon 和 supervisor 的功能一样，两者安装一个即可==</strong></li>
+<li>使用<code>npm install -g nodemon</code> 下载它（-g 是全局安装）</li>
+<li>在命令行工具中用<code>nodemon</code>命令替代<code>node</code>命令执行文件</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nodemon app.<span class="property">js</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2-3-第三方模块-nrm（切换下载地址）"><a href="#2-3-第三方模块-nrm（切换下载地址）" class="headerlink" title="2.3.第三方模块 nrm（切换下载地址）"></a>2.3.第三方模块 nrm（切换下载地址）</h5><p>rm ( npm registry manager )：npm下载地址切换工具</p>
+<p>npm默认的下载地址在国外，国内下载速度慢</p>
+<p> <img data-fancybox="gallery" data-sizes="auto" data-src="//xxxxxx-collab.github/Users\ACER\AppData\Roaming\Typora\typora-user-images\image-20220221120222654.png" alt="image-20220221120222654" class="lazyload"></p>
+<p>使用步骤</p>
+<ol>
+<li>使用npm install nrm –g 下载它</li>
+<li>查询可用下载地址列表 nrm ls</li>
+<li>切换npm下载地址 nrm use 下载地址名称</li>
+</ol>
+<h3 id="4、Node-js中模块的加载机制"><a href="#4、Node-js中模块的加载机制" class="headerlink" title="4、Node.js中模块的加载机制"></a>4、Node.js中模块的加载机制</h3><p><strong>4.1 模块查找规则-当模块拥有路径但没有后缀时</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;./find.js&#x27;</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;./find&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>require方法根据模块路径查找模块，如果是完整路径，直接引入模块。</li>
+<li>如果模块后缀省略，先找同名JS文件再找同名JS文件夹</li>
+<li>如果找到了同名文件夹，找文件夹中的index.js</li>
+<li>如果文件夹中没有index.js就会去当前文件夹中的package.json文件中查找main选项中的入口文件</li>
+<li>如果找指定的入口文件不存在或者没有指定入口文件就会报错，模块没有被找到</li>
+</ol>
+<p><strong>4.2 模块查找规则-当模块没有路径且没有后缀时</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;find&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>Node.js会假设它是系统模块</li>
+<li>Node.js会去node_modules文件夹中</li>
+<li>首先看是否有该名字的JS文件</li>
+<li>再看是否有该名字的文件夹</li>
+<li>如果是文件夹看里面是否有index.js</li>
+<li>如果没有index.js查看该文件夹中的package.json中的main选项确定模块入口文件</li>
+<li>否则找不到报错</li>
+</ol>
+
+    </article>
+
+    
+        
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>生命里那束光<br>
+        <strong>Link：</strong><a href="https://xxxxxx-collab.github.io/2022/02/22/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92Node%E5%9F%BA%E7%A1%80/" title="https:&#x2F;&#x2F;xxxxxx-collab.github.io&#x2F;2022&#x2F;02&#x2F;22&#x2F;%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92Node%E5%9F%BA%E7%A1%80&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;xxxxxx-collab.github.io&#x2F;2022&#x2F;02&#x2F;22&#x2F;%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92Node%E5%9F%BA%E7%A1%80&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+            
+
+                <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/">前后端交互</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/node-js/">node.js</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Node/" rel="tag">Node</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/" rel="tag">前后端交互</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a>
+    
+</div>
+
+                    
+                        <div class="nexmoe-post-footer">
+                            <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'nexmoe.github.io',
+        owner: 'nexmoe',
+        admin: 'nexmoe'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+                        </div>
+                        
+</div>
+                            <div class="nexmoe-post-right">
+                                <div class="nexmoe-fixed">
+                                    <div class="nexmoe-tool">
+
+                                        
+
+                                            
+                                                
+                                                    <button class="mdui-fab catalog" style="overflow:unset;">
+                                                        <i class="nexmoefont icon-i-catalog"></i>
+                                                        <div class="nexmoe-toc">
+                                                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81Node-js%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">一、Node.js基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1%E6%A6%82%E8%BF%B0"><span class="toc-number">1.0.1.</span> <span class="toc-text">1.1概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">1.0.2.</span> <span class="toc-text">1.2环境搭建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3Node-js%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="toc-number">1.0.3.</span> <span class="toc-text">1.3Node.js快速入门</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-3-1-Node-js%E7%BB%84%E6%88%90"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">1.3.1 Node.js组成</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-3-2-Node-js%E5%85%A8%E5%B1%80%E5%AF%B9%E8%B1%A1global"><span class="toc-number">1.0.3.2.</span> <span class="toc-text">1.3.2 Node.js全局对象global</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-3-3-%E7%AC%AC%E4%B8%80%E4%B8%AANode%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.0.3.3.</span> <span class="toc-text">1.3.3 第一个Node程序</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-3-3-1%E8%A7%A3%E6%9E%90%E7%AC%AC%E4%B8%80%E4%B8%AANode%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.0.3.3.1.</span> <span class="toc-text">1.3.3.1解析第一个Node程序</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81JS%E6%A8%A1%E5%9D%97%E5%8C%96%E5%BC%80%E5%8F%91"><span class="toc-number">2.</span> <span class="toc-text">二、JS模块化开发</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.0.1.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81JavaScript%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-number">2.1.</span> <span class="toc-text">1、JavaScript模块化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1%E3%80%81CommonJS"><span class="toc-number">2.1.0.1.</span> <span class="toc-text">1.1、CommonJS</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97%E7%9A%84%E8%A7%84%E5%AE%9A"><span class="toc-number">2.1.0.2.</span> <span class="toc-text">1.2、自定义模块的规定</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-3%E3%80%81ES-Module"><span class="toc-number">2.1.0.3.</span> <span class="toc-text">1.3、ES Module</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-4%E3%80%81export%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">2.1.0.4.</span> <span class="toc-text">1.4、export关键字</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-5%E3%80%81%E5%AF%BC%E5%87%BA%E5%87%BD%E6%95%B0%E6%88%96%E7%B1%BB"><span class="toc-number">2.1.0.5.</span> <span class="toc-text">1.5、导出函数或类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-6%E3%80%81export-default"><span class="toc-number">2.1.0.6.</span> <span class="toc-text">1.6、export default</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-7%E3%80%81ES6-import%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.1.0.7.</span> <span class="toc-text">1.7、ES6 import的使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9D%97%EF%BC%88%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">2、系统模块（内置模块）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97HTTP"><span class="toc-number">2.2.1.</span> <span class="toc-text">1.内置模块HTTP</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1%E3%80%81%E5%88%9B%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.2.1.1.</span> <span class="toc-text">1.1、创建服务器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2%E3%80%81%E7%9B%91%E5%90%AC%E4%B8%BB%E6%9C%BA%E5%92%8C%E7%AB%AF%E5%8F%A3%E5%8F%B7"><span class="toc-number">2.2.1.2.</span> <span class="toc-text">1.2、监听主机和端口号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-3%E3%80%81request%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.2.1.3.</span> <span class="toc-text">1.3、request对象</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-4%E3%80%81URL%E7%9A%84%E5%A4%84%E7%90%86"><span class="toc-number">2.2.1.4.</span> <span class="toc-text">1.4、URL的处理</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97url"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.内置模块url</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1%E3%80%81%E6%97%A7%E7%89%88url-API"><span class="toc-number">2.2.2.1.</span> <span class="toc-text">2.1、旧版url API</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2%E3%80%81%E6%96%B0%E7%89%88url-API"><span class="toc-number">2.2.2.2.</span> <span class="toc-text">2.2、新版url API</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3%E3%80%81searchParams"><span class="toc-number">2.2.2.3.</span> <span class="toc-text">2.3、searchParams</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97fs"><span class="toc-number">2.2.3.</span> <span class="toc-text">3.内置模块fs</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1%E3%80%81fs-stat%F0%9F%94%A5"><span class="toc-number">2.2.3.1.</span> <span class="toc-text">3.1、fs.stat🔥</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2%E3%80%81fs-mkdir%F0%9F%94%A5"><span class="toc-number">2.2.3.2.</span> <span class="toc-text">3.2、fs.mkdir🔥</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3%E3%80%81fs-writeFile%F0%9F%94%A5"><span class="toc-number">2.2.3.3.</span> <span class="toc-text">3.3、fs.writeFile🔥</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-4%E3%80%81fs-appendFile"><span class="toc-number">2.2.3.4.</span> <span class="toc-text">3.4、fs.appendFile</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-5%E3%80%81fs-readFile"><span class="toc-number">2.2.3.5.</span> <span class="toc-text">3.5、fs.readFile</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-6%E3%80%81fs-readdir"><span class="toc-number">2.2.3.6.</span> <span class="toc-text">3.6、fs.readdir</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-7%E3%80%81fs-rename"><span class="toc-number">2.2.3.7.</span> <span class="toc-text">3.7、fs.rename</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-8%E3%80%81fs-rmdir"><span class="toc-number">2.2.3.8.</span> <span class="toc-text">3.8、fs.rmdir</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-9%E3%80%81fs-unlink"><span class="toc-number">2.2.3.9.</span> <span class="toc-text">3.9、fs.unlink</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-10%E3%80%81fs-createReadStream"><span class="toc-number">2.2.3.10.</span> <span class="toc-text">3.10、fs.createReadStream</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-11%E3%80%81fs-createWriteStream"><span class="toc-number">2.2.3.11.</span> <span class="toc-text">3.11、fs.createWriteStream</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-12%E3%80%81%E7%AE%A1%E9%81%93%E6%B5%81%F0%9F%94%A5"><span class="toc-number">2.2.3.12.</span> <span class="toc-text">3.12、管道流🔥</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97PATH"><span class="toc-number">2.2.4.</span> <span class="toc-text">4.内置模块PATH</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-1%E3%80%81path%E5%B8%B8%E8%A7%81%E7%9A%84API"><span class="toc-number">2.2.4.1.</span> <span class="toc-text">4.1、path常见的API</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#4-1-1%E3%80%81path-extname"><span class="toc-number">2.2.4.1.1.</span> <span class="toc-text">4.1.1、path.extname</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-1-2%E3%80%81path-resolve"><span class="toc-number">2.2.4.1.2.</span> <span class="toc-text">4.1.2、path.resolve</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-1-3%E3%80%81path-join"><span class="toc-number">2.2.4.1.3.</span> <span class="toc-text">4.1.3、path.join</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97%EF%BC%88%E5%8C%85%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">3、第三方模块（包）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7npm"><span class="toc-number">2.3.1.</span> <span class="toc-text">1.包管理工具npm</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-0%E3%80%81npm-init-%E7%94%9F%E6%88%90package-json"><span class="toc-number">2.3.1.1.</span> <span class="toc-text">1.0、npm init 生成package.json</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1%E3%80%81package-json%F0%9F%94%A5"><span class="toc-number">2.3.1.2.</span> <span class="toc-text">1.1、package.json🔥</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2%E3%80%81package-json%E5%B8%B8%E8%A7%81%E5%B1%9E%E6%80%A7"><span class="toc-number">2.3.1.3.</span> <span class="toc-text">1.2、package.json常见属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-3%E3%80%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">2.3.1.4.</span> <span class="toc-text">1.3、版本管理的问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-4%E3%80%81npm-install-%E5%91%BD%E4%BB%A4%F0%9F%94%A5"><span class="toc-number">2.3.1.5.</span> <span class="toc-text">1.4、npm install 命令🔥</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-5%E3%80%81%E9%A1%B9%E7%9B%AE%E5%AE%89%E8%A3%85"><span class="toc-number">2.3.1.6.</span> <span class="toc-text">1.5、项目安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-6%E3%80%81npm-install-%E5%8E%9F%E7%90%86"><span class="toc-number">2.3.1.7.</span> <span class="toc-text">1.6、npm install 原理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-7%E3%80%81package-lock-json"><span class="toc-number">2.3.1.8.</span> <span class="toc-text">1.7、package-lock.json</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-8%E3%80%81npm%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="toc-number">2.3.1.9.</span> <span class="toc-text">1.8、npm其他命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-9%E3%80%81cnpm%E5%B7%A5%E5%85%B7"><span class="toc-number">2.3.1.10.</span> <span class="toc-text">1.9、cnpm工具</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Nodejs%E5%B7%A5%E5%85%B7%EF%BC%88supervisor-%E5%92%8Cnodemon-%E7%9B%B8%E5%90%8C%E4%BD%9C%E7%94%A8"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.Nodejs工具（supervisor 和nodemon)相同作用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-supervisor"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">2.1 supervisor</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-nodemon%EF%BC%88%E7%94%A8%E5%BE%97%E5%A4%9A%EF%BC%89"><span class="toc-number">2.3.2.2.</span> <span class="toc-text">2.2 nodemon（用得多）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97-nrm%EF%BC%88%E5%88%87%E6%8D%A2%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80%EF%BC%89"><span class="toc-number">2.3.2.3.</span> <span class="toc-text">2.3.第三方模块 nrm（切换下载地址）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81Node-js%E4%B8%AD%E6%A8%A1%E5%9D%97%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="toc-number">2.4.</span> <span class="toc-text">4、Node.js中模块的加载机制</span></a></li></ol></li></ol>
+                                                        </div>
+                                                    </button>
+                                                    
+
+                                                        
+
+                                                            <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部"
+                                                                title="top"><button class="mdui-fab mdui-ripple"><i
+                                                                        class="nexmoefont icon-caret-top"></i></button></a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="Search" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+    
+                    <script
+	src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+		<script async src="/js/app.js?v=1648206422915"></script>
+
+			
+
+						<script
+							src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+						<script>
+							$(".justified-gallery").justifiedGallery({
+								rowHeight: 160,
+								margins: 10,
+							});
+						</script>
+
+						
+                        
+
+
+
+
+
+        </body>
+
+        <script>
+            // 对全部连接跳转事件绑定pjax容器container
+            $(document).pjax('a', '#pjax-containere', { fragment: '##pjax-container', timeout: 8000 });
+        </script>
+
+</html>
+
+
+<!--樱花背景-->
+<script type="text/javascript" src="https://yremp.live/wp-content/uploads/resource/js/sakura.js"></script>
+
+
+<!-- 
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script>
+    // 对全部连接跳转事件绑定pjax容器container
+    $(document).pjax('a[target!=_blank]', '#container', { fragment: '#container', timeout: 8000 })
+</script> -->

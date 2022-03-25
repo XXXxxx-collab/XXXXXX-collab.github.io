@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+
+        <head>
+            
+                <title>
+                    
+                        “JavaScript函数以及作用域 ” - 
+                                那束光の博客
+                </title>
+                <meta charset="UTF-8">
+                <meta name="keywords" content="">
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+                
+                    
+        
+                        <link rel="shortcut icon" href="https://i.postimg.cc/CxYbzphJ/image.png" type="image/png" />
+                        <meta name="description" content="✍目录总览：（函数【函数使用、函数封装、函数参数、返回、函数之间相互调用】、作用域【全局作用域、局部作用域】、变量的作用域【全局变量、局部变量】、作用域链、预解析）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“JavaScript函数以及作用域 ”">
+<meta property="og:url" content="https://xxxxxx-collab.github.io/2022/02/01/JavaScript%EF%BC%882%EF%BC%89%E5%87%BD%E6%95%B0%E4%BB%A5%E5%8F%8A%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%A1%A5%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/index.html">
+<meta property="og:site_name" content="那束光の博客">
+<meta property="og:description" content="✍目录总览：（函数【函数使用、函数封装、函数参数、返回、函数之间相互调用】、作用域【全局作用域、局部作用域】、变量的作用域【全局变量、局部变量】、作用域链、预解析）">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-02-01T04:06:22.000Z">
+<meta property="article:modified_time" content="2022-03-21T06:35:31.269Z">
+<meta property="article:author" content="生命里那束光">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="函数">
+<meta property="article:tag" content="作用域、">
+<meta name="twitter:card" content="summary">
+                            <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1648206422937">
+                                
+                                        <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1648206422937">
+                                            <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648206422937">
+                                                <link rel="stylesheet" href="/css/style.css?v=1648206422937">
+                                                    
+                                                                
+
+
+                                                                        <!-- 爆炸红心效果
+                                                                        <canvas class="fireworks"
+                                                                            style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+                                                                        <script type="text/javascript"
+                                                                            src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+                                                                        <script type="text/javascript"
+                                                                            src="/js/firework.js"></script> -->
+        <meta name="generator" content="Hexo 5.4.1"></head>
+
+        <body class="mdui-drawer-body-left">
+            
+                <div id="nexmoe-background">
+                    <div class="nexmoe-bg" style="background-image: url(https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500)"></div>
+                    <div class="mdui-appbar mdui-shadow-0">
+                        <div class="mdui-toolbar">
+                            <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu"
+                                class="mdui-btn mdui-btn-icon mdui-ripple"><i
+                                    class="mdui-icon nexmoefont icon-menu"></i></a>
+                            <div class="mdui-toolbar-spacer"></div>
+                            <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                            <a href="/" title="生命里那束光"
+                                class="mdui-btn mdui-btn-icon"><img src="https://i.postimg.cc/7hJchpF6/1.jpg"
+                                    alt="生命里那束光"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 音乐播放器 -->
+                <link rel="stylesheet" href="/dist/APlayer.min.css">
+                <div id="aplayer"></div>
+                <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+                <script type="text/javascript" src="/dist/music.js"></script>
+
+                <div id="nexmoe-header">
+                    <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="生命里那束光">
+            <img src="https://i.postimg.cc/7hJchpF6/1.jpg" alt="生命里那束光"
+                alt="生命里那束光">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>
+                文章
+            </span>
+            13
+        </div>
+        <div><span>
+                标签
+            </span>
+            25
+        </div>
+        <div><span>
+                分类
+            </span>
+            19
+        </div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/" title="回到首页">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-home"></i>
+                <div class="mdui-list-item-content">
+                    回到首页
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/about" title="关于博客">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-battlenet"></i>
+                <div class="mdui-list-item-content">
+                    关于博客
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/archive" title="文章归档">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-container"></i>
+                <div class="mdui-list-item-content">
+                    文章归档
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/study" title="学习路线">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+                <div class="mdui-list-item-content">
+                    学习路线
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/resume" title="我的简历">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-ellipsis"></i>
+                <div class="mdui-list-item-content">
+                    我的简历
+                </div>
+            </a>
+            
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+        <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">站内搜索</h3>
+    <div class="nexmoe-widget nexmoe-search">
+        
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder=" 请输入搜索内容"></label>
+            </form>
+            
+    </div>
+</div>
+            
+        <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://postimg.cc/tZwsMrDy" target="_blank" mdui-tooltip="{content: 'WeChat'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-wechat-fill"></i>
+        </a><a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=2578657473&site=qq&menu=yes" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/480369104" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://weibo.com/u/5967530462" target="_blank" mdui-tooltip="{content: '微博'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-weibo"></i>
+        </a><a class="mdui-ripple" href="https://github.com/XXXxxx-collab" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=2578657473&site=qq&menu=yes" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-steam"></i>
+        </a>
+    </div>
+</div>
+            
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-art-title">
+      文章分类
+    </h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+          
+
+        
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/JS/API/">
+              API
+            </a>
+            <span class="category-list-count">
+              2
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/CSS/">
+              CSS
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/Html/">
+              Html
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/JS/">
+              JS
+            </a>
+            <span class="category-list-count">
+              2
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/JavaScript/">
+              JavaScript
+            </a>
+            <span class="category-list-count">
+              2
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/Web前端/">
+              Web前端
+            </a>
+            <span class="category-list-count">
+              3
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/git版本控制/github仓库/">
+              github仓库
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/git版本控制/">
+              git版本控制
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/jquery常用API/">
+              jquery常用API
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/前后端交互/node-js/">
+              node.js
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/JavaScript/函数/作用域/">
+              作用域
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/JavaScript/函数/">
+              函数
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/前后端交互/">
+              前后端交互
+            </a>
+            <span class="category-list-count">
+              2
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/博客/">
+              博客
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/JavaScript/基础语法/">
+              基础语法
+            </a>
+            <span class="category-list-count">
+              2
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/Html/网页布局/">
+              网页布局
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+      </ul>
+
+    </div>
+  </div>
+  
+            
+        
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/APi/" style="font-size: 10px;">APi</a> <a href="/tags/BOM-API/" style="font-size: 10px;">BOM(API)</a> <a href="/tags/DOM-API/" style="font-size: 10px;">DOM(API)</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/Java-Script/" style="font-size: 10px;">Java Script</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/Web%E5%89%8D%E7%AB%AF/" style="font-size: 15px;">Web前端</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F%E3%80%81/" style="font-size: 10px;">作用域、</a> <a href="/tags/%E5%87%BD%E6%95%B0/" style="font-size: 10px;">函数</a> <a href="/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/" style="font-size: 10px;">前后端交互</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 20px;">博客</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" style="font-size: 10px;">基础语法</a> <a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 10px;">布局</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">服务器</a> <a href="/tags/%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">概念</a> <a href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%92%8C%E4%BB%93%E5%BA%93/" style="font-size: 10px;">版本控制和仓库</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">编程</a>
+    </div>
+    
+  </div>
+
+            
+</aside>
+        <div class="nexmoe-copyright">
+            &copy; 2022
+                生命里那束光
+                    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+                        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+                        
+        </div>
+</div><!-- .nexmoe-drawer -->
+                </div>
+                <div id="nexmoe-content">
+                    <div class="nexmoe-primary">
+                        <div class="nexmoe-post">
+
+    <article>
+        
+            <div class="nexmoe-post-cover" style="padding-bottom: 40%;">
+                <img data-src="https://shallowink.com/img/post/technology/javascript1.webp" data-sizes="auto" alt="“JavaScript函数以及作用域 ”" class="lazyload">
+                <h1>
+                    “JavaScript函数以及作用域 ”
+                </h1>
+            </div>
+            
+
+                    <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年02月01日</a>
+</div>
+
+
+
+                        <p>✍目录总览：（函数【函数使用、函数封装、函数参数、返回、函数之间相互调用】、作用域【全局作用域、局部作用域】、变量的作用域【全局变量、局部变量】、作用域链、预解析）</p>
+<span id="more"></span>
+
+<h1 id="JavaScript函数以及作用域"><a href="#JavaScript函数以及作用域" class="headerlink" title="JavaScript函数以及作用域"></a>JavaScript函数以及作用域</h1><h2 id="1、函数"><a href="#1、函数" class="headerlink" title="1、函数"></a>1、函数</h2><p><strong>函数概念：</strong></p>
+<p>==函数：就是封装了一段<strong>可被重复调用执行的代码块</strong>。通过此代码块可以实现大量代码的重复使用。==</p>
+<h3 id="1-1、函数的使用"><a href="#1-1、函数的使用" class="headerlink" title="1.1、函数的使用"></a>1.1、函数的使用</h3><p>函数在使用时分为两步：<strong>声明函数</strong>和<strong>调用函数</strong></p>
+<h5 id="①声明函数"><a href="#①声明函数" class="headerlink" title="①声明函数"></a>①声明函数</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明函数</span></span><br><span class="line"><span class="keyword">function</span> 函数名()&#123;</span><br><span class="line">     <span class="comment">//函数体代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>function 是声明函数的关键字,<strong>必须小写</strong></li>
+<li>由于函数一般是为了实现某个功能才定义的， 所以通常我们将函数名命名为动词，比如 getSum</li>
+</ul>
+<h5 id="②调用函数"><a href="#②调用函数" class="headerlink" title="②调用函数"></a>②调用函数</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//调用函数</span></span><br><span class="line">函数名(); <span class="comment">//通过调用函数名来执行函数体代码</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>调用的时候<strong>千万不要忘记添加小括号</strong></li>
+<li>口诀：函数不调用，自己不执行</li>
+</ul>
+<p><strong>注意</strong>：声明函数本身并不会执行代码，只有调用函数时才会执行函数体代码。</p>
+<h3 id="1-2、函数的封装"><a href="#1-2、函数的封装" class="headerlink" title="1.2、函数的封装"></a>1.2、函数的封装</h3><ul>
+<li>函数的封装是把一个或者多个功能通过<strong>函数的方式</strong>封装起来，对外只提供一个简单的函数接口</li>
+</ul>
+<h3 id="1-3、函数的参数"><a href="#1-3、函数的参数" class="headerlink" title="1.3、函数的参数"></a>1.3、函数的参数</h3><h4 id="1-3-1、形参和实参"><a href="#1-3-1、形参和实参" class="headerlink" title="1.3.1、形参和实参"></a>1.3.1、形参和实参</h4><p><strong>在声明函数时</strong>，可以在函数名称后面的小括号中添加一些参数，这些参数被称为<strong>形参</strong>，而在<strong>调用该函数</strong>时，同样也需要传递相应的参数，这些参数被称为<strong>实参</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>形参</strong></td>
+<td align="center"><strong>形</strong>式上的<strong>参</strong>数 <strong>函数定义</strong>的时候 传递的参数 当前并不知道是什么</td>
+</tr>
+<tr>
+<td><strong>实参</strong></td>
+<td align="center"><strong>实</strong>际上的<strong>参</strong>数 <strong>函数调用</strong>的时候 传递的参数 实参是传递给形参的</td>
+</tr>
+</tbody></table>
+<p><strong>参数的作用</strong> : 在<strong>函数内部</strong>某些值不能固定，我们可以通过参数在<strong>调用函数时传递不同的值</strong>进去</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 带参数的函数声明</span></span><br><span class="line"><span class="keyword">function</span> 函数名(形参<span class="number">1</span>, 形参<span class="number">2</span> , 形参<span class="number">3.</span>..) &#123; <span class="comment">// 可以定义任意多的参数，用逗号分隔</span></span><br><span class="line">  <span class="comment">// 函数体</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 带参数的函数调用</span></span><br><span class="line">函数名(实参<span class="number">1</span>, 实参<span class="number">2</span>, 实参<span class="number">3.</span>..); </span><br></pre></td></tr></table></figure>
+
+<p><strong>例如：利用函数求任意两个数的和</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getSum</span>(<span class="params">num1,num2</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(num1+num2)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用函数</span></span><br><span class="line"><span class="title function_">getSum</span>(<span class="number">1</span>,<span class="number">3</span>) <span class="comment">//4</span></span><br><span class="line"><span class="title function_">getSum</span>(<span class="number">6</span>，<span class="number">5</span>) <span class="comment">//11</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>函数调用的时候实参值是传递给形参的</p>
+</li>
+<li><p>形参简单理解为:<strong>不用声明的变量</strong></p>
+</li>
+<li><h6 id="实参和形参的多个参数之间用逗号-分隔，"><a href="#实参和形参的多个参数之间用逗号-分隔，" class="headerlink" title="实参和形参的多个参数之间用逗号(,)`分隔，"></a>实参和形参的多个参数之间用逗号(,)`分隔，</h6></li>
+</ul>
+<h4 id="1-3-2、形参和实参个数不匹配"><a href="#1-3-2、形参和实参个数不匹配" class="headerlink" title="1.3.2、形参和实参个数不匹配"></a>1.3.2、形参和实参个数不匹配</h4><table>
+<thead>
+<tr>
+<th>参数个数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>实参个数等于形参个数</td>
+<td align="center">输出正确结果</td>
+</tr>
+<tr>
+<td>实参个数多于形参个数</td>
+<td align="center">只取到形参的个数</td>
+</tr>
+<tr>
+<td>实参个数小于形参个数</td>
+<td align="center">多的形参定义为undefined，结果为NaN</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sum</span>(<span class="params">num1, num2</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(num1 + num2);</span><br><span class="line">&#125;</span><br><span class="line">例：</span><br><span class="line"><span class="title function_">sum</span>(<span class="number">100</span>, <span class="number">200</span>);             <span class="comment">// 300，形参和实参个数相等，输出正确结果</span></span><br><span class="line"><span class="title function_">sum</span>(<span class="number">100</span>, <span class="number">400</span>, <span class="number">500</span>, <span class="number">700</span>);   <span class="comment">// 500，实参个数多于形参，只取到形参的个数</span></span><br><span class="line"><span class="title function_">sum</span>(<span class="number">200</span>);                  <span class="comment">// 实参个数少于形参，多的形参定义为undefined，结果为NaN</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：在JavaScript中，形参的默认值是undefined</strong></p>
+<h4 id="1-3-3、小结"><a href="#1-3-3、小结" class="headerlink" title="1.3.3、小结"></a>1.3.3、小结</h4><ul>
+<li>函数可以带参数也可以不带参数</li>
+<li>声明函数的时候，函数名括号里面的是形参，形参的默认值为 undefined</li>
+<li>调用函数的时候，函数名括号里面的是实参</li>
+<li>多个参数中间用逗号分隔</li>
+<li>形参的个数可以和实参个数不匹配，但是结果不可预计，我们尽量要匹配</li>
+</ul>
+<h3 id="1-4、函数的返回值"><a href="#1-4、函数的返回值" class="headerlink" title="1.4、函数的返回值"></a>1.4、函数的返回值</h3><h4 id="1-4-1、return语句（函数返回具体值）"><a href="#1-4-1、return语句（函数返回具体值）" class="headerlink" title="1.4.1、return语句（函数返回具体值）"></a>1.4.1、return语句（函数返回具体值）</h4><p>有的时候，我们会希望函数将值返回给调用者，此时通过使用 return 语句就可以实现。</p>
+<p>return 语句的语法格式如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明函数</span></span><br><span class="line"><span class="keyword">function</span> 函数名（）&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">return</span>  需要返回的值;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用函数</span></span><br><span class="line">函数名();    <span class="comment">// 此时调用函数就可以得到函数体内return 后面的值</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在使用 return 语句时，函数会停止执行，并返回指定的值</li>
+<li>如果函数没有 return ，返回的值是 undefined</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">sum</span>(<span class="params"></span>)&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">return</span>  <span class="number">666</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用函数</span></span><br><span class="line"><span class="title function_">sum</span>();      <span class="comment">// 此时 sum 的值就等于666，因为 return 语句会把自身后面的值返回给调用者 </span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-2、return-终止函数（returen后面不执行）"><a href="#1-4-2、return-终止函数（returen后面不执行）" class="headerlink" title="1.4.2、return 终止函数（returen后面不执行）"></a>1.4.2、return 终止函数（returen后面不执行）</h4><p>return 语句之后的代码不被执行</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">num1，num2</span>)&#123;</span><br><span class="line">    <span class="comment">//函数体</span></span><br><span class="line">    <span class="keyword">return</span> num1 + num2; <span class="comment">// 注意：return 后的代码不执行</span></span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;我不会被执行，因为前面有 return&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> resNum = <span class="title function_">add</span>(<span class="number">21</span>,<span class="number">6</span>); <span class="comment">// 调用函数，传入两个实参，并通过 resNum 接收函数返回值</span></span><br><span class="line"><span class="title function_">alert</span>(resNum);          <span class="comment">// 27</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-3、return-的返回值"><a href="#1-4-3、return-的返回值" class="headerlink" title="1.4.3、return 的返回值"></a>1.4.3、return 的返回值</h4><p>return <strong>只能返回一个值</strong>。如果用逗号隔开多个值，<strong>以最后一个为准</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">num1，num2</span>)&#123;</span><br><span class="line">    <span class="comment">//函数体</span></span><br><span class="line">    <span class="keyword">return</span> num1,num2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> resNum = <span class="title function_">add</span>(<span class="number">21</span>,<span class="number">6</span>); <span class="comment">// 调用函数，传入两个实参，并通过 resNum 接收函数返回值</span></span><br><span class="line"><span class="title function_">alert</span>(resNum);          <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-4、小结"><a href="#1-4-4、小结" class="headerlink" title="1.4.4、小结"></a>1.4.4、小结</h4><p>函数都是有返回值的</p>
+<ol>
+<li>如果有 return ，则返回 return 后面的值</li>
+<li>如果没有 return，则返回 undefined</li>
+</ol>
+<h4 id="1-4-5、区别"><a href="#1-4-5、区别" class="headerlink" title="1.4.5、区别"></a>1.4.5、区别</h4><p><strong>break、continue、return 的区别</strong></p>
+<p>break ： 结束当前循环体(如 for、while)<br>continue ：跳出本次循环，继续执行下次循环(如for、while)<br>return ：不仅可以退出循环，还能够返回 return 语句中的值，同时还可以结束当前的函数体内的代码</p>
+<h4 id="1-4-6、练习"><a href="#1-4-6、练习" class="headerlink" title="1.4.6、练习"></a>1.4.6、练习</h4><p><strong>1.利用函数求任意两个数的最大值</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getMax</span>(<span class="params">num1, num2</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> num1 &gt; num2 ? num1 : num2;  <span class="comment">//三元表达式 条件表达式结果为真 则返回表达式1的值</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">getMax</span>(<span class="number">1</span>, <span class="number">2</span>)); <span class="comment">//结果为2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">getMax</span>(<span class="number">11</span>, <span class="number">2</span>)); <span class="comment">//结果为11</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>2.求数组 [5,2,99,101,67,77] 中的最大数值</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个获取数组中最大数的函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getMaxFromArr</span>(<span class="params">numArray</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> maxNum = numArray[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; numArray.<span class="property">length</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(numArray[i]&gt;maxNum)&#123;</span><br><span class="line">            maxNum = numArray[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxNum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arrNum = [<span class="number">5</span>,<span class="number">2</span>,<span class="number">99</span>,<span class="number">101</span>,<span class="number">67</span>,<span class="number">77</span>];</span><br><span class="line"><span class="keyword">var</span> maxN = <span class="title function_">getMaxFromArr</span>(arrNum);  <span class="comment">//这个实参是个数组</span></span><br><span class="line"><span class="title function_">alert</span>(<span class="string">&#x27;最大值为&#x27;</span> + maxN);</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.创建一个函数，实现两个数之间的加减乘除运算，并将结果返回</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="built_in">parseFloat</span>(<span class="title function_">prompt</span>(<span class="string">&#x27;请输入第一个数&#x27;</span>));</span><br><span class="line"><span class="keyword">var</span> b = <span class="built_in">parseFloat</span>(<span class="title function_">prompt</span>(<span class="string">&#x27;请输入第二个数&#x27;</span>));</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">count</span>(<span class="params">a,b</span>)&#123;   <span class="comment">//函数定义两数之间的运算规则</span></span><br><span class="line">    <span class="keyword">var</span> arr = [a + b, a - b, a * b, a / b];</span><br><span class="line">    <span class="keyword">return</span> arr;   <span class="comment">//return返回值为数组</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> result = <span class="title function_">count</span>(a,b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result)</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-5、arguments的使用"><a href="#1-5、arguments的使用" class="headerlink" title="1.5、arguments的使用"></a>1.5、arguments的使用</h3><p>当我们不确定有多少个参数传递的时候，可以用 arguments 来获取。在 JavaScript 中，arguments 实际上它是当前函数的一个内置对象。所有函数都内置了一个 arguments 对象，arguments 对象中存储了传递的所有实参。</p>
+<ul>
+<li><strong>arguments</strong>存放的是传递过来的实参</li>
+<li><strong>arguments展示形式是一个伪数组，因此可以进行遍历。伪数组具有以下特点</strong></li>
+</ul>
+<p> ①：具有 length 属性</p>
+<p> ②：按索引方式储存数据</p>
+<p> ③：不具有数组的 push , pop 等方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数声明</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">arguments</span>);  <span class="comment">//里面存储了所有传递过来的实参</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(arrguments.<span class="property">length</span>); <span class="comment">// 3</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(arrguments[<span class="number">2</span>]); <span class="comment">// 3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 函数调用</span></span><br><span class="line"><span class="title function_">fn</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<p>例如：利用函数求任意个数的最大值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">function</span> <span class="title function_">maxValue</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> max = <span class="variable language_">arguments</span>[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="variable language_">arguments</span>.<span class="property">length</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (max &lt; <span class="variable language_">arguments</span>[i]) &#123;</span><br><span class="line">            max = <span class="variable language_">arguments</span>[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">maxValue</span>(<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">9</span>)); <span class="comment">// 9</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">maxValue</span>(<span class="number">12</span>, <span class="number">4</span>, <span class="number">9</span>)); <span class="comment">// 12</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="函数调用另外一个函数"><a href="#函数调用另外一个函数" class="headerlink" title="函数调用另外一个函数"></a>函数调用另外一个函数</h4><p>因为每个函数都是独立的代码块，用于完成特殊任务，因此经常会用到函数相互调用的情况。具体演示在下面的函数练习中会有。</p>
+<h3 id="1-6、函数练习"><a href="#1-6、函数练习" class="headerlink" title="1.6、函数练习"></a>1.6、函数练习</h3><p><strong>1.利用函数封装方式，翻转任意一个数组</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">reverse</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> newArr = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = arr.<span class="property">length</span> - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        newArr[newArr.<span class="property">length</span>] = arr[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newArr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr1 = <span class="title function_">reverse</span>([<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">9</span>]);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr1);</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.利用函数封装方式，对数组排序 – 冒泡排序</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sort</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span> - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.<span class="property">length</span> - i - <span class="number">1</span>; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j+<span class="number">1</span>]) &#123; </span><br><span class="line">	            <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">	            arr[j] = arr[j + <span class="number">1</span>]; </span><br><span class="line">	            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.输入一个年份，判断是否是闰年（闰年：能被4整除并且不能被100整数，或者能被400整除）</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isRun</span>(<span class="params">year</span>) &#123;</span><br><span class="line">     <span class="keyword">var</span> flag = <span class="literal">false</span>;</span><br><span class="line">     <span class="keyword">if</span> (year % <span class="number">4</span> === <span class="number">0</span> &amp;&amp; year % <span class="number">100</span> !== <span class="number">0</span> || year % <span class="number">400</span> === <span class="number">0</span>) &#123;</span><br><span class="line">        flag = <span class="literal">true</span>;</span><br><span class="line">     &#125;</span><br><span class="line">    <span class="keyword">return</span> flag;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">isRun</span>(<span class="number">2010</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">isRun</span>(<span class="number">2012</span>));</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.用户输入年份，输出当前年份2月份的天数，如果是闰年，则2月份是 29天， 如果是平年，则2月份是 28天</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">backDay</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> year = <span class="title function_">prompt</span>(<span class="string">&#x27;请您输入年份:&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_">isRun</span>(year)) &#123; <span class="comment">//调用函数需要加小括号</span></span><br><span class="line">        <span class="title function_">alert</span>(<span class="string">&#x27;你输入的&#x27;</span> + year + <span class="string">&#x27;是闰年，2月份有29天&#x27;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="title function_">alert</span>(<span class="string">&#x27;您输入的&#x27;</span> + year + <span class="string">&#x27;不是闰年，2月份有28天&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">backDay</span>();</span><br><span class="line"><span class="comment">//判断是否是闰年的函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">isRun</span>(<span class="params">year</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> flag = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (year % <span class="number">4</span> === <span class="number">0</span> &amp;&amp; year % <span class="number">100</span> !== <span class="number">0</span> || year % <span class="number">400</span> === <span class="number">0</span>) &#123;</span><br><span class="line">        flag = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> flag;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-7、函数的两种声明方式"><a href="#1-7、函数的两种声明方式" class="headerlink" title="1.7、函数的两种声明方式"></a>1.7、函数的两种声明方式</h3><h4 id="1-7-1、自定义函数方式-命名函数"><a href="#1-7-1、自定义函数方式-命名函数" class="headerlink" title="1.7.1、自定义函数方式(命名函数)"></a>1.7.1、自定义函数方式(命名函数)</h4><p>利用函数关键字 function 自定义函数方式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明定义方式</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;...&#125;</span><br><span class="line"><span class="comment">// 调用  </span></span><br><span class="line"><span class="title function_">fn</span>();  </span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>因为有名字，所以也被称为命名函数</strong></li>
+<li><strong>调用函数的代码既可以放到声明函数的前面，也可以放在声明函数的后</strong></li>
+</ol>
+<h4 id="1-7-2、函数表达式方式-匿名函数"><a href="#1-7-2、函数表达式方式-匿名函数" class="headerlink" title="1.7.2、函数表达式方式(匿名函数)"></a>1.7.2、函数表达式方式(匿名函数)</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这是函数表达式写法，匿名函数后面跟分号结束</span></span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">function</span>(<span class="params"></span>)&#123;...&#125;;</span><br><span class="line"><span class="comment">// 调用的方式，函数调用必须写到函数体下面</span></span><br><span class="line"><span class="title function_">fn</span>();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>因为函数没有名字，所以也称为<strong>匿名函数</strong></li>
+<li>这个fn 里面存储的是一个函数</li>
+<li><strong>函数调用的代码必须写到函数体后面</strong></li>
+</ul>
+<h2 id="2、作用域"><a href="#2、作用域" class="headerlink" title="2、作用域"></a>2、作用域</h2><p>通常来说，一段程序代码中所用到的名字并不总是有效和可用的，而限定这个名字的<strong>可用性的代码范围</strong>就是这个名字的<strong>作用域</strong>。作用域的使用提高了程序逻辑的局部性，增强了程序的可靠性，减少了名字冲突。</p>
+<p>JavaScript (ES6前) 中的作用域有两种：</p>
+<ul>
+<li>全局作用域</li>
+<li>局部作用域(函数作用域)</li>
+</ul>
+<h3 id="2-1、全局作用域"><a href="#2-1、全局作用域" class="headerlink" title="2.1、全局作用域"></a>2.1、全局作用域</h3><p>作用于所有代码执行的环境(整个 script 标签内部)或者一个独立的 js 文件</p>
+<h3 id="2-2、局部（函数）作用域"><a href="#2-2、局部（函数）作用域" class="headerlink" title="2.2、局部（函数）作用域"></a>2.2、局部（函数）作用域</h3><p>作用于函数内的代码环境，就是局部作用域。 因为跟函数有关系，所以也称为函数作用域</p>
+<h3 id="2-3、JS-没有块级作用域"><a href="#2-3、JS-没有块级作用域" class="headerlink" title="2.3、JS 没有块级作用域"></a>2.3、JS 没有块级作用域</h3><ul>
+<li>快作用域由 <code>&#123;&#125;</code> 包括</li>
+<li>在其他编程语言中（如 java、c#等），在 if 语句、循环语句中创建的变量，仅仅只能在本 if 语句、本循环语句中使用，如下面的Java代码：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">    int num = <span class="number">123</span>;</span><br><span class="line">    <span class="title class_">System</span>.<span class="property">out</span>.<span class="title function_">println</span>(num);	<span class="comment">// 123</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">System</span>.<span class="property">out</span>.<span class="title function_">println</span>(num);		<span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
+
+<p>JS 中没有块级作用域(在ES6之前)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">    int num = <span class="number">123</span>;</span><br><span class="line">    <span class="title class_">System</span>.<span class="property">out</span>.<span class="title function_">println</span>(num);	<span class="comment">// 123</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">System</span>.<span class="property">out</span>.<span class="title function_">println</span>(num);		<span class="comment">// 123</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3、变量的作用域"><a href="#3、变量的作用域" class="headerlink" title="3、变量的作用域"></a>3、变量的作用域</h2><p>在JavaScript中，根据作用域的不同，变量可以分为两种：</p>
+<ul>
+<li>全局变量</li>
+<li>局部变量</li>
+</ul>
+<h3 id="3-1、全局变量"><a href="#3-1、全局变量" class="headerlink" title="3.1、全局变量"></a>3.1、全局变量</h3><p>在全局作用域下声明的变量叫做全局变量（<strong>在函数外部定义的变量</strong>）</p>
+<ul>
+<li>全局变量在代码的任何位置都可以使用</li>
+<li>在全局作用域下 var 声明的变量 是全局变量</li>
+<li>特殊情况下，在函数内不使用 var 声明的变量也是全局变量（不建议使用）</li>
+</ul>
+<h3 id="3-2、局部变量"><a href="#3-2、局部变量" class="headerlink" title="3.2、局部变量"></a>3.2、局部变量</h3><p>在局部作用域下声明的变量叫做局部变量（<strong>在函数内部定义的变量</strong>）</p>
+<ul>
+<li>局部变量只能在该函数内部使用</li>
+<li>在函数内部 var 声明的变量是局部变量</li>
+<li>函数的<strong>形参</strong>实际上就是<strong>局部变量</strong></li>
+</ul>
+<h3 id="3-3、区别"><a href="#3-3、区别" class="headerlink" title="3.3、区别"></a>3.3、区别</h3><ul>
+<li>全局变量：在任何一个地方都可以使用，只有在浏览器关闭时才会被销毁，因此比较占内存</li>
+<li>局部变量：只在函数内部使用，当其所在的代码块被执行时，会被初始化；当代码块运行结束后，就会被销毁，因此更节省内存空间</li>
+</ul>
+<h2 id="4、作用域链"><a href="#4、作用域链" class="headerlink" title="4、作用域链"></a>4、作用域链</h2><ol>
+<li>只要是代码，就至少有一个作用域</li>
+<li>写在函数内部的叫局部作用域</li>
+<li>如果函数中还有函数，那么在这个作用域中就又可以诞生一个作用域</li>
+<li>根据在内部函数可以访问外部函数变量的这种机制，用链式查找决定哪些数据能被内部函数访问，就称作作用域链</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 作用域链: 内部函数访问外部函数的变量，采取的是链式查找的方式来决定取哪个值，这种结构我们称为作用域链表</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line">funtion <span class="title function_">fn</span>(<span class="params"></span>) &#123; <span class="comment">//外部函数</span></span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">20</span>; </span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params"></span>) &#123; <span class="comment">//内部函数</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(num);  <span class="comment">// 20 ,一级一级访问</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>作用域链：采取<strong>就近原则</strong>的方式来查找变量最终的值。</li>
+</ul>
+<h2 id="5、预解析"><a href="#5、预解析" class="headerlink" title="5、预解析"></a>5、预解析</h2><p>首先来看几段代码和结果：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num);  <span class="comment">// 结果是多少？</span></span><br><span class="line"><span class="comment">//会报错 num is undefined</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num);  <span class="comment">// 结果是多少？</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">10</span>;   </span><br><span class="line"><span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 命名函数(自定义函数方式):若我们把函数调用放在函数声明上面</span></span><br><span class="line"><span class="title function_">fn</span>();				<span class="comment">//11</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;11&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 匿名函数(函数表达式方式):若我们把函数调用放在函数声明上面</span></span><br><span class="line"><span class="title function_">fn</span>();</span><br><span class="line"><span class="keyword">var</span>  fn = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;22&#x27;</span>); <span class="comment">// 报错</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//相当于执行了以下代码</span></span><br><span class="line"><span class="keyword">var</span> fn;</span><br><span class="line"><span class="title function_">fn</span>();      <span class="comment">//fn没赋值，没这个，报错</span></span><br><span class="line"><span class="keyword">var</span>  fn = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;22&#x27;</span>); <span class="comment">//报错</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>JavaScript 代码是由浏览器中的 JavaScript 解析器来执行的。JavaScript 解析器在运行 JavaScript 代码的时候分为两步：<strong>预解析和代码执行。</strong></p>
+<ul>
+<li><strong>预解析</strong>：js引擎会把js里面所有的 <strong>var</strong> 还有 <strong>function</strong> 提升到当前作用域的最前面</li>
+<li><strong>代码执行</strong>：从上到下执行JS语句</li>
+</ul>
+<p>预解析只会发生在通过 var 定义的变量和 function 上。学习预解析能够让我们知道<strong>为什么在变量声明之前访问变量的值是 undefined</strong>，<strong>为什么在函数声明之前就可以调用函数。</strong></p>
+<h3 id="5-1、变量预解析-变量提升"><a href="#5-1、变量预解析-变量提升" class="headerlink" title="5.1、变量预解析(变量提升)"></a>5.1、变量预解析(变量提升)</h3><p>变量预解析也叫做变量提升、函数提升</p>
+<p>变量提升: 变量的声明会被提升到<strong>当前作用域</strong>的最上面，变量的赋值不会提升。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num);  <span class="comment">// 结果是多少？</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">10</span>;   </span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//相当于执行了以下代码</span></span><br><span class="line"><span class="keyword">var</span> num;		<span class="comment">// 变量声明提升到当前作用域最上面</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num);</span><br><span class="line">num = <span class="number">10</span>;		<span class="comment">// 变量的赋值不会提升</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2、函数预解析-函数提升"><a href="#5-2、函数预解析-函数提升" class="headerlink" title="5.2、函数预解析(函数提升)"></a>5.2、函数预解析(函数提升)</h3><p>函数提升： 函数的声明会被提升到<strong>当前作用域</strong>的最上面，但是不会调用函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fn</span>();				<span class="comment">//11</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;11&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-3、解决函数表达式声明调用问题"><a href="#5-3、解决函数表达式声明调用问题" class="headerlink" title="5.3、解决函数表达式声明调用问题"></a>5.3、解决函数表达式声明调用问题</h3><p>对于函数表达式声明调用需要记住：<strong>函数表达式调用必须写在函数声明的下面</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 匿名函数(函数表达式方式):若我们把函数调用放在函数声明上面</span></span><br><span class="line"><span class="title function_">fn</span>();</span><br><span class="line"><span class="keyword">var</span>  fn = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;22&#x27;</span>); <span class="comment">// 报错</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//相当于执行了以下代码</span></span><br><span class="line"><span class="keyword">var</span> fn;</span><br><span class="line"><span class="title function_">fn</span>();      <span class="comment">//fn没赋值，没这个，报错</span></span><br><span class="line"><span class="keyword">var</span>  fn = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;22&#x27;</span>); <span class="comment">//报错</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-4、预解析练习"><a href="#5-4、预解析练习" class="headerlink" title="5.4、预解析练习"></a>5.4、预解析练习</h3><p>预解析部分十分重要，可以通过下面4个练习来理解。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 练习1</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line"><span class="title function_">fun</span>();</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(num);	<span class="comment">//undefined</span></span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">20</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 最终结果是 undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>上述代码相当于执行了以下操作</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> num;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(num);</span><br><span class="line">    num = <span class="number">20</span>;</span><br><span class="line">&#125;</span><br><span class="line">num = <span class="number">10</span>;</span><br><span class="line"><span class="title function_">fun</span>();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 练习2</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(num);		<span class="comment">//undefined</span></span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">20</span>;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(num);		<span class="comment">//20</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn</span>();</span><br><span class="line"><span class="comment">// 最终结果是 undefined 20</span></span><br></pre></td></tr></table></figure>
+
+<p>上述代码相当于执行了以下操作</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> num;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(num);</span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">20</span>;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(num);</span><br><span class="line">&#125;</span><br><span class="line">num = <span class="number">10</span>;</span><br><span class="line"><span class="title function_">fn</span>();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 练习3</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">18</span>;</span><br><span class="line"><span class="title function_">f1</span>();</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">f1</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">9</span>;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(b);</span><br><span class="line">    <span class="keyword">var</span> a = <span class="string">&#x27;123&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述代码相当于执行了以下操作</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">f1</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> b;</span><br><span class="line">    <span class="keyword">var</span> a</span><br><span class="line">    b = <span class="number">9</span>;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(a);	<span class="comment">//undefined</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(b);	<span class="comment">//9</span></span><br><span class="line">    a = <span class="string">&#x27;123&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">a = <span class="number">18</span>;</span><br><span class="line"><span class="title function_">f1</span>();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 练习4</span></span><br><span class="line"><span class="title function_">f1</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">f1</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> a = b = c = <span class="number">9</span>;</span><br><span class="line">    <span class="comment">// 相当于 var a = 9; b = 9;c = 9;  b和c的前面没有var声明,当全局变量看</span></span><br><span class="line">    <span class="comment">// 集体声明 var a = 9,b = 9,c = 9;</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(b);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述代码相当于执行了以下操作</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">f1</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> a;</span><br><span class="line">    a = b = c = <span class="number">9</span>;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(a);	<span class="comment">//9</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(b);	<span class="comment">//9</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(c);	<span class="comment">//9</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">f1</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c);	<span class="comment">//9</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b);	<span class="comment">//9</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);	<span class="comment">//报错 a是局部变量</span></span><br></pre></td></tr></table></figure>
+
+
+    </article>
+
+    
+        
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>生命里那束光<br>
+        <strong>Link：</strong><a href="https://xxxxxx-collab.github.io/2022/02/01/JavaScript%EF%BC%882%EF%BC%89%E5%87%BD%E6%95%B0%E4%BB%A5%E5%8F%8A%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%A1%A5%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" title="https:&#x2F;&#x2F;xxxxxx-collab.github.io&#x2F;2022&#x2F;02&#x2F;01&#x2F;JavaScript%EF%BC%882%EF%BC%89%E5%87%BD%E6%95%B0%E4%BB%A5%E5%8F%8A%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%A1%A5%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;xxxxxx-collab.github.io&#x2F;2022&#x2F;02&#x2F;01&#x2F;JavaScript%EF%BC%882%EF%BC%89%E5%87%BD%E6%95%B0%E4%BB%A5%E5%8F%8A%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%A1%A5%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+            
+
+                <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/JavaScript/">JavaScript</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/JavaScript/%E5%87%BD%E6%95%B0/">函数</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/JavaScript/%E5%87%BD%E6%95%B0/%E4%BD%9C%E7%94%A8%E5%9F%9F/">作用域</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/JavaScript/" rel="tag">JavaScript</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F%E3%80%81/" rel="tag">作用域、</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%87%BD%E6%95%B0/" rel="tag">函数</a>
+    
+</div>
+
+                    
+                        <div class="nexmoe-post-footer">
+                            <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'nexmoe.github.io',
+        owner: 'nexmoe',
+        admin: 'nexmoe'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+                        </div>
+                        
+</div>
+                            <div class="nexmoe-post-right">
+                                <div class="nexmoe-fixed">
+                                    <div class="nexmoe-tool">
+
+                                        
+
+                                            
+                                                
+                                                    <button class="mdui-fab catalog" style="overflow:unset;">
+                                                        <i class="nexmoefont icon-i-catalog"></i>
+                                                        <div class="nexmoe-toc">
+                                                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript%E5%87%BD%E6%95%B0%E4%BB%A5%E5%8F%8A%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">1.</span> <span class="toc-text">JavaScript函数以及作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">1、函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1、函数的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A0%E5%A3%B0%E6%98%8E%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.1.0.1.</span> <span class="toc-text">①声明函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A1%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.1.0.2.</span> <span class="toc-text">②调用函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%B0%81%E8%A3%85"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2、函数的封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%82%E6%95%B0"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3、函数的参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1%E3%80%81%E5%BD%A2%E5%8F%82%E5%92%8C%E5%AE%9E%E5%8F%82"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">1.3.1、形参和实参</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%AE%9E%E5%8F%82%E5%92%8C%E5%BD%A2%E5%8F%82%E7%9A%84%E5%A4%9A%E4%B8%AA%E5%8F%82%E6%95%B0%E4%B9%8B%E9%97%B4%E7%94%A8%E9%80%97%E5%8F%B7-%E5%88%86%E9%9A%94%EF%BC%8C"><span class="toc-number">1.1.3.1.0.1.</span> <span class="toc-text">实参和形参的多个参数之间用逗号(,)&#96;分隔，</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2%E3%80%81%E5%BD%A2%E5%8F%82%E5%92%8C%E5%AE%9E%E5%8F%82%E4%B8%AA%E6%95%B0%E4%B8%8D%E5%8C%B9%E9%85%8D"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">1.3.2、形参和实参个数不匹配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-3%E3%80%81%E5%B0%8F%E7%BB%93"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">1.3.3、小结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">1.1.4.</span> <span class="toc-text">1.4、函数的返回值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-1%E3%80%81return%E8%AF%AD%E5%8F%A5%EF%BC%88%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%85%B7%E4%BD%93%E5%80%BC%EF%BC%89"><span class="toc-number">1.1.4.1.</span> <span class="toc-text">1.4.1、return语句（函数返回具体值）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-2%E3%80%81return-%E7%BB%88%E6%AD%A2%E5%87%BD%E6%95%B0%EF%BC%88returen%E5%90%8E%E9%9D%A2%E4%B8%8D%E6%89%A7%E8%A1%8C%EF%BC%89"><span class="toc-number">1.1.4.2.</span> <span class="toc-text">1.4.2、return 终止函数（returen后面不执行）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-3%E3%80%81return-%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">1.1.4.3.</span> <span class="toc-text">1.4.3、return 的返回值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-4%E3%80%81%E5%B0%8F%E7%BB%93"><span class="toc-number">1.1.4.4.</span> <span class="toc-text">1.4.4、小结</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-5%E3%80%81%E5%8C%BA%E5%88%AB"><span class="toc-number">1.1.4.5.</span> <span class="toc-text">1.4.5、区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-6%E3%80%81%E7%BB%83%E4%B9%A0"><span class="toc-number">1.1.4.6.</span> <span class="toc-text">1.4.6、练习</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5%E3%80%81arguments%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.1.5.</span> <span class="toc-text">1.5、arguments的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E5%8F%A6%E5%A4%96%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.5.1.</span> <span class="toc-text">函数调用另外一个函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6%E3%80%81%E5%87%BD%E6%95%B0%E7%BB%83%E4%B9%A0"><span class="toc-number">1.1.6.</span> <span class="toc-text">1.6、函数练习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%A3%B0%E6%98%8E%E6%96%B9%E5%BC%8F"><span class="toc-number">1.1.7.</span> <span class="toc-text">1.7、函数的两种声明方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-1%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E6%96%B9%E5%BC%8F-%E5%91%BD%E5%90%8D%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.7.1.</span> <span class="toc-text">1.7.1、自定义函数方式(命名函数)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-2%E3%80%81%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%96%B9%E5%BC%8F-%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.7.2.</span> <span class="toc-text">1.7.2、函数表达式方式(匿名函数)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">1.2.</span> <span class="toc-text">2、作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1%E3%80%81%E5%85%A8%E5%B1%80%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1、全局作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2%E3%80%81%E5%B1%80%E9%83%A8%EF%BC%88%E5%87%BD%E6%95%B0%EF%BC%89%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2、局部（函数）作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3%E3%80%81JS-%E6%B2%A1%E6%9C%89%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3、JS 没有块级作用域</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">1.3.</span> <span class="toc-text">3、变量的作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E3%80%81%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1、全局变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2%E3%80%81%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2、局部变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3%E3%80%81%E5%8C%BA%E5%88%AB"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3、区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE"><span class="toc-number">1.4.</span> <span class="toc-text">4、作用域链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E9%A2%84%E8%A7%A3%E6%9E%90"><span class="toc-number">1.5.</span> <span class="toc-text">5、预解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1%E3%80%81%E5%8F%98%E9%87%8F%E9%A2%84%E8%A7%A3%E6%9E%90-%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87"><span class="toc-number">1.5.1.</span> <span class="toc-text">5.1、变量预解析(变量提升)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2%E3%80%81%E5%87%BD%E6%95%B0%E9%A2%84%E8%A7%A3%E6%9E%90-%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87"><span class="toc-number">1.5.2.</span> <span class="toc-text">5.2、函数预解析(函数提升)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3%E3%80%81%E8%A7%A3%E5%86%B3%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%A3%B0%E6%98%8E%E8%B0%83%E7%94%A8%E9%97%AE%E9%A2%98"><span class="toc-number">1.5.3.</span> <span class="toc-text">5.3、解决函数表达式声明调用问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4%E3%80%81%E9%A2%84%E8%A7%A3%E6%9E%90%E7%BB%83%E4%B9%A0"><span class="toc-number">1.5.4.</span> <span class="toc-text">5.4、预解析练习</span></a></li></ol></li></ol></li></ol>
+                                                        </div>
+                                                    </button>
+                                                    
+
+                                                        
+
+                                                            <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部"
+                                                                title="top"><button class="mdui-fab mdui-ripple"><i
+                                                                        class="nexmoefont icon-caret-top"></i></button></a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="Search" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+    
+                    <script
+	src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+		<script async src="/js/app.js?v=1648206422942"></script>
+
+			
+
+						<script
+							src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+						<script>
+							$(".justified-gallery").justifiedGallery({
+								rowHeight: 160,
+								margins: 10,
+							});
+						</script>
+
+						
+                        
+
+
+
+
+
+        </body>
+
+        <script>
+            // 对全部连接跳转事件绑定pjax容器container
+            $(document).pjax('a', '#pjax-containere', { fragment: '##pjax-container', timeout: 8000 });
+        </script>
+
+</html>
+
+
+<!--樱花背景-->
+<script type="text/javascript" src="https://yremp.live/wp-content/uploads/resource/js/sakura.js"></script>
+
+
+<!-- 
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script>
+    // 对全部连接跳转事件绑定pjax容器container
+    $(document).pjax('a[target!=_blank]', '#container', { fragment: '#container', timeout: 8000 })
+</script> -->
