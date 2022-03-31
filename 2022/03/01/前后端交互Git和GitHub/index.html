@@ -10,6 +10,16 @@
                                 那束光の博客
                 </title>
                 <meta charset="UTF-8">
+                <!-- require APlayer -->
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+                <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+                <!-- require MetingJS -->
+                <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+                <!-- require pjax -->
+                <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+                <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+                <meta name="description" content="">
                 <meta name="keywords" content="">
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
                 
@@ -133,50 +143,37 @@
 <meta property="article:tag" content="版本控制和仓库">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://xxxxxx-collab.github/Users/ACER/AppData/Roaming/Typora/typora-user-images/assets/01.png">
-                            <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1648206422865">
+                            <link rel="stylesheet"
+                                href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233"
+                                crossorigin>
+                            <link rel="stylesheet" href="/css/style.css?v=1648719426852">
                                 
-                                        <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1648206422865">
-                                            <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648206422865">
-                                                <link rel="stylesheet" href="/css/style.css?v=1648206422865">
-                                                    
-                                                                
-
-
-                                                                        <!-- 爆炸红心效果
-                                                                        <canvas class="fireworks"
-                                                                            style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
-                                                                        <script type="text/javascript"
-                                                                            src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
-                                                                        <script type="text/javascript"
-                                                                            src="/js/firework.js"></script> -->
+                                            
+                                                    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648719426852">
+                                                        
         <meta name="generator" content="Hexo 5.4.1"></head>
 
         <body class="mdui-drawer-body-left">
             
-                <div id="nexmoe-background">
-                    <div class="nexmoe-bg" style="background-image: url(https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500)"></div>
-                    <div class="mdui-appbar mdui-shadow-0">
-                        <div class="mdui-toolbar">
-                            <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu"
-                                class="mdui-btn mdui-btn-icon mdui-ripple"><i
-                                    class="mdui-icon nexmoefont icon-menu"></i></a>
-                            <div class="mdui-toolbar-spacer"></div>
-                            <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-                            <a href="/" title="生命里那束光"
-                                class="mdui-btn mdui-btn-icon"><img src="https://i.postimg.cc/7hJchpF6/1.jpg"
-                                    alt="生命里那束光"></a>
+                <div id="pageContent">
+                    <div id="nexmoe-background">
+                        <div class="nexmoe-bg" style="background-image: url(https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500)"></div>
+                        <div class="mdui-appbar mdui-shadow-0">
+                            <div class="mdui-toolbar">
+                                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu"
+                                    class="mdui-btn mdui-btn-icon mdui-ripple"><i
+                                        class="mdui-icon nexmoefont icon-menu"></i></a>
+                                <div class="mdui-toolbar-spacer"></div>
+                                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                                <a href="/" title="生命里那束光"
+                                    class="mdui-btn mdui-btn-icon"><img src="https://i.postimg.cc/7hJchpF6/1.jpg"
+                                        alt="生命里那束光"></a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- 音乐播放器 -->
-                <link rel="stylesheet" href="/dist/APlayer.min.css">
-                <div id="aplayer"></div>
-                <script type="text/javascript" src="/dist/APlayer.min.js"></script>
-                <script type="text/javascript" src="/dist/music.js"></script>
-
-                <div id="nexmoe-header">
-                    <div class="nexmoe-drawer mdui-drawer" id="drawer">
+                    <div id="nexmoe-header">
+                        <div class="nexmoe-drawer mdui-drawer" id="drawer">
     <div class="nexmoe-avatar mdui-ripple">
         <a href="/" title="生命里那束光">
             <img src="https://i.postimg.cc/7hJchpF6/1.jpg" alt="生命里那束光"
@@ -494,10 +491,10 @@
                         
         </div>
 </div><!-- .nexmoe-drawer -->
-                </div>
-                <div id="nexmoe-content">
-                    <div class="nexmoe-primary">
-                        <div class="nexmoe-post">
+                    </div>
+                    <div id="nexmoe-content">
+                        <div class="nexmoe-primary">
+                            <div class="nexmoe-post">
 
     <article>
         
@@ -1052,32 +1049,44 @@
                         </div>
                         
 </div>
-                            <div class="nexmoe-post-right">
-                                <div class="nexmoe-fixed">
-                                    <div class="nexmoe-tool">
-
-                                        
+                                <div class="nexmoe-post-right">
+                                    <div class="nexmoe-fixed">
+                                        <div class="nexmoe-tool">
 
                                             
-                                                
-                                                    <button class="mdui-fab catalog" style="overflow:unset;">
-                                                        <i class="nexmoefont icon-i-catalog"></i>
-                                                        <div class="nexmoe-toc">
-                                                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%EF%BC%9AGit%E5%92%8CGitHub"><span class="toc-number">1.</span> <span class="toc-text">前后端交互：Git和GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fgithub%E5%8F%88%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">git是什么？github又是什么?</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Git%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.</span> <span class="toc-text">1. Git基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 版本管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-%E4%BB%80%E4%B9%88%E6%98%AF%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">1.1.1 什么是版本管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-%E4%BA%BA%E4%B8%BA%E7%BB%B4%E6%8A%A4%E6%96%87%E6%A1%A3%E7%89%88%E6%9C%AC%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">1.1.2 人为维护文档版本的问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-3-%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">1.1.3 版本控制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-4-%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7"><span class="toc-number">1.1.1.4.</span> <span class="toc-text">1.1.4 版本控制工具</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Git-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 Git 是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-Git-%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3 Git 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Git%E5%92%8C%E4%BB%A3%E7%A0%81%E6%89%98%E7%AE%A1%E4%B8%AD%E5%BF%83"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">Git和代码托管中心</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-Git-%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.4.</span> <span class="toc-text">1.4 Git 基本工作流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-Git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.1.5.</span> <span class="toc-text">&#x3D;&#x3D;1.5 Git 常用命令&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81Git-%E4%BD%BF%E7%94%A8%E5%89%8D%E9%85%8D%E7%BD%AE%EF%BC%9A%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E7%AD%BE%E5%90%8D"><span class="toc-number">1.1.5.1.</span> <span class="toc-text">1、Git 使用前配置：设置用户签名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81-%E5%88%9D%E5%A7%8B%E5%8C%96%E6%9C%AC%E5%9C%B0%E5%BA%93%EF%BC%88git-init"><span class="toc-number">1.1.5.2.</span> <span class="toc-text">&#x3D;&#x3D;2、&#x3D;&#x3D;&#x3D;&#x3D;初始化本地库（git init)&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81-%E6%9F%A5%E7%9C%8B%E6%9C%AC%E5%9C%B0%E5%BA%93%E7%8A%B6%E6%80%81-git-status"><span class="toc-number">1.1.5.3.</span> <span class="toc-text">&#x3D;&#x3D;3、&#x3D;&#x3D;&#x3D;&#x3D;查看本地库状态(git status)&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1%E3%80%81%E6%96%B0%E5%A2%9E%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.5.3.1.</span> <span class="toc-text">3.1、新增文件</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%E3%80%81-%E6%B7%BB%E5%8A%A0%E6%9A%82%E5%AD%98%E5%8C%BA-git-add-%E6%96%87%E4%BB%B6%E5%90%8D"><span class="toc-number">1.1.5.4.</span> <span class="toc-text">&#x3D;&#x3D;4、&#x3D;&#x3D;&#x3D;&#x3D;添加暂存区(git add 文件名)&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5%E3%80%81-%E6%8F%90%E4%BA%A4%E6%9C%AC%E5%9C%B0%E5%BA%93%EF%BC%88git-commit-m-%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AF%EF%BC%89"><span class="toc-number">1.1.5.5.</span> <span class="toc-text">&#x3D;&#x3D;5、&#x3D;&#x3D;&#x3D;&#x3D;提交本地库（git commit -m 提交信息）&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6%E3%80%81%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.5.6.</span> <span class="toc-text">6、修改文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7%E3%80%81%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC"><span class="toc-number">1.1.5.7.</span> <span class="toc-text">7、历史版本</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#7-1%E3%80%81%E6%9F%A5%E7%9C%8B%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC%EF%BC%88git-log"><span class="toc-number">1.1.5.7.1.</span> <span class="toc-text">&#x3D;&#x3D;7.1、查看历史版本（git log)&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-2%E3%80%81%E7%89%88%E6%9C%AC%E7%A9%BF%E6%A2%AD"><span class="toc-number">1.1.5.7.2.</span> <span class="toc-text">7.2、版本穿梭</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8%E3%80%81%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.5.8.</span> <span class="toc-text">8、切换版本原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9%E3%80%81-%E6%92%A4%E9%94%80"><span class="toc-number">1.1.5.9.</span> <span class="toc-text">9、 撤销</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Git%E8%BF%9B%E9%98%B6"><span class="toc-number">1.2.</span> <span class="toc-text">2. Git进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E3%80%81%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.</span> <span class="toc-text">&#x3D;&#x3D;2.1 、分支&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">2.1.1 什么是分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">2.1.2 什么是分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-%E5%88%86%E6%94%AF%E7%BB%86%E5%88%86"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">2.1.3 分支细分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-4-%E5%88%86%E6%94%AF%E5%91%BD%E4%BB%A4-%E9%83%BD%E5%BE%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">&#x3D;&#x3D;2.1.4 分支命令(都很重要）&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%E3%80%81%E6%9F%A5%E7%9C%8B%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.4.1.</span> <span class="toc-text">1、查看分支</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%E3%80%81%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.4.2.</span> <span class="toc-text">2、创建分支</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%E3%80%81%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.4.3.</span> <span class="toc-text">3、切换分支</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4%E3%80%81%E4%BF%AE%E6%94%B9%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.4.4.</span> <span class="toc-text">4、修改分支</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5%E3%80%81%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.4.5.</span> <span class="toc-text">5、合并分支</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E3%80%81%E6%9A%82%E6%97%B6%E4%BF%9D%E5%AD%98%E6%9B%B4%E6%94%B9"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 、暂时保存更改</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Github"><span class="toc-number">1.3.</span> <span class="toc-text">&#x3D;&#x3D;3. Github&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E3%80%81-%E6%B3%A8%E5%86%8C"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1、 注册</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E3%80%81%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 、多人协作开发流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3%E3%80%81%E5%88%9B%E5%BB%BA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">1.3.3.</span> <span class="toc-text">&#x3D;&#x3D;3.3、创建远程仓库&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1%E3%80%81Github%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">3.3.1、Github远程仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2%E3%80%81Gitee%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">3.3.2、Gitee远程仓库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="toc-number">1.3.4.</span> <span class="toc-text">&#x3D;&#x3D;3.4 远程仓库操作&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-1%E3%80%81%E5%88%9B%E5%BB%BA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%AB%E5%90%8D"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">3.4.1、创建远程仓库别名</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link"><span class="toc-number">1.3.4.1.0.1.</span> <span class="toc-text"></span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-2%E3%80%81%E6%8E%A8%E9%80%81%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">3.4.2、推送本地分支到远程仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-3%E3%80%81%E6%8B%89%E5%8F%96%E8%BF%9C%E7%A8%8B%E5%BA%93%E5%88%86%E6%94%AF%E5%88%B0%E6%9C%AC%E5%9C%B0%E5%BA%93"><span class="toc-number">1.3.4.3.</span> <span class="toc-text">3.4.3、拉取远程库分支到本地库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-4%E3%80%81%E5%85%8B%E9%9A%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="toc-number">1.3.4.4.</span> <span class="toc-text">3.4.4、克隆远程仓库到本地</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E3%80%81%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81"><span class="toc-number">1.3.5.</span> <span class="toc-text">3.5 、解决冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6%E3%80%81%E9%82%80%E8%AF%B7%E5%8A%A0%E5%85%A5%E5%9B%A2%E9%98%9F"><span class="toc-number">1.3.6.</span> <span class="toc-text">3.6、邀请加入团队</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-6-1%E3%80%81Gitee"><span class="toc-number">1.3.6.1.</span> <span class="toc-text">3.6.1、Gitee</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-6-2%E3%80%81Github"><span class="toc-number">1.3.6.2.</span> <span class="toc-text">3.6.2、Github</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-%E3%80%81%E8%B7%A8%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C"><span class="toc-number">1.3.7.</span> <span class="toc-text">3.7 、跨团队协作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-7-1%E3%80%81Gitee"><span class="toc-number">1.3.7.1.</span> <span class="toc-text">3.7.1、Gitee</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-7-2%E3%80%81Github"><span class="toc-number">1.3.7.2.</span> <span class="toc-text">3.7.2、Github</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8-%E3%80%81ssh%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86"><span class="toc-number">1.3.8.</span> <span class="toc-text">3.8 、ssh免密登陆</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-8-1%E3%80%81Gitee"><span class="toc-number">1.3.8.1.</span> <span class="toc-text">3.8.1、Gitee</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-8-2%E3%80%81Github"><span class="toc-number">1.3.8.2.</span> <span class="toc-text">3.8.2、Github</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-%E3%80%81GIT%E5%BF%BD%E7%95%A5%E6%B8%85%E5%8D%95"><span class="toc-number">1.3.9.</span> <span class="toc-text">3.9 、GIT忽略清单</span></a></li></ol></li></ol></li></ol>
-                                                        </div>
-                                                    </button>
-                                                    
 
+                                                
+                                                    
+                                                        <button class="mdui-fab catalog" style="overflow:unset;">
+                                                            <i class="nexmoefont icon-i-catalog"></i>
+                                                            <div class="nexmoe-toc">
+                                                                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%EF%BC%9AGit%E5%92%8CGitHub"><span class="toc-number">1.</span> <span class="toc-text">前后端交互：Git和GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fgithub%E5%8F%88%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">git是什么？github又是什么?</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Git%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.</span> <span class="toc-text">1. Git基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 版本管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-%E4%BB%80%E4%B9%88%E6%98%AF%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">1.1.1 什么是版本管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-%E4%BA%BA%E4%B8%BA%E7%BB%B4%E6%8A%A4%E6%96%87%E6%A1%A3%E7%89%88%E6%9C%AC%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">1.1.2 人为维护文档版本的问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-3-%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">1.1.3 版本控制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-4-%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7"><span class="toc-number">1.1.1.4.</span> <span class="toc-text">1.1.4 版本控制工具</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Git-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 Git 是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-Git-%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3 Git 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Git%E5%92%8C%E4%BB%A3%E7%A0%81%E6%89%98%E7%AE%A1%E4%B8%AD%E5%BF%83"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">Git和代码托管中心</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-Git-%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.4.</span> <span class="toc-text">1.4 Git 基本工作流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-Git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.1.5.</span> <span class="toc-text">&#x3D;&#x3D;1.5 Git 常用命令&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81Git-%E4%BD%BF%E7%94%A8%E5%89%8D%E9%85%8D%E7%BD%AE%EF%BC%9A%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E7%AD%BE%E5%90%8D"><span class="toc-number">1.1.5.1.</span> <span class="toc-text">1、Git 使用前配置：设置用户签名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81-%E5%88%9D%E5%A7%8B%E5%8C%96%E6%9C%AC%E5%9C%B0%E5%BA%93%EF%BC%88git-init"><span class="toc-number">1.1.5.2.</span> <span class="toc-text">&#x3D;&#x3D;2、&#x3D;&#x3D;&#x3D;&#x3D;初始化本地库（git init)&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81-%E6%9F%A5%E7%9C%8B%E6%9C%AC%E5%9C%B0%E5%BA%93%E7%8A%B6%E6%80%81-git-status"><span class="toc-number">1.1.5.3.</span> <span class="toc-text">&#x3D;&#x3D;3、&#x3D;&#x3D;&#x3D;&#x3D;查看本地库状态(git status)&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1%E3%80%81%E6%96%B0%E5%A2%9E%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.5.3.1.</span> <span class="toc-text">3.1、新增文件</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%E3%80%81-%E6%B7%BB%E5%8A%A0%E6%9A%82%E5%AD%98%E5%8C%BA-git-add-%E6%96%87%E4%BB%B6%E5%90%8D"><span class="toc-number">1.1.5.4.</span> <span class="toc-text">&#x3D;&#x3D;4、&#x3D;&#x3D;&#x3D;&#x3D;添加暂存区(git add 文件名)&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5%E3%80%81-%E6%8F%90%E4%BA%A4%E6%9C%AC%E5%9C%B0%E5%BA%93%EF%BC%88git-commit-m-%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AF%EF%BC%89"><span class="toc-number">1.1.5.5.</span> <span class="toc-text">&#x3D;&#x3D;5、&#x3D;&#x3D;&#x3D;&#x3D;提交本地库（git commit -m 提交信息）&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6%E3%80%81%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.5.6.</span> <span class="toc-text">6、修改文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7%E3%80%81%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC"><span class="toc-number">1.1.5.7.</span> <span class="toc-text">7、历史版本</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#7-1%E3%80%81%E6%9F%A5%E7%9C%8B%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC%EF%BC%88git-log"><span class="toc-number">1.1.5.7.1.</span> <span class="toc-text">&#x3D;&#x3D;7.1、查看历史版本（git log)&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-2%E3%80%81%E7%89%88%E6%9C%AC%E7%A9%BF%E6%A2%AD"><span class="toc-number">1.1.5.7.2.</span> <span class="toc-text">7.2、版本穿梭</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8%E3%80%81%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.5.8.</span> <span class="toc-text">8、切换版本原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9%E3%80%81-%E6%92%A4%E9%94%80"><span class="toc-number">1.1.5.9.</span> <span class="toc-text">9、 撤销</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Git%E8%BF%9B%E9%98%B6"><span class="toc-number">1.2.</span> <span class="toc-text">2. Git进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E3%80%81%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.</span> <span class="toc-text">&#x3D;&#x3D;2.1 、分支&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">2.1.1 什么是分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">2.1.2 什么是分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-%E5%88%86%E6%94%AF%E7%BB%86%E5%88%86"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">2.1.3 分支细分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-4-%E5%88%86%E6%94%AF%E5%91%BD%E4%BB%A4-%E9%83%BD%E5%BE%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">&#x3D;&#x3D;2.1.4 分支命令(都很重要）&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%E3%80%81%E6%9F%A5%E7%9C%8B%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.4.1.</span> <span class="toc-text">1、查看分支</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%E3%80%81%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.4.2.</span> <span class="toc-text">2、创建分支</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%E3%80%81%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.4.3.</span> <span class="toc-text">3、切换分支</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4%E3%80%81%E4%BF%AE%E6%94%B9%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.4.4.</span> <span class="toc-text">4、修改分支</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5%E3%80%81%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF"><span class="toc-number">1.2.1.4.5.</span> <span class="toc-text">5、合并分支</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E3%80%81%E6%9A%82%E6%97%B6%E4%BF%9D%E5%AD%98%E6%9B%B4%E6%94%B9"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 、暂时保存更改</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Github"><span class="toc-number">1.3.</span> <span class="toc-text">&#x3D;&#x3D;3. Github&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E3%80%81-%E6%B3%A8%E5%86%8C"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1、 注册</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E3%80%81%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 、多人协作开发流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3%E3%80%81%E5%88%9B%E5%BB%BA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">1.3.3.</span> <span class="toc-text">&#x3D;&#x3D;3.3、创建远程仓库&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1%E3%80%81Github%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">3.3.1、Github远程仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2%E3%80%81Gitee%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">3.3.2、Gitee远程仓库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="toc-number">1.3.4.</span> <span class="toc-text">&#x3D;&#x3D;3.4 远程仓库操作&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-1%E3%80%81%E5%88%9B%E5%BB%BA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%AB%E5%90%8D"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">3.4.1、创建远程仓库别名</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link"><span class="toc-number">1.3.4.1.0.1.</span> <span class="toc-text"></span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-2%E3%80%81%E6%8E%A8%E9%80%81%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">3.4.2、推送本地分支到远程仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-3%E3%80%81%E6%8B%89%E5%8F%96%E8%BF%9C%E7%A8%8B%E5%BA%93%E5%88%86%E6%94%AF%E5%88%B0%E6%9C%AC%E5%9C%B0%E5%BA%93"><span class="toc-number">1.3.4.3.</span> <span class="toc-text">3.4.3、拉取远程库分支到本地库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-4%E3%80%81%E5%85%8B%E9%9A%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="toc-number">1.3.4.4.</span> <span class="toc-text">3.4.4、克隆远程仓库到本地</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E3%80%81%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81"><span class="toc-number">1.3.5.</span> <span class="toc-text">3.5 、解决冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6%E3%80%81%E9%82%80%E8%AF%B7%E5%8A%A0%E5%85%A5%E5%9B%A2%E9%98%9F"><span class="toc-number">1.3.6.</span> <span class="toc-text">3.6、邀请加入团队</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-6-1%E3%80%81Gitee"><span class="toc-number">1.3.6.1.</span> <span class="toc-text">3.6.1、Gitee</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-6-2%E3%80%81Github"><span class="toc-number">1.3.6.2.</span> <span class="toc-text">3.6.2、Github</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-%E3%80%81%E8%B7%A8%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C"><span class="toc-number">1.3.7.</span> <span class="toc-text">3.7 、跨团队协作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-7-1%E3%80%81Gitee"><span class="toc-number">1.3.7.1.</span> <span class="toc-text">3.7.1、Gitee</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-7-2%E3%80%81Github"><span class="toc-number">1.3.7.2.</span> <span class="toc-text">3.7.2、Github</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8-%E3%80%81ssh%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86"><span class="toc-number">1.3.8.</span> <span class="toc-text">3.8 、ssh免密登陆</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-8-1%E3%80%81Gitee"><span class="toc-number">1.3.8.1.</span> <span class="toc-text">3.8.1、Gitee</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-8-2%E3%80%81Github"><span class="toc-number">1.3.8.2.</span> <span class="toc-text">3.8.2、Github</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-%E3%80%81GIT%E5%BF%BD%E7%95%A5%E6%B8%85%E5%8D%95"><span class="toc-number">1.3.9.</span> <span class="toc-text">3.9 、GIT忽略清单</span></a></li></ol></li></ol></li></ol>
+                                                            </div>
+                                                        </button>
                                                         
 
-                                                            <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部"
-                                                                title="top"><button class="mdui-fab mdui-ripple"><i
-                                                                        class="nexmoefont icon-caret-top"></i></button></a>
+                                                            
+
+                                                                <a href="#nexmoe-content" class="toc-link"
+                                                                    aria-label="回到顶部" title="top"><button
+                                                                        class="mdui-fab mdui-ripple"><i
+                                                                            class="nexmoefont icon-caret-top"></i></button></a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- 音乐播放器 -->
+                <link rel="stylesheet" href="/dist/APlayer.min.css">
+                <div id="aplayer"></div>
+                <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+                <script type="text/javascript" src="/dist/music.js"></script>
+                <!-- pjax -->
+                <script>
+                    // 对所有链接跳转事件绑定pjax容器container
+                    $(document).pjax('a[target!=_blank]', '#pageContent', { fragment: '#pageContent', timeout: 8000 })
+                </script>
                 
     <div id="nexmoe-search-space">
         <div class="search-container">
@@ -1098,7 +1107,7 @@
 
 
 
-		<script async src="/js/app.js?v=1648206422886"></script>
+		<script async src="/js/app.js?v=1648719426899"></script>
 
 			
 
@@ -1118,26 +1127,11 @@
 
 
 
-        </body>
 
-        <script>
-            // 对全部连接跳转事件绑定pjax容器container
-            $(document).pjax('a', '#pjax-containere', { fragment: '##pjax-container', timeout: 8000 });
-        </script>
+        </body>
 
 </html>
 
 
 <!--樱花背景-->
 <script type="text/javascript" src="https://yremp.live/wp-content/uploads/resource/js/sakura.js"></script>
-
-
-<!-- 
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-
-<script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
-
-<script>
-    // 对全部连接跳转事件绑定pjax容器container
-    $(document).pjax('a[target!=_blank]', '#container', { fragment: '#container', timeout: 8000 })
-</script> -->

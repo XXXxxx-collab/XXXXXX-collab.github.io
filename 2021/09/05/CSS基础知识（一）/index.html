@@ -10,6 +10,16 @@
                                 那束光の博客
                 </title>
                 <meta charset="UTF-8">
+                <!-- require APlayer -->
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+                <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+                <!-- require MetingJS -->
+                <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+                <!-- require pjax -->
+                <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+                <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+                <meta name="description" content="">
                 <meta name="keywords" content="">
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
                 
@@ -33,50 +43,37 @@
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/53e73b851fa04cf395325296fe89ea75.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center">
-                            <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1648206422979">
+                            <link rel="stylesheet"
+                                href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233"
+                                crossorigin>
+                            <link rel="stylesheet" href="/css/style.css?v=1648719427152">
                                 
-                                        <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1648206422979">
-                                            <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648206422979">
-                                                <link rel="stylesheet" href="/css/style.css?v=1648206422979">
-                                                    
-                                                                
-
-
-                                                                        <!-- 爆炸红心效果
-                                                                        <canvas class="fireworks"
-                                                                            style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
-                                                                        <script type="text/javascript"
-                                                                            src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
-                                                                        <script type="text/javascript"
-                                                                            src="/js/firework.js"></script> -->
+                                            
+                                                    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648719427152">
+                                                        
         <meta name="generator" content="Hexo 5.4.1"></head>
 
         <body class="mdui-drawer-body-left">
             
-                <div id="nexmoe-background">
-                    <div class="nexmoe-bg" style="background-image: url(https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500)"></div>
-                    <div class="mdui-appbar mdui-shadow-0">
-                        <div class="mdui-toolbar">
-                            <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu"
-                                class="mdui-btn mdui-btn-icon mdui-ripple"><i
-                                    class="mdui-icon nexmoefont icon-menu"></i></a>
-                            <div class="mdui-toolbar-spacer"></div>
-                            <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-                            <a href="/" title="生命里那束光"
-                                class="mdui-btn mdui-btn-icon"><img src="https://i.postimg.cc/7hJchpF6/1.jpg"
-                                    alt="生命里那束光"></a>
+                <div id="pageContent">
+                    <div id="nexmoe-background">
+                        <div class="nexmoe-bg" style="background-image: url(https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500)"></div>
+                        <div class="mdui-appbar mdui-shadow-0">
+                            <div class="mdui-toolbar">
+                                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu"
+                                    class="mdui-btn mdui-btn-icon mdui-ripple"><i
+                                        class="mdui-icon nexmoefont icon-menu"></i></a>
+                                <div class="mdui-toolbar-spacer"></div>
+                                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                                <a href="/" title="生命里那束光"
+                                    class="mdui-btn mdui-btn-icon"><img src="https://i.postimg.cc/7hJchpF6/1.jpg"
+                                        alt="生命里那束光"></a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- 音乐播放器 -->
-                <link rel="stylesheet" href="/dist/APlayer.min.css">
-                <div id="aplayer"></div>
-                <script type="text/javascript" src="/dist/APlayer.min.js"></script>
-                <script type="text/javascript" src="/dist/music.js"></script>
-
-                <div id="nexmoe-header">
-                    <div class="nexmoe-drawer mdui-drawer" id="drawer">
+                    <div id="nexmoe-header">
+                        <div class="nexmoe-drawer mdui-drawer" id="drawer">
     <div class="nexmoe-avatar mdui-ripple">
         <a href="/" title="生命里那束光">
             <img src="https://i.postimg.cc/7hJchpF6/1.jpg" alt="生命里那束光"
@@ -394,10 +391,10 @@
                         
         </div>
 </div><!-- .nexmoe-drawer -->
-                </div>
-                <div id="nexmoe-content">
-                    <div class="nexmoe-primary">
-                        <div class="nexmoe-post">
+                    </div>
+                    <div id="nexmoe-content">
+                        <div class="nexmoe-primary">
+                            <div class="nexmoe-post">
 
     <article>
         
@@ -1272,32 +1269,44 @@
                         </div>
                         
 </div>
-                            <div class="nexmoe-post-right">
-                                <div class="nexmoe-fixed">
-                                    <div class="nexmoe-tool">
-
-                                        
+                                <div class="nexmoe-post-right">
+                                    <div class="nexmoe-fixed">
+                                        <div class="nexmoe-tool">
 
                                             
-                                                
-                                                    <button class="mdui-fab catalog" style="overflow:unset;">
-                                                        <i class="nexmoefont icon-i-catalog"></i>
-                                                        <div class="nexmoe-toc">
-                                                            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-CSS%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">什么是 CSS？</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">CSS基础知识（一）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E6%A0%87%E7%AD%BE%E5%9F%BA%E7%A1%80%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%88%E6%A0%87%E7%AD%BE%E9%80%89%E6%8B%A9%E5%99%A8%E3%80%81%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8%E3%80%81id%E9%80%89%E6%8B%A9%E5%99%A8%E3%80%81%E9%80%9A%E9%85%8D%E7%AC%A6%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">1、标签基础选择器（标签选择器、类选择器、id选择器、通配符选择器）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1%E3%80%81%E6%A0%87%E7%AD%BE%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">1.1、标签选择器（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2%E3%80%81%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">1.2、类选择器（重点）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1%E3%80%81%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8%E5%A4%9A%E7%B1%BB%E5%90%8D"><span class="toc-number">1.</span> <span class="toc-text">1.2.1、类选择器多类名</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3%E3%80%81id%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">1.3、id选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1%E3%80%81%E5%8C%BA%E5%88%AB%EF%BC%88id%E9%80%89%E6%8B%A9%E5%99%A8%E4%B8%8E%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">1.3.1、区别（id选择器与类选择器）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4%E3%80%81%E9%80%9A%E9%85%8D%E7%AC%A6%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">1.4、通配符选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5%E3%80%81%E5%9F%BA%E7%A1%80%E9%80%89%E6%8B%A9%E5%99%A8%E6%80%BB%E7%BB%93"><span class="toc-number"></span> <span class="toc-text">1.5、基础选择器总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81CSS%E5%AD%97%E4%BD%93%E5%B1%9E%E6%80%A7%EF%BC%88%E7%94%A8%E4%BA%8E%E5%AE%9A%E4%B9%89%EF%BC%9A%E5%AD%97%E4%BD%93%E7%B3%BB%E5%88%97%E3%80%81%E5%A4%A7%E5%B0%8F%E3%80%81%E7%B2%97%E7%BB%86%E3%80%81%E6%96%87%E5%AD%97%E6%A0%B7%E5%BC%8F%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">2、CSS字体属性（用于定义：字体系列、大小、粗细、文字样式）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1%E3%80%81font-family%EF%BC%88%E6%96%87%E5%AD%97%E5%AD%97%E4%BD%93%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">2.1、font-family（文字字体）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2%E3%80%81font-size%EF%BC%88%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">2.2、font-size（字体大小）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3%E3%80%81font-weight%EF%BC%88%E5%AD%97%E4%BD%93%E7%B2%97%E7%BB%86%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">2.3、font-weight（字体粗细）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4%E3%80%81font-style%EF%BC%88%E5%AD%97%E4%BD%93%E6%A0%B7%E5%BC%8F-%E6%96%9C%E4%BD%93%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">2.4、font-style（字体样式-斜体）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5%E3%80%81%E5%AD%97%E4%BD%93%E5%B1%9E%E6%80%A7%E5%A4%8D%E5%90%88%E5%86%99%E6%B3%95%EF%BC%88%E8%8A%82%E7%BA%A6%E4%BB%A3%E7%A0%81%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">2.5、字体属性复合写法（节约代码）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6%E3%80%81%E5%AD%97%E4%BD%93%E5%B1%9E%E6%80%A7%E6%80%BB%E7%BB%93"><span class="toc-number"></span> <span class="toc-text">2.6、字体属性总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81CSS%E6%96%87%E6%9C%AC%E5%B1%9E%E6%80%A7"><span class="toc-number"></span> <span class="toc-text">3、CSS文本属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E3%80%81color%EF%BC%88%E9%A2%9C%E8%89%B2%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">3.1、color（颜色）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2%E3%80%81text-align%EF%BC%88%E6%B0%B4%E5%B9%B3%E5%AF%B9%E9%BD%90%E6%96%B9%E5%BC%8F%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">3.2、text-align（水平对齐方式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3%E3%80%81text-decoration%EF%BC%88%E8%A3%85%E9%A5%B0%E6%96%87%E6%9C%AC%EF%BC%9A%E4%B8%8B%E5%88%92%E7%BA%BF%E3%80%81%E5%88%A0%E9%99%A4%E7%BA%BF%E7%AD%89%E7%AD%89%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">3.3、text-decoration（装饰文本：下划线、删除线等等）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4%E3%80%81text-indent%EF%BC%88%E6%AE%B5%E8%90%BD%E7%BC%A9%E8%BF%9B%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">3.4、text-indent（段落缩进）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5%E3%80%81line-height%EF%BC%88%E8%A1%8C%E9%AB%98%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">3.5、line-height（行高）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6%E3%80%81%E6%96%87%E6%9C%AC%E5%B1%9E%E6%80%A7%E6%80%BB%E7%BB%93"><span class="toc-number"></span> <span class="toc-text">3.6、文本属性总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81CSS%E5%A4%8D%E5%90%88%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">4、CSS复合选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1%E3%80%81%E5%90%8E%E4%BB%A3%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">4.1、后代选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2%E3%80%81%E5%AD%90%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">4.2、子选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3%E3%80%81%E5%B9%B6%E9%9B%86%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">4.3、并集选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4%E3%80%81%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">4.4、伪类选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-1%E3%80%81%E9%93%BE%E6%8E%A5%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">4.4.1、链接伪类选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-2%E3%80%81-focus%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">4.4.2、 :focus伪类选择器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5%E3%80%81%E5%A4%8D%E5%90%88%E9%80%89%E6%8B%A9%E5%99%A8%E6%80%BB%E7%BB%93"><span class="toc-number"></span> <span class="toc-text">4.5、复合选择器总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81CSS%E5%85%83%E7%B4%A0%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F"><span class="toc-number"></span> <span class="toc-text">5、CSS元素显示模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1%E3%80%81%E5%9D%97%E5%85%83%E7%B4%A0"><span class="toc-number"></span> <span class="toc-text">5.1、块元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2%E3%80%81%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0"><span class="toc-number"></span> <span class="toc-text">5.2、行内元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3%E3%80%81%E8%A1%8C%E5%86%85%E5%9D%97%E5%85%83%E7%B4%A0"><span class="toc-number"></span> <span class="toc-text">5.3、行内块元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4%E3%80%81%E5%85%83%E7%B4%A0%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93"><span class="toc-number"></span> <span class="toc-text">5.4、元素显示模式总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5%E3%80%81%E5%85%83%E7%B4%A0%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="toc-number"></span> <span class="toc-text">5.5、元素显示模式转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6%E3%80%81%F0%9F%91%89%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="toc-number"></span> <span class="toc-text">5.6、👉小技巧</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E3%80%81CSS%E8%83%8C%E6%99%AF"><span class="toc-number"></span> <span class="toc-text">6、CSS背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1%E3%80%81background-color"><span class="toc-number"></span> <span class="toc-text">6.1、background-color</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2%E3%80%81background-image"><span class="toc-number"></span> <span class="toc-text">6.2、background-image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3%E3%80%81background-repeat"><span class="toc-number"></span> <span class="toc-text">6.3、background-repeat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4%E3%80%81background-position"><span class="toc-number"></span> <span class="toc-text">6.4、background-position</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5%E3%80%81background-attachment"><span class="toc-number"></span> <span class="toc-text">6.5、background-attachment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-6%E3%80%81%E8%83%8C%E6%99%AF%E5%A4%8D%E5%90%88%E5%86%99%E6%B3%95"><span class="toc-number"></span> <span class="toc-text">6.6、背景复合写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-7%E3%80%81%E8%83%8C%E6%99%AF%E8%89%B2%E5%8D%8A%E9%80%8F%E6%98%8E"><span class="toc-number"></span> <span class="toc-text">6.7、背景色半透明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-8%E3%80%81%E8%83%8C%E6%99%AF%E6%80%BB%E7%BB%93"><span class="toc-number"></span> <span class="toc-text">6.8、背景总结</span></a>
-                                                        </div>
-                                                    </button>
-                                                    
 
+                                                
+                                                    
+                                                        <button class="mdui-fab catalog" style="overflow:unset;">
+                                                            <i class="nexmoefont icon-i-catalog"></i>
+                                                            <div class="nexmoe-toc">
+                                                                <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-CSS%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">什么是 CSS？</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">CSS基础知识（一）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E6%A0%87%E7%AD%BE%E5%9F%BA%E7%A1%80%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%88%E6%A0%87%E7%AD%BE%E9%80%89%E6%8B%A9%E5%99%A8%E3%80%81%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8%E3%80%81id%E9%80%89%E6%8B%A9%E5%99%A8%E3%80%81%E9%80%9A%E9%85%8D%E7%AC%A6%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">1、标签基础选择器（标签选择器、类选择器、id选择器、通配符选择器）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1%E3%80%81%E6%A0%87%E7%AD%BE%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">1.1、标签选择器（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2%E3%80%81%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">1.2、类选择器（重点）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1%E3%80%81%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8%E5%A4%9A%E7%B1%BB%E5%90%8D"><span class="toc-number">1.</span> <span class="toc-text">1.2.1、类选择器多类名</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3%E3%80%81id%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">1.3、id选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1%E3%80%81%E5%8C%BA%E5%88%AB%EF%BC%88id%E9%80%89%E6%8B%A9%E5%99%A8%E4%B8%8E%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">1.3.1、区别（id选择器与类选择器）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4%E3%80%81%E9%80%9A%E9%85%8D%E7%AC%A6%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">1.4、通配符选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5%E3%80%81%E5%9F%BA%E7%A1%80%E9%80%89%E6%8B%A9%E5%99%A8%E6%80%BB%E7%BB%93"><span class="toc-number"></span> <span class="toc-text">1.5、基础选择器总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81CSS%E5%AD%97%E4%BD%93%E5%B1%9E%E6%80%A7%EF%BC%88%E7%94%A8%E4%BA%8E%E5%AE%9A%E4%B9%89%EF%BC%9A%E5%AD%97%E4%BD%93%E7%B3%BB%E5%88%97%E3%80%81%E5%A4%A7%E5%B0%8F%E3%80%81%E7%B2%97%E7%BB%86%E3%80%81%E6%96%87%E5%AD%97%E6%A0%B7%E5%BC%8F%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">2、CSS字体属性（用于定义：字体系列、大小、粗细、文字样式）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1%E3%80%81font-family%EF%BC%88%E6%96%87%E5%AD%97%E5%AD%97%E4%BD%93%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">2.1、font-family（文字字体）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2%E3%80%81font-size%EF%BC%88%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">2.2、font-size（字体大小）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3%E3%80%81font-weight%EF%BC%88%E5%AD%97%E4%BD%93%E7%B2%97%E7%BB%86%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">2.3、font-weight（字体粗细）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4%E3%80%81font-style%EF%BC%88%E5%AD%97%E4%BD%93%E6%A0%B7%E5%BC%8F-%E6%96%9C%E4%BD%93%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">2.4、font-style（字体样式-斜体）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5%E3%80%81%E5%AD%97%E4%BD%93%E5%B1%9E%E6%80%A7%E5%A4%8D%E5%90%88%E5%86%99%E6%B3%95%EF%BC%88%E8%8A%82%E7%BA%A6%E4%BB%A3%E7%A0%81%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">2.5、字体属性复合写法（节约代码）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6%E3%80%81%E5%AD%97%E4%BD%93%E5%B1%9E%E6%80%A7%E6%80%BB%E7%BB%93"><span class="toc-number"></span> <span class="toc-text">2.6、字体属性总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81CSS%E6%96%87%E6%9C%AC%E5%B1%9E%E6%80%A7"><span class="toc-number"></span> <span class="toc-text">3、CSS文本属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E3%80%81color%EF%BC%88%E9%A2%9C%E8%89%B2%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">3.1、color（颜色）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2%E3%80%81text-align%EF%BC%88%E6%B0%B4%E5%B9%B3%E5%AF%B9%E9%BD%90%E6%96%B9%E5%BC%8F%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">3.2、text-align（水平对齐方式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3%E3%80%81text-decoration%EF%BC%88%E8%A3%85%E9%A5%B0%E6%96%87%E6%9C%AC%EF%BC%9A%E4%B8%8B%E5%88%92%E7%BA%BF%E3%80%81%E5%88%A0%E9%99%A4%E7%BA%BF%E7%AD%89%E7%AD%89%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">3.3、text-decoration（装饰文本：下划线、删除线等等）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4%E3%80%81text-indent%EF%BC%88%E6%AE%B5%E8%90%BD%E7%BC%A9%E8%BF%9B%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">3.4、text-indent（段落缩进）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5%E3%80%81line-height%EF%BC%88%E8%A1%8C%E9%AB%98%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">3.5、line-height（行高）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6%E3%80%81%E6%96%87%E6%9C%AC%E5%B1%9E%E6%80%A7%E6%80%BB%E7%BB%93"><span class="toc-number"></span> <span class="toc-text">3.6、文本属性总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81CSS%E5%A4%8D%E5%90%88%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">4、CSS复合选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1%E3%80%81%E5%90%8E%E4%BB%A3%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">4.1、后代选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2%E3%80%81%E5%AD%90%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">4.2、子选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3%E3%80%81%E5%B9%B6%E9%9B%86%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">4.3、并集选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4%E3%80%81%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">4.4、伪类选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-1%E3%80%81%E9%93%BE%E6%8E%A5%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">4.4.1、链接伪类选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-2%E3%80%81-focus%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">4.4.2、 :focus伪类选择器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5%E3%80%81%E5%A4%8D%E5%90%88%E9%80%89%E6%8B%A9%E5%99%A8%E6%80%BB%E7%BB%93"><span class="toc-number"></span> <span class="toc-text">4.5、复合选择器总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81CSS%E5%85%83%E7%B4%A0%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F"><span class="toc-number"></span> <span class="toc-text">5、CSS元素显示模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1%E3%80%81%E5%9D%97%E5%85%83%E7%B4%A0"><span class="toc-number"></span> <span class="toc-text">5.1、块元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2%E3%80%81%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0"><span class="toc-number"></span> <span class="toc-text">5.2、行内元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3%E3%80%81%E8%A1%8C%E5%86%85%E5%9D%97%E5%85%83%E7%B4%A0"><span class="toc-number"></span> <span class="toc-text">5.3、行内块元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4%E3%80%81%E5%85%83%E7%B4%A0%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93"><span class="toc-number"></span> <span class="toc-text">5.4、元素显示模式总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5%E3%80%81%E5%85%83%E7%B4%A0%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="toc-number"></span> <span class="toc-text">5.5、元素显示模式转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6%E3%80%81%F0%9F%91%89%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="toc-number"></span> <span class="toc-text">5.6、👉小技巧</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E3%80%81CSS%E8%83%8C%E6%99%AF"><span class="toc-number"></span> <span class="toc-text">6、CSS背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1%E3%80%81background-color"><span class="toc-number"></span> <span class="toc-text">6.1、background-color</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2%E3%80%81background-image"><span class="toc-number"></span> <span class="toc-text">6.2、background-image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3%E3%80%81background-repeat"><span class="toc-number"></span> <span class="toc-text">6.3、background-repeat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4%E3%80%81background-position"><span class="toc-number"></span> <span class="toc-text">6.4、background-position</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5%E3%80%81background-attachment"><span class="toc-number"></span> <span class="toc-text">6.5、background-attachment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-6%E3%80%81%E8%83%8C%E6%99%AF%E5%A4%8D%E5%90%88%E5%86%99%E6%B3%95"><span class="toc-number"></span> <span class="toc-text">6.6、背景复合写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-7%E3%80%81%E8%83%8C%E6%99%AF%E8%89%B2%E5%8D%8A%E9%80%8F%E6%98%8E"><span class="toc-number"></span> <span class="toc-text">6.7、背景色半透明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-8%E3%80%81%E8%83%8C%E6%99%AF%E6%80%BB%E7%BB%93"><span class="toc-number"></span> <span class="toc-text">6.8、背景总结</span></a>
+                                                            </div>
+                                                        </button>
                                                         
 
-                                                            <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部"
-                                                                title="top"><button class="mdui-fab mdui-ripple"><i
-                                                                        class="nexmoefont icon-caret-top"></i></button></a>
+                                                            
+
+                                                                <a href="#nexmoe-content" class="toc-link"
+                                                                    aria-label="回到顶部" title="top"><button
+                                                                        class="mdui-fab mdui-ripple"><i
+                                                                            class="nexmoefont icon-caret-top"></i></button></a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- 音乐播放器 -->
+                <link rel="stylesheet" href="/dist/APlayer.min.css">
+                <div id="aplayer"></div>
+                <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+                <script type="text/javascript" src="/dist/music.js"></script>
+                <!-- pjax -->
+                <script>
+                    // 对所有链接跳转事件绑定pjax容器container
+                    $(document).pjax('a[target!=_blank]', '#pageContent', { fragment: '#pageContent', timeout: 8000 })
+                </script>
                 
     <div id="nexmoe-search-space">
         <div class="search-container">
@@ -1318,7 +1327,7 @@
 
 
 
-		<script async src="/js/app.js?v=1648206422984"></script>
+		<script async src="/js/app.js?v=1648719427165"></script>
 
 			
 
@@ -1338,26 +1347,11 @@
 
 
 
-        </body>
 
-        <script>
-            // 对全部连接跳转事件绑定pjax容器container
-            $(document).pjax('a', '#pjax-containere', { fragment: '##pjax-container', timeout: 8000 });
-        </script>
+        </body>
 
 </html>
 
 
 <!--樱花背景-->
 <script type="text/javascript" src="https://yremp.live/wp-content/uploads/resource/js/sakura.js"></script>
-
-
-<!-- 
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-
-<script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
-
-<script>
-    // 对全部连接跳转事件绑定pjax容器container
-    $(document).pjax('a[target!=_blank]', '#container', { fragment: '#container', timeout: 8000 })
-</script> -->

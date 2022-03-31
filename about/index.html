@@ -10,6 +10,16 @@
                                 那束光の博客
                 </title>
                 <meta charset="UTF-8">
+                <!-- require APlayer -->
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+                <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+                <!-- require MetingJS -->
+                <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+                <!-- require pjax -->
+                <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+                <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+                <meta name="description" content="">
                 <meta name="keywords" content="">
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
                 
@@ -27,22 +37,14 @@
 <meta property="article:modified_time" content="2022-03-25T11:01:19.084Z">
 <meta property="article:author" content="生命里那束光">
 <meta name="twitter:card" content="summary">
-                            <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1648206422832">
+                            <link rel="stylesheet"
+                                href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233"
+                                crossorigin>
+                            <link rel="stylesheet" href="/css/style.css?v=1648719426774">
                                 
-                                        <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1648206422832">
-                                            <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648206422832">
-                                                <link rel="stylesheet" href="/css/style.css?v=1648206422832">
-                                                    
-                                                                
-
-
-                                                                        <!-- 爆炸红心效果
-                                                                        <canvas class="fireworks"
-                                                                            style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
-                                                                        <script type="text/javascript"
-                                                                            src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
-                                                                        <script type="text/javascript"
-                                                                            src="/js/firework.js"></script> -->
+                                            
+                                                    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648719426775">
+                                                        
         <meta name="generator" content="Hexo 5.4.1"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
 <script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
 <script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
@@ -50,30 +52,25 @@
 
         <body class="mdui-drawer-body-left">
             
-                <div id="nexmoe-background">
-                    <div class="nexmoe-bg" style="background-image: url(https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500)"></div>
-                    <div class="mdui-appbar mdui-shadow-0">
-                        <div class="mdui-toolbar">
-                            <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu"
-                                class="mdui-btn mdui-btn-icon mdui-ripple"><i
-                                    class="mdui-icon nexmoefont icon-menu"></i></a>
-                            <div class="mdui-toolbar-spacer"></div>
-                            <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-                            <a href="/" title="生命里那束光"
-                                class="mdui-btn mdui-btn-icon"><img src="https://i.postimg.cc/7hJchpF6/1.jpg"
-                                    alt="生命里那束光"></a>
+                <div id="pageContent">
+                    <div id="nexmoe-background">
+                        <div class="nexmoe-bg" style="background-image: url(https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500)"></div>
+                        <div class="mdui-appbar mdui-shadow-0">
+                            <div class="mdui-toolbar">
+                                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu"
+                                    class="mdui-btn mdui-btn-icon mdui-ripple"><i
+                                        class="mdui-icon nexmoefont icon-menu"></i></a>
+                                <div class="mdui-toolbar-spacer"></div>
+                                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                                <a href="/" title="生命里那束光"
+                                    class="mdui-btn mdui-btn-icon"><img src="https://i.postimg.cc/7hJchpF6/1.jpg"
+                                        alt="生命里那束光"></a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- 音乐播放器 -->
-                <link rel="stylesheet" href="/dist/APlayer.min.css">
-                <div id="aplayer"></div>
-                <script type="text/javascript" src="/dist/APlayer.min.js"></script>
-                <script type="text/javascript" src="/dist/music.js"></script>
-
-                <div id="nexmoe-header">
-                    <div class="nexmoe-drawer mdui-drawer" id="drawer">
+                    <div id="nexmoe-header">
+                        <div class="nexmoe-drawer mdui-drawer" id="drawer">
     <div class="nexmoe-avatar mdui-ripple">
         <a href="/" title="生命里那束光">
             <img src="https://i.postimg.cc/7hJchpF6/1.jpg" alt="生命里那束光"
@@ -391,10 +388,10 @@
                         
         </div>
 </div><!-- .nexmoe-drawer -->
-                </div>
-                <div id="nexmoe-content">
-                    <div class="nexmoe-primary">
-                        <div class="nexmoe-post">
+                    </div>
+                    <div id="nexmoe-content">
+                        <div class="nexmoe-primary">
+                            <div class="nexmoe-post">
 
     <article>
         
@@ -414,7 +411,7 @@
 
                         <h6 id="不以物喜，不以己悲。"><a href="#不以物喜，不以己悲。" class="headerlink" title="不以物喜，不以己悲。"></a><em>不以物喜，不以己悲。</em></h6><h6 id="不乱于心，不困于心。"><a href="#不乱于心，不困于心。" class="headerlink" title="不乱于心，不困于心。"></a><em>不乱于心，不困于心。</em></h6><!-- 简单示例 (id, server, type)  -->
 
-    <div id="aplayer-LTcvOeMG" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1808845863" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86" data-loop="one" data-volume="0.5"></div>
+    <div id="aplayer-RwzFrnnC" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1808845863" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86" data-loop="one" data-volume="0.5"></div>
 
 <h1 id="💻-关于博客"><a href="#💻-关于博客" class="headerlink" title="💻 关于博客"></a>💻 关于博客</h1><p>Hi~，欢迎光临我的小站，下面是本站一些基本信息：</p>
 <blockquote>
@@ -455,7 +452,7 @@
 <h1 id="📞-联系方式"><a href="#📞-联系方式" class="headerlink" title="📞 联系方式"></a>📞 联系方式</h1><ul>
 <li>WeChat:13099462370</li>
 <li>QQ: 2578657473</li>
-<li>E-mail: <a href="mailto:&#x32;&#53;&#x37;&#x38;&#x36;&#x35;&#55;&#52;&#55;&#x33;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;">&#x32;&#53;&#x37;&#x38;&#x36;&#x35;&#55;&#52;&#55;&#x33;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;</a></li>
+<li>E-mail: <a href="mailto:&#50;&#x35;&#x37;&#56;&#x36;&#x35;&#55;&#x34;&#55;&#x33;&#x40;&#113;&#113;&#46;&#x63;&#111;&#109;">&#50;&#x35;&#x37;&#56;&#x36;&#x35;&#55;&#x34;&#55;&#x33;&#x40;&#113;&#113;&#46;&#x63;&#111;&#109;</a></li>
 <li>Github: <a target="_blank" rel="noopener" href="https://github.com/XXXxxx-collab">https://github.com/XXXxxx-collab</a></li>
 <li>社交平台：<ul>
 <li><a target="_blank" rel="noopener" href="https://space.bilibili.com/480369104?spm_id_from=333.1007.0.0">哔哩哔哩</a></li>
@@ -508,32 +505,44 @@
                         </div>
                         
 </div>
-                            <div class="nexmoe-post-right">
-                                <div class="nexmoe-fixed">
-                                    <div class="nexmoe-tool">
-
-                                        
+                                <div class="nexmoe-post-right">
+                                    <div class="nexmoe-fixed">
+                                        <div class="nexmoe-tool">
 
                                             
-                                                
-                                                    <button class="mdui-fab catalog" style="overflow:unset;">
-                                                        <i class="nexmoefont icon-i-catalog"></i>
-                                                        <div class="nexmoe-toc">
-                                                            <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%8D%E4%BB%A5%E7%89%A9%E5%96%9C%EF%BC%8C%E4%B8%8D%E4%BB%A5%E5%B7%B1%E6%82%B2%E3%80%82"><span class="toc-number">1.</span> <span class="toc-text">不以物喜，不以己悲。</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%8D%E4%B9%B1%E4%BA%8E%E5%BF%83%EF%BC%8C%E4%B8%8D%E5%9B%B0%E4%BA%8E%E5%BF%83%E3%80%82"><span class="toc-number">2.</span> <span class="toc-text">不乱于心，不困于心。</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%92%BB-%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2"><span class="toc-number"></span> <span class="toc-text">💻 关于博客</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%9A%B2-%E5%8D%9A%E5%AE%A2%E5%A4%A7%E4%BA%8B%E8%AE%B0"><span class="toc-number"></span> <span class="toc-text">🚲 博客大事记</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2022"><span class="toc-number"></span> <span class="toc-text">2022</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2021"><span class="toc-number"></span> <span class="toc-text">2021</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%93%9E-%E8%81%94%E7%B3%BB%E6%96%B9%E5%BC%8F"><span class="toc-number"></span> <span class="toc-text">📞 联系方式</span></a>
-                                                        </div>
-                                                    </button>
-                                                    
 
+                                                
+                                                    
+                                                        <button class="mdui-fab catalog" style="overflow:unset;">
+                                                            <i class="nexmoefont icon-i-catalog"></i>
+                                                            <div class="nexmoe-toc">
+                                                                <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%8D%E4%BB%A5%E7%89%A9%E5%96%9C%EF%BC%8C%E4%B8%8D%E4%BB%A5%E5%B7%B1%E6%82%B2%E3%80%82"><span class="toc-number">1.</span> <span class="toc-text">不以物喜，不以己悲。</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%8D%E4%B9%B1%E4%BA%8E%E5%BF%83%EF%BC%8C%E4%B8%8D%E5%9B%B0%E4%BA%8E%E5%BF%83%E3%80%82"><span class="toc-number">2.</span> <span class="toc-text">不乱于心，不困于心。</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%92%BB-%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2"><span class="toc-number"></span> <span class="toc-text">💻 关于博客</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%9A%B2-%E5%8D%9A%E5%AE%A2%E5%A4%A7%E4%BA%8B%E8%AE%B0"><span class="toc-number"></span> <span class="toc-text">🚲 博客大事记</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2022"><span class="toc-number"></span> <span class="toc-text">2022</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2021"><span class="toc-number"></span> <span class="toc-text">2021</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%93%9E-%E8%81%94%E7%B3%BB%E6%96%B9%E5%BC%8F"><span class="toc-number"></span> <span class="toc-text">📞 联系方式</span></a>
+                                                            </div>
+                                                        </button>
                                                         
 
-                                                            <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部"
-                                                                title="top"><button class="mdui-fab mdui-ripple"><i
-                                                                        class="nexmoefont icon-caret-top"></i></button></a>
+                                                            
+
+                                                                <a href="#nexmoe-content" class="toc-link"
+                                                                    aria-label="回到顶部" title="top"><button
+                                                                        class="mdui-fab mdui-ripple"><i
+                                                                            class="nexmoefont icon-caret-top"></i></button></a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- 音乐播放器 -->
+                <link rel="stylesheet" href="/dist/APlayer.min.css">
+                <div id="aplayer"></div>
+                <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+                <script type="text/javascript" src="/dist/music.js"></script>
+                <!-- pjax -->
+                <script>
+                    // 对所有链接跳转事件绑定pjax容器container
+                    $(document).pjax('a[target!=_blank]', '#pageContent', { fragment: '#pageContent', timeout: 8000 })
+                </script>
                 
     <div id="nexmoe-search-space">
         <div class="search-container">
@@ -554,7 +563,7 @@
 
 
 
-		<script async src="/js/app.js?v=1648206422842"></script>
+		<script async src="/js/app.js?v=1648719426799"></script>
 
 			
 
@@ -574,26 +583,11 @@
 
 
 
-        </body>
 
-        <script>
-            // 对全部连接跳转事件绑定pjax容器container
-            $(document).pjax('a', '#pjax-containere', { fragment: '##pjax-container', timeout: 8000 });
-        </script>
+        </body>
 
 </html>
 
 
 <!--樱花背景-->
 <script type="text/javascript" src="https://yremp.live/wp-content/uploads/resource/js/sakura.js"></script>
-
-
-<!-- 
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-
-<script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
-
-<script>
-    // 对全部连接跳转事件绑定pjax容器container
-    $(document).pjax('a[target!=_blank]', '#container', { fragment: '#container', timeout: 8000 })
-</script> -->

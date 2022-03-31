@@ -10,6 +10,16 @@
                                 那束光の博客
                 </title>
                 <meta charset="UTF-8">
+                <!-- require APlayer -->
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+                <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+                <!-- require MetingJS -->
+                <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+                <!-- require pjax -->
+                <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+                <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+                <meta name="description" content="">
                 <meta name="keywords" content="">
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
                 
@@ -27,22 +37,14 @@
 <meta property="article:modified_time" content="2022-03-25T10:58:09.996Z">
 <meta property="article:author" content="生命里那束光">
 <meta name="twitter:card" content="summary">
-                            <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1648206422853">
+                            <link rel="stylesheet"
+                                href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233"
+                                crossorigin>
+                            <link rel="stylesheet" href="/css/style.css?v=1648719426826">
                                 
-                                        <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1648206422853">
-                                            <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648206422853">
-                                                <link rel="stylesheet" href="/css/style.css?v=1648206422853">
-                                                    
-                                                                
-
-
-                                                                        <!-- 爆炸红心效果
-                                                                        <canvas class="fireworks"
-                                                                            style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
-                                                                        <script type="text/javascript"
-                                                                            src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
-                                                                        <script type="text/javascript"
-                                                                            src="/js/firework.js"></script> -->
+                                            
+                                                    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648719426826">
+                                                        
         <meta name="generator" content="Hexo 5.4.1"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
 <script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
 <script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
@@ -50,30 +52,25 @@
 
         <body class="mdui-drawer-body-left">
             
-                <div id="nexmoe-background">
-                    <div class="nexmoe-bg" style="background-image: url(https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500)"></div>
-                    <div class="mdui-appbar mdui-shadow-0">
-                        <div class="mdui-toolbar">
-                            <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu"
-                                class="mdui-btn mdui-btn-icon mdui-ripple"><i
-                                    class="mdui-icon nexmoefont icon-menu"></i></a>
-                            <div class="mdui-toolbar-spacer"></div>
-                            <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-                            <a href="/" title="生命里那束光"
-                                class="mdui-btn mdui-btn-icon"><img src="https://i.postimg.cc/7hJchpF6/1.jpg"
-                                    alt="生命里那束光"></a>
+                <div id="pageContent">
+                    <div id="nexmoe-background">
+                        <div class="nexmoe-bg" style="background-image: url(https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500)"></div>
+                        <div class="mdui-appbar mdui-shadow-0">
+                            <div class="mdui-toolbar">
+                                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu"
+                                    class="mdui-btn mdui-btn-icon mdui-ripple"><i
+                                        class="mdui-icon nexmoefont icon-menu"></i></a>
+                                <div class="mdui-toolbar-spacer"></div>
+                                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                                <a href="/" title="生命里那束光"
+                                    class="mdui-btn mdui-btn-icon"><img src="https://i.postimg.cc/7hJchpF6/1.jpg"
+                                        alt="生命里那束光"></a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- 音乐播放器 -->
-                <link rel="stylesheet" href="/dist/APlayer.min.css">
-                <div id="aplayer"></div>
-                <script type="text/javascript" src="/dist/APlayer.min.js"></script>
-                <script type="text/javascript" src="/dist/music.js"></script>
-
-                <div id="nexmoe-header">
-                    <div class="nexmoe-drawer mdui-drawer" id="drawer">
+                    <div id="nexmoe-header">
+                        <div class="nexmoe-drawer mdui-drawer" id="drawer">
     <div class="nexmoe-avatar mdui-ripple">
         <a href="/" title="生命里那束光">
             <img src="https://i.postimg.cc/7hJchpF6/1.jpg" alt="生命里那束光"
@@ -391,10 +388,10 @@
                         
         </div>
 </div><!-- .nexmoe-drawer -->
-                </div>
-                <div id="nexmoe-content">
-                    <div class="nexmoe-primary">
-                        <div class="nexmoe-post">
+                    </div>
+                    <div id="nexmoe-content">
+                        <div class="nexmoe-primary">
+                            <div class="nexmoe-post">
 
     <article>
         
@@ -415,7 +412,7 @@
                         <h4 id="何须浅碧深红色，自是花中第一流。"><a href="#何须浅碧深红色，自是花中第一流。" class="headerlink" title="何须浅碧深红色，自是花中第一流。"></a><em>何须浅碧深红色</em>，<em>自是花中第一流</em>。</h4><span id="more"></span>
 
 
-    <div id="aplayer-daRcTIqr" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="434871138" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86" data-loop="one" data-volume="0.3"></div>
+    <div id="aplayer-kLBIpHEf" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="434871138" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86" data-loop="one" data-volume="0.3"></div>
 
 <p>零壹年春,生于南方,22年努力闭关ing.</p>
 <p>大三计算机专业在读书。</p>
@@ -480,32 +477,44 @@
                         </div>
                         
 </div>
-                            <div class="nexmoe-post-right">
-                                <div class="nexmoe-fixed">
-                                    <div class="nexmoe-tool">
-
-                                        
+                                <div class="nexmoe-post-right">
+                                    <div class="nexmoe-fixed">
+                                        <div class="nexmoe-tool">
 
                                             
-                                                
-                                                    <button class="mdui-fab catalog" style="overflow:unset;">
-                                                        <i class="nexmoefont icon-i-catalog"></i>
-                                                        <div class="nexmoe-toc">
-                                                            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%95%E9%A1%BB%E6%B5%85%E7%A2%A7%E6%B7%B1%E7%BA%A2%E8%89%B2%EF%BC%8C%E8%87%AA%E6%98%AF%E8%8A%B1%E4%B8%AD%E7%AC%AC%E4%B8%80%E6%B5%81%E3%80%82"><span class="toc-number">1.</span> <span class="toc-text">何须浅碧深红色，自是花中第一流。</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%88%91%E6%9C%89%E8%AE%B8%E5%A4%9A%E7%83%AD%E7%88%B1%E7%9A%84%E4%BA%8B%E6%83%85%EF%BC%9A"><span class="toc-number">1.0.1.</span> <span class="toc-text">我有许多热爱的事情：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%93%9E-%E8%81%94%E7%B3%BB%E6%96%B9%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">📞 联系方式</span></a></li></ol>
-                                                        </div>
-                                                    </button>
-                                                    
 
+                                                
+                                                    
+                                                        <button class="mdui-fab catalog" style="overflow:unset;">
+                                                            <i class="nexmoefont icon-i-catalog"></i>
+                                                            <div class="nexmoe-toc">
+                                                                <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%95%E9%A1%BB%E6%B5%85%E7%A2%A7%E6%B7%B1%E7%BA%A2%E8%89%B2%EF%BC%8C%E8%87%AA%E6%98%AF%E8%8A%B1%E4%B8%AD%E7%AC%AC%E4%B8%80%E6%B5%81%E3%80%82"><span class="toc-number">1.</span> <span class="toc-text">何须浅碧深红色，自是花中第一流。</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%88%91%E6%9C%89%E8%AE%B8%E5%A4%9A%E7%83%AD%E7%88%B1%E7%9A%84%E4%BA%8B%E6%83%85%EF%BC%9A"><span class="toc-number">1.0.1.</span> <span class="toc-text">我有许多热爱的事情：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%93%9E-%E8%81%94%E7%B3%BB%E6%96%B9%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">📞 联系方式</span></a></li></ol>
+                                                            </div>
+                                                        </button>
                                                         
 
-                                                            <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部"
-                                                                title="top"><button class="mdui-fab mdui-ripple"><i
-                                                                        class="nexmoefont icon-caret-top"></i></button></a>
+                                                            
+
+                                                                <a href="#nexmoe-content" class="toc-link"
+                                                                    aria-label="回到顶部" title="top"><button
+                                                                        class="mdui-fab mdui-ripple"><i
+                                                                            class="nexmoefont icon-caret-top"></i></button></a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- 音乐播放器 -->
+                <link rel="stylesheet" href="/dist/APlayer.min.css">
+                <div id="aplayer"></div>
+                <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+                <script type="text/javascript" src="/dist/music.js"></script>
+                <!-- pjax -->
+                <script>
+                    // 对所有链接跳转事件绑定pjax容器container
+                    $(document).pjax('a[target!=_blank]', '#pageContent', { fragment: '#pageContent', timeout: 8000 })
+                </script>
                 
     <div id="nexmoe-search-space">
         <div class="search-container">
@@ -526,7 +535,7 @@
 
 
 
-		<script async src="/js/app.js?v=1648206422857"></script>
+		<script async src="/js/app.js?v=1648719426829"></script>
 
 			
 
@@ -546,26 +555,11 @@
 
 
 
-        </body>
 
-        <script>
-            // 对全部连接跳转事件绑定pjax容器container
-            $(document).pjax('a', '#pjax-containere', { fragment: '##pjax-container', timeout: 8000 });
-        </script>
+        </body>
 
 </html>
 
 
 <!--樱花背景-->
 <script type="text/javascript" src="https://yremp.live/wp-content/uploads/resource/js/sakura.js"></script>
-
-
-<!-- 
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-
-<script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
-
-<script>
-    // 对全部连接跳转事件绑定pjax容器container
-    $(document).pjax('a[target!=_blank]', '#container', { fragment: '#container', timeout: 8000 })
-</script> -->

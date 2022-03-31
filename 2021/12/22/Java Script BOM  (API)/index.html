@@ -10,6 +10,16 @@
                                 那束光の博客
                 </title>
                 <meta charset="UTF-8">
+                <!-- require APlayer -->
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+                <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+                <!-- require MetingJS -->
+                <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+                <!-- require pjax -->
+                <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+                <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+                <meta name="description" content="">
                 <meta name="keywords" content="">
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
                 
@@ -36,50 +46,37 @@
 <meta property="article:tag" content="Web前端">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/0f44250c831e4579aa3599072c855aeb.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70">
-                            <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1648206422968">
+                            <link rel="stylesheet"
+                                href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233"
+                                crossorigin>
+                            <link rel="stylesheet" href="/css/style.css?v=1648719427121">
                                 
-                                        <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1648206422968">
-                                            <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648206422968">
-                                                <link rel="stylesheet" href="/css/style.css?v=1648206422968">
-                                                    
-                                                                
-
-
-                                                                        <!-- 爆炸红心效果
-                                                                        <canvas class="fireworks"
-                                                                            style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
-                                                                        <script type="text/javascript"
-                                                                            src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
-                                                                        <script type="text/javascript"
-                                                                            src="/js/firework.js"></script> -->
+                                            
+                                                    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648719427121">
+                                                        
         <meta name="generator" content="Hexo 5.4.1"></head>
 
         <body class="mdui-drawer-body-left">
             
-                <div id="nexmoe-background">
-                    <div class="nexmoe-bg" style="background-image: url(https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500)"></div>
-                    <div class="mdui-appbar mdui-shadow-0">
-                        <div class="mdui-toolbar">
-                            <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu"
-                                class="mdui-btn mdui-btn-icon mdui-ripple"><i
-                                    class="mdui-icon nexmoefont icon-menu"></i></a>
-                            <div class="mdui-toolbar-spacer"></div>
-                            <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-                            <a href="/" title="生命里那束光"
-                                class="mdui-btn mdui-btn-icon"><img src="https://i.postimg.cc/7hJchpF6/1.jpg"
-                                    alt="生命里那束光"></a>
+                <div id="pageContent">
+                    <div id="nexmoe-background">
+                        <div class="nexmoe-bg" style="background-image: url(https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500)"></div>
+                        <div class="mdui-appbar mdui-shadow-0">
+                            <div class="mdui-toolbar">
+                                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu"
+                                    class="mdui-btn mdui-btn-icon mdui-ripple"><i
+                                        class="mdui-icon nexmoefont icon-menu"></i></a>
+                                <div class="mdui-toolbar-spacer"></div>
+                                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                                <a href="/" title="生命里那束光"
+                                    class="mdui-btn mdui-btn-icon"><img src="https://i.postimg.cc/7hJchpF6/1.jpg"
+                                        alt="生命里那束光"></a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- 音乐播放器 -->
-                <link rel="stylesheet" href="/dist/APlayer.min.css">
-                <div id="aplayer"></div>
-                <script type="text/javascript" src="/dist/APlayer.min.js"></script>
-                <script type="text/javascript" src="/dist/music.js"></script>
-
-                <div id="nexmoe-header">
-                    <div class="nexmoe-drawer mdui-drawer" id="drawer">
+                    <div id="nexmoe-header">
+                        <div class="nexmoe-drawer mdui-drawer" id="drawer">
     <div class="nexmoe-avatar mdui-ripple">
         <a href="/" title="生命里那束光">
             <img src="https://i.postimg.cc/7hJchpF6/1.jpg" alt="生命里那束光"
@@ -397,10 +394,10 @@
                         
         </div>
 </div><!-- .nexmoe-drawer -->
-                </div>
-                <div id="nexmoe-content">
-                    <div class="nexmoe-primary">
-                        <div class="nexmoe-post">
+                    </div>
+                    <div id="nexmoe-content">
+                        <div class="nexmoe-primary">
+                            <div class="nexmoe-post">
 
     <article>
         
@@ -822,32 +819,44 @@
                         </div>
                         
 </div>
-                            <div class="nexmoe-post-right">
-                                <div class="nexmoe-fixed">
-                                    <div class="nexmoe-tool">
-
-                                        
+                                <div class="nexmoe-post-right">
+                                    <div class="nexmoe-fixed">
+                                        <div class="nexmoe-tool">
 
                                             
-                                                
-                                                    <button class="mdui-fab catalog" style="overflow:unset;">
-                                                        <i class="nexmoefont icon-i-catalog"></i>
-                                                        <div class="nexmoe-toc">
-                                                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java-Script-%E3%81%AE-BOM-API"><span class="toc-number">1.</span> <span class="toc-text">Java Script の BOM  (API)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81BOM%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">1、BOM概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1%E3%80%81BOM%E7%9A%84%E6%9E%84%E6%88%90"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">1.1、BOM的构成</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81window-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B8%B8%E8%A7%81%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">2、window 对象的常见事件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1%E3%80%81%E7%AA%97%E5%8F%A3%E5%8A%A0%E8%BD%BD%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">2.1、窗口加载事件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1%E3%80%81%E5%8C%BA%E5%88%AB"><span class="toc-number">1.2.0.1.1.</span> <span class="toc-text">2.1.1、区别</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2%E3%80%81%E8%B0%83%E6%95%B4%E7%AA%97%E5%8F%A3%E5%A4%A7%E5%B0%8F%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">2.2、调整窗口大小事件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-number">1.3.</span> <span class="toc-text">3、定时器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1%E3%80%81setTimeout-%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">3.1、setTimeout()定时器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2%E3%80%81clearTimeout-%E5%81%9C%E6%AD%A2%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">3.2、clearTimeout()停止定时器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3%E3%80%81setInterval-%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-number">1.3.0.3.</span> <span class="toc-text">3.3、setInterval()定时器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4%E3%80%81clearInterval-%E5%81%9C%E6%AD%A2%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-number">1.3.0.4.</span> <span class="toc-text">3.4、clearInterval()停止定时器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-5%E3%80%81this%E6%8C%87%E5%90%91"><span class="toc-number">1.3.0.5.</span> <span class="toc-text">3.5、this指向</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81JS%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6"><span class="toc-number">1.4.</span> <span class="toc-text">4、JS执行机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1%E3%80%81JS%E6%98%AF%E5%8D%95%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">4.1、JS是单线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2%E3%80%81%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="toc-number">1.4.0.2.</span> <span class="toc-text">4.2、一个问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3%E3%80%81%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5"><span class="toc-number">1.4.0.3.</span> <span class="toc-text">4.3、同步和异步</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81location%E5%AF%B9%E8%B1%A1%EF%BC%88%E8%A7%A3%E6%9E%90url%EF%BC%89"><span class="toc-number">1.5.</span> <span class="toc-text">5、location对象（解析url）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1%E3%80%81url"><span class="toc-number">1.5.0.1.</span> <span class="toc-text">5.1、url</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2%E3%80%81location%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7"><span class="toc-number">1.5.0.2.</span> <span class="toc-text">5.2、location对象属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3%E3%80%81location%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="toc-number">1.5.0.3.</span> <span class="toc-text">5.3、location对象方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4%E3%80%81%E8%8E%B7%E5%8F%96URL%E5%8F%82%E6%95%B0"><span class="toc-number">1.5.0.4.</span> <span class="toc-text">5.4、获取URL参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E3%80%81navigator%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%88%A4%E6%96%ADPC%E8%BF%98%E6%98%AF%E7%A7%BB%E5%8A%A8%E7%AB%AF%EF%BC%89"><span class="toc-number">1.6.</span> <span class="toc-text">6、navigator对象（判断PC还是移动端）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7%E3%80%81history%E5%AF%B9%E8%B1%A1%EF%BC%88%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%86%E5%8F%B2%E5%89%8D%E8%BF%9B%E4%B8%8E%E5%90%8E%E9%80%80%EF%BC%89"><span class="toc-number">1.7.</span> <span class="toc-text">7、history对象（浏览器历史前进与后退）</span></a></li></ol></li></ol>
-                                                        </div>
-                                                    </button>
-                                                    
 
+                                                
+                                                    
+                                                        <button class="mdui-fab catalog" style="overflow:unset;">
+                                                            <i class="nexmoefont icon-i-catalog"></i>
+                                                            <div class="nexmoe-toc">
+                                                                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java-Script-%E3%81%AE-BOM-API"><span class="toc-number">1.</span> <span class="toc-text">Java Script の BOM  (API)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81BOM%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">1、BOM概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1%E3%80%81BOM%E7%9A%84%E6%9E%84%E6%88%90"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">1.1、BOM的构成</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81window-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B8%B8%E8%A7%81%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">2、window 对象的常见事件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1%E3%80%81%E7%AA%97%E5%8F%A3%E5%8A%A0%E8%BD%BD%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">2.1、窗口加载事件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1%E3%80%81%E5%8C%BA%E5%88%AB"><span class="toc-number">1.2.0.1.1.</span> <span class="toc-text">2.1.1、区别</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2%E3%80%81%E8%B0%83%E6%95%B4%E7%AA%97%E5%8F%A3%E5%A4%A7%E5%B0%8F%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">2.2、调整窗口大小事件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-number">1.3.</span> <span class="toc-text">3、定时器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1%E3%80%81setTimeout-%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">3.1、setTimeout()定时器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2%E3%80%81clearTimeout-%E5%81%9C%E6%AD%A2%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">3.2、clearTimeout()停止定时器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3%E3%80%81setInterval-%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-number">1.3.0.3.</span> <span class="toc-text">3.3、setInterval()定时器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4%E3%80%81clearInterval-%E5%81%9C%E6%AD%A2%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-number">1.3.0.4.</span> <span class="toc-text">3.4、clearInterval()停止定时器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-5%E3%80%81this%E6%8C%87%E5%90%91"><span class="toc-number">1.3.0.5.</span> <span class="toc-text">3.5、this指向</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81JS%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6"><span class="toc-number">1.4.</span> <span class="toc-text">4、JS执行机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1%E3%80%81JS%E6%98%AF%E5%8D%95%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">4.1、JS是单线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2%E3%80%81%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="toc-number">1.4.0.2.</span> <span class="toc-text">4.2、一个问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3%E3%80%81%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5"><span class="toc-number">1.4.0.3.</span> <span class="toc-text">4.3、同步和异步</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81location%E5%AF%B9%E8%B1%A1%EF%BC%88%E8%A7%A3%E6%9E%90url%EF%BC%89"><span class="toc-number">1.5.</span> <span class="toc-text">5、location对象（解析url）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1%E3%80%81url"><span class="toc-number">1.5.0.1.</span> <span class="toc-text">5.1、url</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2%E3%80%81location%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7"><span class="toc-number">1.5.0.2.</span> <span class="toc-text">5.2、location对象属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3%E3%80%81location%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="toc-number">1.5.0.3.</span> <span class="toc-text">5.3、location对象方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4%E3%80%81%E8%8E%B7%E5%8F%96URL%E5%8F%82%E6%95%B0"><span class="toc-number">1.5.0.4.</span> <span class="toc-text">5.4、获取URL参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E3%80%81navigator%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%88%A4%E6%96%ADPC%E8%BF%98%E6%98%AF%E7%A7%BB%E5%8A%A8%E7%AB%AF%EF%BC%89"><span class="toc-number">1.6.</span> <span class="toc-text">6、navigator对象（判断PC还是移动端）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7%E3%80%81history%E5%AF%B9%E8%B1%A1%EF%BC%88%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%86%E5%8F%B2%E5%89%8D%E8%BF%9B%E4%B8%8E%E5%90%8E%E9%80%80%EF%BC%89"><span class="toc-number">1.7.</span> <span class="toc-text">7、history对象（浏览器历史前进与后退）</span></a></li></ol></li></ol>
+                                                            </div>
+                                                        </button>
                                                         
 
-                                                            <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部"
-                                                                title="top"><button class="mdui-fab mdui-ripple"><i
-                                                                        class="nexmoefont icon-caret-top"></i></button></a>
+                                                            
+
+                                                                <a href="#nexmoe-content" class="toc-link"
+                                                                    aria-label="回到顶部" title="top"><button
+                                                                        class="mdui-fab mdui-ripple"><i
+                                                                            class="nexmoefont icon-caret-top"></i></button></a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- 音乐播放器 -->
+                <link rel="stylesheet" href="/dist/APlayer.min.css">
+                <div id="aplayer"></div>
+                <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+                <script type="text/javascript" src="/dist/music.js"></script>
+                <!-- pjax -->
+                <script>
+                    // 对所有链接跳转事件绑定pjax容器container
+                    $(document).pjax('a[target!=_blank]', '#pageContent', { fragment: '#pageContent', timeout: 8000 })
+                </script>
                 
     <div id="nexmoe-search-space">
         <div class="search-container">
@@ -868,7 +877,7 @@
 
 
 
-		<script async src="/js/app.js?v=1648206422972"></script>
+		<script async src="/js/app.js?v=1648719427133"></script>
 
 			
 
@@ -888,26 +897,11 @@
 
 
 
-        </body>
 
-        <script>
-            // 对全部连接跳转事件绑定pjax容器container
-            $(document).pjax('a', '#pjax-containere', { fragment: '##pjax-container', timeout: 8000 });
-        </script>
+        </body>
 
 </html>
 
 
 <!--樱花背景-->
 <script type="text/javascript" src="https://yremp.live/wp-content/uploads/resource/js/sakura.js"></script>
-
-
-<!-- 
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-
-<script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
-
-<script>
-    // 对全部连接跳转事件绑定pjax容器container
-    $(document).pjax('a[target!=_blank]', '#container', { fragment: '#container', timeout: 8000 })
-</script> -->

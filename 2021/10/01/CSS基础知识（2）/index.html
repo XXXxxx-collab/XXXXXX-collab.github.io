@@ -10,6 +10,16 @@
                                 那束光の博客
                 </title>
                 <meta charset="UTF-8">
+                <!-- require APlayer -->
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+                <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+                <!-- require MetingJS -->
+                <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+                <!-- require pjax -->
+                <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+                <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+                <meta name="description" content="">
                 <meta name="keywords" content="">
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
                 
@@ -38,54 +48,41 @@
 <meta property="article:published_time" content="2021-10-01T00:23:38.000Z">
 <meta property="article:modified_time" content="2022-03-21T07:50:05.235Z">
 <meta property="article:author" content="生命里那束光">
-<meta property="article:tag" content="css">
 <meta property="article:tag" content="博客">
+<meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/ace015a27ede4129a4368ae9fa5d17a9.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center">
-                            <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1648206422975">
+                            <link rel="stylesheet"
+                                href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233"
+                                crossorigin>
+                            <link rel="stylesheet" href="/css/style.css?v=1648719427141">
                                 
-                                        <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1648206422975">
-                                            <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648206422975">
-                                                <link rel="stylesheet" href="/css/style.css?v=1648206422975">
-                                                    
-                                                                
-
-
-                                                                        <!-- 爆炸红心效果
-                                                                        <canvas class="fireworks"
-                                                                            style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
-                                                                        <script type="text/javascript"
-                                                                            src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
-                                                                        <script type="text/javascript"
-                                                                            src="/js/firework.js"></script> -->
+                                            
+                                                    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648719427141">
+                                                        
         <meta name="generator" content="Hexo 5.4.1"></head>
 
         <body class="mdui-drawer-body-left">
             
-                <div id="nexmoe-background">
-                    <div class="nexmoe-bg" style="background-image: url(https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500)"></div>
-                    <div class="mdui-appbar mdui-shadow-0">
-                        <div class="mdui-toolbar">
-                            <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu"
-                                class="mdui-btn mdui-btn-icon mdui-ripple"><i
-                                    class="mdui-icon nexmoefont icon-menu"></i></a>
-                            <div class="mdui-toolbar-spacer"></div>
-                            <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-                            <a href="/" title="生命里那束光"
-                                class="mdui-btn mdui-btn-icon"><img src="https://i.postimg.cc/7hJchpF6/1.jpg"
-                                    alt="生命里那束光"></a>
+                <div id="pageContent">
+                    <div id="nexmoe-background">
+                        <div class="nexmoe-bg" style="background-image: url(https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500)"></div>
+                        <div class="mdui-appbar mdui-shadow-0">
+                            <div class="mdui-toolbar">
+                                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu"
+                                    class="mdui-btn mdui-btn-icon mdui-ripple"><i
+                                        class="mdui-icon nexmoefont icon-menu"></i></a>
+                                <div class="mdui-toolbar-spacer"></div>
+                                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                                <a href="/" title="生命里那束光"
+                                    class="mdui-btn mdui-btn-icon"><img src="https://i.postimg.cc/7hJchpF6/1.jpg"
+                                        alt="生命里那束光"></a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- 音乐播放器 -->
-                <link rel="stylesheet" href="/dist/APlayer.min.css">
-                <div id="aplayer"></div>
-                <script type="text/javascript" src="/dist/APlayer.min.js"></script>
-                <script type="text/javascript" src="/dist/music.js"></script>
-
-                <div id="nexmoe-header">
-                    <div class="nexmoe-drawer mdui-drawer" id="drawer">
+                    <div id="nexmoe-header">
+                        <div class="nexmoe-drawer mdui-drawer" id="drawer">
     <div class="nexmoe-avatar mdui-ripple">
         <a href="/" title="生命里那束光">
             <img src="https://i.postimg.cc/7hJchpF6/1.jpg" alt="生命里那束光"
@@ -403,10 +400,10 @@
                         
         </div>
 </div><!-- .nexmoe-drawer -->
-                </div>
-                <div id="nexmoe-content">
-                    <div class="nexmoe-primary">
-                        <div class="nexmoe-post">
+                    </div>
+                    <div id="nexmoe-content">
+                        <div class="nexmoe-primary">
+                            <div class="nexmoe-post">
 
     <article>
         
@@ -1352,32 +1349,44 @@
                         </div>
                         
 </div>
-                            <div class="nexmoe-post-right">
-                                <div class="nexmoe-fixed">
-                                    <div class="nexmoe-tool">
-
-                                        
+                                <div class="nexmoe-post-right">
+                                    <div class="nexmoe-fixed">
+                                        <div class="nexmoe-tool">
 
                                             
-                                                
-                                                    <button class="mdui-fab catalog" style="overflow:unset;">
-                                                        <i class="nexmoefont icon-i-catalog"></i>
-                                                        <div class="nexmoe-toc">
-                                                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%8C%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">CSS基础知识（二）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-CSS%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-number">1.1.</span> <span class="toc-text">1.CSS三大特性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1%E3%80%81%E5%B1%82%E5%8F%A0%E6%80%A7"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">1.1、层叠性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2%E3%80%81%E7%BB%A7%E6%89%BF%E6%80%A7%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">1.2、继承性盒子模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3%E3%80%81%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">1.1.0.3.</span> <span class="toc-text">1.3、优先级</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4%E3%80%81%E4%BC%98%E5%85%88%E7%BA%A7%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-number">1.1.0.4.</span> <span class="toc-text">1.4、优先级注意点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5%E3%80%81%E6%9D%83%E9%87%8D%E7%9A%84%E5%8F%A0%E5%8A%A0"><span class="toc-number">1.1.0.5.</span> <span class="toc-text">1.5、权重的叠加</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">2.盒子模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%E8%A6%81%E5%AD%A6%E4%B9%A0%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%EF%BC%9A"><span class="toc-number">1.2.0.0.1.</span> <span class="toc-text">页面布局要学习三大核心：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1%E8%BE%B9%E6%A1%86border"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">2.1边框border</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1%E3%80%81border-style"><span class="toc-number">1.2.0.1.1.</span> <span class="toc-text">2.1.1、border-style</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-2%E3%80%81border-collapse"><span class="toc-number">1.2.0.1.2.</span> <span class="toc-text">2.1.2、border-collapse</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-3%E3%80%81%E8%BE%B9%E6%A1%86%E4%BC%9A%E5%BD%B1%E5%93%8D%E7%9B%92%E5%AD%90%E5%AE%9E%E9%99%85%E5%A4%A7%E5%B0%8F"><span class="toc-number">1.2.0.1.3.</span> <span class="toc-text">2.1.3、边框会影响盒子实际大小</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2%E5%86%85%E8%BE%B9%E8%B7%9Dpadding"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">2.2内边距padding</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-1%E3%80%81-%E5%BD%B1%E5%93%8D%E7%9B%92%E5%AD%90%E5%A4%A7%E5%B0%8F"><span class="toc-number">1.2.0.2.1.</span> <span class="toc-text">2.2.1、 影响盒子大小</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A"><span class="toc-number">1.2.0.2.1.1.</span> <span class="toc-text">解决方案：</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-1%E3%80%81-%E4%B8%8D%E5%BD%B1%E5%93%8D%E7%9B%92%E5%AD%90%E5%A4%A7%E5%B0%8F"><span class="toc-number">1.2.0.2.2.</span> <span class="toc-text">2.2.1、 不影响盒子大小</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3%E3%80%81%E5%A4%96%E8%BE%B9%E8%B7%9Dmargin"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">2.3、外边距margin</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-1%E3%80%81%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8"><span class="toc-number">1.2.0.3.1.</span> <span class="toc-text">2.3.1、外边距典型应用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-2%E3%80%81%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%90%88%E5%B9%B6"><span class="toc-number">1.2.0.3.2.</span> <span class="toc-text">2.3.2、外边距合并</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A0%E7%9B%B8%E9%82%BB%E5%9D%97%E5%85%83%E7%B4%A0%E5%9E%82%E7%9B%B4%E5%A4%96%E8%BE%B9%E8%B7%9D%E7%9A%84%E5%90%88%E5%B9%B6"><span class="toc-number">1.2.0.3.3.</span> <span class="toc-text">①相邻块元素垂直外边距的合并</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A1%E5%B5%8C%E5%A5%97%E5%9D%97%E5%85%83%E7%B4%A0%E5%9E%82%E7%9B%B4%E5%A4%96%E8%BE%B9%E8%B7%9D%E7%9A%84%E5%A1%8C%E9%99%B7"><span class="toc-number">1.2.0.3.4.</span> <span class="toc-text">②嵌套块元素垂直外边距的塌陷</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A2%E6%B8%85%E9%99%A4%E5%86%85%E5%A4%96%E8%BE%B9%E8%B7%9D"><span class="toc-number">1.2.0.3.5.</span> <span class="toc-text">③清除内外边距</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PS%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">1.3.</span> <span class="toc-text">PS基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E6%96%B0%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">1.3.0.0.1.</span> <span class="toc-text">1.新知识点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-PS%E5%88%87%E5%9B%BE"><span class="toc-number">1.3.0.0.2.</span> <span class="toc-text">2.PS切图</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%9B%BE%E5%B1%82%E5%88%87%E5%9B%BE"><span class="toc-number">1.3.0.0.3.</span> <span class="toc-text">3.图层切图</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E5%88%87%E7%89%87%E5%88%87%E5%9B%BE"><span class="toc-number">1.3.0.0.4.</span> <span class="toc-text">4.切片切图</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-PS%E6%8F%92%E4%BB%B6%E5%88%87%E5%9B%BE"><span class="toc-number">1.3.0.0.5.</span> <span class="toc-text">5.PS插件切图</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%9C%86%E8%A7%92%E8%BE%B9%E6%A1%86"><span class="toc-number">1.4.</span> <span class="toc-text">3.圆角边框</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%9B%92%E5%AD%90%E9%98%B4%E5%BD%B1"><span class="toc-number">1.5.</span> <span class="toc-text">4.盒子阴影</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1%E3%80%81%E5%BC%80%E5%8F%91%E4%B8%AD%E9%98%B4%E5%BD%B1%E5%B8%B8%E7%94%A8"><span class="toc-number">1.5.0.1.</span> <span class="toc-text">4.1、开发中阴影常用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2%E3%80%81%E6%96%87%E5%AD%97%E9%98%B4%E5%BD%B1"><span class="toc-number">1.5.0.2.</span> <span class="toc-text">4.2、文字阴影</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%BC%A0%E7%BB%9F%E7%BD%91%E9%A1%B5%E5%B8%83%E5%B1%80%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-number">1.6.</span> <span class="toc-text">5.传统网页布局的三种方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1%E3%80%81%E6%A0%87%E5%87%86%E6%B5%81%EF%BC%88%E5%85%83%E7%B4%A0%E7%B1%BB%E5%9E%8B-%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">1.6.0.1.</span> <span class="toc-text">5.1、标准流（元素类型-重点）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2%E3%80%81%E6%B5%AE%E5%8A%A8"><span class="toc-number">1.6.0.2.</span> <span class="toc-text">5.2、浮动</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-1%E3%80%81%E6%B5%AE%E5%8A%A8%E7%9A%84%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8"><span class="toc-number">1.6.0.2.1.</span> <span class="toc-text">5.2.1、浮动的典型应用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-2%E3%80%81%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-number">1.6.0.2.2.</span> <span class="toc-text">5.2.2、浮动的特性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-3%E3%80%81%E6%B5%AE%E5%8A%A8%E5%85%83%E7%B4%A0%E7%BB%8F%E5%B8%B8%E5%92%8C%E6%A0%87%E5%87%86%E6%B5%81%E7%88%B6%E7%BA%A7%E6%90%AD%E9%85%8D%E4%BD%BF%E7%94%A8"><span class="toc-number">1.6.0.2.3.</span> <span class="toc-text">5.2.3、浮动元素经常和标准流父级搭配使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-4%E3%80%81%E6%B5%AE%E5%8A%A8%E7%9A%84%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-number">1.6.0.2.4.</span> <span class="toc-text">5.2.4、浮动的注意点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-5%E3%80%81%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8"><span class="toc-number">1.6.0.2.5.</span> <span class="toc-text">5.2.5、清除浮动</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-6%E3%80%81%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="toc-number">1.6.0.2.6.</span> <span class="toc-text">5.2.6、清除浮动的本质</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-7%E3%80%81%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%88%E5%B8%B8%E7%94%A8%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">1.6.0.2.7.</span> <span class="toc-text">5.2.7、清除浮动的方法（常用重点）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A0%E9%A2%9D%E5%A4%96%E6%A0%87%E7%AD%BE%E6%B3%95"><span class="toc-number">1.6.0.2.7.1.</span> <span class="toc-text">①额外标签法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A1overflow"><span class="toc-number">1.6.0.2.7.2.</span> <span class="toc-text">②overflow</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A2after%E4%BC%AA%E5%85%83%E7%B4%A0%E6%B3%95"><span class="toc-number">1.6.0.2.7.3.</span> <span class="toc-text">③after伪元素法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A3%E5%8F%8C%E4%BC%AA%E5%85%83%E7%B4%A0"><span class="toc-number">1.6.0.2.7.4.</span> <span class="toc-text">④双伪元素</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-8%E3%80%81%E6%B5%AE%E5%8A%A8%E6%80%BB%E7%BB%93"><span class="toc-number">1.6.0.2.8.</span> <span class="toc-text">5.2.8、浮动总结</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3%E3%80%81%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.6.0.3.</span> <span class="toc-text">5.3、定位</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-1%E3%80%81%E5%AE%9A%E4%BD%8D%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-number">1.6.0.3.1.</span> <span class="toc-text">5.3.1、定位的组成</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-2%E3%80%81%E9%9D%99%E6%80%81%E5%AE%9A%E4%BD%8Dstatic-%E4%BA%86%E8%A7%A3"><span class="toc-number">1.6.0.3.2.</span> <span class="toc-text">5.3.2、静态定位static(了解)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-3%E3%80%81%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8Drelative"><span class="toc-number">1.6.0.3.3.</span> <span class="toc-text">5.3.3、相对定位relative</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-4%E3%80%81%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8Dabsolute"><span class="toc-number">1.6.0.3.4.</span> <span class="toc-text">5.3.4、绝对定位absolute</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A0%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D%E7%9B%92%E5%AD%90%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD"><span class="toc-number">1.6.0.3.4.1.</span> <span class="toc-text">①绝对定位盒子水平居中</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-5%E3%80%81%E5%AD%90%E7%BB%9D%E7%88%B6%E7%9B%B8%EF%BC%88%E9%87%8D%E7%82%B9%E5%B8%B8%E7%94%A8%EF%BC%89"><span class="toc-number">1.6.0.3.5.</span> <span class="toc-text">5.3.5、子绝父相（重点常用）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-6%E3%80%81%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8Dfixed"><span class="toc-number">1.6.0.3.6.</span> <span class="toc-text">5.3.6、固定定位fixed</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="toc-number">1.6.0.3.6.1.</span> <span class="toc-text">固定定位小技巧</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-7%E3%80%81%E7%B2%98%E6%80%A7%E5%AE%9A%E4%BD%8Dsticky-%E4%BA%86%E8%A7%A3"><span class="toc-number">1.6.0.3.7.</span> <span class="toc-text">5.3.7、粘性定位sticky(了解)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-8%E3%80%81%E5%AE%9A%E4%BD%8D%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93"><span class="toc-number">1.6.0.3.8.</span> <span class="toc-text">5.3.8、定位模式总结</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-9%E5%AE%9A%E4%BD%8D%E5%8F%A0%E6%94%BE%E6%AC%A1%E5%BA%8Fz-index"><span class="toc-number">1.6.0.3.9.</span> <span class="toc-text">5.3.9定位叠放次序z-index</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-10%E3%80%81%E5%AE%9A%E4%BD%8D%E7%9A%84%E6%89%A9%E5%B1%95"><span class="toc-number">1.6.0.3.10.</span> <span class="toc-text">5.3.10、定位的扩展</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4%E3%80%81%E7%BD%91%E9%A1%B5%E5%B8%83%E5%B1%80%E6%80%BB%E7%BB%93"><span class="toc-number">1.6.0.4.</span> <span class="toc-text">5.4、网页布局总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%85%83%E7%B4%A0%E7%9A%84%E9%9A%90%E8%97%8F%E4%B8%8E%E6%98%BE%E7%A4%BA"><span class="toc-number">1.7.</span> <span class="toc-text">6.元素的隐藏与显示</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1%E3%80%81display%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F"><span class="toc-number">1.7.0.1.</span> <span class="toc-text">6.1、display显示隐藏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2%E3%80%81visibility%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F"><span class="toc-number">1.7.0.2.</span> <span class="toc-text">6.2、visibility显示隐藏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3%E3%80%81overflow%E6%BA%A2%E5%87%BA%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F"><span class="toc-number">1.7.0.3.</span> <span class="toc-text">6.3、overflow溢出显示隐藏</span></a></li></ol></li></ol></li></ol></li></ol>
-                                                        </div>
-                                                    </button>
-                                                    
 
+                                                
+                                                    
+                                                        <button class="mdui-fab catalog" style="overflow:unset;">
+                                                            <i class="nexmoefont icon-i-catalog"></i>
+                                                            <div class="nexmoe-toc">
+                                                                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%8C%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">CSS基础知识（二）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-CSS%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-number">1.1.</span> <span class="toc-text">1.CSS三大特性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1%E3%80%81%E5%B1%82%E5%8F%A0%E6%80%A7"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">1.1、层叠性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2%E3%80%81%E7%BB%A7%E6%89%BF%E6%80%A7%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">1.2、继承性盒子模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3%E3%80%81%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">1.1.0.3.</span> <span class="toc-text">1.3、优先级</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4%E3%80%81%E4%BC%98%E5%85%88%E7%BA%A7%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-number">1.1.0.4.</span> <span class="toc-text">1.4、优先级注意点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5%E3%80%81%E6%9D%83%E9%87%8D%E7%9A%84%E5%8F%A0%E5%8A%A0"><span class="toc-number">1.1.0.5.</span> <span class="toc-text">1.5、权重的叠加</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">2.盒子模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%E8%A6%81%E5%AD%A6%E4%B9%A0%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%EF%BC%9A"><span class="toc-number">1.2.0.0.1.</span> <span class="toc-text">页面布局要学习三大核心：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1%E8%BE%B9%E6%A1%86border"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">2.1边框border</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1%E3%80%81border-style"><span class="toc-number">1.2.0.1.1.</span> <span class="toc-text">2.1.1、border-style</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-2%E3%80%81border-collapse"><span class="toc-number">1.2.0.1.2.</span> <span class="toc-text">2.1.2、border-collapse</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-3%E3%80%81%E8%BE%B9%E6%A1%86%E4%BC%9A%E5%BD%B1%E5%93%8D%E7%9B%92%E5%AD%90%E5%AE%9E%E9%99%85%E5%A4%A7%E5%B0%8F"><span class="toc-number">1.2.0.1.3.</span> <span class="toc-text">2.1.3、边框会影响盒子实际大小</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2%E5%86%85%E8%BE%B9%E8%B7%9Dpadding"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">2.2内边距padding</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-1%E3%80%81-%E5%BD%B1%E5%93%8D%E7%9B%92%E5%AD%90%E5%A4%A7%E5%B0%8F"><span class="toc-number">1.2.0.2.1.</span> <span class="toc-text">2.2.1、 影响盒子大小</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A"><span class="toc-number">1.2.0.2.1.1.</span> <span class="toc-text">解决方案：</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-1%E3%80%81-%E4%B8%8D%E5%BD%B1%E5%93%8D%E7%9B%92%E5%AD%90%E5%A4%A7%E5%B0%8F"><span class="toc-number">1.2.0.2.2.</span> <span class="toc-text">2.2.1、 不影响盒子大小</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3%E3%80%81%E5%A4%96%E8%BE%B9%E8%B7%9Dmargin"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">2.3、外边距margin</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-1%E3%80%81%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8"><span class="toc-number">1.2.0.3.1.</span> <span class="toc-text">2.3.1、外边距典型应用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-2%E3%80%81%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%90%88%E5%B9%B6"><span class="toc-number">1.2.0.3.2.</span> <span class="toc-text">2.3.2、外边距合并</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A0%E7%9B%B8%E9%82%BB%E5%9D%97%E5%85%83%E7%B4%A0%E5%9E%82%E7%9B%B4%E5%A4%96%E8%BE%B9%E8%B7%9D%E7%9A%84%E5%90%88%E5%B9%B6"><span class="toc-number">1.2.0.3.3.</span> <span class="toc-text">①相邻块元素垂直外边距的合并</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A1%E5%B5%8C%E5%A5%97%E5%9D%97%E5%85%83%E7%B4%A0%E5%9E%82%E7%9B%B4%E5%A4%96%E8%BE%B9%E8%B7%9D%E7%9A%84%E5%A1%8C%E9%99%B7"><span class="toc-number">1.2.0.3.4.</span> <span class="toc-text">②嵌套块元素垂直外边距的塌陷</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A2%E6%B8%85%E9%99%A4%E5%86%85%E5%A4%96%E8%BE%B9%E8%B7%9D"><span class="toc-number">1.2.0.3.5.</span> <span class="toc-text">③清除内外边距</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PS%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">1.3.</span> <span class="toc-text">PS基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E6%96%B0%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">1.3.0.0.1.</span> <span class="toc-text">1.新知识点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-PS%E5%88%87%E5%9B%BE"><span class="toc-number">1.3.0.0.2.</span> <span class="toc-text">2.PS切图</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%9B%BE%E5%B1%82%E5%88%87%E5%9B%BE"><span class="toc-number">1.3.0.0.3.</span> <span class="toc-text">3.图层切图</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E5%88%87%E7%89%87%E5%88%87%E5%9B%BE"><span class="toc-number">1.3.0.0.4.</span> <span class="toc-text">4.切片切图</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-PS%E6%8F%92%E4%BB%B6%E5%88%87%E5%9B%BE"><span class="toc-number">1.3.0.0.5.</span> <span class="toc-text">5.PS插件切图</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%9C%86%E8%A7%92%E8%BE%B9%E6%A1%86"><span class="toc-number">1.4.</span> <span class="toc-text">3.圆角边框</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%9B%92%E5%AD%90%E9%98%B4%E5%BD%B1"><span class="toc-number">1.5.</span> <span class="toc-text">4.盒子阴影</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1%E3%80%81%E5%BC%80%E5%8F%91%E4%B8%AD%E9%98%B4%E5%BD%B1%E5%B8%B8%E7%94%A8"><span class="toc-number">1.5.0.1.</span> <span class="toc-text">4.1、开发中阴影常用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2%E3%80%81%E6%96%87%E5%AD%97%E9%98%B4%E5%BD%B1"><span class="toc-number">1.5.0.2.</span> <span class="toc-text">4.2、文字阴影</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%BC%A0%E7%BB%9F%E7%BD%91%E9%A1%B5%E5%B8%83%E5%B1%80%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-number">1.6.</span> <span class="toc-text">5.传统网页布局的三种方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1%E3%80%81%E6%A0%87%E5%87%86%E6%B5%81%EF%BC%88%E5%85%83%E7%B4%A0%E7%B1%BB%E5%9E%8B-%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">1.6.0.1.</span> <span class="toc-text">5.1、标准流（元素类型-重点）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2%E3%80%81%E6%B5%AE%E5%8A%A8"><span class="toc-number">1.6.0.2.</span> <span class="toc-text">5.2、浮动</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-1%E3%80%81%E6%B5%AE%E5%8A%A8%E7%9A%84%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8"><span class="toc-number">1.6.0.2.1.</span> <span class="toc-text">5.2.1、浮动的典型应用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-2%E3%80%81%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-number">1.6.0.2.2.</span> <span class="toc-text">5.2.2、浮动的特性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-3%E3%80%81%E6%B5%AE%E5%8A%A8%E5%85%83%E7%B4%A0%E7%BB%8F%E5%B8%B8%E5%92%8C%E6%A0%87%E5%87%86%E6%B5%81%E7%88%B6%E7%BA%A7%E6%90%AD%E9%85%8D%E4%BD%BF%E7%94%A8"><span class="toc-number">1.6.0.2.3.</span> <span class="toc-text">5.2.3、浮动元素经常和标准流父级搭配使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-4%E3%80%81%E6%B5%AE%E5%8A%A8%E7%9A%84%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-number">1.6.0.2.4.</span> <span class="toc-text">5.2.4、浮动的注意点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-5%E3%80%81%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8"><span class="toc-number">1.6.0.2.5.</span> <span class="toc-text">5.2.5、清除浮动</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-6%E3%80%81%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="toc-number">1.6.0.2.6.</span> <span class="toc-text">5.2.6、清除浮动的本质</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-7%E3%80%81%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%88%E5%B8%B8%E7%94%A8%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">1.6.0.2.7.</span> <span class="toc-text">5.2.7、清除浮动的方法（常用重点）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A0%E9%A2%9D%E5%A4%96%E6%A0%87%E7%AD%BE%E6%B3%95"><span class="toc-number">1.6.0.2.7.1.</span> <span class="toc-text">①额外标签法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A1overflow"><span class="toc-number">1.6.0.2.7.2.</span> <span class="toc-text">②overflow</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A2after%E4%BC%AA%E5%85%83%E7%B4%A0%E6%B3%95"><span class="toc-number">1.6.0.2.7.3.</span> <span class="toc-text">③after伪元素法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A3%E5%8F%8C%E4%BC%AA%E5%85%83%E7%B4%A0"><span class="toc-number">1.6.0.2.7.4.</span> <span class="toc-text">④双伪元素</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-8%E3%80%81%E6%B5%AE%E5%8A%A8%E6%80%BB%E7%BB%93"><span class="toc-number">1.6.0.2.8.</span> <span class="toc-text">5.2.8、浮动总结</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3%E3%80%81%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.6.0.3.</span> <span class="toc-text">5.3、定位</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-1%E3%80%81%E5%AE%9A%E4%BD%8D%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-number">1.6.0.3.1.</span> <span class="toc-text">5.3.1、定位的组成</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-2%E3%80%81%E9%9D%99%E6%80%81%E5%AE%9A%E4%BD%8Dstatic-%E4%BA%86%E8%A7%A3"><span class="toc-number">1.6.0.3.2.</span> <span class="toc-text">5.3.2、静态定位static(了解)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-3%E3%80%81%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8Drelative"><span class="toc-number">1.6.0.3.3.</span> <span class="toc-text">5.3.3、相对定位relative</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-4%E3%80%81%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8Dabsolute"><span class="toc-number">1.6.0.3.4.</span> <span class="toc-text">5.3.4、绝对定位absolute</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A0%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D%E7%9B%92%E5%AD%90%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD"><span class="toc-number">1.6.0.3.4.1.</span> <span class="toc-text">①绝对定位盒子水平居中</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-5%E3%80%81%E5%AD%90%E7%BB%9D%E7%88%B6%E7%9B%B8%EF%BC%88%E9%87%8D%E7%82%B9%E5%B8%B8%E7%94%A8%EF%BC%89"><span class="toc-number">1.6.0.3.5.</span> <span class="toc-text">5.3.5、子绝父相（重点常用）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-6%E3%80%81%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8Dfixed"><span class="toc-number">1.6.0.3.6.</span> <span class="toc-text">5.3.6、固定定位fixed</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="toc-number">1.6.0.3.6.1.</span> <span class="toc-text">固定定位小技巧</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-7%E3%80%81%E7%B2%98%E6%80%A7%E5%AE%9A%E4%BD%8Dsticky-%E4%BA%86%E8%A7%A3"><span class="toc-number">1.6.0.3.7.</span> <span class="toc-text">5.3.7、粘性定位sticky(了解)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-8%E3%80%81%E5%AE%9A%E4%BD%8D%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93"><span class="toc-number">1.6.0.3.8.</span> <span class="toc-text">5.3.8、定位模式总结</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-9%E5%AE%9A%E4%BD%8D%E5%8F%A0%E6%94%BE%E6%AC%A1%E5%BA%8Fz-index"><span class="toc-number">1.6.0.3.9.</span> <span class="toc-text">5.3.9定位叠放次序z-index</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-10%E3%80%81%E5%AE%9A%E4%BD%8D%E7%9A%84%E6%89%A9%E5%B1%95"><span class="toc-number">1.6.0.3.10.</span> <span class="toc-text">5.3.10、定位的扩展</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4%E3%80%81%E7%BD%91%E9%A1%B5%E5%B8%83%E5%B1%80%E6%80%BB%E7%BB%93"><span class="toc-number">1.6.0.4.</span> <span class="toc-text">5.4、网页布局总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%85%83%E7%B4%A0%E7%9A%84%E9%9A%90%E8%97%8F%E4%B8%8E%E6%98%BE%E7%A4%BA"><span class="toc-number">1.7.</span> <span class="toc-text">6.元素的隐藏与显示</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1%E3%80%81display%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F"><span class="toc-number">1.7.0.1.</span> <span class="toc-text">6.1、display显示隐藏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2%E3%80%81visibility%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F"><span class="toc-number">1.7.0.2.</span> <span class="toc-text">6.2、visibility显示隐藏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3%E3%80%81overflow%E6%BA%A2%E5%87%BA%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F"><span class="toc-number">1.7.0.3.</span> <span class="toc-text">6.3、overflow溢出显示隐藏</span></a></li></ol></li></ol></li></ol></li></ol>
+                                                            </div>
+                                                        </button>
                                                         
 
-                                                            <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部"
-                                                                title="top"><button class="mdui-fab mdui-ripple"><i
-                                                                        class="nexmoefont icon-caret-top"></i></button></a>
+                                                            
+
+                                                                <a href="#nexmoe-content" class="toc-link"
+                                                                    aria-label="回到顶部" title="top"><button
+                                                                        class="mdui-fab mdui-ripple"><i
+                                                                            class="nexmoefont icon-caret-top"></i></button></a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- 音乐播放器 -->
+                <link rel="stylesheet" href="/dist/APlayer.min.css">
+                <div id="aplayer"></div>
+                <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+                <script type="text/javascript" src="/dist/music.js"></script>
+                <!-- pjax -->
+                <script>
+                    // 对所有链接跳转事件绑定pjax容器container
+                    $(document).pjax('a[target!=_blank]', '#pageContent', { fragment: '#pageContent', timeout: 8000 })
+                </script>
                 
     <div id="nexmoe-search-space">
         <div class="search-container">
@@ -1398,7 +1407,7 @@
 
 
 
-		<script async src="/js/app.js?v=1648206422979"></script>
+		<script async src="/js/app.js?v=1648719427152"></script>
 
 			
 
@@ -1418,26 +1427,11 @@
 
 
 
-        </body>
 
-        <script>
-            // 对全部连接跳转事件绑定pjax容器container
-            $(document).pjax('a', '#pjax-containere', { fragment: '##pjax-container', timeout: 8000 });
-        </script>
+        </body>
 
 </html>
 
 
 <!--樱花背景-->
 <script type="text/javascript" src="https://yremp.live/wp-content/uploads/resource/js/sakura.js"></script>
-
-
-<!-- 
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-
-<script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
-
-<script>
-    // 对全部连接跳转事件绑定pjax容器container
-    $(document).pjax('a[target!=_blank]', '#container', { fragment: '#container', timeout: 8000 })
-</script> -->
