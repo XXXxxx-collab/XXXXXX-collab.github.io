@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+
+        <head>
+            
+                <title>
+                    
+                        “Vue全家桶(五)之Vue-router路由” - 
+                                那束光の博客
+                </title>
+                <meta charset="UTF-8">
+                <!-- require APlayer -->
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+                <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+                <!-- require MetingJS -->
+                <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+                <!-- require pjax -->
+                <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+                <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+                <meta name="description" content="">
+                <meta name="keywords" content="">
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+                
+                    
+        
+                        <link rel="shortcut icon" href="https://i.postimg.cc/CxYbzphJ/image.png" type="image/png" />
+                        <meta name="description" content="✍目录总览：（基本概念与原理、vue-router的基本使用、一个完整路由的结构、vue-router的常见用法）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“Vue全家桶(五)之Vue-router路由”">
+<meta property="og:url" content="https://xxxxxx-collab.github.io/2022/04/08/Vue-router/index.html">
+<meta property="og:site_name" content="那束光の博客">
+<meta property="og:description" content="✍目录总览：（基本概念与原理、vue-router的基本使用、一个完整路由的结构、vue-router的常见用法）">
+<meta property="og:locale">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/73c3c2a16aba447fb672fdc8c85024e1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAWFhYeHh45YWJ,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/a7cbf090ba69d6038758389ec1a7f370.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/626a9e6b0f6756250a1712d35de7ac61.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/157568b65fbf0caeaa49556fa5d3f31e.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/18da8078a93fa86a8fdb5018b685bb88.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/cabd8d3eb4e9cf21e0d0ef7e99d40d77.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/8d9ce5b5a6ffdfcfca599bd57f89905a.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/9e2cfcd39d847143aad349232a7ac385.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/5d39d6b760d945f5cd4687ee8868a6b9.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/2ded55d385b9a274f106fec9e323b458.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/ad1bd91c932651e37061f74f7210d896.gif">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/e1a48a121bb47c65ceff50aae7b9603b.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/10af4025b59b8e9740d497193a0d17a2.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/77d961b00b18b90ebf56c9d5f83316af.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/c01785d67c456eaf06006e2559e3152b.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/9e3d7d32d21433d66b6afa93ec1872bb.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/8a9f8fd87ec31fa1b8185611e5a0b8ed.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/0d031ca18b50df7a888cf21cccc29b5f.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/18e80b3ac7a9e55ab0d9a95a1312b8c8.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/5edec07cb7b821b91506236f6a7ae064.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/d1c8ff9c2b52f8ae941fb651db37efb5.png">
+<meta property="article:published_time" content="2022-04-08T04:53:06.000Z">
+<meta property="article:modified_time" content="2022-04-07T08:49:10.057Z">
+<meta property="article:author" content="生命里那束光">
+<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="Vue-router">
+<meta property="article:tag" content="路由">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/73c3c2a16aba447fb672fdc8c85024e1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAWFhYeHh45YWJ,size_20,color_FFFFFF,t_70,g_se,x_16">
+                            <link rel="stylesheet"
+                                href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233"
+                                crossorigin>
+                            <link rel="stylesheet" href="/css/style.css?v=1649322052856">
+                                
+                                            
+                                                    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1649322052856">
+                                                        
+        <meta name="generator" content="Hexo 5.4.1"></head>
+
+        <body class="mdui-drawer-body-left">
+            
+                <div id="pageContent">
+                    <div id="nexmoe-background">
+                        <div class="nexmoe-bg" style="background-image: url(https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500)"></div>
+                        <div class="mdui-appbar mdui-shadow-0">
+                            <div class="mdui-toolbar">
+                                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu"
+                                    class="mdui-btn mdui-btn-icon mdui-ripple"><i
+                                        class="mdui-icon nexmoefont icon-menu"></i></a>
+                                <div class="mdui-toolbar-spacer"></div>
+                                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                                <a href="/" title="生命里那束光"
+                                    class="mdui-btn mdui-btn-icon"><img src="https://i.postimg.cc/7hJchpF6/1.jpg"
+                                        alt="生命里那束光"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="nexmoe-header">
+                        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="生命里那束光">
+            <img src="https://i.postimg.cc/7hJchpF6/1.jpg" alt="生命里那束光"
+                alt="生命里那束光">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>
+                文章
+            </span>
+            20
+        </div>
+        <div><span>
+                标签
+            </span>
+            33
+        </div>
+        <div><span>
+                分类
+            </span>
+            14
+        </div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/" title="回到首页">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-home"></i>
+                <div class="mdui-list-item-content">
+                    回到首页
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/about" title="关于博客">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-battlenet"></i>
+                <div class="mdui-list-item-content">
+                    关于博客
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/archive" title="文章归档">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-container"></i>
+                <div class="mdui-list-item-content">
+                    文章归档
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/study" title="学习路线">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+                <div class="mdui-list-item-content">
+                    学习路线
+                </div>
+            </a>
+            
+            <a class="nexmoe-list-item mdui-list-item mdui-ripple false"
+                href="/resume" title="我的简历">
+                <i
+                    class="mdui-list-item-icon nexmoefont icon-ellipsis"></i>
+                <div class="mdui-list-item-content">
+                    我的简历
+                </div>
+            </a>
+            
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+        <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">站内搜索</h3>
+    <div class="nexmoe-widget nexmoe-search">
+        
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder=" 请输入搜索内容"></label>
+            </form>
+            
+    </div>
+</div>
+            
+        <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://postimg.cc/tZwsMrDy" target="_blank" mdui-tooltip="{content: 'WeChat'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-wechat-fill"></i>
+        </a><a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=2578657473&site=qq&menu=yes" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/480369104" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://weibo.com/u/5967530462" target="_blank" mdui-tooltip="{content: '微博'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-weibo"></i>
+        </a><a class="mdui-ripple" href="https://github.com/XXXxxx-collab" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=2578657473&site=qq&menu=yes" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-steam"></i>
+        </a>
+    </div>
+</div>
+            
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-art-title">
+      文章分类
+    </h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+          
+
+        
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/CSS基础/">
+              CSS基础
+            </a>
+            <span class="category-list-count">
+              3
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/JS基础/DOM与BOM/">
+              DOM与BOM
+            </a>
+            <span class="category-list-count">
+              2
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/HTML基础/">
+              HTML基础
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/JS基础/">
+              JS基础
+            </a>
+            <span class="category-list-count">
+              4
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/Vue全家桶/">
+              Vue全家桶
+            </a>
+            <span class="category-list-count">
+              7
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/前后端交互/git版本控制/">
+              git版本控制
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/jQuery基础/">
+              jQuery基础
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/前后端交互/git版本控制/代码托管平台/">
+              代码托管平台
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/前后端交互/">
+              前后端交互
+            </a>
+            <span class="category-list-count">
+              2
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/前后端交互/数据交互/">
+              数据交互
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/CSS基础/移动端常见布局/">
+              移动端常见布局
+            </a>
+            <span class="category-list-count">
+              1
+            </span>
+            </li>
+
+            
+
+        <li class=" category-list-item">
+            <a class="category-list-link" href="/categories/CSS基础/网页设计/">
+              网页设计
+            </a>
+            <span class="category-list-count">
+              4
+            </span>
+            </li>
+
+            
+      </ul>
+
+    </div>
+  </div>
+  
+            
+        
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/APi/" style="font-size: 10px;">APi</a> <a href="/tags/BOM-API/" style="font-size: 10px;">BOM(API)</a> <a href="/tags/CSS/" style="font-size: 13.33px;">CSS</a> <a href="/tags/DOM-API/" style="font-size: 10px;">DOM(API)</a> <a href="/tags/ES6%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 10px;">ES6模块化</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 13.33px;">JS</a> <a href="/tags/JS%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/" style="font-size: 10px;">JS前后端交互</a> <a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/Vue/" style="font-size: 20px;">Vue</a> <a href="/tags/Vue-router/" style="font-size: 10px;">Vue-router</a> <a href="/tags/VueX/" style="font-size: 10px;">VueX</a> <a href="/tags/Vue%E5%9F%BA%E7%A1%80%E6%8C%87%E4%BB%A4/" style="font-size: 10px;">Vue基础指令</a> <a href="/tags/Vue%E5%B8%B8%E7%94%A8%E7%89%B9%E6%80%A7/" style="font-size: 10px;">Vue常用特性</a> <a href="/tags/Web%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">Web前端</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/flex%E5%B8%83%E5%B1%80/" style="font-size: 10px;">flex布局</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitee/" style="font-size: 10px;">gitee</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/" style="font-size: 10px;">作用域</a> <a href="/tags/%E5%87%BD%E6%95%B0/" style="font-size: 10px;">函数</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" style="font-size: 13.33px;">基础语法</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">服务器</a> <a href="/tags/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" style="font-size: 10px;">状态管理</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/" style="font-size: 10px;">组件化开发</a> <a href="/tags/%E8%84%9A%E6%89%8B%E6%9E%B6/" style="font-size: 10px;">脚手架</a> <a href="/tags/%E8%B7%AF%E7%94%B1/" style="font-size: 10px;">路由</a>
+    </div>
+    
+  </div>
+
+            
+</aside>
+        <div class="nexmoe-copyright">
+            &copy; 2022
+                生命里那束光
+                    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+                        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+                        
+        </div>
+</div><!-- .nexmoe-drawer -->
+                    </div>
+                    <div id="nexmoe-content">
+                        <div class="nexmoe-primary">
+                            <div class="nexmoe-post">
+
+    <article>
+        
+            <div class="nexmoe-post-cover" style="padding-bottom: 42.857142857142854%;">
+                <img data-src="https://s3.bmp.ovh/imgs/2022/04/02/98f8ff98d4e74d68.jpg" data-sizes="auto" alt="“Vue全家桶(五)之Vue-router路由”" class="lazyload">
+                <h1>
+                    “Vue全家桶(五)之Vue-router路由”
+                </h1>
+            </div>
+            
+
+                    <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年04月08日</a>
+</div>
+
+
+
+                        <p>✍<strong>目录总览：</strong>（基本概念与原理、<strong>vue-router的基本使用</strong>、<strong>一个完整路由的结构</strong>、<strong>vue-router的常见用法</strong>）</p>
+<span id="more"></span>
+
+<h1 id="Vue-router-路由"><a href="#Vue-router-路由" class="headerlink" title="Vue-router 路由"></a>Vue-router 路由</h1><p><img src="https://img-blog.csdnimg.cn/73c3c2a16aba447fb672fdc8c85024e1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAWFhYeHh45YWJ,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
+<h3 id="路由的基本概念与原理"><a href="#路由的基本概念与原理" class="headerlink" title="路由的基本概念与原理"></a>路由的基本概念与原理</h3><ul>
+<li>路由是一个比较广义和抽象的概念，路由的<strong>本质就是对应关系</strong>。</li>
+</ul>
+<p>在开发中，路由分为： <strong>后端路由</strong>  <strong>前端路由</strong></p>
+<p><strong>1. 后端路由：</strong></p>
+<p>概念：根据不同的用户 URL 请求，返回不同的内容</p>
+<p>本质：URL 请求地址与服务器资源之间的对应关系</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/a7cbf090ba69d6038758389ec1a7f370.png"></p>
+<p><strong>2. SPA 与前端路由的关系</strong></p>
+<p>SPA （单页面应用程序）指的是一个 web 网站只有唯一的一个 HTML 页面，<strong>所有组件的展示与切换</strong>都在这唯一的一个页面内完成。此时，<strong>不同组件之间的切换</strong>需要通过<strong>前端路由</strong>来实现。</p>
+<p><strong>特点：</strong></p>
+<ul>
+<li>整个网站只有一个页面</li>
+<li>内容的变化通过Ajax局部更新实现</li>
+<li>同时支持浏览器地址栏的前进和后退操作</li>
+<li><strong>不同功能之间的切换，要依赖于前端路由来完成</strong>！</li>
+</ul>
+<p><strong>3. 前端路由</strong></p>
+<p>概念：<strong>Hash 地址</strong>与<strong>组件</strong>之间的<strong>对应关系</strong>。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/626a9e6b0f6756250a1712d35de7ac61.png"></p>
+<p><strong>5. 前端路由的工作方式</strong></p>
+<p>① 用户<strong>点击了</strong>页面上的<strong>路由链接</strong></p>
+<p>② 导致了 <strong>URL 地址栏</strong>中的 <strong>Hash 值</strong>发生了变化</p>
+<p>③ <strong>前端路由监听了到 Hash 地址的变化</strong></p>
+<p>④ 前端路由把当前 <strong>Hash 地址对应的组件</strong>渲染都浏览器中</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/157568b65fbf0caeaa49556fa5d3f31e.png"></p>
+<ul>
+<li>结论：前端路由，指的是 <strong>Hash 地址</strong>与<strong>组件之间</strong>的<strong>对应关系！</strong></li>
+</ul>
+<p><strong>6. 认识vue-router</strong></p>
+<ol>
+<li><p>目前前端流行的三大<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E6%A1%86%E6%9E%B6&spm=1001.2101.3001.7020">框架</a>，都有自己的路由实现：</p>
+<ul>
+<li><p>Angular的ngRouter</p>
+</li>
+<li><p>React的ReactRouter</p>
+</li>
+<li><p>Vue的vue-router</p>
+</li>
+</ul>
+</li>
+<li><p>vue-router是Vue.js官方的路由插件，它和vue.js是深度集成的，<strong>适合用于构建单页面应用（SPA）</strong>。</p>
+</li>
+<li><p>vue-router是基于路由和组件的</p>
+<ul>
+<li><p>路由用户设定访问路径的，将路径和组件映射起来。</p>
+</li>
+<li><p>在vue-router的单页面应用中，<strong>页面的路径的改变就是组件的切换</strong></p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="vue-router的基本使用"><a href="#vue-router的基本使用" class="headerlink" title="vue-router的基本使用"></a>vue-router的基本使用</h2><h3 id="1-安装router"><a href="#1-安装router" class="headerlink" title="1. 安装router"></a>1. 安装router</h3><p><strong>第一步：安装router（两种方式）</strong></p>
+<ul>
+<li><strong>方式1</strong>：Vue-cli3脚手架生成 Vue 项目基础架构时候，进行配置选择。</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/18da8078a93fa86a8fdb5018b685bb88.png"></p>
+<ul>
+<li><strong>方式2</strong>：通过命令行npm进行安装。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">npm install vue-router --save<br></code></pre></td></tr></table></figure>
+
+<p><strong>第二步：在模块化工程中使用它（因为是一个插件，所以可以通过Vue.use()来安装路由功能）</strong></p>
+<ul>
+<li><p>1.导入路由对象，并且调用Vue.use(VueRouter)</p>
+</li>
+<li><p>2.创建路由router实例，并且传入路由映射配置</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/cabd8d3eb4e9cf21e0d0ef7e99d40d77.png"></p>
+<ul>
+<li>3.在Vue实例中挂载创建的路由实例</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/8d9ce5b5a6ffdfcfca599bd57f89905a.png"></p>
+<h3 id="2-使用router"><a href="#2-使用router" class="headerlink" title="2. 使用router"></a>2. 使用router</h3><p><strong>一个完整的路由必须包含:路由链接和路由占位符、路由实例、路由规则链接的路由组件</strong></p>
+<p>使用vue-router的步骤：</p>
+<ul>
+<li>第一步：<strong>创建路由组件</strong></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/9e2cfcd39d847143aad349232a7ac385.png"></p>
+<ul>
+<li>第二步：<strong>配置路由映射：组件和路径映射关系</strong><br><img src="https://img-blog.csdnimg.cn/img_convert/5d39d6b760d945f5cd4687ee8868a6b9.png"></li>
+</ul>
+<ul>
+<li>第三步：使用路由：通过  <code>&lt;router-link&gt;路由链接</code>  和  <code>&lt;router-view&gt;路由占位符</code></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/2ded55d385b9a274f106fec9e323b458.png"></p>
+<p><code>&lt;router-link&gt;路由链接</code>：该标签是一个vue-router中已经内置的组件，他会被渲染成一个<code>&lt;a&gt;</code>标签。<br><code>&lt;router-view&gt;路由占位符</code>：该标签会根据当前的路径，动态渲染出不同的组件。</p>
+<p><strong>最终效果：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/ad1bd91c932651e37061f74f7210d896.gif"></p>
+<h3 id="3-路由跳转方式"><a href="#3-路由跳转方式" class="headerlink" title="3. 路由跳转方式"></a>3. 路由跳转方式</h3><p>声明式导航&amp;编程式导航</p>
+<h4 id="3-1-声明式导航"><a href="#3-1-声明式导航" class="headerlink" title="3.1 声明式导航"></a>3.1 声明式导航</h4><p>在浏览器中，声明式导航是指<strong>通过点击链接实现导航</strong>的方式，比如 a、router-link 标签。<strong>（最简单的方式）</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/e1a48a121bb47c65ceff50aae7b9603b.png"></p>
+<h4 id="3-2-编程式导航"><a href="#3-2-编程式导航" class="headerlink" title="3.2 编程式导航"></a>3.2 编程式导航</h4><p>在浏览器中，编程式导航指<strong>调用JavaScript的API实现导航</strong>的方式。</p>
+<ul>
+<li>借助 <strong>router 的实例方法</strong>，通过编写代码来实现。</li>
+<li>编程式导航的使用是<strong>封装在方法里面</strong>，需要用到时调用方法就可以。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>编程式导航API</th>
+<th>功能</th>
+<th>特点1</th>
+<th>特点2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>router.push(location)</strong></td>
+<td>导航到不同的位置</td>
+<td>会向 history 栈添加一个新的记录</td>
+<td>点击后退按钮时，回到之前的 URL。</td>
+</tr>
+<tr>
+<td><strong>router.replace(location)</strong></td>
+<td>导航到不同的位置</td>
+<td>不会向history 添加新记录</td>
+<td>替换掉当前的 history 记录。</td>
+</tr>
+<tr>
+<td><strong>router.go(n)</strong></td>
+<td>浏览器记录前进后退</td>
+<td>参数为整数，正数-前进，负数-后退</td>
+<td>类似window.history.go(n)</td>
+</tr>
+</tbody></table>
+<p><strong>具体实例：</strong></p>
+<h5 id="1-导航到不同的位置push"><a href="#1-导航到不同的位置push" class="headerlink" title="1.导航到不同的位置push"></a>1.导航到不同的位置push</h5><p>语法：<code>router.push</code></p>
+<ul>
+<li>想要导航到不同的 URL，可以使用<code>router.push</code>方法。 这个方法会向 history 栈添加一个新的记录，所以，当用户点击浏览器后退按钮时，会回到之前的 URL。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 字符串路径</span><br>router.<span class="hljs-title function_">push</span>(<span class="hljs-string">&#x27;/users/eduardo&#x27;</span>)<br><br><span class="hljs-comment">// 带有路径的对象</span><br>router.<span class="hljs-title function_">push</span>(&#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/users/eduardo&#x27;</span> &#125;)<br><br><span class="hljs-comment">// 命名的路由，并加上参数，让路由建立 url</span><br>router.<span class="hljs-title function_">push</span>(&#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;user&#x27;</span>, <span class="hljs-attr">params</span>: &#123; <span class="hljs-attr">username</span>: <span class="hljs-string">&#x27;eduardo&#x27;</span> &#125; &#125;)<br><br><span class="hljs-comment">// 带查询参数，结果是 /register?plan=private</span><br>router.<span class="hljs-title function_">push</span>(&#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/register&#x27;</span>, <span class="hljs-attr">query</span>: &#123; <span class="hljs-attr">plan</span>: <span class="hljs-string">&#x27;private&#x27;</span> &#125; &#125;)<br><br><span class="hljs-comment">// 带 hash，结果是 /about#team</span><br>router.<span class="hljs-title function_">push</span>(&#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/about&#x27;</span>, <span class="hljs-attr">hash</span>: <span class="hljs-string">&#x27;#team&#x27;</span> &#125;)<br></code></pre></td></tr></table></figure>
+
+<h5 id="2-替换当前位置replace"><a href="#2-替换当前位置replace" class="headerlink" title="2.替换当前位置replace"></a>2.替换当前位置replace</h5><p>语法：<code>router.replace()</code></p>
+<ul>
+<li>它的作用类似于<code>router.push</code> ，唯一不同的是，它在导航时不会向 history 添加新记录，正如它的名字所暗示的那样——它<strong>取代了当前的条目。</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">router.<span class="hljs-title function_">push</span>(&#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/home&#x27;</span>, <span class="hljs-attr">replace</span>: <span class="hljs-literal">true</span> &#125;)<br><span class="hljs-comment">// 相当于</span><br>router.<span class="hljs-title function_">replace</span>(&#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/home&#x27;</span> &#125;)<br></code></pre></td></tr></table></figure>
+
+<h5 id="3-横跨历史go"><a href="#3-横跨历史go" class="headerlink" title="3.横跨历史go"></a>3.横跨历史go</h5><p>语法：<code>router.go(n)</code></p>
+<ul>
+<li>该方法采用一个整数作为参数，表示<strong>在历史堆栈中前进或后退多少步</strong>，类似于 。<code>window.history.go(n)</code></li>
+</ul>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 向前移动一条记录，与 router.forward() 相同</span><br>router.<span class="hljs-title function_">go</span>(<span class="hljs-number">1</span>)<br>router.<span class="hljs-title function_">forward</span>(); <span class="hljs-comment">// 前进1</span><br><br><span class="hljs-comment">// 返回一条记录，与router.back() 相同</span><br>router.<span class="hljs-title function_">go</span>(-<span class="hljs-number">1</span>)<br>router.<span class="hljs-title function_">back</span>(); <span class="hljs-comment">// 后退1</span><br><br><span class="hljs-comment">// 前进 3 条记录</span><br>router.<span class="hljs-title function_">go</span>(<span class="hljs-number">3</span>)<br><br><span class="hljs-comment">// 如果没有那么多记录，静默失败</span><br>router.<span class="hljs-title function_">go</span>(-<span class="hljs-number">100</span>)<br>router.<span class="hljs-title function_">go</span>(<span class="hljs-number">100</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-路由的历史记录模式"><a href="#4-路由的历史记录模式" class="headerlink" title="4.路由的历史记录模式"></a>4.路由的历史记录模式</h3><h4 id="Hash-模式"><a href="#Hash-模式" class="headerlink" title="Hash 模式"></a>Hash 模式</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="http://www.xxx.com/#/login">http://www.xxx.com/#/login</a></p>
+</blockquote>
+<ul>
+<li>#后面 hash 值的变化，<strong>并不会导致浏览器向服务器发出请求</strong>，浏览器不发出请求，也就不会刷新页面。</li>
+<li><strong>每次 hash 值的变化，还会触发 hashchange 这个事件</strong>，可以通过监听 hashchange 来实现更新页面部分内容的操作。</li>
+<li><strong>hash发生变化的url都会被浏览器记录（历史访问栈）下来，从而你会发现浏览器的前进后退都可以用了</strong>。尽管浏览器没有请求服务器，但是页面状态和url一一关联起来。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>只能改变#后面的来实现路由跳转</li>
+<li>在 SEO 中确实有不好的影响，可以使用HTML5解决</li>
+</ul>
+<h4 id="history模式（HTML-5）"><a href="#history模式（HTML-5）" class="headerlink" title="history模式（HTML 5）"></a>history模式（HTML 5）</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://example.com/user/id">https://example.com/user/id</a></p>
+</blockquote>
+<ul>
+<li><strong>依赖HTML5 History API 和服务器配置</strong></li>
+<li><strong>原理都是跟 hash 实现相同的</strong></li>
+<li><strong>考虑url规范，就要使用history模式</strong>，例如在app中需要将页面分享到第三方app，有的app里面url是不允许带有#号的，所以要将#号去除那么就要使用history模式。</li>
+</ul>
+<p>缺点：怕刷新,实实在在向服务器请求数据,速度慢,需要配置后端服务器。</p>
+<p><strong>总结一下</strong></p>
+<p>1.hash模式（vue-router默认模式URL后面带#）使用URL的hash值来作为路由，支持所有浏览器 </p>
+<p>缺点：只能改变#后面的来实现路由跳转。不利于SEO搜索</p>
+<p>2.history模式（通过mode: ‘history’来改变为history模式）HTML5 （BOM）History API 和服务器配置 </p>
+<p>缺点：怕刷新,实实在在向服务器请求数据,速度慢,需要配置后端服务器。</p>
+<h2 id="vue-router-的常见用法"><a href="#vue-router-的常见用法" class="headerlink" title="vue-router 的常见用法"></a>vue-router 的常见用法</h2><p><strong>一个完整的路由必须包含:路由链接和路由占位符、路由实例、路由规则链接的路由组件</strong></p>
+<h3 id="1-路由重定向"><a href="#1-路由重定向" class="headerlink" title="1. 路由重定向"></a>1. 路由重定向</h3><ul>
+<li>路由重定向指的是：用户在访问地址 A 的时候，强制用户跳转到地址 C ，从而展示特定的组件页面。</li>
+<li>通过路由规则的 redirect 属性，指定一个新的路由地址，可以很方便地设置路由的重定向：</li>
+</ul>
+<blockquote>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/10af4025b59b8e9740d497193a0d17a2.png"></p>
+</blockquote>
+<h3 id="2-嵌套路由"><a href="#2-嵌套路由" class="headerlink" title="2. 嵌套路由"></a>2. 嵌套路由</h3><p>通过路由实现<strong>组件的嵌套展示</strong>，叫做嵌套路由。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/77d961b00b18b90ebf56c9d5f83316af.png"></p>
+<h4 id="2-1-声明子路由链接和子路由占位符"><a href="#2-1-声明子路由链接和子路由占位符" class="headerlink" title="2.1 声明子路由链接和子路由占位符"></a>2.1 声明子路由链接和子路由占位符</h4><p>在 <strong>About.vue</strong> 组件中，声明 tab1 和 tab2 的<strong>子路由链接</strong>以及<strong>子路由占位符</strong>。示例代码如下：</p>
+<p> <img src="https://img-blog.csdnimg.cn/img_convert/c01785d67c456eaf06006e2559e3152b.png"></p>
+<p><strong>2.2 通过</strong> <strong>children</strong> <strong>属性声明子路由规则</strong></p>
+<p>在 src/router/index.js 路由模块中，导入需要的组件，并使用 <strong>children 属性</strong>声明子路由规则：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/9e3d7d32d21433d66b6afa93ec1872bb.png"></p>
+<h3 id="3-路由命名"><a href="#3-路由命名" class="headerlink" title="3. 路由命名"></a>3. 路由命名</h3><ul>
+<li>为了更加方便的表示路由的路径，可以给路由规则起一个别名，即为“命名路由”。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">//添加路由链接<br>//声明式导航<br>&lt;router-link :to=&quot;&#123; name: &#x27;user&#x27;, params: &#123; id: 123 &#125;&#125;&quot;&gt;User&lt;/router-link&gt;<br>//编程式导航<br>router.push(&#123; name: &#x27;user&#x27;, params: &#123; id: 123 &#125;&#125;)<br><br>//定义路由规则<br>const router = new VueRouter(&#123;<br> 	routes: [<br> 		&#123;<br>		 path: &#x27;/user/:id&#x27;,<br> 		 name: &#x27;user&#x27;,<br> 		 component: User<br> 		&#125;<br> 	]<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-动态路由与路由匹配"><a href="#4-动态路由与路由匹配" class="headerlink" title="4. 动态路由与路由匹配"></a>4. 动态路由与路由匹配</h3><ul>
+<li><strong>一个完整的路由必须包含:路由链接和路由占位符、路由实例、路由规则链接的路由组件</strong></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/8a9f8fd87ec31fa1b8185611e5a0b8ed.png"></p>
+<h4 id="4-1-动态路由的概念"><a href="#4-1-动态路由的概念" class="headerlink" title="4.1 动态路由的概念"></a>4.1 <strong>动态路由的概念</strong></h4><p>动态路由指的是：把 Hash 地址中可变的部分定义为参数项，从而提高路由规则的复用性。 </p>
+<p>在 vue-router 中使用英文的冒号（**:**）来定义路由的参数项。示例代码如下：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/0d031ca18b50df7a888cf21cccc29b5f.png"></p>
+<h4 id="4-2-route-params-参数对象"><a href="#4-2-route-params-参数对象" class="headerlink" title="4.2 $route.params 参数对象"></a><strong>4.2</strong> <strong>$route.params</strong> <strong>参数对象</strong></h4><p>在<strong>动态路由</strong>渲染出来的组件中，可以使用 <strong>this.$route.params</strong> 对象访问到<strong>动态匹配的参数值</strong>。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/18e80b3ac7a9e55ab0d9a95a1312b8c8.png"></p>
+<h3 id="5-路由传递参数和接收参数"><a href="#5-路由传递参数和接收参数" class="headerlink" title="5. 路由传递参数和接收参数"></a>5. 路由传递参数和接收参数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;div id=<span class="hljs-string">&quot;app&quot;</span>&gt;<br>      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">&quot;/user/1&quot;</span>&gt;</span>User1<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span></span><br>      &lt;!-- 路由占位符 --&gt;<br>      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">router-view</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">router-view</span>&gt;</span></span><br>&lt;/div&gt;<br><span class="hljs-keyword">const</span> <span class="hljs-title class_">User</span> = &#123;<br>         <span class="hljs-comment">//组件的props属性接收参数</span><br>		<span class="hljs-attr">props</span>: [<span class="hljs-string">&#x27;id&#x27;</span>],<br>         <span class="hljs-comment">//props: [&#x27;uname&#x27;, &#x27;age&#x27;],</span><br>         <span class="hljs-comment">//props: [&#x27;id&#x27;, &#x27;uname&#x27;, &#x27;age&#x27;],</span><br>		<span class="hljs-attr">template</span>: <span class="hljs-string">&#x27;&lt;h1&gt;User 组件 -- 用户id为: &#123;&#123;id&#125;&#125;&lt;/h1&gt;&#x27;</span><br>&#125;<br><br><span class="hljs-comment">// 创建路由实例对象</span><br><span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> <span class="hljs-title class_">VueRouter</span>(&#123;<br>	<span class="hljs-comment">// 所有的路由规则</span><br>	<span class="hljs-attr">routes</span>: [<br>		&#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/&#x27;</span>, <span class="hljs-attr">redirect</span>: <span class="hljs-string">&#x27;/user&#x27;</span>&#125;,<br>         <span class="hljs-comment">//props:true 开启传参</span><br>		&#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/user/:id&#x27;</span>, <span class="hljs-attr">component</span>: <span class="hljs-title class_">User</span>, <span class="hljs-attr">props</span>: <span class="hljs-literal">true</span> &#125;,<br>         <span class="hljs-comment">//传对象类型props: &#123; uname: &#x27;lisi&#x27;, age: 20 &#125;</span><br>         <span class="hljs-comment">//传函数类型props: route =&gt; (&#123; uname: &#x27;zs&#x27;, age: 20, id: route.params.id &#125;)</span><br>         <span class="hljs-comment">//params传值</span><br>         &#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/search&#x27;</span>, <span class="hljs-attr">component</span>: <span class="hljs-title class_">SearchUser</span>,<span class="hljs-attr">props</span>: <span class="hljs-function"><span class="hljs-params">route</span> =&gt;</span> (&#123; <span class="hljs-attr">query</span>: route.<span class="hljs-property">query</span>.<span class="hljs-property">q</span> &#125;)&#125;<br>         <span class="hljs-comment">//query传值</span><br>	]<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<h3 id="6-路由的懒加载"><a href="#6-路由的懒加载" class="headerlink" title="6. 路由的懒加载"></a>6. 路由的懒加载</h3><p><strong>路由懒加载的应用场景:</strong></p>
+<ul>
+<li><p>首先, 我们知道路由中通常会定义很多不同的页面.</p>
+</li>
+<li><p>这个页面最后被打包在哪里呢? 一般情况下, 是放在一个js文件中.</p>
+</li>
+<li><p>但是, 页面这么多放在一个js文件中, 必然会造成这个页面非常的大</p>
+</li>
+<li><p>如果我们一次性从服务器请求下来这个页面, 可能需要花费一定的时间, 甚至用户的电脑上还出现了短暂空白的情况.</p>
+</li>
+<li><p>如何避免这种情况呢? 使用路由懒加载就可以了</p>
+</li>
+</ul>
+<p><strong>路由懒加载的作用:</strong></p>
+<ul>
+<li>p路由懒加载的主要作用就是将路由对应的组件打包成一个个的js代码块.</li>
+<li>只有在这个路由被访问到的时候, 才加载对应的组件</li>
+</ul>
+<h4 id="6-1-路由懒加载的用法"><a href="#6-1-路由懒加载的用法" class="headerlink" title="6.1 路由懒加载的用法"></a>6.1 路由懒加载的用法</h4><p>在ES6中, 我们可以有更加简单的写法来组织Vue异步组件和Webpack的代码分割</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Home</span> = (<span class="hljs-params"></span>) =&gt; <span class="hljs-title function_">import</span>(<span class="hljs-string">&#x27;../components/Home.vue&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 配置路由相关的信息</span><br><span class="hljs-keyword">import</span> <span class="hljs-title class_">VueRouter</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue-router&#x27;</span><br><span class="hljs-keyword">import</span> <span class="hljs-title class_">Vue</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue&#x27;</span><br><br><span class="hljs-comment">// 原始路由加载</span><br><span class="hljs-comment">// import Home from &#x27;../components/Home&#x27;</span><br><span class="hljs-comment">// 路由懒加载(推荐)</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">Home</span> = (<span class="hljs-params"></span>) =&gt; <span class="hljs-title function_">imports</span>(<span class="hljs-string">&#x27;../components/Home&#x27;</span>)<br><br><span class="hljs-comment">// 1.通过Vue.use(插件), 安装插件</span><br><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">use</span>(<span class="hljs-title class_">VueRouter</span>)<br><br><span class="hljs-keyword">const</span> routes = [			<span class="hljs-comment">// 在 routes 数组中,声明路由的匹配规则</span><br>  &#123;	<br>    <span class="hljs-comment">// path 表示要匹配的 hash 地址,component 表示要展示的路由组件  </span><br>    <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/&#x27;</span>,<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Home&#x27;</span>,<br>    <span class="hljs-attr">component</span>: <span class="hljs-title class_">Home</span><br>  &#125;,<br>  &#123;<br>    <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/about&#x27;</span>,<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;About&#x27;</span>,<br>    <span class="hljs-attr">component</span>: <span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">import</span>(<span class="hljs-string">&#x27;../views/About.vue&#x27;</span>)<br>  &#125;<br>]<br><br><span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> <span class="hljs-title class_">VueRouter</span>(&#123;<br>  <span class="hljs-comment">// 配置路由和组件之间的应用关系</span><br>  routes,<br>  <span class="hljs-attr">mode</span>: <span class="hljs-string">&#x27;history&#x27;</span>,<br>  <span class="hljs-attr">linkActiveClass</span>: <span class="hljs-string">&#x27;active&#x27;</span><br>&#125;)<br><br><span class="hljs-comment">// 3.将router对象传入到Vue实例</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> router<br></code></pre></td></tr></table></figure>
+
+<h3 id="7-导航守卫-钩子函数"><a href="#7-导航守卫-钩子函数" class="headerlink" title="7. 导航守卫(钩子函数)"></a>7. 导航守卫(钩子函数)</h3><p>我们可以利用beforeEach来完成标题的修改</p>
+<ul>
+<li><p>首先，我们可以在钩子当中定义一些标题，可以利用mate来定义</p>
+</li>
+<li><p>其次，利用导航守卫修改我们的标题</p>
+</li>
+</ul>
+<p>导航钩子的三个参数解析：</p>
+<ul>
+<li>to：即将要进入的目标的路由对象</li>
+<li>from：当前导航即要离开的路由对象</li>
+<li>next：调用该方法后，才能进入下一个钩子</li>
+</ul>
+<p>全局守卫示例:</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/5edec07cb7b821b91506236f6a7ae064.png"></p>
+<ul>
+<li>如果是后置钩子，也就是afterEach，不需要主动调用next(）函数。</li>
+</ul>
+<h4 id="7-1-next函数的三种调用方式"><a href="#7-1-next函数的三种调用方式" class="headerlink" title="7.1 next函数的三种调用方式"></a>7.1 next函数的三种调用方式</h4><p><img src="https://img-blog.csdnimg.cn/img_convert/d1c8ff9c2b52f8ae941fb651db37efb5.png"></p>
+<ul>
+<li>当前用户拥有后台主页的访问权限，直接放行： <code>next()</code></li>
+<li>当前用户没有后台主页的访问权限，强制其跳转到登录页面：<code>next(&#39;/login&#39;)</code></li>
+<li>当前用户没有后台主页的访问权限，不允许跳转到后台主页：<code>next(false)</code></li>
+</ul>
+
+    </article>
+
+    
+        
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>生命里那束光<br>
+        <strong>Link：</strong><a href="https://xxxxxx-collab.github.io/2022/04/08/Vue-router/" title="https:&#x2F;&#x2F;xxxxxx-collab.github.io&#x2F;2022&#x2F;04&#x2F;08&#x2F;Vue-router&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;xxxxxx-collab.github.io&#x2F;2022&#x2F;04&#x2F;08&#x2F;Vue-router&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+            
+
+                <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/Vue%E5%85%A8%E5%AE%B6%E6%A1%B6/">Vue全家桶</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Vue/" rel="tag">Vue</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Vue-router/" rel="tag">Vue-router</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E8%B7%AF%E7%94%B1/" rel="tag">路由</a>
+    
+</div>
+
+                    
+                        <div class="nexmoe-post-footer">
+                            <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'nexmoe.github.io',
+        owner: 'nexmoe',
+        admin: 'nexmoe'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+                        </div>
+                        
+</div>
+                                <div class="nexmoe-post-right">
+                                    <div class="nexmoe-fixed">
+                                        <div class="nexmoe-tool">
+
+                                            
+
+                                                
+                                                    
+                                                        <button class="mdui-fab catalog" style="overflow:unset;">
+                                                            <i class="nexmoefont icon-i-catalog"></i>
+                                                            <div class="nexmoe-toc">
+                                                                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue-router-%E8%B7%AF%E7%94%B1"><span class="toc-number">1.</span> <span class="toc-text">Vue-router 路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%8E%9F%E7%90%86"><span class="toc-number">1.0.1.</span> <span class="toc-text">路由的基本概念与原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-router%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text">vue-router的基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85router"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. 安装router</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8router"><span class="toc-number">1.1.2.</span> <span class="toc-text">2. 使用router</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E6%96%B9%E5%BC%8F"><span class="toc-number">1.1.3.</span> <span class="toc-text">3. 路由跳转方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%AF%BC%E8%88%AA"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">3.1 声明式导航</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%E7%BC%96%E7%A8%8B%E5%BC%8F%E5%AF%BC%E8%88%AA"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">3.2 编程式导航</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%AF%BC%E8%88%AA%E5%88%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BD%8D%E7%BD%AEpush"><span class="toc-number">1.1.3.2.1.</span> <span class="toc-text">1.导航到不同的位置push</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E6%9B%BF%E6%8D%A2%E5%BD%93%E5%89%8D%E4%BD%8D%E7%BD%AEreplace"><span class="toc-number">1.1.3.2.2.</span> <span class="toc-text">2.替换当前位置replace</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E6%A8%AA%E8%B7%A8%E5%8E%86%E5%8F%B2go"><span class="toc-number">1.1.3.2.3.</span> <span class="toc-text">3.横跨历史go</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%B7%AF%E7%94%B1%E7%9A%84%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.4.</span> <span class="toc-text">4.路由的历史记录模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Hash-%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.4.1.</span> <span class="toc-text">Hash 模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#history%E6%A8%A1%E5%BC%8F%EF%BC%88HTML-5%EF%BC%89"><span class="toc-number">1.1.4.2.</span> <span class="toc-text">history模式（HTML 5）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-router-%E7%9A%84%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">vue-router 的常见用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%B7%AF%E7%94%B1%E9%87%8D%E5%AE%9A%E5%90%91"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. 路由重定向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 嵌套路由</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E5%A3%B0%E6%98%8E%E5%AD%90%E8%B7%AF%E7%94%B1%E9%93%BE%E6%8E%A5%E5%92%8C%E5%AD%90%E8%B7%AF%E7%94%B1%E5%8D%A0%E4%BD%8D%E7%AC%A6"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">2.1 声明子路由链接和子路由占位符</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%B7%AF%E7%94%B1%E5%91%BD%E5%90%8D"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. 路由命名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E4%B8%8E%E8%B7%AF%E7%94%B1%E5%8C%B9%E9%85%8D"><span class="toc-number">1.2.4.</span> <span class="toc-text">4. 动态路由与路由匹配</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">4.1 动态路由的概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-route-params-%E5%8F%82%E6%95%B0%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.2.4.2.</span> <span class="toc-text">4.2 $route.params 参数对象</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%B7%AF%E7%94%B1%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0%E5%92%8C%E6%8E%A5%E6%94%B6%E5%8F%82%E6%95%B0"><span class="toc-number">1.2.5.</span> <span class="toc-text">5. 路由传递参数和接收参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E8%B7%AF%E7%94%B1%E7%9A%84%E6%87%92%E5%8A%A0%E8%BD%BD"><span class="toc-number">1.2.6.</span> <span class="toc-text">6. 路由的懒加载</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD%E7%9A%84%E7%94%A8%E6%B3%95"><span class="toc-number">1.2.6.1.</span> <span class="toc-text">6.1 路由懒加载的用法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E5%AF%BC%E8%88%AA%E5%AE%88%E5%8D%AB-%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.7.</span> <span class="toc-text">7. 导航守卫(钩子函数)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-1-next%E5%87%BD%E6%95%B0%E7%9A%84%E4%B8%89%E7%A7%8D%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-number">1.2.7.1.</span> <span class="toc-text">7.1 next函数的三种调用方式</span></a></li></ol></li></ol></li></ol></li></ol>
+                                                            </div>
+                                                        </button>
+                                                        
+
+                                                            
+
+                                                                <a href="#nexmoe-content" class="toc-link"
+                                                                    aria-label="回到顶部" title="top"><button
+                                                                        class="mdui-fab mdui-ripple"><i
+                                                                            class="nexmoefont icon-caret-top"></i></button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 音乐播放器 -->
+                <link rel="stylesheet" href="/dist/APlayer.min.css">
+                <div id="aplayer"></div>
+                <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+                <script type="text/javascript" src="/dist/music.js"></script>
+                <!-- pjax -->
+                <script>
+                    // 对所有链接跳转事件绑定pjax容器container
+                    $(document).pjax('a[target!=_blank]', '#pageContent', { fragment: '#pageContent', timeout: 8000 })
+                </script>
+                
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="Search" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+    
+                    <script
+	src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+		<script async src="/js/app.js?v=1649322052883"></script>
+
+			
+
+						<script
+							src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+						<script>
+							$(".justified-gallery").justifiedGallery({
+								rowHeight: 160,
+								margins: 10,
+							});
+						</script>
+
+						
+                        
+
+
+
+
+
+
+        </body>
+
+</html>
+
+
+<!--樱花背景-->
+<script type="text/javascript" src="https://yremp.live/wp-content/uploads/resource/js/sakura.js"></script>
