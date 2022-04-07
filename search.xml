@@ -49,11 +49,11 @@
       
         <tags>
             
-            <tag> Vue </tag>
-            
             <tag> Vue-router </tag>
             
             <tag> 路由 </tag>
+            
+            <tag> Vue </tag>
             
         </tags>
       
@@ -78,11 +78,11 @@
       
         <tags>
             
+            <tag> Vue </tag>
+            
             <tag> ES6模块化 </tag>
             
             <tag> webpack </tag>
-            
-            <tag> Vue </tag>
             
         </tags>
       
