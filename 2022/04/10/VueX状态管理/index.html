@@ -49,7 +49,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/24ab1b98505214e45b61acf57d8cb703.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/07dd1bfaa3c22670b61902ad6f021f6b.png">
 <meta property="article:published_time" content="2022-04-10T08:23:53.000Z">
-<meta property="article:modified_time" content="2022-04-10T03:14:33.130Z">
+<meta property="article:modified_time" content="2022-04-10T03:26:01.838Z">
 <meta property="article:author" content="生命里那束光">
 <meta property="article:tag" content="Vue">
 <meta property="article:tag" content="VueX">
@@ -59,10 +59,10 @@
                             <link rel="stylesheet"
                                 href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233"
                                 crossorigin>
-                            <link rel="stylesheet" href="/css/style.css?v=1649560593086">
+                            <link rel="stylesheet" href="/css/style.css?v=1649561211706">
                                 
                                             
-                                                    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1649560593086">
+                                                    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1649561211707">
                                                         
         <meta name="generator" content="Hexo 5.4.1"></head>
 
@@ -421,7 +421,7 @@
 </tr>
 </tbody></table>
 <h1 id="VueX状态管理"><a href="#VueX状态管理" class="headerlink" title="VueX状态管理"></a>VueX状态管理</h1><p><img src="https://img-blog.csdnimg.cn/img_convert/5f2d4be8c70e9283ff26d5361771aff4.png"></p>
-<h2 id="一、VueX概念"><a href="#一、VueX概念" class="headerlink" title="一、VueX概念"></a>一、VueX概念</h2><p><strong>1. VueX的概念</strong></p>
+<h2 id="VueX概念"><a href="#VueX概念" class="headerlink" title="VueX概念"></a>VueX概念</h2><p><strong>1. VueX的概念</strong></p>
 <p>Vuex 是一个专为 Vue.js 应用程序开发的<strong>状态管理模式</strong>。</p>
 <p>它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。</p>
 <ul>
@@ -431,7 +431,7 @@
 <p><strong>2. 状态管理的概念</strong></p>
 <p>可以简单的将其看成把需要多个组件<strong>共享的变量全部存储在一个对象</strong>里面。</p>
 <p>将这个对象放在顶层的Vue实例中，让其他组件可以使用。</p>
-<h2 id="二、单界面的状态管理"><a href="#二、单界面的状态管理" class="headerlink" title="二、单界面的状态管理"></a>二、单界面的状态管理</h2><p><strong>在单文件组件中进行状态管理：</strong></p>
+<h2 id="单界面的状态管理"><a href="#单界面的状态管理" class="headerlink" title="单界面的状态管理"></a>单界面的状态管理</h2><p><strong>在单文件组件中进行状态管理：</strong></p>
 <p><img src="https://img-blog.csdnimg.cn/img_convert/e052d468f510e1f1a880362e400ae5d3.png"></p>
 <p>图片中的三种东西如下：</p>
 <ul>
@@ -450,7 +450,7 @@
 <li><p>界面发生某些操作时（我们这里是用户的点击，也可以是用户的input），需要去更新状态，也就是我们的Actions</p>
 </li>
 </ol>
-<h2 id="三、多界面状态管理"><a href="#三、多界面状态管理" class="headerlink" title="三、多界面状态管理"></a>三、多界面状态管理</h2><p><strong>3.1 单个文件的组件状态管理清晰明了，那多个单文件组件的状态管理呢？（出现的问题）</strong></p>
+<h2 id="多界面状态管理"><a href="#多界面状态管理" class="headerlink" title="多界面状态管理"></a>多界面状态管理</h2><p><strong>3.1 单个文件的组件状态管理清晰明了，那多个单文件组件的状态管理呢？（出现的问题）</strong></p>
 <ul>
 <li>多个组件都依赖同一个状态(一个状态改了，多个组件界面需要进行更新)</li>
 <li>不同界面的 组件Actions 都想修改同一个状态(Home.vue 需要修改，Profile.vue 也需要修改这个状态)</li>
@@ -459,7 +459,7 @@
 <p><strong>1. 将多个组件共享的状态抽取出来，交给我们的大管家VueX，统一进行管理。</strong></p>
 <p><strong>2. 每个组件视图，按照VueX的规则定，进行访问和修改等操作。</strong></p>
 <p><img src="https://img-blog.csdnimg.cn/img_convert/f2af3a2d76e4d4672a06490d2f88a871.png"></p>
-<h2 id="四、VueX-基本用法"><a href="#四、VueX-基本用法" class="headerlink" title="四、VueX 基本用法"></a>四、VueX 基本用法</h2><h4 id="1-安装VueX"><a href="#1-安装VueX" class="headerlink" title="1. 安装VueX"></a><strong>1. 安装VueX</strong></h4><ul>
+<h2 id="VueX-基本用法"><a href="#VueX-基本用法" class="headerlink" title="VueX 基本用法"></a>VueX 基本用法</h2><h3 id="安装VueX"><a href="#安装VueX" class="headerlink" title="安装VueX"></a><strong>安装VueX</strong></h3><ul>
 <li><strong>方式1</strong>：通过命令行npm进行安装。</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">npm install vuex --save<br></code></pre></td></tr></table></figure>
@@ -468,7 +468,7 @@
 <li><strong>方式2</strong>：Vue-cli3脚手架生成 Vue 项目基础架构时候，进行配置选择。</li>
 </ul>
 <p><img src="https://img-blog.csdnimg.cn/img_convert/09a9074248dc6e7d2b9eea4805f3e9bb.png"></p>
-<h4 id="2-使用步骤"><a href="#2-使用步骤" class="headerlink" title="2. 使用步骤"></a>2. 使用步骤</h4><p>我们创建一个文件夹 src/store，并且在其中创建一个 store.js 文件，代码如下：</p>
+<h3 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h3><p>我们创建一个文件夹 src/store，并且在其中创建一个 store.js 文件，代码如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">Vuex</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vuex&#x27;</span><br><span class="hljs-keyword">import</span> <span class="hljs-title class_">Vue</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue&#x27;</span><br><br><span class="hljs-comment">// 1.安装插件</span><br><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">use</span>(<span class="hljs-title class_">Vuex</span>)<br><span class="hljs-comment">// 2.创建对象</span><br><span class="hljs-keyword">const</span> store = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vuex</span>.<span class="hljs-title class_">Store</span>(&#123;<br>    <span class="hljs-attr">state</span>: &#123;<br>        <span class="hljs-attr">count</span>: <span class="hljs-number">0</span><br>    &#125;,<br>    <span class="hljs-attr">mutations</span>: &#123;<br>        <span class="hljs-title function_">increment</span>(<span class="hljs-params">state</span>)&#123;<br>            state.<span class="hljs-property">count</span>++<br>        &#125;,<br>        <span class="hljs-title function_">decrement</span>(<span class="hljs-params">state</span>)&#123;<br>            state.<span class="hljs-property">count</span>--<br>        &#125;<br>    &#125;,<br>    <span class="hljs-attr">actions</span>: &#123;<br>        <br>    &#125;,<br>    <span class="hljs-attr">getters</span>: &#123;<br>        <br>    &#125;,<br>    <span class="hljs-attr">modules</span>: &#123;<br>        <br>    &#125;<br>&#125;)<br><br><span class="hljs-comment">// 导出store对象</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> store<br></code></pre></td></tr></table></figure>
 
 <p>其次，我们让所有的Vue组件都可以使用这个store对象</p>
@@ -494,12 +494,12 @@
 <li>我们通过提交 mutation 的方式，而非直接改变 store.state.count</li>
 <li>这是因为 Vuex 可以更明确的追踪状态的变化，所以不要直接改变 store.state.count 的值</li>
 </ol>
-<h2 id="五、VueX核心概念🔥"><a href="#五、VueX核心概念🔥" class="headerlink" title="五、VueX核心概念🔥"></a>五、VueX核心概念🔥</h2><p>🔥🔥🔥<strong>强调：VueX的store.js定义方式固定，获取方式有两种：</strong></p>
+<h2 id="VueX核心概念🔥"><a href="#VueX核心概念🔥" class="headerlink" title="VueX核心概念🔥"></a>VueX核心概念🔥</h2><p>🔥🔥🔥<strong>强调：VueX的store.js定义方式固定，获取方式有两种：</strong></p>
 <ul>
 <li><strong>$store 当作全局对象直接进行访问</strong></li>
 <li><strong>import 作为模块导入为组件内部属性或方法</strong></li>
 </ul>
-<h4 id="1-State-单-状态树（共享变量）"><a href="#1-State-单-状态树（共享变量）" class="headerlink" title="1. State 单-状态树（共享变量）"></a>1. State 单-状态树（共享变量）</h4><p>State 提供唯一的公共数据源，所有共享的数据都要统一放到 Store 的 State 中进行存储。</p>
+<h3 id="State-单-状态树（共享变量）"><a href="#State-单-状态树（共享变量）" class="headerlink" title="State 单-状态树（共享变量）"></a>State 单-状态树（共享变量）</h3><p>State 提供唯一的公共数据源，所有共享的数据都要统一放到 Store 的 State 中进行存储。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 创建store数据源，提供唯一公共数据</span><br><span class="hljs-keyword">const</span> store = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vuex</span>.<span class="hljs-title class_">Store</span>(&#123;<br> 	<span class="hljs-attr">state</span>: &#123; <span class="hljs-attr">count</span>: <span class="hljs-number">0</span> &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 
 <p>组件获取 State 中数据的<strong>第一种方式</strong>：</p>
@@ -511,16 +511,16 @@
 <p>   通过刚才导入的 mapState 函数，将当前组件需要的全局数据，映射为当前组件的 computed 计算属性：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 2. 将全局数据，映射为当前组件的计算属性</span><br><span class="hljs-attr">computed</span>: &#123;<br> ...<span class="hljs-title function_">mapState</span>([<span class="hljs-string">&#x27;count&#x27;</span>])<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h4 id="2-Mutation状态更新（函数修改变量）"><a href="#2-Mutation状态更新（函数修改变量）" class="headerlink" title="2. Mutation状态更新（函数修改变量）"></a>2. Mutation状态更新（函数修改变量）</h4><ul>
+<h3 id="Mutation状态更新（函数修改变量）"><a href="#Mutation状态更新（函数修改变量）" class="headerlink" title="Mutation状态更新（函数修改变量）"></a>Mutation状态更新（函数修改变量）</h3><ul>
 <li>Mutation 用于变更 Store中 的数据。</li>
 </ul>
 <p>① 只能通过 mutation 变更 Store 数据，不可以直接操作 Store 中的数据。</p>
 <p>② 通过这种方式虽然操作起来稍微繁琐一些，但是可以集中监控所有数据的变化。</p>
-<h5 id="2-1-Mutation用法🔥"><a href="#2-1-Mutation用法🔥" class="headerlink" title="2.1 Mutation用法🔥"></a>2.1 Mutation用法🔥</h5><p><strong>调用方式一：</strong></p>
+<h4 id="Mutation用法🔥"><a href="#Mutation用法🔥" class="headerlink" title="Mutation用法🔥"></a>Mutation用法🔥</h4><p><strong>调用方式一：</strong></p>
 <p><img src="https://img-blog.csdnimg.cn/img_convert/9429c97b7968d9c4e2706ea6b96261e8.png"></p>
 <p><strong>调用方式二：</strong><br><img src="https://img-blog.csdnimg.cn/img_convert/23f6a400a172bc1990cba67a73f4e1d9.png"></p>
 <p><img src="https://img-blog.csdnimg.cn/img_convert/1b1769991b9b1a1f167517db0acc1b5a.png"></p>
-<h5 id="2-2-Mutation传参🔥"><a href="#2-2-Mutation传参🔥" class="headerlink" title="2.2 Mutation传参🔥"></a><strong>2.2 Mutation传参</strong>🔥</h5><p><strong>调用方式一：</strong></p>
+<h4 id="Mutation传参🔥"><a href="#Mutation传参🔥" class="headerlink" title="Mutation传参🔥"></a><strong>Mutation传参</strong>🔥</h4><p><strong>调用方式一：</strong></p>
 <p><img src="https://img-blog.csdnimg.cn/img_convert/44ef6fb8aa3a1e52a6e36847766f6217.png"></p>
 <p><strong>调用方式二：</strong></p>
 <p><strong>1.store.js内定义函数</strong></p>
@@ -529,11 +529,11 @@
 <p><strong>2.在组件文件内导入函数 绑定函数</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//组件文件内导入函数 绑定函数</span><br>&lt;template&gt;<br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>当前最新的count值为：&#123;&#123;count&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span></span><br><span class="language-xml">    //引入的函数进行绑定</span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;subN(3)&quot;</span>&gt;</span>-N<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>&lt;/template&gt;<br><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml"><span class="hljs-keyword">import</span> &#123; mapState, mapMutations &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vuex&#x27;</span></span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;</span></span><br><span class="language-javascript"><span class="language-xml">  <span class="hljs-title function_">data</span>(<span class="hljs-params"></span>) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">return</span> &#123;&#125;</span></span><br><span class="language-javascript"><span class="language-xml">  &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">  <span class="hljs-attr">computed</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">//将指定的state变量，映射为当前组件的computed计算属性</span></span></span><br><span class="language-javascript"><span class="language-xml">    ...<span class="hljs-title function_">mapState</span>([<span class="hljs-string">&#x27;count&#x27;</span>]),</span></span><br><span class="language-javascript"><span class="language-xml">  &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">  <span class="hljs-attr">methods</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">//将指定的 mutations 函数，映射为当前组件的 methods 函数</span></span></span><br><span class="language-javascript"><span class="language-xml">    ...<span class="hljs-title function_">mapMutations</span>([<span class="hljs-string">&#x27;sub&#x27;</span>, <span class="hljs-string">&#x27;subN&#x27;</span>]),</span></span><br><span class="language-javascript"><span class="language-xml">  &#125;</span></span><br><span class="language-javascript"><span class="language-xml">&#125;</span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
 
-<h4 id="3-Action异步任务（异步函数调用mutation）"><a href="#3-Action异步任务（异步函数调用mutation）" class="headerlink" title="3. Action异步任务（异步函数调用mutation）"></a>3. Action异步任务（异步函数调用mutation）</h4><ul>
+<h3 id="Action异步任务（异步函数调用mutation）"><a href="#Action异步任务（异步函数调用mutation）" class="headerlink" title="Action异步任务（异步函数调用mutation）"></a>Action异步任务（异步函数调用mutation）</h3><ul>
 <li>Action 用于处理异步任务。</li>
 </ul>
 <p>如果通过异步操作变更数据，<strong>必须通过 Action</strong>，而不能使用 Mutation，但是在 Action 中还是要通过触发Mutation 的调用方式间接变更数据。</p>
-<h5 id="3-1-Action用法🔥"><a href="#3-1-Action用法🔥" class="headerlink" title="3.1 Action用法🔥"></a>3.1 Action用法🔥</h5><p><strong>调用方式一：</strong></p>
+<h4 id="Action用法🔥"><a href="#Action用法🔥" class="headerlink" title="Action用法🔥"></a>Action用法🔥</h4><p><strong>调用方式一：</strong></p>
 <ul>
 <li><strong>actions 异步任务（不带参）</strong></li>
 </ul>
@@ -542,7 +542,7 @@
 <li><strong>触发 actions 异步任务时携带参数：</strong></li>
 </ul>
 <p><img src="https://img-blog.csdnimg.cn/img_convert/4400e23235d3b9783c23d60373712c25.png"></p>
-<h5 id="3-2-Action传参🔥"><a href="#3-2-Action传参🔥" class="headerlink" title="3.2 Action传参🔥"></a>3.2 Action传参🔥</h5><p><strong>调用方式二：</strong></p>
+<h4 id="Action传参🔥"><a href="#Action传参🔥" class="headerlink" title="Action传参🔥"></a>Action传参🔥</h4><p><strong>调用方式二：</strong></p>
 <ul>
 <li><strong>actions 异步任务（不带参）</strong></li>
 </ul>
@@ -555,7 +555,7 @@
 <p><img src="https://img-blog.csdnimg.cn/img_convert/6b6ae8671e8673f42fcdea14a6f7e098.png"></p>
 <p><strong>2.在组件文件内导入函数 绑定函数</strong></p>
 <p><img src="https://img-blog.csdnimg.cn/img_convert/da5059c549405e8b0dd9609d368fe4be.png"></p>
-<h4 id="4-Getters基本使用（变量加工）"><a href="#4-Getters基本使用（变量加工）" class="headerlink" title="4. Getters基本使用（变量加工）"></a>4. Getters基本使用（变量加工）</h4><ul>
+<h3 id="Getters基本使用（变量加工）"><a href="#Getters基本使用（变量加工）" class="headerlink" title="Getters基本使用（变量加工）"></a>Getters基本使用（变量加工）</h3><ul>
 <li>Getter 用于对 Store 中的数据进行加工处理形成新的数据。</li>
 </ul>
 <p>① Getter 可以对 Store 中已有的数据加工处理之后形成新的数据，类似 Vue 的计算属性。</p>
@@ -567,7 +567,7 @@
 <p><img src="https://img-blog.csdnimg.cn/img_convert/24ab1b98505214e45b61acf57d8cb703.png"></p>
 <p><strong>调用方式2：在组件文件内导入模块  绑定属性和函数</strong></p>
 <p><img src="https://img-blog.csdnimg.cn/img_convert/07dd1bfaa3c22670b61902ad6f021f6b.png"></p>
-<h4 id="5-Module模块化"><a href="#5-Module模块化" class="headerlink" title="5. Module模块化"></a>5. Module模块化</h4><p>Module 是模块的意思，为什么在 Vuex 中我们要使用模块呢？</p>
+<h3 id="Module模块化"><a href="#Module模块化" class="headerlink" title="Module模块化"></a>Module模块化</h3><p>Module 是模块的意思，为什么在 Vuex 中我们要使用模块呢？</p>
 <ul>
 <li>Vue 使用单一状态树，那么也意味着很多状态都会交给 Vuex 来管理</li>
 <li>当应用变得非常复杂时， store 对象就有可能变得相当臃肿</li>
@@ -631,7 +631,7 @@
                                                         <button class="mdui-fab catalog" style="overflow:unset;">
                                                             <i class="nexmoefont icon-i-catalog"></i>
                                                             <div class="nexmoe-toc">
-                                                                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VueX%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">VueX状态管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81VueX%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">一、VueX概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%8D%95%E7%95%8C%E9%9D%A2%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">二、单界面的状态管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%A4%9A%E7%95%8C%E9%9D%A2%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">三、多界面状态管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81VueX-%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-number">1.4.</span> <span class="toc-text">四、VueX 基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85VueX"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">1. 安装VueX</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.4.0.2.</span> <span class="toc-text">2. 使用步骤</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81VueX%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%F0%9F%94%A5"><span class="toc-number">1.5.</span> <span class="toc-text">五、VueX核心概念🔥</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-State-%E5%8D%95-%E7%8A%B6%E6%80%81%E6%A0%91%EF%BC%88%E5%85%B1%E4%BA%AB%E5%8F%98%E9%87%8F%EF%BC%89"><span class="toc-number">1.5.0.1.</span> <span class="toc-text">1. State 单-状态树（共享变量）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Mutation%E7%8A%B6%E6%80%81%E6%9B%B4%E6%96%B0%EF%BC%88%E5%87%BD%E6%95%B0%E4%BF%AE%E6%94%B9%E5%8F%98%E9%87%8F%EF%BC%89"><span class="toc-number">1.5.0.2.</span> <span class="toc-text">2. Mutation状态更新（函数修改变量）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-Mutation%E7%94%A8%E6%B3%95%F0%9F%94%A5"><span class="toc-number">1.5.0.2.1.</span> <span class="toc-text">2.1 Mutation用法🔥</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-Mutation%E4%BC%A0%E5%8F%82%F0%9F%94%A5"><span class="toc-number">1.5.0.2.2.</span> <span class="toc-text">2.2 Mutation传参🔥</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Action%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%EF%BC%88%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8mutation%EF%BC%89"><span class="toc-number">1.5.0.3.</span> <span class="toc-text">3. Action异步任务（异步函数调用mutation）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-Action%E7%94%A8%E6%B3%95%F0%9F%94%A5"><span class="toc-number">1.5.0.3.1.</span> <span class="toc-text">3.1 Action用法🔥</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2-Action%E4%BC%A0%E5%8F%82%F0%9F%94%A5"><span class="toc-number">1.5.0.3.2.</span> <span class="toc-text">3.2 Action传参🔥</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Getters%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%88%E5%8F%98%E9%87%8F%E5%8A%A0%E5%B7%A5%EF%BC%89"><span class="toc-number">1.5.0.4.</span> <span class="toc-text">4. Getters基本使用（变量加工）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-Module%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-number">1.5.0.5.</span> <span class="toc-text">5. Module模块化</span></a></li></ol></li></ol></li></ol></li></ol>
+                                                                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VueX%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">VueX状态管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VueX%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">VueX概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E7%95%8C%E9%9D%A2%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">单界面的状态管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%95%8C%E9%9D%A2%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">多界面状态管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VueX-%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-number">1.4.</span> <span class="toc-text">VueX 基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85VueX"><span class="toc-number">1.4.1.</span> <span class="toc-text">安装VueX</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.4.2.</span> <span class="toc-text">使用步骤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VueX%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%F0%9F%94%A5"><span class="toc-number">1.5.</span> <span class="toc-text">VueX核心概念🔥</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#State-%E5%8D%95-%E7%8A%B6%E6%80%81%E6%A0%91%EF%BC%88%E5%85%B1%E4%BA%AB%E5%8F%98%E9%87%8F%EF%BC%89"><span class="toc-number">1.5.1.</span> <span class="toc-text">State 单-状态树（共享变量）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mutation%E7%8A%B6%E6%80%81%E6%9B%B4%E6%96%B0%EF%BC%88%E5%87%BD%E6%95%B0%E4%BF%AE%E6%94%B9%E5%8F%98%E9%87%8F%EF%BC%89"><span class="toc-number">1.5.2.</span> <span class="toc-text">Mutation状态更新（函数修改变量）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Mutation%E7%94%A8%E6%B3%95%F0%9F%94%A5"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">Mutation用法🔥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mutation%E4%BC%A0%E5%8F%82%F0%9F%94%A5"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">Mutation传参🔥</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Action%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%EF%BC%88%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8mutation%EF%BC%89"><span class="toc-number">1.5.3.</span> <span class="toc-text">Action异步任务（异步函数调用mutation）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Action%E7%94%A8%E6%B3%95%F0%9F%94%A5"><span class="toc-number">1.5.3.1.</span> <span class="toc-text">Action用法🔥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Action%E4%BC%A0%E5%8F%82%F0%9F%94%A5"><span class="toc-number">1.5.3.2.</span> <span class="toc-text">Action传参🔥</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Getters%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%88%E5%8F%98%E9%87%8F%E5%8A%A0%E5%B7%A5%EF%BC%89"><span class="toc-number">1.5.4.</span> <span class="toc-text">Getters基本使用（变量加工）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Module%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-number">1.5.5.</span> <span class="toc-text">Module模块化</span></a></li></ol></li></ol></li></ol>
                                                             </div>
                                                         </button>
                                                         
@@ -678,7 +678,7 @@
 
 
 
-		<script async src="/js/app.js?v=1649560593112"></script>
+		<script async src="/js/app.js?v=1649561211769"></script>
 
 			
 
