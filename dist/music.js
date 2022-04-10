@@ -5,6 +5,12 @@ const ap = new APlayer({
   autoplay: true,
   audio: [
     {
+      name: "若把你",
+      artist: 'Kirsty刘瑾睿',
+      url: 'http://music.163.com/song/media/outer/url?id=865632948.mp3',
+      cover: 'http://p2.music.126.net/M877M2-VhWZiLPVFORf9iQ==/109951163401482434.jpg?param=130y130',
+    },
+    {
       name: 'Young',
       artist: 'The Chainsmokers',
       url: 'http://music.163.com/song/media/outer/url?id=470547658.mp3',
