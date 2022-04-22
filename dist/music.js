@@ -5,6 +5,12 @@ const ap = new APlayer({
   autoplay: true,
   audio: [
     {
+      name: "想去海边",
+      artist: '夏日入侵企画',
+      url: 'http://music.163.com/song/media/outer/url?id=1413863166.mp3',
+      cover: 'http://p1.music.126.net/sLWN-iePq4ESOMPER0IWgQ==/109951164602081973.jpg?param=130y130',
+    },
+    {
       name: "若把你",
       artist: 'Kirsty刘瑾睿',
       url: 'http://music.163.com/song/media/outer/url?id=865632948.mp3',
@@ -21,6 +27,12 @@ const ap = new APlayer({
       artist: 'G.E.M.邓紫棋',
       url: 'http://music.163.com/song/media/outer/url?id=1299550532.mp3',
       cover: 'http://p1.music.126.net/tXCIFsVDK6IKcQ9YWxwOEg==/109951163523944497.jpg?param=130y130',
+    },
+    {
+      name: "再见",
+      artist: 'G.E.M.邓紫棋',
+      url: 'http://music.163.com/song/media/outer/url?id=36024806.mp3',
+      cover: 'http://p1.music.126.net/kVwk6b8Qdya8oDyGDcyAVA==/1364493930777368.jpg?param=130y130',
     },
     {
       name: "过",
